@@ -40,7 +40,7 @@ class Index extends BaseController
 		{
 			return View::fetch('index_mobile');
 		}else{
-			return View::fetch('index_pc');
+			return View::fetch('index_mobile');
 		}
 	}
 	public function category($channel)
@@ -65,7 +65,7 @@ class Index extends BaseController
 		{
 			return View::fetch('category_mobile');
 		}else{
-			return View::fetch('category_pc');
+			return View::fetch('category_mobile');
 		}
 	}
 	public function videoplay($channel)
@@ -103,7 +103,7 @@ class Index extends BaseController
 		{
 			return View::fetch('vodplay_mobile');
 		}else{
-			return View::fetch('vodplay_pc');
+			return View::fetch('vodplay_mobile');
 		}
 	}
 	public function vod()
@@ -112,7 +112,7 @@ class Index extends BaseController
 		{
 			return View::fetch('vod_mobile');
 		}else{
-			return View::fetch('vod_pc');
+			return View::fetch('vod_mobile');
 		}
 	}	
 	public function searchhome($channel)
@@ -137,7 +137,7 @@ class Index extends BaseController
 		{
 			return View::fetch('search_mobile');
 		}else{
-			return View::fetch('search_pc');
+			return View::fetch('search_mobile');
 		}
 	}
 	public function test()
