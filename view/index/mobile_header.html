@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-transform"/><meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta name="applicable-device" content="mobile">
+<link rel="icon" href="static/app-icon.png">
+<link rel="apple-touch-icon" href="static/app-icon.png">
+<style type="text/css">
+  a {text-decoration:none;color: black !important;}
+  a:hover{text-decoration:none; cursor:pointer}/*a标签鼠标经过mouseover时的样式*/
+  a:link{text-decoration:none; cursor:pointer;} /*a标签未访问时的样式*/
+  a:visited{text-decoration: overline ; cursor:pointer}/*a标签访问过之后样式*/
+  a:active{text-decoration:overline;cursor:pointer}/*a标签鼠标按下mousedown时的样式*/
+	    /*图标css*/
+  .xxlink {width:100%;background:#FFFFFF;display:flex;flex-wrap:wrap;justify-content:flex-start;border:2px solid #FFFFFF;}
+  .xxlink h3 {width:95%;padding:0 2.5%;font-size:18px;line-height: 26px;background:#fff;margin-bottom:12px;color:#000000;}
+  .navi {font-size:0;text-align:center}
+  .appico {width: 16%;margin: 5px 0px;height:auto;box-sizing:border-box;display:inline-block;position:relative;}
+  .appico p {width:100%;height: 19px;line-height: 22px;text-align:center;font-size: 11px;margin:0;color:#000000;overflow:hidden;}
+  .naicon {border-radius:5px;overflow:hidden;font-size:0;margin:.1px}
+  .appico img {border-radius: 1px;width:100%}
+  .appico:hover .btn-raised {-webkit-box-shadow:0 0 0 0 rgba(0,0,0,.24),0 0 0 0 rgba(0,0,0,.4),0 0 0 0 rgba(0,0,0,.22);box-shadow:0 0 0 0 rgba(0,0,0,.24),0 0 0 0 rgba(0,0,0,.4),0 0 0 0 rgba(0,0,0,.22)}
+  .btnx{padding: 8px 2px !important;}
+  </style>
+  <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap-icons.css" />
+  <link rel="stylesheet" type="text/css" href="__CSS__/noty.css" />
+  <link rel="stylesheet" type="text/css" href="__CSS__/noty-themes/bootstrap-v4.css" />
+  <link rel="stylesheet" type="text/css" href="__CSS__/mobile.css" />
+  <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+  <script type="text/javascript" src="__JS__/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="__JS__/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="__JS__/clipboard.min.js"></script>
+  <script type="text/javascript" src="__JS__/lozad.min.js"></script>
+  <script type="text/javascript" src="__JS__/sweetalert2.js"></script>
+  <script type="text/javascript" src="__JS__/noty.min.js"></script>
+  <style type="text/css">
+    .v-s-nav-box-h{
+        float: left;
+        width: 100%;
+        background-color: #000;
+        /* background: linear-gradient(to right, #8e2bfa, #6b28ef); */
+        /* position:fixed; */
+        top: 0;
+        left: 0;
+        z-index: 99;
+        -webkit-transition: all .4s;
+        transition: all .4s;
+    }
+    .v-s-nav-box-hide{
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+
+    .v-s-logo {
+        float: left;
+        width: auto;
+        margin-right: 10px;
+        margin-left: 10px;
+        position: relative;
+    }
+    .v-s-logo img {
+        max-width: 160px;
+        height: 30px;
+    }
+    .v-s-logo-text{
+        font-size: 22px;
+        font-weight: 500;
+        color: #fff;
+        margin-left:2px;
+    }
+    .v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0{
+        float: left;
+        width: 100%;
+        /* margin-top: 2px; */
+        white-space: nowrap;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE 10+ */
+        overflow:auto;
+        position:relative;
+        box-sizing: border-box;
+        padding:0px 10px;
+        padding-bottom:5px;
+    }
+    .v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 a{
+        text-decoration: none;
+    }
+    .v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0::-webkit-scrollbar{
+        width: 0;
+        height: 0;
+        display: none;
+        color: transparent;
+    }
+    .v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0{
+        width: auto;
+        height:30px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size:16px;
+        line-height: 30px;
+        margin-right: 6px;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0:hover{
+        font-size: 16px;
+        color: rgba(255, 255, 255, 1);
+        font-weight: bold;
+    }
+    .nav-menu-selected{
+        font-size: 16px;
+        color: rgba(255, 255, 255, 1);
+        font-weight: bold;
+    }
+    .v-s-nav-search-box{
+        float: right;
+        width: 150px;
+        margin-right: 10px;
+        white-space:nowrap;
+        overflow: hidden;
+    }
+    .v-s-nav-search-box .search-input {
+        float: left;
+        font-size: 14px;
+        color: #fff;
+        width: 170px;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        padding-right: 0;
+        border-radius: 4px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .v-s-nav-search-box .search-input::input-placeholder{
+		color: rgba(255, 255, 255, 0.6);
+	}
+    .v-s-nav-search-box .search-input::-webkit-input-placeholder { /* WebKit browsers */
+	    color: rgba(255, 255, 255, 0.6);
+	}
+	 
+	.v-s-nav-search-box .search-input::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: rgba(255, 255, 255, 0.6);
+	}
+	 
+	.v-s-nav-search-box .search-input::-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: rgba(255, 255, 255, 0.6);
+	}
+    .v-s-nav-search-box .search-btn{
+        float: left;
+        font-size: 22px;
+        color: rgba(255, 255, 255, 1);
+        width: auto;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        padding: 0px 8px;
+        cursor: pointer;
+        border-radius: 4px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .v-s-nav-search-box .search-btn:active{
+        color: rgba(255, 255, 255, 0.6);
+    }
+    .v-s-nav-search-box .search-person{
+        float: right;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        font-size: 22px;
+        color: rgba(255, 255, 255, 1);
+        margin-left: 12px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .v-s-nav-search-box .search-person:active{
+        color:rgba(255, 255, 255, 0.6);
+    }
+    .v-s-nav-search-box .search-person:active{
+        color:rgba(255, 255, 255, 0.6);
+    }
+    .ad-nav-box{
+        float: left;
+        width: 100%;
+        height:auto;
+        box-sizing: border-box;
+        margin: 6px 0;
+    }
+    .ad-nav-box img{
+        width: 100%;
+    }
+    /* 子分类 */
+    .v-s-ul-category-tag{
+        float: left;
+        width: 100%;
+        /* margin-top: 2px; */
+        white-space: nowrap;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE 10+ */
+        overflow:auto;
+        position:relative;
+        box-sizing: border-box;
+        padding:0px 10px;
+    }
+    .v-s-ul-category-tag a{
+        text-decoration: none;
+    }
+    .v-s-ul-category-tag::-webkit-scrollbar{
+        width: 0;
+        height: 0;
+        display: none;
+        color: transparent;
+    }
+    .v-s-li-nav-link-tag{
+        width: auto;
+        background: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.7);
+        font-size:14px;
+        line-height: 24px;
+        margin-right: 6px;
+        padding:0px 8px;
+        border-radius: 12px;
+        margin-bottom:15px;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .v-s-li-nav-link-tag:active{
+        color: rgba(255, 255, 255, 1);
+    }
+    .nav-category-tag-selected{
+        color: #fff;
+        background: rgba(255, 255, 255, 0.4);
+    }
+
+    .item-box .pre-eye {
+        text-align: left !important;
+        padding-left: 10px !important;
+    }
+
+    .item-box .rank-a {
+        border-radius: 6px;
+    }
+    
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	window.addEventListener('popstate', function (e) {
+		e.preventDefault();
+		e.stopPropagation();
+		e.stopImmediatePropagation();
+	}, true);
+	setTimeout(function () {
+		document.body.click();
+	}, 0);
+});   
+</script>

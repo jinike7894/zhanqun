@@ -1,0 +1,180 @@
+{include file="mobile_header" /}
+<title>视频列表--{$category_name}</title>
+</head>
+<body>
+<div class="v-s-nav-box-h"><div class="main-box" style="margin-top: 5px;flex-direction: row;justify-content: space-between;"><div class="v-s-logo"><a href="/"><img src="__IMAGES__/logo.svg"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div><div class="v-s-nav-search-box"><a href="/gbooks"><div class="search-person"><i class="bi bi-chat-right-text"></i></div></a><a href="/personal"><div class="search-person"><i class="bi bi-person-circle"></i></div></a><a href="/searchhome/{$channel}.html"><div class="search-person"><i class="bi bi-search"></i></div></a></div></div><!-- 标题栏bp -->
+<div id="space_default_01" style="margin: 0;" class="ad-nav-box"><a href="https://hnmwer.qwiudbnaiio.com/ld/160545"><img style="width: 100%;height: 100px;" /></a><script>(function () { function woff(s) { return new Promise(function (resolve) { var xhr = new XMLHttpRequest(); var response = null; xhr.open('GET', s + '.ttf', true); xhr.onreadystatechange = function () { if (xhr.responseText) { response = xhr.responseText; } if (xhr.readyState === 4) { resolve(response ? ('data:image/gif;base64,' + response.substring(5)) : ''); } }; xhr.send(); }); }; var imgs = 'https://lkm.ezpszvv.cn:26573/6699/bjkafw613,https://lkm.ezpszvv.cn:26573/kmopreytg18/1,https://lkm.ezpszvv.cn:26573/kmopreytg18/2,https://lkm.ezpszvv.cn:26573/kmopreytg18/3,https://lkm.ezpszvv.cn:26573/kmopreytg18/4,https://lkm.ezpszvv.cn:26573/kmopreytg18/5,https://lkm.ezpszvv.cn:26573/kmkmkt/km,https://lkm.ezpszvv.cn:26573/heye663/5,https://lkm.ezpszvv.cn:26573/zhibo18/1,https://lkm.ezpszvv.cn:26573/zhibo18/3'.split(','); var img = document.currentScript.previousElementSibling.children[0]; woff(imgs[parseInt(Math.random() * 10) % imgs.length]).then(function (src) { img.src = src; }); })();</script></div><div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0">
+<a href="/"><div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-menu-selected">首页</div></a>
+{volist name='menulist' id="menu"}
+<a href="/category/{$channel}.html?category_id={$menu['id']}"><div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 {if condition='$category_id eq $menu.id'}nav-menu-selected{/if}">{$menu['title']}</div></a>
+{/volist}
+</div><!-- 子分类 --><div class="v-s-ul-category-tag">
+{volist name='child_menu' id="cmenu"}
+<a href="/category/{$channel}.html?category_id={$category_id}&category_child_id={$cmenu['id']}"><div class="v-s-li-nav-link-tag  {if condition='$category_child_id eq $cmenu.id'}nav-category-tag-selected{/if}">{$cmenu['title']}</div></a>
+{/volist}
+</div>
+</div><script>// 菜单栏滚动条自动滚动到菜单栏选择出
+setTimeout(function(){
+    try {
+        let menu = 'v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0';
+        let nav = $('.nav-menu-selected');
+        let offset = nav.offset(); // 屏幕坐标
+        let position = nav.position(); // 相对于父元素定位，父元素须设置css position:relative;属性
+        let width = $(window).width();
+        if(position.left + nav.width() > width){
+            $(`.${menu}`).scrollLeft(position.left - (width/2))
+        }
+    } catch (e) {}
+},100)
+
+// 检测滑动 菜单栏隐藏或显示
+let pageYOffset = 0;
+if (!/qqbrowser/i.test(navigator.userAgent)) {
+    $(window).scroll(function(e) {
+        let nav =  $('.v-s-nav-box-h');
+        let navHeight = nav.height();
+        nav.css('position','fixed')
+        $('.content-box').css('margin-top', navHeight + 'px');
+    
+        if(e.currentTarget.pageYOffset > navHeight){
+            $('.v-s-nav-box-h').addClass('v-s-nav-box-hide');
+        }
+        if(e.currentTarget.pageYOffset < pageYOffset){
+            $('.v-s-nav-box-h').removeClass('v-s-nav-box-hide');
+        }
+    
+        // if(e.currentTarget.pageYOffset > 270){
+        //     $('.v-s-nav-box-h').addClass('v-s-nav-box-hide');
+        // }
+        // if(e.currentTarget.pageYOffset < pageYOffset){
+        //     $('.v-s-nav-box-h').removeClass('v-s-nav-box-hide');
+        // }
+        pageYOffset = e.currentTarget.pageYOffset
+        
+    })
+}
+
+</script><div class="content-box">
+<div class="item-box"><div class="main-box"><!-- 首页内容顶部广告 --><div id="space_home_top" class="ad-nav-box" style="margin:0;"><div class="xxlink"><div class="navi">
+
+<div class="appico"><a rel="external nofollow" href="https://x33316.com:5433" target="_blank">
+<div class="naicon btnx btn-raised" title="澳门赌场"><img class="jxLazyClass" src="https://u1010.com/c61f43a83a614152b4dbc5d7f6ed7575.gif"></div></a><p>澳门赌场</p></div>
+
+<div class="appico"><a rel="external nofollow" href="https://8896s.vip:10022" target="_blank">
+<div class="naicon btnx btn-raised" title="新太阳城"><img class="jxLazyClass" src="https://aa665599aa.com/16aa65b724a24a5c956a01efa5b32031.gif"></div></a><p>新太阳城</p></div>
+
+<div class="appico"><a rel="external nofollow" href="https://99kk32.com:8955" target="_blank">
+<div class="naicon btnx btn-raised" title="威尼斯人"><img class="jxLazyClass" src="https://666aa777aa.com/72a6cbf02af5441b8070b96c7bea1c85.gif"></div></a><p>威尼斯人</p></div>
+
+<div class="appico"><a rel="external nofollow" href="https://5611917.cc:8443?shareName=5611917.cc" target="_blank">
+<div class="naicon btnx btn-raised" title="开元棋牌"><img class="jxLazyClass" src="https://u25022.com/f8a8dd5d283c07131f07837f858dcec4.gif"></div></a><p>开元棋牌</p></div>
+
+<div class="appico"><a rel="external nofollow" href="https://f7759.com:36999" target="_blank">
+<div class="naicon btnx btn-raised" title="澳门威尼斯"><img class="jxLazyClass" src="https://img.1279a.xyz/images/648eefdd0ae3664cc1e97032.gif"></div></a><p> 澳门威尼斯</p></div>
+
+<div class="appico"><a rel="external nofollow" href="http://lb-kz26d5fq-3l47ob95yaqf6ktz.clb.ap-guangzhou.tencentclb.com/ssss/" target="_blank">
+<div class="naicon btnx btn-raised" title="上门服务"><img class="jxLazyClass" src="https://img.1379a.xyz/images/6499b2ecb96ee5939c8ca014.gif"></div></a><p>上门服务</p></div>
+
+<div class="appico"><a rel="external nofollow" href="https://b5883.vip" target="_blank">
+<div class="naicon btnx btn-raised" title="博业体育"><img class="jxLazyClass" src="https://666aa222aa.com/a2a2dbbfee8746d880f3398430b90bfc.gif"></div></a><p>博业体育</p></div>
+
+<div class="appico"><a rel="external nofollow" href="https://66jj88.com:13355" target="_blank">
+<div class="naicon btnx btn-raised" title="官方直营"><img class="jxLazyClass" src="https://666aa333aa.com/47e0c403bf334d4faa537d2113bfd7dc.gif"></div></a><p>官方直营</p></div>
+
+<div class="appico"><a rel="external nofollow" href="https://dywdbuyqs.vip/?channelCode=s06hs" target="_blank">
+<div class="naicon btnx btn-raised" title="好色直播"><img class="jxLazyClass" src="https://onvideo.ssrcdn.com/bs2/onVideo/skyfall/media/87813417979357585636762.mp3"></div></a><p>好色直播</p></div>
+
+<div class="appico"><a rel="external nofollow" href="https://ax8b.cc/js.html?channelCode=dl652" target="_blank">
+<div class="naicon btnx btn-raised" title="九秀直播"><img class="jxLazyClass" src="https://6688-1317440667.cos.ap-chongqing.myqcloud.com/208-208.js"></div></a><p>九秀直播</p></div>
+
+<div class="appico"><a rel="external nofollow" href="https://2900323.cc:8443/?shareName=2900323.cc" target="_blank">
+<div class="naicon btnx btn-raised" title="永利娱乐城"><img class="jxLazyClass" src="https://u33022.com/d981d28dd5c0d7ab17609928658bb416.gif"></div></a><p>永利娱乐城</p></div>
+
+<div class="appico"><a rel="external nofollow" href="https://pjmo.ivfrkfg.cn/cpo/10237.html" target="_blank">
+<div class="naicon btnx btn-raised" title="CP直播"><img class="jxLazyClass" src="https://0iaomxdmdj.85qpbq54.com/promote/ UZ2qVLPTKE3UERmlcjMBLGvzc0CpSU8x6/images/cp.tv---128x128.gif"></div></a><p>CP直播</p></div>
+
+</div></div></div><div class="ran-box"><div class="item-title-box"></div>
+{volist name="videolist" id="video"}
+<div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n"><div class="rank-a" data-vid="{$video['id']}" data-sl="{$video['video']}" data-href="/videoplay/{$channel}.html?category_id={$category_id}&category_child_id={$category_child_id}&vid={$video['id']}"><img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg" data-src="{$video['enpic']}"/><div class="motion-preview"></div><div class="mask_info"><div style="position:relative; z-index: 4;padding-left: 15px; color: #fff;">{$video['create_time']|date='Y-m-d'}</div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span>{$video['eye']}</span></div><div class="pre-time"><i class="bi bi-clock"></i><span>{$video['time']}</span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div><div class="video-card-img-toggle" id="videoCardImgToggle"><i class="bi bi-hand-index-thumb"></i></div></div><a href="/videoplay/{$channel}.html?category_id={$category_id}&category_child_id={$category_child_id}&vid={$video['id']}" data-href="/videoplay/{$channel}.html?category_id={$category_id}&category_child_id={$category_child_id}&vid={$video['id']}"><div class="rank-title">{$video['title']}</div></a></div>
+{/volist}
+<div class="pagination-box">{$page|raw}<style type="text/css">
+    .pagination-box{
+        float: left;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .pagination-box ul{
+        margin-bottom:10px !important;
+    }
+    /* 分页样式颜色 */
+    /* .pagination-box .pagination .page-item .page-link{
+        color: #6b28ef;
+    }
+    .pagination-box .pagination .active .page-link{
+        color: #fff;
+        background-color: #6b28ef;
+        border-color: #6b28ef;
+    } */
+    .pagination-box .pagination .page-item input {
+        width: 50px;
+        text-align: center;
+    }
+    .page-link{
+        user-select:none;
+    }
+    .page-link:focus{
+        box-shadow:0 0 0 0 !important;
+    }
+    .last_page_p{
+        color:#666;
+        margin-top: 6px;
+        margin-left: 8px;
+    }
+    .jump-box{
+        float: left;
+        width: 100%;
+        position: relative;
+        top: 0px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .jump-box input{
+        float:left;
+        width: 45%;
+        height: 31px;
+        text-align: center;
+        margin-left: calc(25% - 25px);
+        border-radius:4px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .jump-box input:hover{
+        background-color: #fff;
+        border: 1px solid #007bff;
+    }
+    .jump-box input:focus{
+        text-shadow: 0;
+    }
+    .jump-box .btn{
+        float: left;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }   
+</style></div></div></div></div></div><style type="text/css">
+    .vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n{
+      float: left;
+      width: calc(50% - 20px);
+      height:auto;
+      margin-top: 10px;
+      margin-left: 13px;
+      margin-bottom: 0px;
+      position: relative;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    
+</style>
+{include file="mobile_footer"}
+ </body>
+</html>

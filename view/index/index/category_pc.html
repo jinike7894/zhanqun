@@ -1,0 +1,260 @@
+{include file="pc_header" /}
+<title>视频列表--{$category_name}</title>
+</head>
+<body>
+<div class="v-s-nav-box-h"><div class="main-box"><a href="/"><div class="v-s-logo"><img src="__IMAGES__/logo.svg"><!-- <div class="v-s-logo-text">FaceShow</div> --></div></a>
+<div class="v-s-ul-time-vs_4a48f752db41520564b84da1f2631937">
+<a href="/"><div class="v-s-li-nav-link-vs_4a48f752db41520564b84da1f2631937">首页</div></a>
+{volist name='menulist' id="menu"}
+<a href="/category/{$channel}.html?category_id={$menu['id']}"><div class="v-s-li-nav-link-vs_4a48f752db41520564b84da1f2631937 {if condition='$category_id eq $menu.id'}nav-menu-selected{/if}">{$menu['title']}</div></a>
+{/volist}
+</div><div class="v-s-nav-search-box"><input class="search-input" id="search_input" type="search" onfocus="onfocusSearch()" oninput="oninputSearch()" onchange="onchangeSearch()" placeholder="请输入关键词..." value=""/><div class="search-btn" onclick="search()"><i class="bi bi-search"></i></div><a href="/personal"><!-- <div class="search-person" class="search-person" data-toggle="tooltip" title="登录"><i class="bi bi-person-circle"></i></div> --><div class="search-person" class="search-person"><i class="bi bi-person-circle"></i></div></a><a href="/gbooks"><!-- <div class="search-person" data-toggle="tooltip" title="留言"><i class="bi bi-chat-right-text"></i></div> --><div class="search-person"><i class="bi bi-chat-right-text"></i></div></a></div></div></div>
+<!-- 标题栏bp -->
+<script>
+    var searchInputActive = false;
+    var searchInputval = '';
+
+    // input 获取焦点时触发
+    function onfocusSearch(e){
+        searchInputActive = true
+    }
+    // input 输入值发生变化时触发
+    function oninputSearch(e){
+        let dom = $('#search_input')
+        searchInputval = dom.val()
+        
+    }
+    // input 失去焦点时触发
+    function onchangeSearch(){
+        searchInputActive = false
+    }
+
+    // input 监听回车事件
+    $("#search_input").keydown(function (e){
+        // 当 keyCode 是13时,是回车操作
+    if (e.keyCode == 13){
+        // 编写业务代码...
+        search()
+        // 取消之前的keydown事件
+        e.preventDefault();
+    }
+    })
+
+    // 搜索
+    function search(e){
+        let val = $('#search_input').val()
+        if(!val){
+            new Noty({
+                layout:'topCenter',
+                theme: 'bootstrap-v4',
+                text: '关键词不能为空!',
+                progressBar:false,
+                timeout:1000
+            }).show().setType('alert');
+            return
+        }
+        window.location.replace(`/index/index/search/?keyword=${val}`)
+    }
+
+// 菜单栏滚动条自动滚动到菜单栏选择出
+setTimeout(function(){
+    try {
+        let menu = 'v-s-ul-time-vs_4a48f752db41520564b84da1f2631937';
+        let nav = $('.nav-menu-selected');
+        let offset = nav.offset(); // 屏幕坐标
+        let position = nav.position(); // 相对于父元素定位，父元素须设置css position:relative;属性
+        let width = $(`.${menu}`).width();
+        if(position.left + nav.width() > width){
+            $(`.${menu}`).scrollLeft(position.left - (width/2))
+        }
+    } catch (e) {}
+},100)
+</script>
+<div class="content-box"><div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"></div><!-- 子分类 -->
+<div class="v-s-ul-category-tag">
+{volist name='child_menu' id="cmenu"}
+<a href="/category/{$channel}.html?category_id={$category_id}&category_child_id={$cmenu['id']]}" target="_self"><div class="v-s-li-nav-link-tag  {if condition='$category_child_id eq $cmenu.id'}nav-category-tag-selected{/if}">{$cmenu['title']}</div></a>
+{/volist}
+</div>
+{volist name="videolist" id="video" empty="暂时没有数据"}
+<div class="vs_e8fc7074f617360f80e20419901b62df-item-vide-n"><a href="/videoplay/{$channel}.html?category_id={$category_id}&category_child_id={$category_child_id}&vid={$video['id']}"><div class="rank-a" data-vid="{$video['id']}" data-sl="{$video['video']}"><img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg" data-src="{$video['enpic']}"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;">{$video['create_time']|date='Y-m-d'}</div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span>{$video['eye']}</span></div><div class="pre-time"><i class="bi bi-clock"></i><span>{$video['time']}</span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title">{$video['title']}</div></a></div>
+{/volist}
+<div class="pagination-box">{$page|raw}<style type="text/css">
+    .pagination-box{
+        float: left;
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .pagination-box ul{
+        margin-bottom:10px !important;
+    }
+    .pagination-box .pagination .page-item input {
+        width: 60px;
+        text-align: center;
+    }
+    .pagination-box ul li a{
+        user-select:none;
+    }
+    .pagination-box ul li a:focus{
+        box-shadow:0 0 0 0 !important;
+    }
+    .last_page_p{
+        color:#666;
+        margin-top: 6px;
+        margin-left: 8px;
+    }
+</style></div></div></div></div></div><style type="text/css">
+    .vs_e8fc7074f617360f80e20419901b62df-item-vide-n{
+      float: left;
+      width: 180px;
+      height:auto;
+      margin-top: 10px;
+      margin-left: 8px;
+      margin-right: 8px;
+      margin-bottom: 10px;
+      position: relative;
+      /* border:1px solid #f60; */
+    }
+    .vs_e8fc7074f617360f80e20419901b62df-item-vide-n a{
+      color: #333;
+    }
+
+    /* 子分类 */
+    .v-s-ul-category-tag{
+        float: left;
+        width: 100%;
+        white-space: nowrap;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE 10+ */
+        overflow:auto;
+        position:relative;
+        box-sizing: border-box;
+        padding:0px 10px;
+    }
+    .v-s-ul-category-tag a{
+        text-decoration: none;
+    }
+    .v-s-ul-category-tag::-webkit-scrollbar{
+        width: 0;
+        height: 0;
+        display: none;
+        color: transparent;
+    }
+    .v-s-li-nav-link-tag{
+        width: auto;
+        background: rgba(0, 0, 0, 0.08);
+        color: rgba(0, 0, 0, 0.7);
+        font-size:14px;
+        line-height: 26px;
+        margin-right: 6px;
+        padding:0px 10px;
+        border-radius: 13px;
+        margin-bottom:15px;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .v-s-li-nav-link-tag:active{
+        color: rgba(0, 0, 0, 1);
+    }
+    .nav-category-tag-selected{
+        color: rgba(0, 0, 0, 0.9);
+        background: rgba(0, 0, 0, 0.2);
+    }
+    
+</style><style>
+    .x_tap_top {
+      display: block;
+      position: fixed;
+      right: 10px;
+      bottom: 80px;
+      z-index: 99999999999;
+      border-radius: 6px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 1px 15px 0 rgba(0,0,0,0.12);
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 20px;
+    }
+  </style><div class="x_tap_top" id="x_tap_top"><i class="bi bi-arrow-up"></i></div><script>
+    $('#x_tap_top').on('click', function () {
+    $('body, html').animate({
+      scrollTop: 0,
+    }, 500);
+    return false;
+  })
+  </script><div class="footer-box">YOUPORN ASIA CHANNEL Inc. All Rights Reserved.</div><style type="text/css">
+    .footer-box {
+        float: left;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+    }
+</style><script type="text/javascript" src="__JS__/utils_pc.js"></script><script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+        const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+        observer.observe();
+    });
+    // sweetalert2弹窗配置
+    const SSwal = Swal.mixin({
+        confirmButtonColor: '#007bff',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        reverseButtons: true,
+    })
+</script><!-- 禁开发者工具调试 --><script>
+    //如果用户在工具栏调起开发者工具，那么判断浏览器的可视高度和可视宽度是否有改变，如有改变则关闭本页面 
+    // var debuggerH = window.innerHeight, debuggerW = window.innerWidth;
+    // window.onresize = function () {
+    //     if (debuggerH != window.innerHeight || debuggerW != window.innerWidth) {
+    //         window.close();
+    //         window.location = "about:blank";
+    //     }
+    // }
+
+
+    // 无限的 debugger 兼容性好
+    // setInterval(function() {
+    //     debuggerCheck();
+    //   }, 2000);
+    //   var debuggerCheck = function() {
+    //     function doCheck(a) {
+    //       if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+    //         (function() {}['constructor']('debugger')());
+    //       } else {
+    //         (function() {}['constructor']('debugger')());
+    //       }
+    //       doCheck(++a);
+    //     }
+    //     try {
+    //       doCheck(0);
+    //     } catch (err) {}
+    //   };
+    //   debuggerCheck();
+
+        // 无限的 debugger 兼容性好
+    setInterval(function() {
+        debuggerCheck();
+      }, 1000);
+      var debuggerCheck = function() {
+        function doCheck(a) {
+          if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+            (function() {}['constructor']('debugger')());
+          } else {
+            (function() {}['constructor']('debugger')());
+          }
+          doCheck(++a);
+        }
+        try {
+          doCheck(0);
+        } catch (err) {}
+      };
+      debuggerCheck();
+    </script></body></html>

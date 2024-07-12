@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#000">
+<meta http-equiv="Cache-Control" content="no-transform"/>
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<link rel="shortcut icon" href="/favicon.ico">
+ <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.min.css" />
+ <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap-icons.css" />
+ <link rel="stylesheet" type="text/css" href="__CSS__/noty.css" />
+ <link rel="stylesheet" type="text/css" href="__CSS__/noty-themes/bootstrap-v4.css" />
+ <link rel="stylesheet" type="text/css" href="__CSS__/pc.css" />
+ <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+ <script type="text/javascript" src="__JS__/jquery-2.2.4.min.js"></script>
+ <script type="text/javascript" src="__JS__/bootstrap.bundle.min.js"></script>
+ <script type="text/javascript" src="__JS__/clipboard.min.js"></script>
+ <script type="text/javascript" src="__JS__/lozad.min.js"></script>
+ <script type="text/javascript" src="__JS__/sweetalert2.js"></script>
+ <script type="text/javascript" src="__JS__/noty.min.js"></script>
+ <style type="text/css">
+    .v-s-nav-box-h{
+        float: left;
+        width: 100%;
+        padding: 0.70rem 0;
+        background-color: #000;
+        /* background: linear-gradient(to right, #8e2bfa, #6b28ef); */
+        position:fixed;
+        top: 0;
+        left: 0;
+        z-index: 99;
+        /* background-color: #1e1e1e; */
+    }
+
+    .v-s-logo {
+        float: left;
+        width: auto;
+        /* margin-left: 0px; */
+        margin-right: 10px;
+        position: relative;
+    }
+    
+    .v-s-logo img {
+        float: left;
+        width: 125px;
+        max-height: 52px;
+        position: absolute;
+        top: 0px;
+        left: 10px;
+    }
+    .v-s-logo-text{
+        float: left;
+        font-size: 26px;
+        font-weight: 500;
+        color: #fff;
+    }
+    .v-s-ul-time-vs_4a48f752db41520564b84da1f2631937{
+        float: left;
+        width: auto;
+        max-width: 730px;
+        margin-top: 2px;
+        margin-left: 140px;
+        white-space: nowrap;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE 10+ */
+        overflow:auto;
+    }
+    .v-s-ul-time-vs_4a48f752db41520564b84da1f2631937 a{
+        text-decoration: none;
+    }
+    .v-s-ul-time-vs_4a48f752db41520564b84da1f2631937::-webkit-scrollbar{
+        width: 0;
+        height: 0;
+        display: none;
+        color: transparent;
+    }
+    .v-s-li-nav-link-vs_4a48f752db41520564b84da1f2631937{
+        width: auto;
+        height:35px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size:17px;
+        line-height: 35px;
+        margin-left: 15px;
+        display: inline-block;
+        cursor: pointer;
+    }
+    .v-s-li-nav-link-vs_4a48f752db41520564b84da1f2631937:hover{
+        font-size: 17px;
+        color: rgba(255, 255, 255, 1);
+        font-weight: bold;
+    }
+    .nav-menu-selected{
+        font-size: 17px;
+        color: rgba(255, 255, 255, 1);
+        font-weight: bold;
+    }
+    .v-s-nav-search-box{
+        float: right;
+        width: 290px;
+        height:40px;
+        /* border: 1px solid rgb(25, 178, 66) */
+    }
+    .v-s-nav-search-box .search-input {
+        float: left;
+        background:rgba(255, 255, 255, 0.3);
+        font-size: 14px;
+        color: #fff;
+        width: 170px;
+        height: 35px;
+        line-height: 35px;
+        padding: 0 10px;
+        padding-right: 0;
+        border-radius: 4px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    .v-s-nav-search-box .search-input::input-placeholder{
+		color: rgba(255, 255, 255, 0.6);
+	}
+    .v-s-nav-search-box .search-input::-webkit-input-placeholder { /* WebKit browsers */
+	    color: rgba(255, 255, 255, 0.6);
+	}
+	 
+	.v-s-nav-search-box .search-input::-moz-placeholder { /* Mozilla Firefox 19+ */
+        color: rgba(255, 255, 255, 0.6);
+	}
+	 
+	.v-s-nav-search-box .search-input::-ms-input-placeholder { /* Internet Explorer 10+ */
+        color: rgba(255, 255, 255, 0.6);
+	}
+    .v-s-nav-search-box .search-btn{
+        float: left;
+        background:rgba(255, 255, 255, 0.3);
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.6);
+        width: auto;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        padding: 0px 8px;
+        cursor: pointer;
+        border-radius: 4px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+    .v-s-nav-search-box .search-btn:hover{
+        background:rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 2551);
+    }
+    .v-s-nav-search-box .search-person{
+        float: left;
+        width: auto;
+        height: 35px;
+        line-height: 35px;
+        font-size: 22px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-left: 20px;
+        cursor: pointer;
+    }
+    .v-s-nav-search-box .search-person:hover{
+        color:rgba(255, 255, 255, 1);
+    }
+    .v-s-nav-search-box .search-person{
+        float: left;
+        width: auto;
+        height: 35px;
+        line-height: 35px;
+        font-size: 22px;
+        color: rgba(255, 255, 255, 0.6);
+        margin-left: 20px;
+        cursor: pointer;
+    }
+    .v-s-nav-search-box .search-person:hover{
+        color:rgba(255, 255, 255, 1);
+    }
+
+    .item-box .pre-eye {
+        text-align: left !important;
+        padding-left: 10px !important;
+    }
+
+    .item-box .rank-a {
+        border-radius: 6px;
+    }
+</style>

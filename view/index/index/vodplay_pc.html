@@ -1,0 +1,298 @@
+{include file="pc_header" /}
+<title>正在播放：{$vodlist['title']}</title>
+</head>
+<body><div class="v-s-nav-box-h"><div class="main-box"><a href="/"><div class="v-s-logo"><img src="__IMAGES__/logo.svg"><!-- <div class="v-s-logo-text">FaceShow</div> --></div></a><div class="v-s-ul-time-vs_4a48f752db41520564b84da1f2631937"><a href="/"><div class="v-s-li-nav-link-vs_4a48f752db41520564b84da1f2631937">首页</div></a>
+{volist name='menulist' id="menu"}
+<a href="/category/{$channel}.html?category_id={$menu['id']}"><div class="v-s-li-nav-link-vs_4a48f752db41520564b84da1f2631937 {if condition='$category_id eq $menu.id'}nav-menu-selected{/if}">{$menu['title']}</div></a>
+{/volist}
+</div><div class="v-s-nav-search-box"><input class="search-input" id="search_input" type="search" onfocus="onfocusSearch()" oninput="oninputSearch()" onchange="onchangeSearch()" placeholder="请输入关键词..." value=""/><div class="search-btn" onclick="search()"><i class="bi bi-search"></i></div><a href="/personal"><!-- <div class="search-person" class="search-person" data-toggle="tooltip" title="登录"><i class="bi bi-person-circle"></i></div> --><div class="search-person" class="search-person"><i class="bi bi-person-circle"></i></div></a><a href="/gbooks"><!-- <div class="search-person" data-toggle="tooltip" title="留言"><i class="bi bi-chat-right-text"></i></div> --><div class="search-person"><i class="bi bi-chat-right-text"></i></div></a></div></div></div><!-- 标题栏bp -->
+<script>
+    var searchInputActive = false;
+    var searchInputval = '';
+
+    // input 获取焦点时触发
+    function onfocusSearch(e){
+        searchInputActive = true
+    }
+    // input 输入值发生变化时触发
+    function oninputSearch(e){
+        let dom = $('#search_input')
+        searchInputval = dom.val()
+        
+    }
+    // input 失去焦点时触发
+    function onchangeSearch(){
+        searchInputActive = false
+    }
+
+    // input 监听回车事件
+    $("#search_input").keydown(function (e){
+        // 当 keyCode 是13时,是回车操作
+    if (e.keyCode == 13){
+        // 编写业务代码...
+        search()
+        // 取消之前的keydown事件
+        e.preventDefault();
+    }
+    })
+
+    // 搜索
+    function search(e){
+        let val = $('#search_input').val()
+        if(!val){
+            new Noty({
+                layout:'topCenter',
+                theme: 'bootstrap-v4',
+                text: '关键词不能为空!',
+                progressBar:false,
+                timeout:1000
+            }).show().setType('alert');
+            return
+        }
+        window.location.replace(`/index/index/search/?keyword=${val}`)
+    }
+
+// 菜单栏滚动条自动滚动到菜单栏选择出
+setTimeout(function(){
+    try {
+        let menu = 'v-s-ul-time-vs_c6e07a204a55cc4e4222e1b499c7dd8e';
+        let nav = $('.nav-menu-selected');
+        let offset = nav.offset(); // 屏幕坐标
+        let position = nav.position(); // 相对于父元素定位，父元素须设置css position:relative;属性
+        let width = $(`.${menu}`).width();
+        if(position.left + nav.width() > width){
+            $(`.${menu}`).scrollLeft(position.left - (width/2))
+        }
+    } catch (e) {}
+},100)
+</script><link rel="stylesheet" type="text/css" href="__CSS__/videoweb/videoplay.css?v=1.01"><style type="text/css">
+.vs_e5b61b92d6d5f36997db8d5b94c006ac-item-vide-n{
+  float: left;
+  width: 180px;
+  height:auto;
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 10px;
+  position: relative;
+  /* border:1px solid #f60; */
+}
+.vs_e5b61b92d6d5f36997db8d5b94c006ac-item-vide-n a{
+  color: #333;
+}
+</style><div class="content-box"><div class="item-box"><div class="main-box"><div class="ran-box"><div class="video-title">{$vodlist['title']}</div><div class="tips-remind" style="margin-bottom: 10px;"><span style="color: red;">本站域名：YY78888.COM</span><span style="color: #007bff;" class="clipboard-select-bindings" onclick="copyUrlxs('http://YY78888.COM')" data-clipboard-target="#copyUrl1"> 复制</span> 永久发布页 <a href="http://YY78888.COM">进入</a> 永久访问二维码 <a href="https://ks44491.com:29875/static/yy/保存二维码.png" download>保存</a> 强荐使用谷歌浏览器<a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank"> 下载</a> 本站万能帮助中心 <a href="../index/help">进入</a></div><div id="dplayer" class="video-play-box"></div><div class="video-b-btn-box"><div class="ul-box"><div class="col-b"><a href="/personal/recharge" target="_blank"><div class="col-ico"><i class="bi bi-gem" style="color: #f60;"></i></div><div class="col-text">VIP</div></a></div></div><div class="ul-box"><div class="col-b" id="video-up-btn" onclick="requestReport(1,this)"><div class="col-ico"><i class="bi bi-hand-thumbs-up"></i></div><div class="col-text">433</div></div></div><div class="ul-box"><div class="col-b" id="video-down-btn" onclick="requestReport(2,this)"><div class="col-ico"><i class="bi bi-hand-thumbs-down"></i></div><div class="col-text">1825</div></div></div><div class="ul-box"><div class="col-b" onclick="requestReport(0,this)" style="color: "><div class="col-ico"><i class="bi bi-heart"></i></div><div class="col-text">104</div></div></div><div class="ul-box"><input id="copyUrl" value="" class="input-copy-url" style="opacity: 0;"><div class="col-b clipboard-select-binding" onclick="copyUrl(this)" data-clipboard-target="#copyUrl"><div class="col-ico"><i class="bi bi-cursor"></i></div><div class="col-text">分享</div></div></div></div></div></div></div><div class="item-box" style="display: none;"><div class="main-box"><div class="ran-box" style="margin-top:0px"><!-- 文字广告模板1 --><a href="#" target="_blank"><div class="ad-text-box-1"><div class="title">本站广告位投放请联络</div><div class="description">💖💖💖 Telegram：@adporns 💖💖💖</div></div></a><style type="text/css">
+    .ad-text-box-1{
+        /* color: #1b73f9 */
+        color:#333
+    }
+    .ad-text-box-1 .title{
+        font-size:16px;
+        text-align: center
+    }
+    .ad-text-box-1 .description{
+        font-size:14px;
+        text-align: center
+    }
+</style></div></div></div><!-- <div class="item-box"><div class="main-box"><div class="ran-box" style="margin-top:0px">
+        ad_template
+      </div></div></div> --><div class="item-box" style="display: none;"><div class="main-box"><div class="ran-box"><!-- 文字bp模板1 --><a href="#" target="_blank"><div class="ad-text-box-2"><div class="title">本站推荐【同城免费约炮👉🏻真人社区】</div><div class="description">💙💙💙 点击免费下载约炮神器APP 💙💙💙</div></div></a><style type="text/css">
+    .ad-text-box-2{
+        font-weight: 500;
+        /* color: #1b73f9 */
+    }
+    .ad-text-box-2 .title{
+        font-size:16px;
+        text-align: center
+    }
+    .ad-text-box-2 .description{
+        font-size:14px;
+        text-align: center
+    }
+</style></div></div></div><!--标签区域开始--><style type="text/css">
+    .btn{
+      padding: 0.275rem 0.65rem !important;
+      margin: 0.2rem;
+  }
+  </style>
+  <div class="item-box">
+  <div class="main-box">{include file="search"}</div>
+  
+  </div><!--标签区域结束-->
+  
+  <!-- 猜你喜欢 --><div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">猜你喜欢</div></div>
+  {volist name="guesslist" id="guess"}
+  <div class="vs_e5b61b92d6d5f36997db8d5b94c006ac-item-vide-n"><a href="/videoplay/{$channel}.html?category_id={$category_id}&category_child_id={$category_child_id}&vid={$guess['id']}"><div class="rank-a" data-vid="38304" data-sl="{$guess['video']}"><img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg" data-src="{$guess['enpic']}"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;">{$guess['create_time']}</div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span>{$guess['eye']}</span></div><div class="pre-time"><i class="bi bi-clock"></i><span>{$guess['time']}</span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title">{$guess['title']}</div></a></div>
+{/volist}
+</div></div></div>
+<input id="copyUrl1" value="" style="opacity: 0;"></div><!-- 登录窗口的HTML代码 --><div class="main-box accordion_login" style="display: none;"><div class="login-ran-box"><div class="form-group"><div class="input-box"><input type="text" name="login_account" placeholder="账号"/></div><div class="input-box"><input type="password" name="login_password" placeholder="密码（6-16位字符）"/></div><div class="tpis-box"><span>没有账号？</span><span style="color:#007bff;cursor: pointer;" class="register-choose">立即注册</span></div></div></div></div><!-- 注册窗口的HTML代码 --><div class="main-box accordion_register" style="display: none;"><div class="login-ran-box"><div class="form-group"><div class="input-box"><input type="text" name="register_account" placeholder="账号"/></div><div class="input-box"><input type="text" name="register_email" placeholder="邮箱 [选填]"/></div><div class="input-box"><input type="password" name="register_password" placeholder="密码（6-16位字符）"/></div><div class="input-box"><input type="password" name="register_password_check" placeholder="确认密码"/></div><div class="input-box"><input type="text" name="register_code" style="width: calc(100% - 180px);" placeholder="请输入验证码"/><img src="/captcha.html?t=1692016421" class="code-img captcha"></div><div class="tpis-box"><span>已有账号？</span><span style="color:#007bff;cursor: pointer;" class="login-choose">立即登录</span></div></div></div></div>
+  <!-- <script type="text/javascript" src="__JS__/flv.min.js"></script> -->
+  <script type="text/javascript" src="__JS__/hls.min.js"></script>
+  <script type="text/javascript" src="__JS__/DPlayer.min.js"></script>
+  <!-- <script type="text/javascript" src="__JS__/DPlayer.js"></script> -->
+  <script>
+let data={}
+data.video = JSON.parse(atob("{$data}"));
+</script>
+<script type="text/javascript" src="__JS__/videoweb/videoplay.js?v=1.01"></script><script>
+// 刷新验证码
+$(document).on('click','.code-img', function(e){
+    let captcha_src = `/captcha.html?t=${new Date( ).getTime()}`;
+    $(this).attr('src',captcha_src)
+  })
+
+// 复制分享
+let clipboard = new ClipboardJS('.clipboard-select-binding')
+function copyUrl(e){
+  clipboard = new ClipboardJS('.clipboard-select-binding')
+  url = window.location.href
+  $('#copyUrl').val('没穿衣裳，到浏览器打开，直接就能看，没套路：'+url)
+  console.log(url)
+  
+  clipboard.on('success', function(e) {
+    new Noty({
+        layout:'topCenter',
+        theme: 'bootstrap-v4',
+        text: '已复制链接!',
+        progressBar:false,
+        timeout:1000
+    }).show().setType('warning');
+    e.clearSelection();
+    clipboard.destroy();
+  });
+  clipboard.on('error', function(e) {
+    new Noty({
+        layout:'topCenter',
+        theme: 'bootstrap-v4',
+        text: '复制失败!',
+        progressBar:false,
+        timeout:1000
+    }).show().setType('warning');
+    clipboard.destroy();
+  });
+}
+
+</script><script>
+  function copyUrlxs(value){
+    clipboard = new ClipboardJS('.clipboard-select-bindings')
+    $('#copyUrl1').val(value)
+    
+    clipboard.on('success', function(e) {
+      new Noty({
+          layout:'topCenter',
+          theme: 'bootstrap-v4',
+          text: '已复制!',
+          progressBar:false,
+          timeout:1000
+      }).show().setType('warning');
+      e.clearSelection();
+      clipboard.destroy();
+    });
+    clipboard.on('error', function(e) {
+      new Noty({
+          layout:'topCenter',
+          theme: 'bootstrap-v4',
+          text: '复制失败!',
+          progressBar:false,
+          timeout:1000
+      }).show().setType('warning');
+      clipboard.destroy();
+    });
+  }
+</script><style>
+    .x_tap_top {
+      display: block;
+      position: fixed;
+      right: 10px;
+      bottom: 80px;
+      z-index: 99999999999;
+      border-radius: 6px;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 1px 15px 0 rgba(0,0,0,0.12);
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 20px;
+    }
+  </style><div class="x_tap_top" id="x_tap_top"><i class="bi bi-arrow-up"></i></div><script>
+    $('#x_tap_top').on('click', function () {
+    $('body, html').animate({
+      scrollTop: 0,
+    }, 500);
+    return false;
+  })
+  </script><div class="footer-box">YOUPORN ASIA CHANNEL Inc. All Rights Reserved.</div><style type="text/css">
+    .footer-box {
+        float: left;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+    }
+</style><script type="text/javascript" src="__JS__/utils_pc.js"></script><script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+        const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+        observer.observe();
+    });
+    // sweetalert2弹窗配置
+    const SSwal = Swal.mixin({
+        confirmButtonColor: '#007bff',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        reverseButtons: true,
+    })
+</script><!-- 禁开发者工具调试 --><script>
+    //如果用户在工具栏调起开发者工具，那么判断浏览器的可视高度和可视宽度是否有改变，如有改变则关闭本页面 
+    // var debuggerH = window.innerHeight, debuggerW = window.innerWidth;
+    // window.onresize = function () {
+    //     if (debuggerH != window.innerHeight || debuggerW != window.innerWidth) {
+    //         window.close();
+    //         window.location = "about:blank";
+    //     }
+    // }
+
+
+    // 无限的 debugger 兼容性好
+    // setInterval(function() {
+    //     debuggerCheck();
+    //   }, 2000);
+    //   var debuggerCheck = function() {
+    //     function doCheck(a) {
+    //       if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+    //         (function() {}['constructor']('debugger')());
+    //       } else {
+    //         (function() {}['constructor']('debugger')());
+    //       }
+    //       doCheck(++a);
+    //     }
+    //     try {
+    //       doCheck(0);
+    //     } catch (err) {}
+    //   };
+    //   debuggerCheck();
+
+        // 无限的 debugger 兼容性好
+    setInterval(function() {
+        debuggerCheck();
+      }, 2000);
+      var debuggerCheck = function() {
+        function doCheck(a) {
+          if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+            (function() {}['constructor']('debugger')());
+          } else {
+            (function() {}['constructor']('debugger')());
+          }
+          doCheck(++a);
+        }
+        try {
+          doCheck(0);
+        } catch (err) {}
+      };
+      debuggerCheck();
+    </script>
+</body>
+</html>
