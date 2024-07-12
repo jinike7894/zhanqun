@@ -73,7 +73,7 @@ setTimeout(function(){
 <div class="content-box"><div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"></div><!-- 子分类 -->
 <div class="v-s-ul-category-tag">
 {volist name='child_menu' id="cmenu"}
-<a href="/category/{$channel}.html?category_id={$category_id}&category_child_id={$cmenu['id']]}" target="_self"><div class="v-s-li-nav-link-tag  {if condition='$category_child_id eq $cmenu.id'}nav-category-tag-selected{/if}">{$cmenu['title']}</div></a>
+<a href="/category/{$channel}.html?category_id={$category_id}&category_child_id={$cmenu['id']}" target="_self"><div class="v-s-li-nav-link-tag  {if condition='$category_child_id eq $cmenu.id'}nav-category-tag-selected{/if}">{$cmenu['title']}</div></a>
 {/volist}
 </div>
 {volist name="videolist" id="video" empty="暂时没有数据"}
