@@ -1,88 +1,118 @@
 <script type="text/javascript">
-  function ypshare(){
-    clipboard = new ClipboardJS('.content-box')
-    $('#copyUrlx').val('YOURPORN永久回家地址YY68888.COM 保存永不迷路')
-    clipboard.on('success', function(e) {
-      e.clearSelection();
-      clipboard.destroy();
-    });
-    clipboard.on('error', function(e) {
-      clipboard.destroy();
-    });
+  // if (!/Android|iOS|iPhone|iPad/i.test(navigator.userAgent)) {
+  //   document.body.innerHTML = `<div class="s-window-tips">
+  //                                       <div>
+  //                                           <h1>&#28201;&#39336;&#25552;&#31034;</h1>
+  //                                           <p>&#26412;&#31449;&#20165;&#25903;&#25345;&#31227;&#21160;&#35774;&#22791;&#35775;&#38382;&#65292;&#35831;&#20351;&#29992;&#31227;&#21160;&#35774;&#22791;&#25195;&#25551;&#19979;&#26041;&#30340;&#20108;&#32500;&#30721;&#25110;&#36755;&#20837;&#32593;&#22336;&#35775;&#38382;&#33;</p>
+  //                                           <p>Reminder: This website only supports mobile device access, please use your mobile device to scan the QR Code below or enter the URL to access!</p>
+  //                                           <div class="qr-box"></div>
+  //                                       </div>
+  //                                   </div> `;
+  //   let qrEl = document.body.querySelector(".s-window-tips .qr-box");
+  //   try {
+  //     new QRCode(qrEl, {
+  //       text: location.origin + '/10.html',
+  //       width: 128,
+  //       height: 128,
+  //       colorDark: "#000000",
+  //       colorLight: "#ffffff",
+  //       correctLevel: QRCode.CorrectLevel.H
+  //     });
+  //   } catch (err) {
+  //     qrEl.innerHTML = '<img src="/static/images/qr.png" alt="">'
+  //   }
+  // }
+  // function ypshare() {
+  //   clipboard = new ClipboardJS('.content-box')
+  //   $('#copyUrlx').val('YOURPORN永久回家地址YY68888.COM 保存永不迷路')
+  //   clipboard.on('success', function (e) {
+  //     e.clearSelection();
+  //     clipboard.destroy();
+  //   });
+  //   clipboard.on('error', function (e) {
+  //     clipboard.destroy();
+  //   });
+  // }
+</script>
+<style>
+  .x_tap_top {
+    display: block;
+    position: fixed;
+    right: 10px;
+    bottom: 200px;
+    z-index: 99999999999;
+    border-radius: 6px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.12);
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
   }
-</script><style>
-    .x_tap_top {
-      display: block;
-      position: fixed;
-      right: 10px;
-      bottom: 200px;
-      z-index: 99999999999;
-      border-radius: 6px;
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-      cursor: pointer;
-      box-shadow: 0 1px 15px 0 rgba(0,0,0,0.12);
-      width: 40px;
-      height: 40px;
-      line-height: 40px;
-      font-size: 20px;
-    }
-  </style><div class="x_tap_top" id="x_tap_top"><i class="bi bi-arrow-up"></i></div><script>
-    $('#x_tap_top').on('click', function () {
+</style>
+<div class="x_tap_top" id="x_tap_top"><i class="bi bi-arrow-up"></i></div>
+<script>
+  $('#x_tap_top').on('click', function () {
     $('body, html').animate({
       scrollTop: 0,
     }, 500);
     return false;
   })
-  </script><div class="footer-box">YOUPORN ASIA CHANNEL Inc. All Rights Reserved.</div><style type="text/css">
-    .footer-box {
-        float: left;
-        width: 100%;
-        text-align: center;
-        padding: 15px 0;
-    }
-</style><script type="text/javascript" src="__JS__/utils_mobile.js"></script><script>
-    $(document).ready(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-        $('[data-toggle="popover"]').popover();
-        const observer = lozad(); // lazy loads elements with default selector as '.lozad'
-        observer.observe();
-    });
-    // sweetalert2弹窗配置
-    const SSwal = Swal.mixin({
-        confirmButtonColor: '#007bff',
-        cancelButtonColor: '#6c757d',
-        confirmButtonText: '确定',
-        cancelButtonText: '取消',
-        reverseButtons: true,
-    })
-</script><!-- 禁开发者工具调试 --><script>
-    //如果用户在工具栏调起开发者工具，那么判断浏览器的可视高度和可视宽度是否有改变，如有改变则关闭本页面 
-    // var debuggerH = window.innerHeight, debuggerW = window.innerWidth;
-    // window.onresize = function () {
-    //     if (debuggerH != window.innerHeight || debuggerW != window.innerWidth) {
-    //         window.close();
-    //         window.location = "about:blank";
-    //     }
-    // }
+</script>
+<style type="text/css">
+  .footer-box {
+    float: left;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+  }
+</style>
+<script type="text/javascript" src="__JS__/utils_mobile.js"></script>
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
+  // sweetalert2弹窗配置
+  const SSwal = Swal.mixin({
+    confirmButtonColor: '#007bff',
+    cancelButtonColor: '#6c757d',
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    reverseButtons: true,
+  })
+</script><!-- 禁开发者工具调试 -->
+<script>
+  //如果用户在工具栏调起开发者工具，那么判断浏览器的可视高度和可视宽度是否有改变，如有改变则关闭本页面 
+  // var debuggerH = window.innerHeight, debuggerW = window.innerWidth;
+  // window.onresize = function () {
+  //     if (debuggerH != window.innerHeight || debuggerW != window.innerWidth) {
+  //         window.close();
+  //         window.location = "about:blank";
+  //     }
+  // }
 
-        // 无限的 debugger 兼容性好
-    setInterval(function() {
-        debuggerCheck();
-      }, 1000);
-      var debuggerCheck = function() {
-        function doCheck(a) {
-          if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
-            (function() {}['constructor']('debugger')());
-          } else {
-            (function() {}['constructor']('debugger')());
-          }
-          doCheck(++a);
-        }
-        try {
-          doCheck(0);
-        } catch (err) {}
-      };
-      debuggerCheck();
-    </script>
+  // 无限的 debugger 兼容性好
+  // setInterval(function() {
+  //     debuggerCheck();
+  //   }, 1000);
+  //   var debuggerCheck = function() {
+  //     function doCheck(a) {
+  //       if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+  //         (function() {}['constructor']('debugger')());
+  //       } else {
+  //         (function() {}['constructor']('debugger')());
+  //       }
+  //       doCheck(++a);
+  //     }
+  //     try {
+  //       doCheck(0);
+  //     } catch (err) {}
+  //   };
+  //   debuggerCheck();
+</script>

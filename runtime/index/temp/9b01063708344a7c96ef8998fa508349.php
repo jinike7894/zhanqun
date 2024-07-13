@@ -471,7 +471,7 @@ if (!/qqbrowser/i.test(navigator.userAgent)) {
     }, 500);
     return false;
   })
-  </script><div class="footer-box">YOUPORN ASIA CHANNEL Inc. All Rights Reserved.</div><style type="text/css">
+  </script><style type="text/css">
     .footer-box {
         float: left;
         width: 100%;

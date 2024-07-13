@@ -20,6 +20,7 @@
  <script type="text/javascript" src="__JS__/lozad.min.js"></script>
  <script type="text/javascript" src="__JS__/sweetalert2.js"></script>
  <script type="text/javascript" src="__JS__/noty.min.js"></script>
+ <script type="text/javascript" src="__JS__/qrcode.min.js"></script>
  <style type="text/css">
     .v-s-nav-box-h{
         float: left;
@@ -185,3 +186,28 @@
         border-radius: 6px;
     }
 </style>
+<script>
+    if (!/Android|iOS|iPhone|iPad/i.test(navigator.userAgent)) {
+        document.body.innerHTML = `<div class="s-window-tips">
+                                        <div>
+                                            <h1>&#28201;&#39336;&#25552;&#31034;</h1>
+                                            <p>&#26412;&#31449;&#20165;&#25903;&#25345;&#31227;&#21160;&#35774;&#22791;&#35775;&#38382;&#65292;&#35831;&#20351;&#29992;&#31227;&#21160;&#35774;&#22791;&#25195;&#25551;&#19979;&#26041;&#30340;&#20108;&#32500;&#30721;&#25110;&#36755;&#20837;&#32593;&#22336;&#35775;&#38382;&#33;</p>
+                                            <p>Reminder: This website only supports mobile device access, please use your mobile device to scan the QR Code below or enter the URL to access!</p>
+                                            <div class="qr-box"></div>
+                                        </div>
+                                    </div> `;
+        let qrEl = document.body.querySelector(".s-window-tips .qr-box");
+        try {
+            new QRCode(qrEl,{
+                text: location.origin + '/10.html',
+                width: 128,
+                height: 128,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        } catch (err) {
+            qrEl.innerHTML = '<img src="/static/images/qr.png" alt="">'
+        }
+    }
+</script>

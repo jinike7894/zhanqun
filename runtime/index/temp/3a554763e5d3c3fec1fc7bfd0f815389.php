@@ -1,191 +1,5 @@
-<?php /*a:2:{s:47:"D:\wamp\www\pron\view\index\index\index_pc.html";i:1692276455;s:42:"D:\wamp\www\pron\view\index\pc_header.html";i:1692084932;}*/ ?>
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#000">
-<meta http-equiv="Cache-Control" content="no-transform"/>
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-<link rel="shortcut icon" href="/favicon.ico">
- <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css" />
- <link rel="stylesheet" type="text/css" href="/static/css/bootstrap-icons.css" />
- <link rel="stylesheet" type="text/css" href="/static/css/noty.css" />
- <link rel="stylesheet" type="text/css" href="/static/css/noty-themes/bootstrap-v4.css" />
- <link rel="stylesheet" type="text/css" href="/static/css/pc.css" />
- <link rel="stylesheet" type="text/css" href="/static/css/style.css" />
- <script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
- <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
- <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
- <script type="text/javascript" src="/static/js/lozad.min.js"></script>
- <script type="text/javascript" src="/static/js/sweetalert2.js"></script>
- <script type="text/javascript" src="/static/js/noty.min.js"></script>
- <style type="text/css">
-    .v-s-nav-box-h{
-        float: left;
-        width: 100%;
-        padding: 0.70rem 0;
-        background-color: #000;
-        /* background: linear-gradient(to right, #8e2bfa, #6b28ef); */
-        position:fixed;
-        top: 0;
-        left: 0;
-        z-index: 99;
-        /* background-color: #1e1e1e; */
-    }
+<?php /*a:2:{s:49:"D:\phpEnv\www\pron\view\index\index\index_pc.html";i:1720783977;s:44:"D:\phpEnv\www\pron\view\index\pc_header.html";i:1720794000;}*/ ?>
 
-    .v-s-logo {
-        float: left;
-        width: auto;
-        /* margin-left: 0px; */
-        margin-right: 10px;
-        position: relative;
-    }
-    
-    .v-s-logo img {
-        float: left;
-        width: 125px;
-        max-height: 52px;
-        position: absolute;
-        top: 0px;
-        left: 10px;
-    }
-    .v-s-logo-text{
-        float: left;
-        font-size: 26px;
-        font-weight: 500;
-        color: #fff;
-    }
-    .v-s-ul-time-vs_4a48f752db41520564b84da1f2631937{
-        float: left;
-        width: auto;
-        max-width: 730px;
-        margin-top: 2px;
-        margin-left: 140px;
-        white-space: nowrap;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE 10+ */
-        overflow:auto;
-    }
-    .v-s-ul-time-vs_4a48f752db41520564b84da1f2631937 a{
-        text-decoration: none;
-    }
-    .v-s-ul-time-vs_4a48f752db41520564b84da1f2631937::-webkit-scrollbar{
-        width: 0;
-        height: 0;
-        display: none;
-        color: transparent;
-    }
-    .v-s-li-nav-link-vs_4a48f752db41520564b84da1f2631937{
-        width: auto;
-        height:35px;
-        color: rgba(255, 255, 255, 0.7);
-        font-size:17px;
-        line-height: 35px;
-        margin-left: 15px;
-        display: inline-block;
-        cursor: pointer;
-    }
-    .v-s-li-nav-link-vs_4a48f752db41520564b84da1f2631937:hover{
-        font-size: 17px;
-        color: rgba(255, 255, 255, 1);
-        font-weight: bold;
-    }
-    .nav-menu-selected{
-        font-size: 17px;
-        color: rgba(255, 255, 255, 1);
-        font-weight: bold;
-    }
-    .v-s-nav-search-box{
-        float: right;
-        width: 290px;
-        height:40px;
-        /* border: 1px solid rgb(25, 178, 66) */
-    }
-    .v-s-nav-search-box .search-input {
-        float: left;
-        background:rgba(255, 255, 255, 0.3);
-        font-size: 14px;
-        color: #fff;
-        width: 170px;
-        height: 35px;
-        line-height: 35px;
-        padding: 0 10px;
-        padding-right: 0;
-        border-radius: 4px;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-    .v-s-nav-search-box .search-input::input-placeholder{
-		color: rgba(255, 255, 255, 0.6);
-	}
-    .v-s-nav-search-box .search-input::-webkit-input-placeholder { /* WebKit browsers */
-	    color: rgba(255, 255, 255, 0.6);
-	}
-	 
-	.v-s-nav-search-box .search-input::-moz-placeholder { /* Mozilla Firefox 19+ */
-        color: rgba(255, 255, 255, 0.6);
-	}
-	 
-	.v-s-nav-search-box .search-input::-ms-input-placeholder { /* Internet Explorer 10+ */
-        color: rgba(255, 255, 255, 0.6);
-	}
-    .v-s-nav-search-box .search-btn{
-        float: left;
-        background:rgba(255, 255, 255, 0.3);
-        font-size: 18px;
-        color: rgba(255, 255, 255, 0.6);
-        width: auto;
-        height: 35px;
-        line-height: 35px;
-        text-align: center;
-        padding: 0px 8px;
-        cursor: pointer;
-        border-radius: 4px;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-    .v-s-nav-search-box .search-btn:hover{
-        background:rgba(255, 255, 255, 0.5);
-        color: rgba(255, 255, 2551);
-    }
-    .v-s-nav-search-box .search-person{
-        float: left;
-        width: auto;
-        height: 35px;
-        line-height: 35px;
-        font-size: 22px;
-        color: rgba(255, 255, 255, 0.6);
-        margin-left: 20px;
-        cursor: pointer;
-    }
-    .v-s-nav-search-box .search-person:hover{
-        color:rgba(255, 255, 255, 1);
-    }
-    .v-s-nav-search-box .search-person{
-        float: left;
-        width: auto;
-        height: 35px;
-        line-height: 35px;
-        font-size: 22px;
-        color: rgba(255, 255, 255, 0.6);
-        margin-left: 20px;
-        cursor: pointer;
-    }
-    .v-s-nav-search-box .search-person:hover{
-        color:rgba(255, 255, 255, 1);
-    }
-
-    .item-box .pre-eye {
-        text-align: left !important;
-        padding-left: 10px !important;
-    }
-
-    .item-box .rank-a {
-        border-radius: 6px;
-    }
-</style>
 <title>17c</title>
 </head>
 <body>
@@ -193,7 +7,7 @@
 <div class="v-s-ul-time-vs_4a48f752db41520564b84da1f2631937">
 <a href="/"><div class="v-s-li-nav-link-vs_4a48f752db41520564b84da1f2631937 nav-menu-selected">首页</div></a>
 <?php if(is_array($menulist) || $menulist instanceof \think\Collection || $menulist instanceof \think\Paginator): $i = 0; $__LIST__ = $menulist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$menu): $mod = ($i % 2 );++$i;?>
-<a href="<?php echo url('index/category',['category_id'=>$menu['id']]); ?>"><div class="v-s-li-nav-link-vs_4a48f752db41520564b84da1f2631937"><?php echo htmlentities($menu['title']); ?></div></a>
+<a href="/category/<?php echo htmlentities($channel); ?>.html?category_id=<?php echo htmlentities($menu['id']); ?>"><div class="v-s-li-nav-link-vs_4a48f752db41520564b84da1f2631937"><?php echo htmlentities($menu['title']); ?></div></a>
 <?php endforeach; endif; else: echo "" ;endif; ?>
 </div><div class="v-s-nav-search-box"><input class="search-input" id="search_input" type="search" onfocus="onfocusSearch()" oninput="oninputSearch()" onchange="onchangeSearch()" placeholder="请输入关键词..." value=""/><div class="search-btn" onclick="search()"><i class="bi bi-search"></i></div><a href="/personal"><!-- <div class="search-person" class="search-person" data-toggle="tooltip" title="登录"><i class="bi bi-person-circle"></i></div> --><div class="search-person" class="search-person"><i class="bi bi-person-circle"></i></div></a><a href="/gbooks"><!-- <div class="search-person" data-toggle="tooltip" title="留言"><i class="bi bi-chat-right-text"></i></div> --><div class="search-person"><i class="bi bi-chat-right-text"></i></div></a></div></div></div>
 <!-- 标题栏bp -->
@@ -311,7 +125,7 @@ setTimeout(function(){
 <?php if(is_array($newlist) || $newlist instanceof \think\Collection || $newlist instanceof \think\Paginator): $i = 0; $__LIST__ = $newlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$new): $mod = ($i % 2 );++$i;?>
 <div class="vs_1dc09016d9c67820a94ffe655b4f28d3-item-vide-n"><a href="<?php echo url('index/videoplay',['category_id'=>$new['category_id'],'category_child_id'=>$new['category_child_id'],'vid'=>$new['id']]); ?>"><div class="rank-a" data-vid="<?php echo htmlentities($new['id']); ?>" data-sl="<?php echo htmlentities($new['video']); ?>"><img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($new['enpic']); ?>"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;"><?php echo htmlentities(date('Y-m-d',!is_numeric($new['create_time'])? strtotime($new['create_time']) : $new['create_time'])); ?></div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span><?php echo htmlentities(qqw($new['eye'])); ?></span></div><div class="pre-time"><i class="bi bi-clock"></i><span><?php echo htmlentities($new['time']); ?></span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title"><?php echo htmlentities($new['title']); ?></div></a></div>
 <?php endforeach; endif; else: echo "" ;endif; ?>
-</div></div></div><div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">本站原创</div><a href="<?php echo url('index/category',['category_id'=>40]); ?>"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
+</div></div></div><div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">本站原创</div><a href="/category/<?php echo htmlentities($channel); ?>.html?category_id=40"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
 <?php if(is_array($yuanclist) || $yuanclist instanceof \think\Collection || $yuanclist instanceof \think\Paginator): $i = 0; $__LIST__ = $yuanclist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$yc): $mod = ($i % 2 );++$i;?>
 <div class="vs_1dc09016d9c67820a94ffe655b4f28d3-item-vide-n"><a href="<?php echo url('index/videoplay',['category_id'=>$yc['category_id'],'category_child_id'=>$yc['category_child_id'],'vid'=>$yc['id']]); ?>"><div class="rank-a" data-vid="<?php echo htmlentities($yc['id']); ?>" data-sl="<?php echo htmlentities($yc['video']); ?>"><img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($yc['enpic']); ?>"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;"><?php echo htmlentities(date('Y-m-d',!is_numeric($yc['create_time'])? strtotime($yc['create_time']) : $yc['create_time'])); ?></div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span><?php echo htmlentities(qqw($yc['eye'])); ?></span></div><div class="pre-time"><i class="bi bi-clock"></i><span><?php echo htmlentities($yc['time']); ?></span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title"><?php echo htmlentities($yc['title']); ?></div></a></div>
 <?php endforeach; endif; else: echo "" ;endif; ?>
@@ -319,37 +133,37 @@ setTimeout(function(){
 <?php if(is_array($pxlist) || $pxlist instanceof \think\Collection || $pxlist instanceof \think\Paginator): $i = 0; $__LIST__ = $pxlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$px): $mod = ($i % 2 );++$i;?>
 <div class="vs_1dc09016d9c67820a94ffe655b4f28d3-item-vide-n"><a href="<?php echo url('index/videoplay',['category_id'=>$px['category_id'],'category_child_id'=>$px['category_child_id'],'vid'=>$px['id']]); ?>"><div class="rank-a" data-vid="<?php echo htmlentities($px['id']); ?>" data-sl="<?php echo htmlentities($px['video']); ?>"><img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($px['enpic']); ?>"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;"><?php echo htmlentities(date('Y-m-d',!is_numeric($px['create_time'])? strtotime($px['create_time']) : $px['create_time'])); ?></div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span><?php echo htmlentities(qqw($px['eye'])); ?></span></div><div class="pre-time"><i class="bi bi-clock"></i><span><?php echo htmlentities($px['time']); ?></span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title"><?php echo htmlentities($px['title']); ?></div></a></div>
 <?php endforeach; endif; else: echo "" ;endif; ?>
-</div></div></div><div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">吃瓜</div><a href="<?php echo url('index/category',['category_id'=>1]); ?>"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
+</div></div></div><div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">吃瓜</div><a href="/category/<?php echo htmlentities($channel); ?>.html?category_id=1"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
 <?php if(is_array($chigualist) || $chigualist instanceof \think\Collection || $chigualist instanceof \think\Paginator): $i = 0; $__LIST__ = $chigualist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$chigua): $mod = ($i % 2 );++$i;?>
 <div class="vs_1dc09016d9c67820a94ffe655b4f28d3-item-vide-n"><a href="<?php echo url('index/videoplay',['category_id'=>$chigua['category_id'],'category_child_id'=>$chigua['category_child_id'],'vid'=>$chigua['id']]); ?>"><div class="rank-a" data-vid="<?php echo htmlentities($chigua['id']); ?>" data-sl="<?php echo htmlentities($chigua['video']); ?>"><img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($chigua['enpic']); ?>"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;"><?php echo htmlentities(date('Y-m-d',!is_numeric($chigua['create_time'])? strtotime($chigua['create_time']) : $chigua['create_time'])); ?></div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span><?php echo htmlentities(qqw($chigua['eye'])); ?></span></div><div class="pre-time"><i class="bi bi-clock"></i><span><?php echo htmlentities($chigua['time']); ?></span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title"><?php echo htmlentities($chigua['title']); ?></div></a></div>
 <?php endforeach; endif; else: echo "" ;endif; ?>
 </div></div></div>
-<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">国产</div><a href="<?php echo url('index/category',['category_id'=>2]); ?>"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
+<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">国产</div><a href="/category/<?php echo htmlentities($channel); ?>.html?category_id=2"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
 <?php if(is_array($guochanlist) || $guochanlist instanceof \think\Collection || $guochanlist instanceof \think\Paginator): $i = 0; $__LIST__ = $guochanlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$guochan): $mod = ($i % 2 );++$i;?>
 <div class="vs_1dc09016d9c67820a94ffe655b4f28d3-item-vide-n"><a href="<?php echo url('index/videoplay',['category_id'=>$guochan['category_id'],'category_child_id'=>$guochan['category_child_id'],'vid'=>$guochan['id']]); ?>"><div class="rank-a" data-vid="<?php echo htmlentities($guochan['id']); ?>" data-sl="<?php echo htmlentities($guochan['video']); ?>"><img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($guochan['enpic']); ?>"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;"><?php echo htmlentities(date('Y-m-d',!is_numeric($guochan['create_time'])? strtotime($guochan['create_time']) : $guochan['create_time'])); ?></div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span><?php echo htmlentities(qqw($guochan['eye'])); ?></span></div><div class="pre-time"><i class="bi bi-clock"></i><span><?php echo htmlentities($guochan['time']); ?></span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title"><?php echo htmlentities($guochan['title']); ?></div></a></div>
 <?php endforeach; endif; else: echo "" ;endif; ?>
 </div></div></div>
-<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">日韩</div><a href="<?php echo url('index/category',['category_id'=>3]); ?>"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
+<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">日韩</div><a href="/category/<?php echo htmlentities($channel); ?>.html?category_id=3"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
 <?php if(is_array($rihanlist) || $rihanlist instanceof \think\Collection || $rihanlist instanceof \think\Paginator): $i = 0; $__LIST__ = $rihanlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$rihan): $mod = ($i % 2 );++$i;?>
 <div class="vs_1dc09016d9c67820a94ffe655b4f28d3-item-vide-n"><a href="<?php echo url('index/videoplay',['category_id'=>$rihan['category_id'],'category_child_id'=>$rihan['category_child_id'],'vid'=>$rihan['id']]); ?>"><div class="rank-a" data-vid="<?php echo htmlentities($rihan['id']); ?>" data-sl="<?php echo htmlentities($rihan['video']); ?>"><img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($rihan['enpic']); ?>"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;"><?php echo htmlentities(date('Y-m-d',!is_numeric($rihan['create_time'])? strtotime($rihan['create_time']) : $rihan['create_time'])); ?></div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span><?php echo htmlentities(qqw($rihan['eye'])); ?></span></div><div class="pre-time"><i class="bi bi-clock"></i><span><?php echo htmlentities($rihan['time']); ?></span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title"><?php echo htmlentities($rihan['title']); ?></div></a></div>
 <?php endforeach; endif; else: echo "" ;endif; ?>
 </div></div></div>
-<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">欧美</div><a href="<?php echo url('index/category',['category_id'=>4]); ?>"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
+<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">欧美</div><a href="/category/<?php echo htmlentities($channel); ?>.html?category_id=4"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
 <?php if(is_array($oumeilist) || $oumeilist instanceof \think\Collection || $oumeilist instanceof \think\Paginator): $i = 0; $__LIST__ = $oumeilist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$oumei): $mod = ($i % 2 );++$i;?>
 <div class="vs_1dc09016d9c67820a94ffe655b4f28d3-item-vide-n"><a href="<?php echo url('index/videoplay',['category_id'=>$oumei['category_id'],'category_child_id'=>$oumei['category_child_id'],'vid'=>$oumei['id']]); ?>"><div class="rank-a" data-vid="<?php echo htmlentities($oumei['id']); ?>" data-sl="<?php echo htmlentities($oumei['video']); ?>"><img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($oumei['enpic']); ?>"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;"><?php echo htmlentities(date('Y-m-d',!is_numeric($oumei['create_time'])? strtotime($oumei['create_time']) : $oumei['create_time'])); ?></div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span><?php echo htmlentities(qqw($oumei['eye'])); ?></span></div><div class="pre-time"><i class="bi bi-clock"></i><span><?php echo htmlentities($oumei['time']); ?></span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title"><?php echo htmlentities($oumei['title']); ?></div></a></div>
 <?php endforeach; endif; else: echo "" ;endif; ?>
 </div></div></div>
-<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">动漫</div><a href="<?php echo url('index/category',['category_id'=>5]); ?>"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
+<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">动漫</div><a href="/category/<?php echo htmlentities($channel); ?>.html?category_id=5"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
 <?php if(is_array($dongmanlist) || $dongmanlist instanceof \think\Collection || $dongmanlist instanceof \think\Paginator): $i = 0; $__LIST__ = $dongmanlist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$dongman): $mod = ($i % 2 );++$i;?>
 <div class="vs_1dc09016d9c67820a94ffe655b4f28d3-item-vide-n"><a href="<?php echo url('index/videoplay',['category_id'=>$dongman['category_id'],'category_child_id'=>$dongman['category_child_id'],'vid'=>$dongman['id']]); ?>"><div class="rank-a" data-vid="<?php echo htmlentities($dongman['id']); ?>" data-sl="<?php echo htmlentities($dongman['video']); ?>"><img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($dongman['enpic']); ?>"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;"><?php echo htmlentities(date('Y-m-d',!is_numeric($dongman['create_time'])? strtotime($dongman['create_time']) : $dongman['create_time'])); ?></div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span><?php echo htmlentities(qqw($dongman['eye'])); ?></span></div><div class="pre-time"><i class="bi bi-clock"></i><span><?php echo htmlentities($dongman['time']); ?></span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title"><?php echo htmlentities($dongman['title']); ?></div></a></div>
 <?php endforeach; endif; else: echo "" ;endif; ?>
 </div></div></div>
-<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">AI换脸</div><a href="<?php echo url('index/category',['category_id'=>6]); ?>"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
+<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">AI换脸</div><a href="/category/<?php echo htmlentities($channel); ?>.html?category_id=6"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
 <?php if(is_array($ailist) || $ailist instanceof \think\Collection || $ailist instanceof \think\Paginator): $i = 0; $__LIST__ = $ailist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$ai): $mod = ($i % 2 );++$i;?>
 <div class="vs_1dc09016d9c67820a94ffe655b4f28d3-item-vide-n"><a href="<?php echo url('index/videoplay',['category_id'=>$ai['category_id'],'category_child_id'=>$ai['category_child_id'],'vid'=>$ai['id']]); ?>"><div class="rank-a" data-vid="<?php echo htmlentities($ai['id']); ?>" data-sl="<?php echo htmlentities($ai['video']); ?>"><img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($ai['enpic']); ?>"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;"><?php echo htmlentities(date('Y-m-d',!is_numeric($ai['create_time'])? strtotime($ai['create_time']) : $ai['create_time'])); ?></div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span><?php echo htmlentities(qqw($ai['eye'])); ?></span></div><div class="pre-time"><i class="bi bi-clock"></i><span><?php echo htmlentities($ai['time']); ?></span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title"><?php echo htmlentities($ai['title']); ?></div></a></div>
 <?php endforeach; endif; else: echo "" ;endif; ?>
 </div></div></div>
-<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">AV解说</div><a href="<?php echo url('index/category',['category_id'=>8]); ?>"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
+<div class="item-box"><div class="main-box"><div class="ran-box"><div class="item-title-box"><div class="title-name">AV解说</div><a href="/category/<?php echo htmlentities($channel); ?>.html?category_id=8"><div class="title-more">更多<i class="bi bi-chevron-right"></i></div></a></div>
 <?php if(is_array($jieshuolist) || $jieshuolist instanceof \think\Collection || $jieshuolist instanceof \think\Paginator): $i = 0; $__LIST__ = $jieshuolist;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$jieshuo): $mod = ($i % 2 );++$i;?>
 <div class="vs_1dc09016d9c67820a94ffe655b4f28d3-item-vide-n"><a href="<?php echo url('index/videoplay',['category_id'=>$jieshuo['category_id'],'category_child_id'=>$jieshuo['category_child_id'],'vid'=>$jieshuo['id']]); ?>"><div class="rank-a" data-vid="<?php echo htmlentities($jieshuo['id']); ?>" data-sl="<?php echo htmlentities($jieshuo['video']); ?>"><img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($jieshuo['enpic']); ?>"/><div class="motion-preview"></div><div class="mask_info"><div style="position: relative; z-index: 4; padding-left: 15px; color: #fff;"><?php echo htmlentities(date('Y-m-d',!is_numeric($jieshuo['create_time'])? strtotime($jieshuo['create_time']) : $jieshuo['create_time'])); ?></div><div class="clearfix"><div class="pre-eye"><i class="bi bi-eye"></i><span><?php echo htmlentities(qqw($jieshuo['eye'])); ?></span></div><div class="pre-time"><i class="bi bi-clock"></i><span><?php echo htmlentities($jieshuo['time']); ?></span></div></div></div><div class="progress-box"><div class="progress" style="height: 4px;"><div class="progress-bar bg-warning" role="progressbar" style="width: 25%"></div></div></div></div><div class="rank-title"><?php echo htmlentities($jieshuo['title']); ?></div></a></div>
 <?php endforeach; endif; else: echo "" ;endif; ?>
