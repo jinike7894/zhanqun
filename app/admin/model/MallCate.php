@@ -23,7 +23,7 @@ class MallCate extends TimeModel
 	{
 		if($pid ==='')
 		{
-			$list = $this->field('id,pid,title')->order('sort desc,id asc')->select();
+			$list = $this->field('id,pid,title')->order('sort desc,id asc')->cache(600)->select();
 		}else{
 			$map[] = ['pid','=',$pid];
 			$list = $this->field('id,pid,title')->where(array('pid'=>$pid))->order('sort desc,id asc')->cache(600)->select();

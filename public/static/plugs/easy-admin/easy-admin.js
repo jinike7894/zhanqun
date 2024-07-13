@@ -28,9 +28,6 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
         url: function (url) {
             return '/' + CONFIG.ADMIN + '/' + url;
         },
-        enurl: function (url) {
-            return '/' + CONFIG.ADMIN + '/' + url;
-        },
         headers: function () {
             return {'X-CSRF-TOKEN': window.CONFIG.CSRF_TOKEN};
         },
@@ -202,8 +199,8 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                 options.page = admin.parame(options.page, true);
                 options.search = admin.parame(options.search, true);
                 options.skin = options.skin || 'line';
-                options.limit = options.limit || 15;
-                options.limits = options.limits || [10, 15, 20, 25, 50, 100];
+                options.limit = options.limit || 50;
+                options.limits = options.limits || [10, 15, 20, 25, 50, 100, 200, 500, 1000];
                 options.cols = options.cols || [];
                 options.defaultToolbar = (options.defaultToolbar === undefined && !options.search) ? ['filter', 'print', 'exports'] : ['filter', 'print', 'exports', {
                     title: '搜索',
@@ -234,7 +231,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                 }
 
                 // 初始化表格左上方工具栏
-                options.toolbar = options.toolbar || ['refresh', 'add', 'delete', 'export'];
+                options.toolbar = options.toolbar || ['refresh', 'add', 'delete', 'export', 'refreshurl'];
                 options.toolbar = admin.table.renderToolbar(options.toolbar, options.elem, options.id, options.init);
 
                 // 判断是否有操作列表权限
@@ -272,6 +269,10 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                         if (admin.checkAuth('export', elem)) {
                             toolbarHtml += '<button class="layui-btn layui-btn-sm layui-btn-success easyadmin-export-btn" data-url="' + init.export_url + '" data-table-export="' + tableId + '"><i class="fa fa-file-excel-o"></i> 导出</button>\n';
                         }
+                    } else if (v === 'refreshurl' && init.refreshurl_url != undefined) {
+                        if (admin.checkAuth('refreshurl', elem)) {
+                            toolbarHtml += '<button class="layui-btn layui-btn-normal layui-btn-sm" data-url="' + init.refreshurl_url + '" data-table-refreshurl="' + tableId + '"><i class="fa fa-file-photo-o"></i> 刷新链接</button>\n';
+                        }
                     } else if (typeof v === "object") {
                         $.each(v, function (ii, vv) {
                             vv.class = vv.class || '';
@@ -306,6 +307,12 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                     d.searchValue = d.searchValue || '';
                     d.searchOp = d.searchOp || '%*%';
                     d.timeType = d.timeType || 'datetime';
+                    if(d.dong){
+                        $.ajaxSettings.async = false;
+                        $.getJSON(d.selectList.name,function(data){
+                            d.selectList = data;
+                        });
+                    }
                     if (d.field !== false && d.search !== false) {
                         switch (d.search) {
                             case true:
@@ -320,6 +327,11 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                                 d.searchOp = '=';
                                 var selectHtml = '';
                                 $.each(d.selectList, function (sI, sV) {
+                                    if(typeof(sV)=="object")
+                                    {
+                                        sI = sV.id;
+                                        sV = sV.title;
+                                    }
                                     var selected = '';
                                     if (sI === d.searchValue) {
                                         selected = 'selected=""';
@@ -360,7 +372,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                 });
                 if (formHtml !== '') {
 
-                    $(elem).before('<fieldset id="searchFieldset_' + tableId + '" class="table-search-fieldset layui-hide">\n' +
+                    $(elem).before('<fieldset id="searchFieldset_' + tableId + '" class="table-search-fieldset">\n' +
                         '<legend>条件搜索</legend>\n' +
                         '<form class="layui-form layui-form-pane form-search">\n' +
                         formHtml +
@@ -393,7 +405,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                     $.each(cols, function (i, v) {
                         v.filter = v.filter || false;
                         if (v.filter !== false && tableInit.modify_url !== false) {
-                            admin.table.listenSwitch({filter: v.filter, url: tableInit.modify_url, tableId: tableId, modifyReload: modifyReload});
+                            admin.table.listenSwitch({filter: v.filter, url: tableInit.modify_url, tableId: tableId, modifyReload: modifyReload}, v.switchfunc || false);
                         }
                     });
                 }
@@ -484,7 +496,14 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                 return html;
             },
             toolSpliceUrl(url, field, data) {
-                url = url.indexOf("?") !== -1 ? url + '&' + field + '=' + data[field] : url + '?' + field + '=' + data[field];
+                if(url != undefined)
+                {
+                    var fields = field.split(',');
+                    for (var i=0;i<=fields.length-1;i++) {
+                        url = url.indexOf("?") !== -1 ? url + '&' + fields[i] + '=' + data[fields[i]] : url + '?' + fields[i] + '=' + data[fields[i]];
+                    }
+                    //url = url.indexOf("?") !== -1 ? url + '&' + field + '=' + data[field] : url + '?' + field + '=' + data[field];
+                }
                 return url;
             },
             formatCols: function (cols, init) {
@@ -922,6 +941,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
             // 初始化layui表单
             form.render();
 
+
             // 表格修改
             $("body").on("mouseenter", ".table-edit-tips", function () {
                 var openTips = layer.tips('点击行内容可以进行修改', $(this), {tips: [2, '#e74c3c'], time: 4000});
@@ -1291,26 +1311,23 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
             upload: function () {
                 var uploadList = document.querySelectorAll("[data-upload]");
                 var uploadSelectList = document.querySelectorAll("[data-upload-select]");
+                var productSelectList = document.querySelectorAll("[data-product-select]");
 
                 if (uploadList.length > 0) {
                     $.each(uploadList, function (i, v) {
                         var uploadExts = $(this).attr('data-upload-exts') || init.upload_exts,
                             uploadName = $(this).attr('data-upload'),
-							enuploadName = $(this).attr('data-enupload'),
                             uploadNumber = $(this).attr('data-upload-number') || 'one',
                             uploadSign = $(this).attr('data-upload-sign') || '|',
                             uploadAccept = $(this).attr('data-upload-accept') || 'file',
                             uploadAcceptMime = $(this).attr('data-upload-mimetype') || '',
                             elem = "input[name='" + uploadName + "']",
-							enelem = "input[name='" + enuploadName + "']",
                             uploadElem = this;
 
                         // 监听上传事件
                         upload.render({
                             elem: this,
-                            enelem: this,
                             url: admin.url(init.upload_url),
-							enurl: admin.enurl(init.upload_url),
                             exts: uploadExts,
                             accept: uploadAccept,//指定允许上传时校验的文件类型
                             acceptMime: uploadAcceptMime,//规定打开文件选择框时，筛选出的文件类型
@@ -1319,17 +1336,13 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                             done: function (res) {
                                 if (res.code === 1) {
                                     var url = res.data.url;
-									var enurl = res.data.enurl;
                                     if (uploadNumber !== 'one') {
                                         var oldUrl = $(elem).val();
-										var enoldUrl = $(enelem).val();
                                         if (oldUrl !== '') {
                                             url = oldUrl + uploadSign + url;
-											enurl = enoldUrl + uploadSign + enurl;
                                         }
                                     }
                                     $(elem).val(url);
-									$(enelem).val(enurl);
                                     $(elem).trigger("input");
                                     admin.msg.success(res.msg);
                                 } else {
@@ -1350,7 +1363,7 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                                 var parant = $(this).parent('div');
                                 var liHtml = '';
                                 $.each(urlArray, function (i, v) {
-                                    liHtml += '<li><a><img src="' + v + '" data-image  onerror="this.src=\'' + BASE_URL + 'admin/images/upload-icons/' + uploadIcon + '.png\';this.onerror=null"></a><small class="uploads-delete-tip bg-red badge" data-upload-delete="' + uploadName + '" data-upload-url="' + v + '" data-upload-sign="' + uploadSign + '">×</small></li>\n';
+                                    liHtml += '<li><a><img src="' + v + '" data-image  onerror="this.src=\'' + BASE_URL + 'gladmin/images/upload-icons/' + uploadIcon + '.png\';this.onerror=null"></a><small class="uploads-delete-tip bg-red badge" data-upload-delete="' + uploadName + '" data-upload-url="' + v + '" data-upload-sign="' + uploadSign + '">×</small></li>\n';
                                 });
                                 parant.after('<ul id="bing-' + uploadName + '" class="layui-input-block layuimini-upload-show">\n' + liHtml + '</ul>');
                             }
@@ -1389,13 +1402,11 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                 if (uploadSelectList.length > 0) {
                     $.each(uploadSelectList, function (i, v) {
                         var uploadName = $(this).attr('data-upload-select'),
-							enuploadName = $(this).attr('data-enupload-select'),
                             uploadNumber = $(this).attr('data-upload-number') || 'one',
                             uploadSign = $(this).attr('data-upload-sign') || '|';
 
                         var selectCheck = uploadNumber === 'one' ? 'radio' : 'checkbox';
                         var elem = "input[name='" + uploadName + "']",
-							enelem = "input[name='" + enuploadName + "']",
                             uploadElem = $(this).attr('id');
 
                         tableSelect.render({
@@ -1418,23 +1429,59 @@ define(["jquery", "tableSelect", "ckeditor"], function ($, tableSelect, undefine
                             },
                             done: function (e, data) {
                                 var urlArray = [];
-								var enurlArray = [];
                                 $.each(data.data, function (index, val) {
-                                    urlArray.push(val.url);
-									enurlArray.push(val.enurl)
+                                    urlArray.push(val.url)
                                 });
                                 var url = urlArray.join(uploadSign);
-								var enurl = enurlArray.join(uploadSign);
                                 admin.msg.success('选择成功', function () {
                                     $(elem).val(url);
-									$(enelem).val(enurl);
                                     $(elem).trigger("input");
                                 });
                             }
                         })
 
                     });
+                }
 
+                if (productSelectList.length > 0) {
+                    $.each(productSelectList, function (i, v) {
+                        var uploadName = $(this).attr('data-product-select');
+                        var selectCheck = 'radio',
+                            uploadSign = $(this).attr('data-upload-sign') || '|';
+                        var elem = "input[name='" + uploadName + "']",
+                            uploadElem = $(this).attr('id');
+
+                        tableSelect.render({
+                            elem: "#" + uploadElem,
+                            checkedKey: 'id',
+                            searchType: 'more',
+                            searchList: [
+                                {searchKey: 'title', searchPlaceholder: '请输入文件名'},
+                            ],
+                            table: {
+                                url: admin.url('ajax/getproducts'),
+                                cols: [[
+                                    {type: selectCheck},
+                                    {field: 'id', title: 'ID'},
+                                    {field: 'img', minWidth: 80, search: false, title: '图片信息', imageHeight: 40, align: "center", templet: admin.table.image},
+                                    {field: 'name', width: 150, title: '产品名称', align: "center"},
+                                    {field: 'create_time', width: 200, title: '创建时间', align: "center", search: 'range'},
+                                ]]
+                            },
+                            done: function (e, data) {
+                                var pidArray = [];
+                                $.each(data.data, function (index, val) {
+                                    pidArray.push(val.id)
+                                });
+                                var pid = pidArray.join(uploadSign);
+                                admin.msg.success('选择成功', function () {
+                                    $(elem).val(pid);
+                                    $(elem).trigger("input");
+                                });
+                            }
+                        })
+
+                    });
                 }
             },
             editor: function () {

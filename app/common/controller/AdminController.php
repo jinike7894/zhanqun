@@ -53,11 +53,24 @@ class AdminController extends BaseController
      */
     protected $allowModifyFields = [
         'status',
+        'backjumpstatus',
         'sort',
         'remark',
         'is_delete',
         'is_auth',
         'title',
+        'best',
+        'name',
+        'slogan',
+        'weizhi',
+        'downtime',
+        'income',
+        'url',
+        'noback',
+        'nopc',
+        'coefficient',
+        'price',
+        'autoc'
     ];
 
     /**
@@ -170,6 +183,274 @@ class AdminController extends BaseController
                 continue;
             }
             $op = isset($ops[$key]) && !empty($ops[$key]) ? $ops[$key] : '%*%';
+            if ($this->relationSearch && count(explode('.', $key)) == 1 && $ops =='{}') {
+                $key = "{$tableName}.{$key}";
+            }
+            switch (strtolower($op)) {
+                case '=':
+                    $where[] = [$key, '=', $val];
+                    break;
+                case '%*%':
+                    $where[] = [$key, 'LIKE', "%{$val}%"];
+                    break;
+                case '*%':
+                    $where[] = [$key, 'LIKE', "{$val}%"];
+                    break;
+                case '%*':
+                    $where[] = [$key, 'LIKE', "%{$val}"];
+                    break;
+                case 'range':
+                    [$beginTime, $endTime] = explode(' - ', $val);
+                    $where[] = [$key, '>=', strtotime($beginTime)];
+                    $where[] = [$key, '<=', strtotime($endTime)];
+                    break;
+                default:
+                    $where[] = [$key, $op, "%{$val}"];
+            }
+        }
+        return [$page, $limit, $where, $excludes];
+    }
+
+    protected function buildTableParames1($excludeFields = [])
+    {
+        $get = $this->request->get('', null, null);
+        $page = isset($get['page']) && !empty($get['page']) ? $get['page'] : 1;
+        $limit = isset($get['limit']) && !empty($get['limit']) ? $get['limit'] : 15;
+        $filters = isset($get['filter']) && !empty($get['filter']) ? $get['filter'] : '{}';
+        $ops = isset($get['op']) && !empty($get['op']) ? $get['op'] : '{}';
+        // json转数组
+        $filters = json_decode($filters, true);
+        if(isset($filters['channelCode']))
+        {
+            $channelCode = $filters['channelCode'];
+            unset($filters['channelCode']);
+        }else{
+            $channelCode = '';
+        }
+        $ops = json_decode($ops, true);
+        $where = [];
+        $excludes = [];
+        $cxdate = [];
+
+        // 判断是否关联查询
+        $tableName = CommonTool::humpToLine(lcfirst($this->model->getName()));
+
+        foreach ($filters as $key => $val) {
+            if (in_array($key, $excludeFields)) {
+                $excludes[$key] = $val;
+                continue;
+            }
+            $op = isset($ops[$key]) && !empty($ops[$key]) ? $ops[$key] : '%*%';
+            if ($this->relationSearch && count(explode('.', $key)) == 1 && $ops =='{}') {
+                $key = "{$tableName}.{$key}";
+            }
+            switch (strtolower($op)) {
+                case '=':
+                    $where[] = [$key, '=', $val];
+                    break;
+                case '%*%':
+                    $where[] = [$key, 'LIKE', "%{$val}%"];
+                    break;
+                case '*%':
+                    $where[] = [$key, 'LIKE', "{$val}%"];
+                    break;
+                case '%*':
+                    $where[] = [$key, 'LIKE', "%{$val}"];
+                    break;
+                case 'range':
+                    [$beginTime, $endTime] = explode(' - ', $val);
+                    $cxdate[] = ['date', '>=', date('Y-m-d',strtotime($beginTime))];
+                    $cxdate[] = ['date', '<=', date('Y-m-d',strtotime($endTime))];
+                    break;
+                default:
+                    $where[] = [$key, $op, "%{$val}"];
+            }
+        }
+        return [$page, $limit, $where, $cxdate,$channelCode, $excludes];
+    }
+    protected function buildTableParames2($excludeFields = [])
+    {
+        $get = $this->request->get('', null, null);
+        $page = isset($get['page']) && !empty($get['page']) ? $get['page'] : 1;
+        $limit = isset($get['limit']) && !empty($get['limit']) ? $get['limit'] : 15;
+        $filters = isset($get['filter']) && !empty($get['filter']) ? $get['filter'] : '{}';
+        $ops = isset($get['op']) && !empty($get['op']) ? $get['op'] : '{}';
+        // json转数组
+        $filters = json_decode($filters, true);
+        if(isset($filters['channelCode']))
+        {
+            $channelCode = $filters['channelCode'];
+        }else{
+            $channelCode = '';
+        }
+        $ops = json_decode($ops, true);
+        $where = [];
+        $excludes = [];
+        $cxdate = [];
+
+        // 判断是否关联查询
+        $tableName = CommonTool::humpToLine(lcfirst($this->model->getName()));
+
+        foreach ($filters as $key => $val) {
+            if (in_array($key, $excludeFields)) {
+                $excludes[$key] = $val;
+                continue;
+            }
+            $op = isset($ops[$key]) && !empty($ops[$key]) ? $ops[$key] : '%*%';
+            if ($this->relationSearch && count(explode('.', $key)) == 1 && $ops =='{}') {
+                $key = "{$tableName}.{$key}";
+            }
+            switch (strtolower($op)) {
+                case '=':
+                    $where[] = [$key, '=', $val];
+                    break;
+                case '%*%':
+                    $where[] = [$key, 'LIKE', "%{$val}%"];
+                    break;
+                case '*%':
+                    $where[] = [$key, 'LIKE', "{$val}%"];
+                    break;
+                case '%*':
+                    $where[] = [$key, 'LIKE', "%{$val}"];
+                    break;
+                case 'range':
+                    [$beginTime, $endTime] = explode(' - ', $val);
+                    $cxdate[] = ['date', '>=', date('Y-m-d',strtotime($beginTime))];
+                    $cxdate[] = ['date', '<=', date('Y-m-d',strtotime($endTime))];
+                    $where[] = ['date', '>=', date('Y-m-d',strtotime($beginTime))];
+                    $where[] = ['date', '<=', date('Y-m-d',strtotime($endTime))];
+                    break;
+                default:
+                    $where[] = [$key, $op, "%{$val}"];
+            }
+        }
+        return [$page, $limit, $where, $cxdate,$channelCode, $excludes];
+    }
+    protected function buildTableParames3($excludeFields = [])
+    {
+        //查询安装量专用
+        $get = $this->request->get('', null, null);
+        $page = isset($get['page']) && !empty($get['page']) ? $get['page'] : 1;
+        $limit = isset($get['limit']) && !empty($get['limit']) ? $get['limit'] : 15;
+        $filters = isset($get['filter']) && !empty($get['filter']) ? $get['filter'] : '{}';
+        $ops = isset($get['op']) && !empty($get['op']) ? $get['op'] : '{}';
+        // json转数组
+        $filters = json_decode($filters, true);
+        $ops = json_decode($ops, true);
+        $where = [];
+        $excludes = [];
+        $cxdate = null;
+        // 判断是否关联查询
+        $tableName = CommonTool::humpToLine(lcfirst($this->model->getName()));
+
+        foreach ($filters as $key => $val) {
+            if (in_array($key, $excludeFields)) {
+                $excludes[$key] = $val;
+                continue;
+            }
+            $op = isset($ops[$key]) && !empty($ops[$key]) ? $ops[$key] : '%*%';
+            if ($this->relationSearch && count(explode('.', $key)) == 1 && $ops =='{}') {
+                $key = "{$tableName}.{$key}";
+            }
+            switch (strtolower($op)) {
+                case '=':
+                    $where[] = [$key, '=', $val];
+                    break;
+                case '%*%':
+                    $where[] = [$key, 'LIKE', "%{$val}%"];
+                    break;
+                case '*%':
+                    $where[] = [$key, 'LIKE', "{$val}%"];
+                    break;
+                case '%*':
+                    $where[] = [$key, 'LIKE', "%{$val}"];
+                    break;
+                case 'range':
+                    [$beginTime, $endTime] = explode(' - ', $val);
+                    $where[] = ['create_time', '>=', strtotime(date('Y-m-d',strtotime($beginTime)))];
+                    $where[] = ['create_time', '<', strtotime(date('Y-m-d',strtotime("+1 day",strtotime($endTime))))];
+                    $cxdate = date('Y-m-d',strtotime($beginTime)) . ' - ' . date('Y-m-d',strtotime($endTime));
+                    break;
+                default:
+                    $where[] = [$key, $op, "%{$val}"];
+            }
+        }
+        return [$page, $limit, $where,$cxdate, $excludes];
+    }
+    protected function buildTableParames4($excludeFields = [])
+    {
+        $get = $this->request->get('', null, null);
+        $page = isset($get['page']) && !empty($get['page']) ? $get['page'] : 1;
+        $limit = isset($get['limit']) && !empty($get['limit']) ? $get['limit'] : 15;
+        $filters = isset($get['filter']) && !empty($get['filter']) ? $get['filter'] : '{}';
+        $ops = isset($get['op']) && !empty($get['op']) ? $get['op'] : '{}';
+        // json转数组
+        $filters = json_decode($filters, true);
+        $ops = json_decode($ops, true);
+        $where = [];
+        $excludes = [];
+        $cxdate = [];
+
+        // 判断是否关联查询
+        $tableName = CommonTool::humpToLine(lcfirst($this->model->getName()));
+
+        foreach ($filters as $key => $val) {
+            if (in_array($key, $excludeFields)) {
+                $excludes[$key] = $val;
+                continue;
+            }
+            $op = isset($ops[$key]) && !empty($ops[$key]) ? $ops[$key] : '%*%';
+            if ($this->relationSearch && count(explode('.', $key)) == 1 && $ops =='{}') {
+                $key = "{$tableName}.{$key}";
+            }
+            switch (strtolower($op)) {
+                case '=':
+                    $where[] = [$key, '=', $val];
+                    break;
+                case '%*%':
+                    $where[] = [$key, 'LIKE', "%{$val}%"];
+                    break;
+                case '*%':
+                    $where[] = [$key, 'LIKE', "{$val}%"];
+                    break;
+                case '%*':
+                    $where[] = [$key, 'LIKE', "%{$val}"];
+                    break;
+                case 'range':
+                    [$beginTime, $endTime] = explode(' - ', $val);
+                    $where[] = ['date', '>=', date('Y-m-d',strtotime($beginTime))];
+                    $where[] = ['date', '<=', date('Y-m-d',strtotime($endTime))];
+                    break;
+                default:
+                    $where[] = [$key, $op, "%{$val}"];
+            }
+        }
+        return [$page, $limit, $where, $excludes];
+    }
+
+
+    protected function buildTableParames5($excludeFields = [])
+    {
+        $get = $this->request->get('', null, null);
+        $page = isset($get['page']) && !empty($get['page']) ? $get['page'] : 1;
+        $limit = isset($get['limit']) && !empty($get['limit']) ? $get['limit'] : 15;
+        $filters = isset($get['filter']) && !empty($get['filter']) ? $get['filter'] : '{}';
+        $ops = isset($get['op']) && !empty($get['op']) ? $get['op'] : '{}';
+        // json转数组
+        $filters = json_decode($filters, true);
+        $ops = json_decode($ops, true);
+        $where = [];
+        $excludes = [];
+
+        // 判断是否关联查询
+        $tableName = CommonTool::humpToLine(lcfirst($this->model->getName()));
+
+        foreach ($filters as $key => $val) {
+            if (in_array($key, $excludeFields)) {
+                $excludes[$key] = $val;
+                continue;
+            }
+            $op = isset($ops[$key]) && !empty($ops[$key]) ? $ops[$key] : '%*%';
             if ($this->relationSearch && count(explode('.', $key)) == 1) {
                 $key = "{$tableName}.{$key}";
             }
@@ -197,6 +478,7 @@ class AdminController extends BaseController
         }
         return [$page, $limit, $where, $excludes];
     }
+
 
     /**
      * 下拉选择列表
@@ -258,12 +540,12 @@ class AdminController extends BaseController
         // 验证登录
         if (!in_array($currentController, $adminConfig['no_login_controller']) &&
             !in_array($currentNode, $adminConfig['no_login_node'])) {
-            empty($adminId) && $this->error('请先登录后台', [], __url('admin/login/index'));
+            empty($adminId) && $this->error('请先登录后台', [], __url('gladmin/login/index'));
 
             // 判断是否登录过期
             if ($expireTime !== true && time() > $expireTime) {
                 session('admin', null);
-                $this->error('登录已过期，请重新登录', [], __url('admin/login/index'));
+                $this->error('登录已过期，请重新登录', [], __url('gladmin/login/index'));
             }
         }
 

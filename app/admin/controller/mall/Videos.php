@@ -36,7 +36,7 @@ class Videos extends AdminController
             if (input('selectFields')) {
                 return $this->selectList();
             }
-            list($page, $limit, $where) = $this->buildTableParames();
+            list($page, $limit, $where) = $this->buildTableParames5();
             $count = $this->model
                 ->withJoin('cate', 'LEFT')
                 ->where($where)

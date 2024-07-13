@@ -1,6 +1,6 @@
 layui.define(['table', 'jquery', 'form'], function (exports) {
     "use strict";
-
+    console.log("tableSelect.js hack");
     var MOD_NAME = 'tableSelect',
         $ = layui.jquery,
         table = layui.table,
@@ -36,11 +36,12 @@ layui.define(['table', 'jquery', 'form'], function (exports) {
             if($('div.tableSelect').length >= 1){
                 return false;
             }
-
+            //todo 这里来计算下layer.zIndex
+            let layerIndex = window.layer.zIndex - 1;
             var t = elem.offset().top + elem.outerHeight()+"px";
             var l = elem.offset().left +"px";
             var tableName = "tableSelect_table_" + new Date().getTime();
-            var tableBox = '<div class="tableSelect layui-anim layui-anim-upbit" style="left:'+l+';top:'+t+';border: 1px solid #d2d2d2;background-color: #fff;box-shadow: 0 2px 4px rgba(0,0,0,.12);padding:10px 10px 0 10px;position: absolute;z-index:66666666;margin: 5px 0;border-radius: 2px;min-width:'+opt.width+'px;">';
+            var tableBox = '<div class="tableSelect layui-anim layui-anim-upbit" style="left:'+l+';top:'+t+';border: 1px solid #d2d2d2;background-color: #fff;box-shadow: 0 2px 4px rgba(0,0,0,.12);padding:10px 10px 0 10px;position: absolute;z-index:'+layerIndex+';margin: 5px 0;border-radius: 2px;min-width:'+opt.width+'px;">';
             tableBox += '<div class="tableSelectBar">';
             tableBox += '<form class="layui-form" action="" style="display:inline-block;">';
 
@@ -193,10 +194,14 @@ layui.define(['table', 'jquery', 'form'], function (exports) {
             }
 
             //FIX位置
-            var overHeight = (elem.offset().top + elem.outerHeight() + tableBox.outerHeight() - $(window).scrollTop()) > $(window).height();
+            //这里保证了展示在按钮下方的弹出框，是否能在页面显示完全，但是页面中是有滚动条的，弹出框也不是fixed定位，这里不需要这么修正。反而为导致不展示不下所有定位全乱。
+            //只需要修正左右
             var overWidth = (elem.offset().left + tableBox.outerWidth()) > $(window).width();
-            overHeight && tableBox.css({'top':'auto','bottom':'0px'});
             overWidth && tableBox.css({'left':'auto','right':'5px'})
+            /*   var overHeight = (elem.offset().top + elem.outerHeight() + tableBox.outerHeight() - $(window).scrollTop()) > $(window).height();
+               var overWidth = (elem.offset().left + tableBox.outerWidth()) > $(window).width();
+               overHeight && tableBox.css({'top':'auto','bottom':'0px'});
+               overWidth && tableBox.css({'left':'auto','right':'5px'})*/
 
             //关键词搜索
             form.on('submit(tableSelect_btn_search)', function(data){
