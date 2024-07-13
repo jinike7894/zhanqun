@@ -151,27 +151,7 @@ class Index extends BaseController
 	public function index($channel = 0)
 	{
 		$menulist = $this->Menu->getmenu(0);
-		$newlist = $this->MallVideos->getorderlist('sort desc,create_time desc,id desc',24);
-		$pxlist = $this->MallVideos->getorderlist('eye desc,id desc',30);
-		$yuanclist = $this->MallVideos->getlist(40,0,1,12);
-		$chigualist = $this->MallVideos->getlist(1,0,1,12);
-		$guochanlist = $this->MallVideos->getlist(2,0,1,12);
-		$rihanlist = $this->MallVideos->getlist(3,0,1,12);
-		$oumeilist = $this->MallVideos->getlist(4,0,1,12);
-		$dongmanlist = $this->MallVideos->getlist(5,0,1,12);
-		$ailist = $this->MallVideos->getlist(6,0,1,12);
-		$jieshuolist = $this->MallVideos->getlist(8,0,1,12);
 		View::assign('menulist',$menulist);
-		View::assign('newlist',$newlist);
-		View::assign('pxlist',$pxlist);
-		View::assign('yuanclist',$yuanclist['list']);
-		View::assign('chigualist',$chigualist['list']);
-		View::assign('guochanlist',$guochanlist['list']);
-		View::assign('rihanlist',$rihanlist['list']);
-		View::assign('oumeilist',$oumeilist['list']);
-		View::assign('dongmanlist',$dongmanlist['list']);
-		View::assign('ailist',$ailist['list']);
-		View::assign('jieshuolist',$jieshuolist['list']);
         View::assign('channel',$channel);
 		if(ismobile())
 		{
@@ -180,6 +160,40 @@ class Index extends BaseController
 			return View::fetch('index_mobile');
 		}
 	}
+
+    public function featured($channel = 0)
+    {
+        $menulist = $this->Menu->getmenu(0);
+        $newlist = $this->MallVideos->getorderlist('sort desc,create_time desc,id desc',24);
+        $pxlist = $this->MallVideos->getorderlist('eye desc,id desc',30);
+        $yuanclist = $this->MallVideos->getlist(40,0,1,12);
+        $chigualist = $this->MallVideos->getlist(1,0,1,12);
+        $guochanlist = $this->MallVideos->getlist(2,0,1,12);
+        $rihanlist = $this->MallVideos->getlist(3,0,1,12);
+        $oumeilist = $this->MallVideos->getlist(4,0,1,12);
+        $dongmanlist = $this->MallVideos->getlist(5,0,1,12);
+        $ailist = $this->MallVideos->getlist(6,0,1,12);
+        $jieshuolist = $this->MallVideos->getlist(8,0,1,12);
+        View::assign('menulist',$menulist);
+        View::assign('newlist',$newlist);
+        View::assign('pxlist',$pxlist);
+        View::assign('yuanclist',$yuanclist['list']);
+        View::assign('chigualist',$chigualist['list']);
+        View::assign('guochanlist',$guochanlist['list']);
+        View::assign('rihanlist',$rihanlist['list']);
+        View::assign('oumeilist',$oumeilist['list']);
+        View::assign('dongmanlist',$dongmanlist['list']);
+        View::assign('ailist',$ailist['list']);
+        View::assign('jieshuolist',$jieshuolist['list']);
+        View::assign('channel',$channel);
+        if(ismobile())
+        {
+            return View::fetch('featured_mobile');
+        }else{
+            return View::fetch('featured_mobile');
+        }
+    }
+
 	public function category($channel = 0)
 	{
 		$category_id = input('param.category_id/d',0);
@@ -298,11 +312,6 @@ class Index extends BaseController
 
     public function drug($channel = 0){
         return View::fetch('drug_mobile');
-    }
-
-
-    public function featured($channel = 0){
-        return View::fetch('featured_mobile');
     }
 
 	public function test()
