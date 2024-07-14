@@ -2,6 +2,10 @@
     padding-top: 11px;
     padding-bottom: 11px;
 }
+.py5{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
 .main-box {
     /* float: left; */
     width: 100%;
@@ -398,6 +402,9 @@
 .girl-bg {
     height: 33px;
     background-color: rgba(20, 20, 20, 0.5);
+    font-size: 11px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .girl-info {
