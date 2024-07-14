@@ -104,11 +104,12 @@
                             <a class="more-btn" href="/livestreaming/1.html">&#26356;&#22810;&#20027;&#25773;</a>
                         </div>
                         <div class="pb23 grid-cols-2 gap7">
-                            {volist name='NavHotLiveList' id="NavHotLive"}
-                            <a class="relative bolck live-item" i="{$NavHotLive['id']}" href="{$NavHotLive['url']}"
-                                target="_blank">
-                                <img class="live-img lozad" data-src="{$NavHotLive['img']}"
-                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                            {volist name='NavHotLiveList' id="NavHotLive" key="index"}
+                            {if condition="$index == 1 or $index == 2"}
+                            <a class="relative bolck live-item" i="{$NavHotLive['id']}" href="{$NavHotLive['url']}" target="_blank">
+                                <img class="live-img lozad"
+                                     data-src="{$NavHotLive['img']}"
+                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 <div class="absolute bottom75 flex-center w-full">
                                     <div class="live-bg flex-center">
                                         <div class="loading-container">
@@ -119,11 +120,11 @@
                                         <div>&#36827;&#20837;&#30452;&#25773;&#38388;</div>
                                     </div>
                                 </div>
-                                <div class="absolute bottom0 px7 flex-space-between w-full py5">
+                                <div class="absolute bottom0 px7 flex-space-between w-full">
                                     <div>
                                         <img class="avatar lozad"
-                                            data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                            src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                             data-src="{$NavHotLive['img']}"
+                                             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         <span>{$NavHotLive['name']}</span>
                                     </div>
                                     <div>
@@ -132,6 +133,8 @@
                                     </div>
                                 </div>
                             </a>
+                            {/if}
+
                             {/volist}
                         </div>
                         <div class="title-wrap">
@@ -144,16 +147,18 @@
                         </div>
 
                         <div class="pb23 grid-cols-2 gap7">
-                            {volist name='NavHotHookupList' id="NavHotHookup"}
-                            <a class="relative bolck girl-item" href="/girl/1.html">
-                                <img class="girl-img lozad" data-src="{$NavHotHookup['img']}"
-                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                            {volist name='NavHotHookupList' id="NavHotHookup" key="index"}
+                            {if condition="$index == 1 or $index == 2"}
+                            <a class="relative bolck girl-item"  href="/girl/1.html">
+                                <img class="girl-img lozad"
+                                     data-src="{$NavHotHookup['img']}"
+                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 <div class="absolute bottom71 girl-bg flex-center w-full">
-                                    {$NavHotHookup['name']}
+                                    {if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0]} {/if}
                                 </div>
                                 <div class="girl-info absolute bottom0 pl5  w-full">
                                     <div class="flex-space-between py7">
-                                        <div class="text16">{$NavHotHookup['name']}</div>
+                                        <div class="text16">{if isset($NavHotHookup['names'][1])} {$NavHotHookup['names'][1]} {/if}</div>
                                         <div>
                                             <img src="__IMAGES__/map.svg" alt="">
                                             <span>西安 距您{$NavHotHookup['juli']}m</span>
@@ -162,6 +167,8 @@
                                     <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
                                 </div>
                             </a>
+                            {/if}
+
                             {/volist}
                         </div>
                         <div class="title-wrap">
@@ -181,21 +188,24 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                {volist name='NavHotMedicineList' id="NavHotMedicine"}
-                                <a class="y-item" href="drug/1.html">
+                                {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
+                                {if condition="$index == 1 or $index == 2"}
+                                <a class="y-item"  href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
-                                            <img class="lozad" data-src="{$NavHotMedicine['img']}"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            <img class="lozad"
+                                                 data-src="{$NavHotMedicine['img']}"
+                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{$NavHotMedicine['name']}</div>
-                                            <div class="y-no">{$NavHotMedicine['name']}</div>
+                                            <div class="y-name">{foreach $NavHotMedicine['names'] as $key => $index} {if($key == 0) } {$index}  {/if} {/foreach}</div>
+                                            <div class="y-no">编号：{foreach $NavHotMedicine['names'] as $key => $index} {if($key == 1) } {$index}  {/if} {/foreach}</div>
                                         </div>
-                                        <div class="y-text">{$NavHotMedicine['name']}</div>
+                                        <div class="y-text">{foreach $NavHotMedicine['names'] as $key => $index} {if($key == 2) } {$index}  {/if} {/foreach}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
+                                {/if}
                                 {/volist}
                             </div>
                         </div>
@@ -206,21 +216,25 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item" href="drug/1.html">
+                                {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
+                                {if condition="$index == 3 or $index == 4"}
+                                <a class="y-item"  href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
-                                                data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                 data-src="{$NavHotMedicine['img']}"
+                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">烈艳</div>
-                                            <div class="y-no">编号：A1</div>
+                                            <div class="y-name">{foreach $NavHotMedicine['names'] as $key => $index} {if($key == 0) } {$index}  {/if} {/foreach}</div>
+                                            <div class="y-no">编号：{foreach $NavHotMedicine['names'] as $key => $index} {if($key == 1) } {$index}  {/if} {/foreach}</div>
                                         </div>
-                                        <div class="y-text">因为此药在体 内代谢极快，被誉为“奸人手无形”“强奸不犯法”由于查不出任何证...</div>
+                                        <div class="y-text">{foreach $NavHotMedicine['names'] as $key => $index} {if($key == 2) } {$index}  {/if} {/foreach}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
+                                {/if}
+                                {/volist}
                             </div>
                         </div>
                         <div class="y-wrap">
@@ -230,21 +244,25 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item" href="drug/1.html">
+                                {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
+                                {if condition="$index == 5 or $index == 6"}
+                                <a class="y-item"  href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
-                                                data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                 data-src="{$NavHotMedicine['img']}"
+                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">烈艳</div>
-                                            <div class="y-no">编号：A1</div>
+                                            <div class="y-name">{foreach $NavHotMedicine['names'] as $key => $index} {if($key == 0) } {$index}  {/if} {/foreach}</div>
+                                            <div class="y-no">编号：{foreach $NavHotMedicine['names'] as $key => $index} {if($key == 1) } {$index}  {/if} {/foreach}</div>
                                         </div>
-                                        <div class="y-text">因为此药在体 内代谢极快，被誉为“奸人手无形”“强奸不犯法”由于查不出任何证...</div>
+                                        <div class="y-text">{foreach $NavHotMedicine['names'] as $key => $index} {if($key == 2) } {$index}  {/if} {/foreach}</div>
                                     </div>
-                                    <div class="y-info-btn">&#26597;&#30475;&#35814;&#24773;</div>
+                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
+                                {/if}
+                                {/volist}
                             </div>
                         </div>
                         <!-- <div class="flex-center">
