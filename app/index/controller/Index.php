@@ -531,25 +531,34 @@ class Index extends BaseController
 		}
 	}
 
-    public function livestreaming($channel = 0){
-
+    public function livestreaming($channel = 0)
+    {
+        View::assign('channel',$channel);
         return View::fetch('livestreaming_mobile');
     }
 
-    public function hookup($channel = 0){
+    public function hookup($channel = 0)
+    {
+        View::assign('channel',$channel);
         return View::fetch('hookup_mobile');
     }
 
-    public function girl($channel = 0){
+    public function girl($channel = 0)
+    {
+        View::assign('channel',$channel);
         return View::fetch('girl_mobile');
     }
 
-    public function drugstore($channel = 0){
+    public function drugstore($channel = 0)
+    {
+        View::assign('channel',$channel);
         return View::fetch('drugstore_mobile');
     }
 
 
-    public function drug($channel = 0){
+    public function drug($channel = 0)
+    {
+        View::assign('channel',$channel);
         return View::fetch('drug_mobile');
     }
 
