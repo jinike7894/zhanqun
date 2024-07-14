@@ -21,7 +21,7 @@ function createdS(id, options = {}) {
 const a = {
     baseUrl: "",
     clickUrl: "/tongji",
-    installUrl: "/api/data/install"
+    installUrl: "/install"
 };
 let l = 0,
     u = 0;
@@ -84,6 +84,19 @@ function e(n) {
 function i(n) {
     return a.baseUrl + n
 }
+function install() {
+    var n = {
+        linkId: $('meta[name="s"]').attr("s")
+    },
+    t = r(n),
+    o = $('meta[name="my"]').attr("k"),
+    c = e(o + e(o + t.channel + t.linkId));
+    t.sign = c,
+    $.post(i(a.installUrl), t,
+    function() {
+        console.log("install done!")
+    })
+}   
 function adClick(n) {
     var t = $(this).attr("i");
     if (!n.originalEvent.isTrusted) return !1;
@@ -117,8 +130,9 @@ function scrollMenu () {
 }
 $(document).ready(
     function () {
-        mySetRem()
+        mySetRem();
         scrollMenu();
+        install();
         createdS('#swiper-banner', {
             loop: !0,
             autoplay: !0,
