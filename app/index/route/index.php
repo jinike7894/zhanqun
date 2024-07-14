@@ -49,6 +49,8 @@ Route::get('/test','index/test');
 
 Route::post('/tongji','data/tongji');
 
+Route::post('/install','data/install');
+
 
 
 //Route::get('index/epass','index/epass');
