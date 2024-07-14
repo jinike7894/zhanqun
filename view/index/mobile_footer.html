@@ -89,13 +89,13 @@
 </script><!-- 禁开发者工具调试 -->
 <script>
   //如果用户在工具栏调起开发者工具，那么判断浏览器的可视高度和可视宽度是否有改变，如有改变则关闭本页面 
-  var debuggerH = window.innerHeight, debuggerW = window.innerWidth;
-  window.onresize = function () {
-      if (debuggerH != window.innerHeight || debuggerW != window.innerWidth) {
-          window.close();
-          window.location = "about:blank";
-      }
-  }
+  // var debuggerH = window.innerHeight, debuggerW = window.innerWidth;
+  // window.onresize = function () {
+  //     if (debuggerH != window.innerHeight || debuggerW != window.innerWidth) {
+  //         window.close();
+  //         window.location = "about:blank";
+  //     }
+  // }
 
   // 无限的 debugger 兼容性好
   setInterval(function() {
