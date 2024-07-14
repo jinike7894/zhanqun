@@ -134,7 +134,6 @@
                                 </div>
                             </a>
                             {/if}
-
                             {/volist}
                         </div>
                         <div class="title-wrap">
@@ -168,7 +167,6 @@
                                 </div>
                             </a>
                             {/if}
-
                             {/volist}
                         </div>
                         <div class="title-wrap">
@@ -271,12 +269,14 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="ad-conter">
-                            <a rel="external nofollow" i="" href="https://x33316.com:5433" target="_blank">
-                                <img class="lozad"
-                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                    src="__IMAGES__/loading_img_bg_default.jpg">
-                                <div>澳门赌场</div>
+                            {volist name='NavCinemaSudokuList' id="NavCinemaSudoku"}
+                            <a rel="external nofollow" i="{$NavCinemaSudoku['id']}" href="{$NavCinemaSudoku['url']}"
+                               target="_blank">
+                                <img class="lozad" data-src="{$NavCinemaSudoku['img']}"
+                                     src="__IMAGES__/loading_img_bg_default.jpg">
+                                <div>{$NavCinemaSudoku['name']}</div>
                             </a>
+                            {/volist}
                         </div>
                         <div class="title-wrap">
                             <div class="title-l">
@@ -293,10 +293,12 @@
                             <a class="more-btn" href="/livestreaming/1.html">&#26356;&#22810;&#20027;&#25773;</a>
                         </div>
                         <div class="pb23 grid-cols-2 gap7">
-                            <a class="relative bolck live-item" i="" href="" target="_blank">
+                            {volist name='NavCinemaLiveList' id="NavCinemaLive" key="index"}
+                            {if condition="$index == 1 or $index == 2"}
+                            <a class="relative bolck live-item" i="{$NavCinemaLive['id']}" href="{$NavCinemaLive['url']}" target="_blank">
                                 <img class="live-img lozad"
-                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                     data-src="{$NavCinemaLive['img']}"
+                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 <div class="absolute bottom75 flex-center w-full">
                                     <div class="live-bg flex-center">
                                         <div class="loading-container">
@@ -307,19 +309,21 @@
                                         <div>&#36827;&#20837;&#30452;&#25773;&#38388;</div>
                                     </div>
                                 </div>
-                                <div class="absolute bottom0 px7 flex-space-between w-full py5">
+                                <div class="absolute bottom0 px7 flex-space-between w-full">
                                     <div>
                                         <img class="avatar lozad"
-                                            data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                            src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        <span>小九儿</span>
+                                             data-src="{$NavCinemaLive['img']}"
+                                             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                        <span>{$NavCinemaLive['name']}</span>
                                     </div>
                                     <div>
                                         <img src="__IMAGES__/hot.svg" alt="">
-                                        <span>236</span>
+                                        <span>{$NavCinemaLive['yueNum']}</span>
                                     </div>
                                 </div>
                             </a>
+                            {/if}
+                            {/volist}
                         </div>
                         <div class="title-wrap">
                             <div class="title-l">
@@ -331,24 +335,28 @@
                         </div>
 
                         <div class="pb23 grid-cols-2 gap7">
-                            <a class="relative bolck girl-item" href="/girl/1.html">
+                            {volist name='NavCinemaHookupList' id="NavCinemaHookup" key="index"}
+                            {if condition="$index == 1 or $index == 2"}
+                            <a class="relative bolck girl-item"  href="/girl/1.html">
                                 <img class="girl-img lozad"
-                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                     data-src="{$NavCinemaHookup['img']}"
+                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 <div class="absolute bottom71 girl-bg flex-center w-full">
-                                    21岁 # 162cm # 47kg # 34D
+                                    {if isset($NavCinemaHookup['names'][0])} {$NavCinemaHookup['names'][0]} {/if}
                                 </div>
                                 <div class="girl-info absolute bottom0 pl5  w-full">
                                     <div class="flex-space-between py7">
-                                        <div class="text16">优萌</div>
+                                        <div class="text16">{if isset($NavCinemaHookup['names'][1])} {$NavCinemaHookup['names'][1]} {/if}</div>
                                         <div>
                                             <img src="__IMAGES__/map.svg" alt="">
-                                            <span>西安 距您0.1km</span>
+                                            <span>西安 距您{$NavCinemaHookup['juli']}m</span>
                                         </div>
                                     </div>
                                     <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
                                 </div>
                             </a>
+                            {/if}
+                            {/volist}
                         </div>
                         <div class="title-wrap">
                             <div class="title-l">
@@ -438,12 +446,14 @@
                     </div>
                     <div class="swiper-slide">
                         <div class="ad-conter">
-                            <a rel="external nofollow" i="" href="https://x33316.com:5433" target="_blank">
-                                <img class="lozad"
-                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                    src="__IMAGES__/loading_img_bg_default.jpg">
-                                <div>澳门赌场</div>
+                            {volist name='NavBCSudokuList' id="NavBCSudoku"}
+                            <a rel="external nofollow" i="{$NavBCSudoku['id']}" href="{$NavBCSudoku['url']}"
+                               target="_blank">
+                                <img class="lozad" data-src="{$NavBCSudoku['img']}"
+                                     src="__IMAGES__/loading_img_bg_default.jpg">
+                                <div>{$NavBCSudoku['name']}</div>
                             </a>
+                            {/volist}
                         </div>
                         <div class="title-wrap">
                             <div class="title-l">
@@ -460,10 +470,12 @@
                             <a class="more-btn" href="/livestreaming/1.html">&#26356;&#22810;&#20027;&#25773;</a>
                         </div>
                         <div class="pb23 grid-cols-2 gap7">
-                            <a class="relative bolck live-item" i="" href="" target="_blank">
+                            {volist name='NavBCLiveList' id="NavBCLive" key="index"}
+                            {if condition="$index == 1 or $index == 2"}
+                            <a class="relative bolck live-item" i="{$NavBCLive['id']}" href="{$NavBCLive['url']}" target="_blank">
                                 <img class="live-img lozad"
-                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                     data-src="{$NavBCLive['img']}"
+                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 <div class="absolute bottom75 flex-center w-full">
                                     <div class="live-bg flex-center">
                                         <div class="loading-container">
@@ -474,19 +486,21 @@
                                         <div>&#36827;&#20837;&#30452;&#25773;&#38388;</div>
                                     </div>
                                 </div>
-                                <div class="absolute bottom0 px7 flex-space-between w-full py5">
+                                <div class="absolute bottom0 px7 flex-space-between w-full">
                                     <div>
                                         <img class="avatar lozad"
-                                            data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                            src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        <span>小九儿</span>
+                                             data-src="{$NavBCLive['img']}"
+                                             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                        <span>{$NavBCLive['name']}</span>
                                     </div>
                                     <div>
                                         <img src="__IMAGES__/hot.svg" alt="">
-                                        <span>236</span>
+                                        <span>{$NavBCLive['yueNum']}</span>
                                     </div>
                                 </div>
                             </a>
+                            {/if}
+                            {/volist}
                         </div>
                         <div class="title-wrap">
                             <div class="title-l">
@@ -498,24 +512,28 @@
                         </div>
 
                         <div class="pb23 grid-cols-2 gap7">
-                            <a class="relative bolck girl-item" href="/girl/1.html">
+                            {volist name='NavBCHookupList' id="NavBCHookup" key="index"}
+                            {if condition="$index == 1 or $index == 2"}
+                            <a class="relative bolck girl-item"  href="/girl/1.html">
                                 <img class="girl-img lozad"
-                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                     data-src="{$NavBCHookup['img']}"
+                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 <div class="absolute bottom71 girl-bg flex-center w-full">
-                                    21岁 # 162cm # 47kg # 34D
+                                    {if isset($NavBCHookup['names'][0])} {$NavBCHookup['names'][0]} {/if}
                                 </div>
                                 <div class="girl-info absolute bottom0 pl5  w-full">
                                     <div class="flex-space-between py7">
-                                        <div class="text16">优萌</div>
+                                        <div class="text16">{if isset($NavBCHookup['names'][1])} {$NavBCHookup['names'][1]} {/if}</div>
                                         <div>
                                             <img src="__IMAGES__/map.svg" alt="">
-                                            <span>西安 距您0.1km</span>
+                                            <span>西安 距您{$NavBCHookup['juli']}m</span>
                                         </div>
                                     </div>
                                     <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
                                 </div>
                             </a>
+                            {/if}
+                            {/volist}
                         </div>
                         <div class="title-wrap">
                             <div class="title-l">
