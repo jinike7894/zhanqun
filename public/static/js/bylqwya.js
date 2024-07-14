@@ -20,7 +20,7 @@ function createdS(id, options = {}) {
 }
 const a = {
     baseUrl: "",
-    clickUrl: "/api/data/tongji",
+    clickUrl: "/tongji",
     installUrl: "/api/data/install"
 };
 let l = 0,
@@ -103,9 +103,22 @@ function adClick(n) {
                 console.log("click done!")
             })
 }
+function scrollMenu () {
+    let i = $('.top-nav .nav-item').index($('.nav-menu-selected'))
+    if(!i) return;
+    let width = $('.top-nav a:first').width()
+    let fwidth =  $('.top-nav').width()
+    if(fwidth<(i+1)*width){
+        $('.top-nav').animate({
+            scrollLeft: (i-1)*width 
+          }, 500);
+    }
+   
+}
 $(document).ready(
     function () {
         mySetRem()
+        scrollMenu();
         createdS('#swiper-banner', {
             loop: !0,
             autoplay: !0,
@@ -165,6 +178,7 @@ $(document).ready(
             $('.nav-menu-selected').removeClass('nav-menu-selected')
             $(this).addClass('nav-menu-selected')
         })
+        
     }
 
 )

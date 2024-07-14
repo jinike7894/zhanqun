@@ -4,8 +4,8 @@
 
 <body>
     <div class="v-s-nav-box-h">
-        <div class="main-box">
-            <div class="v-s-logo"><a href="/5.html"><img
+        <div class="main-box p9">
+            <div class="v-s-logo"><a href="/"><img
                         src="__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
             <div class="v-s-nav-search-box">
                 <a href="/searchhome/{$channel}.html">
@@ -14,8 +14,10 @@
                         <i class="bi bi-search"></i>
                     </div>
                 </a>
-                <div>
-                    <img class="left-img" src="__IMAGES__/wy.png" alt="" srcset="">
+                <img class="left-img" src="__IMAGES__/collect-icon.gif" alt="" srcset="">
+                <div class="d-load-btn">
+                    <img src="__IMAGES__/d-load.svg" alt="">
+                    <span>&#19979;&#36733;&#65;&#80;&#80;</span>
                 </div>
             </div>
         </div>
@@ -23,6 +25,9 @@
         <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
             <a href="/5.html">
                 <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">导航</div>
+            </a>
+            <a href="/featured/1.html">
+                <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">精选</div>
             </a>
             {volist name='menulist' id="menu"}
             <a href="/category/{$channel}.html?category_id={$menu['id']}">

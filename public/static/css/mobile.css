@@ -6,6 +6,15 @@
     padding-top: 5px;
     padding-bottom: 5px;
 }
+.d-load-btn{
+    background: linear-gradient(93.06deg, #46B1FF 9.76%, #2674F5 94.75%);
+    color: #fff;
+    border-radius: 23px;
+    padding: 2px 6px;
+}
+.p9{
+    padding: 9px;
+}
 .main-box {
     /* float: left; */
     width: 100%;
@@ -382,7 +391,7 @@
 }
 
 .vidoe-title-1 {
-    margin: 16px 0;
+    margin: 12px 0;
     height: 21px;
     color: #98999A;
 }

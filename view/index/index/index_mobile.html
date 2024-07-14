@@ -4,7 +4,7 @@
 
 <body>
     <div class="v-s-nav-box-h">
-        <div class="main-box">
+        <div class="main-box p9">
             <div class="v-s-logo"><a href="/"><img
                         src="__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
             <div class="v-s-nav-search-box">
@@ -14,8 +14,10 @@
                         <i class="bi bi-search"></i>
                     </div>
                 </a>
-                <div>
-                    <img class="left-img" src="__IMAGES__/wy.png" alt="" srcset="">
+                <img class="left-img" src="__IMAGES__/collect-icon.gif" alt="" srcset="">
+                <div class="d-load-btn">
+                    <img src="__IMAGES__/d-load.svg" alt="">
+                    <span>&#19979;&#36733;&#65;&#80;&#80;</span>
                 </div>
             </div>
         </div>
@@ -23,6 +25,9 @@
         <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
             <a href="/">
                 <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item nav-menu-selected">导航</div>
+            </a>
+            <a href="/featured/1.html">
+                <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">精选</div>
             </a>
             {volist name='menulist' id="menu"}
             <a href="/category/{$channel}.html?category_id={$menu['id']}">
@@ -37,9 +42,7 @@
             <div class="swiper-slide">
                 <a rel="external nofollow" i="{$NavBanner['id']}" href="{$NavBanner['androidurl']}" target="_blank">
                     <div title="{$NavBanner['name']}">
-                        <img class="lozad"
-                             data-src="{$NavBanner['img']}"
-                             src="__IMAGES__/loading_img_bg_default.jpg">
+                        <img class="lozad" data-src="{$NavBanner['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
                     </div>
                 </a>
             </div>
@@ -58,30 +61,30 @@
         </div>
     </div>
     <div>
-        <div class="conter-wrap">
-            <div class="ad-menu-wrap">
-                <div class="ad-menu-item active">
-                    <div class="ad-t">&#28909;&#38376;&#31934;&#21697;</div>
-                    <div>&#26497;&#33268;&#29956;&#36873;&#32;&#24050;&#39046;&#28526;&#27969;</div>
-                </div>
-                <div class="ad-menu-item">
-                    <div class="ad-t">&#25104;&#20154;&#24433;&#38498;</div>
-                    <div>&#28023;&#37327;&#35270;&#39057;&#44;&#39640;&#28165;&#30011;&#36136;</div>
-                </div>
-                <div class="ad-menu-item">
-                    <div class="ad-t">&#20307;&#32946;&#26827;&#29260;</div>
-                    <div>&#19981;&#20013;&#21253;&#36180;&#65292;&#20805;&#20540;&#36192;&#36865;&#53;&#48;&#37;</div>
-                </div>
+        <div class="ad-menu-wrap">
+            <div class="ad-menu-item active">
+                <div class="ad-t">&#28909;&#38376;&#31934;&#21697;</div>
+                <div>&#26497;&#33268;&#29956;&#36873;&#32;&#24050;&#39046;&#28526;&#27969;</div>
             </div>
+            <div class="ad-menu-item">
+                <div class="ad-t">&#25104;&#20154;&#24433;&#38498;</div>
+                <div>&#28023;&#37327;&#35270;&#39057;&#44;&#39640;&#28165;&#30011;&#36136;</div>
+            </div>
+            <div class="ad-menu-item">
+                <div class="ad-t">&#20307;&#32946;&#26827;&#29260;</div>
+                <div>&#19981;&#20013;&#21253;&#36180;&#65292;&#20805;&#20540;&#36192;&#36865;&#53;&#48;&#37;</div>
+            </div>
+        </div>
+        <div class="conter-wrap">
             <div id="swiper-ad" class="swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="ad-conter">
                             {volist name='NavHotSudokuList' id="NavHotSudoku"}
-                            <a rel="external nofollow" i="{$NavHotSudoku['id']}" href="{$NavHotSudoku['url']}" target="_blank">
-                                <img class="lozad"
-                                     data-src="{$NavHotSudoku['img']}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg">
+                            <a rel="external nofollow" i="{$NavHotSudoku['id']}" href="{$NavHotSudoku['url']}"
+                                target="_blank">
+                                <img class="lozad" data-src="{$NavHotSudoku['img']}"
+                                    src="__IMAGES__/loading_img_bg_default.jpg">
                                 <div>{$NavHotSudoku['name']}</div>
                             </a>
                             {/volist}
@@ -102,10 +105,10 @@
                         </div>
                         <div class="pb23 grid-cols-2 gap7">
                             {volist name='NavHotLiveList' id="NavHotLive"}
-                            <a class="relative bolck live-item" i="{$NavHotLive['id']}" href="{$NavHotLive['url']}" target="_blank">
-                                <img class="live-img lozad"
-                                     data-src="{$NavHotLive['img']}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                            <a class="relative bolck live-item" i="{$NavHotLive['id']}" href="{$NavHotLive['url']}"
+                                target="_blank">
+                                <img class="live-img lozad" data-src="{$NavHotLive['img']}"
+                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 <div class="absolute bottom75 flex-center w-full">
                                     <div class="live-bg flex-center">
                                         <div class="loading-container">
@@ -119,8 +122,8 @@
                                 <div class="absolute bottom0 px7 flex-space-between w-full py5">
                                     <div>
                                         <img class="avatar lozad"
-                                             data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                                            src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         <span>{$NavHotLive['name']}</span>
                                     </div>
                                     <div>
@@ -139,13 +142,12 @@
                             </div>
                             <a class="more-btn" href="/hookup/1.html">&#26356;&#22810;&#36164;&#28304;</a>
                         </div>
-            
+
                         <div class="pb23 grid-cols-2 gap7">
                             {volist name='NavHotHookupList' id="NavHotHookup"}
-                            <a class="relative bolck girl-item"  href="/girl/1.html">
-                                <img class="girl-img lozad"
-                                     data-src="{$NavHotHookup['img']}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                            <a class="relative bolck girl-item" href="/girl/1.html">
+                                <img class="girl-img lozad" data-src="{$NavHotHookup['img']}"
+                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 <div class="absolute bottom71 girl-bg flex-center w-full">
                                     {$NavHotHookup['name']}
                                 </div>
@@ -180,12 +182,11 @@
                         <div class="outside">
                             <div class="y-conter">
                                 {volist name='NavHotMedicineList' id="NavHotMedicine"}
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item" href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
-                                            <img class="lozad"
-                                                 data-src="{$NavHotMedicine['img']}"
-                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            <img class="lozad" data-src="{$NavHotMedicine['img']}"
+                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
                                             <div class="y-name">{$NavHotMedicine['name']}</div>
@@ -205,7 +206,7 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item" href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
@@ -229,7 +230,7 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item" href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
@@ -310,9 +311,9 @@
                             </div>
                             <a class="more-btn" href="/hookup/1.html">&#26356;&#22810;&#36164;&#28304;</a>
                         </div>
-            
+
                         <div class="pb23 grid-cols-2 gap7">
-                            <a class="relative bolck girl-item"  href="/girl/1.html">
+                            <a class="relative bolck girl-item" href="/girl/1.html">
                                 <img class="girl-img lozad"
                                     data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
@@ -348,7 +349,7 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item" href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
@@ -372,7 +373,7 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item" href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
@@ -396,7 +397,7 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item" href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
@@ -477,9 +478,9 @@
                             </div>
                             <a class="more-btn" href="/hookup/1.html">&#26356;&#22810;&#36164;&#28304;</a>
                         </div>
-            
+
                         <div class="pb23 grid-cols-2 gap7">
-                            <a class="relative bolck girl-item"  href="/girl/1.html">
+                            <a class="relative bolck girl-item" href="/girl/1.html">
                                 <img class="girl-img lozad"
                                     data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
@@ -515,7 +516,7 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item" href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
@@ -539,7 +540,7 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item" href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
@@ -563,7 +564,7 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item" href="drug/1.html">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
@@ -586,7 +587,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
     {include file="mobile_footer"}

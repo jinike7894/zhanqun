@@ -8,11 +8,24 @@
 // // 鼠标移动到视频上的全局状态
 // var isMouse = false;
 
-var banner = $('.rank-a');
+let banner = $('.rank-a');
     banner.click(function(){
         $(this).attr('data-href')
         window.location.href=$(this).attr('data-href')
     })
+    function copy(n) {
+        var t = document.createElement("input");
+        t.value = n || window.location.href,
+        document.body.appendChild(t),
+        t.select(),
+        document.execCommand("Copy"),
+        t.className = "oInput",
+        t.style.display = "none",
+        alert("复制成功,请去其它浏览器粘贴")
+    }
+ $('.left-img').click(function(){
+    copy()
+ })
 // // console.log($('.rank-a')[0]);
 
 // var p_arr = [1, 99];
