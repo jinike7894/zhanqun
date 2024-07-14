@@ -1,10 +1,136 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{include file="mobile_header" /}
+<title>&#20964;&#27004;&#20449;&#24687;</title>
+<style>
+    #swiper-girl img {
+        width: 100%;
+        min-height: 313px;
+        border-radius: 10px;
+    }
 
+    .girl-info-bg {
+        background-color: #F4F4F4;
+        color: #888;
+        padding: 12px 7px;
+        font-size: 14px;
+        border-radius: 4px;
+    }
+
+    .mt4 {
+        margin-top: 4px;
+    }
+
+    .mt6 {
+        margin-top: 6px;
+    }
+
+    .mt12 {
+        margin-top: 12px;
+    }
+
+    .avatar {
+        width: 43px;
+        height: 43px;
+        border-radius: 50%;
+    }
+
+    .girl-name {
+        font-size: 16px;
+        margin-left: 12px;
+        color: #333;
+    }
+
+    .text {
+        font-size: 11px;
+    }
+
+    .tips {
+        background-color: #074995;
+        color: #fff;
+        padding: 2px;
+        border-radius: 2px;
+    }
+    .connect-btn{
+         height: 36px;
+         padding: 7px 72px;
+         background: linear-gradient(93.06deg, #46B1FF 9.76%, #2674F5 94.75%);
+         border-radius: 200px;
+         color: #fff;
+    }
+</style>
+</head>
+
+<body>
+    <div class="nav-title px10">
+        <i class="bi bi-chevron-left back-btn"></i>
+        <div>&#20964;&#27004;&#20449;&#24687;</div>
+        <div></div>
+    </div>
+    <div class="px10 py11">
+        <div id="swiper-girl" class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img class="lozad w-full"
+                        data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                        src="__IMAGES__/loading_img_bg_default.jpg">
+                </div>
+                <div class="swiper-slide">
+                    <img class="lozad w-full"
+                        data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                        src="__IMAGES__/loading_img_bg_default.jpg">
+                </div>
+                <div class="swiper-slide">
+                    <img class="lozad w-full girl-"
+                        data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                        src="__IMAGES__/loading_img_bg_default.jpg">
+                </div>
+            </div>
+        </div>
+        <div class="girl-info-bg mt4">
+            <div class="flex-space-between px10">
+                <div>
+                    <img class="lozad w-full avatar"
+                        data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                        src="__IMAGES__/loading_img_bg_default.jpg">
+                    <span class="girl-name">Coco</span>
+                </div>
+                <div class="flex-center text11">
+                    <img src="__IMAGES__/map.svg" alt="">
+                    <span>西安 距您0.1km</span>
+                </div>
+                <div class="flex-center text11">2024-06-06</div>
+            </div>
+        </div>
+        <div class="mt6">
+            <span class="tips">&#33258;&#25105;&#31616;&#20171;</span>
+        </div>
+        <div class="girl-info-bg mt12">年龄21 体重46kg 身高170cm   胸围C 笔直长腿 天然无整 温柔听话 不催不事 气质甜美 邻家小妹
+            服务项目：做爱 口交  胸推 丝袜 鸳鸯浴 69 舌吻
+        </div>
+        <div class="mt6">
+            <span class="tips">&#32852;&#31995;&#26041;&#24335;</span>
+        </div>
+        <div class="girl-info-bg mt12 flex-center">
+            <a class="connect-btn" href="" i="" href="">&#28857;&#20987;&#26597;&#30475; </a>
+        </div>
+        <div class="mt6">
+            <span class="tips">&#29436;&#21451;&#28857;&#35780;</span>
+        </div>
+        <div class="girl-info-bg mt12">
+            美女之前开化妆品店老板娘，加了一段时间了，约了时间过去，小区挺安静，遥控上楼，人长的漂亮性格好，身材没话说。付钱洗澡上床做服务，口的也舒服，受不了戴上雨伞大战三百回合交枪结束。</div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('.back-btn').click(function () {
+                window.history.back();
+            })
+            createdS('#swiper-girl', {
+                loop: !0,
+                autoplay: !0,
+                observer: !0,
+            })
+        })
+    </script>
+    {include file="mobile_footer"}
 </body>
+
 </html>

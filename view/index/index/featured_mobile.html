@@ -1,10 +1,276 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{include file="mobile_header" /}
+<title>&#31181;&#23376;&#35270;&#39057;</title>
 </head>
-<body>
 
+<body>
+    <div class="v-s-nav-box-h">
+        <div class="main-box">
+            <div class="v-s-logo"><a href="/"><img
+                        src="__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
+            <div class="v-s-nav-search-box">
+                <a href="/searchhome/{$channel}.html">
+                    <div class="search-person">
+                        <div class="s-text">&#30334;&#19975;&#29255;&#24211;</div>
+                        <i class="bi bi-search"></i>
+                    </div>
+                </a>
+                <div>
+                    <img class="left-img" src="__IMAGES__/wy.png" alt="" srcset="">
+                </div>
+            </div>
+        </div>
+        <!-- 标题栏bp -->
+        <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
+            <a href="/">
+                <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item nav-menu-selected">导航</div>
+            </a>
+            {volist name='menulist' id="menu"}
+            <a href="/category/{$channel}.html?category_id={$menu['id']}">
+                <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">{$menu['title']}</div>
+            </a>
+            {/volist}
+        </div>
+    </div>
+    <div id="swiper-banner" class="swiper">
+        <div class="swiper-wrapper">
+            {volist name='NavBannerList' id="NavBanner"}
+            <div class="swiper-slide">
+                <a rel="external nofollow" i="{$NavBanner['id']}" href="{$NavBanner['androidurl']}" target="_blank">
+                    <div title="{$NavBanner['name']}">
+                        <img class="lozad"
+                             data-src="{$NavBanner['img']}"
+                             src="__IMAGES__/loading_img_bg_default.jpg">
+                    </div>
+                </a>
+            </div>
+            {/volist}
+        </div>
+    </div>
+    <div class="marquee-wrap">
+        <div class="marquee-box">
+            <div class="icon-speaker">
+                <i class="not bi-bell-fill"></i>
+            </div>
+            <div class="container-main">
+                <p>&#26816;&#27979;&#21040;&#24403;&#21069;&#27983;&#35272;&#22120;&#24050;&#25318;&#25130;&#26412;&#31449;&#37096;&#20998;&#33394;&#24773;APP&#65292;&#22914;APP&#22270;&#26631;&#26080;&#27861;&#28857;&#20987;&#65292;&#35831;&#22797;&#21046;&#32593;&#22336;&#23581;&#35797;&#19981;&#21516;&#27983;&#35272;&#22120;
+                </p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="conter-wrap">
+            <div class="ad-menu-wrap">
+                <div class="ad-menu-item active">
+                    <div class="ad-t">&#28909;&#38376;&#31934;&#21697;</div>
+                    <div>&#26497;&#33268;&#29956;&#36873;&#32;&#24050;&#39046;&#28526;&#27969;</div>
+                </div>
+                <div class="ad-menu-item">
+                    <div class="ad-t">&#25104;&#20154;&#24433;&#38498;</div>
+                    <div>&#28023;&#37327;&#35270;&#39057;&#44;&#39640;&#28165;&#30011;&#36136;</div>
+                </div>
+                <div class="ad-menu-item">
+                    <div class="ad-t">&#20307;&#32946;&#26827;&#29260;</div>
+                    <div>&#19981;&#20013;&#21253;&#36180;&#65292;&#20805;&#20540;&#36192;&#36865;&#53;&#48;&#37;</div>
+                </div>
+            </div>
+            <div id="swiper-ad" class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="ad-conter">
+                            <a rel="external nofollow" i="" href="https://x33316.com:5433" target="_blank">
+                                <img class="lozad"
+                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                                    src="__IMAGES__/loading_img_bg_default.jpg">
+                                <div>澳门赌场</div>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ad-conter">
+                            <a rel="external nofollow" i="" href="https://x33316.com:5433" target="_blank">
+                                <img class="lozad"
+                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                                    src="__IMAGES__/loading_img_bg_default.jpg">
+                                <div>澳门赌场</div>
+                            </a>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="ad-conter">
+                            <a rel="external nofollow" i="" href="https://x33316.com:5433" target="_blank">
+                                <img class="lozad"
+                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                                    src="__IMAGES__/loading_img_bg_default.jpg">
+                                <div>澳门赌场</div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="title-wrap">
+                <div class="title-l">
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                        <div class="loading-bar"></div>
+                        <div class="loading-bar"></div>
+                        <div class="loading-bar"></div>
+                    </div>
+                    <span class="px7">&#30452;&#25773;</span>
+                    <span
+                        class="text1">&#23569;&#22919;&#23273;&#27169;&#65292;&#22812;&#22812;&#31513;&#27468;&#65292;&#39640;&#28526;&#19981;&#26029;</span>
+                </div>
+                <a class="more-btn" href="">&#26356;&#22810;&#20027;&#25773;</a>
+            </div>
+            <div class="pb23 grid-cols-2 gap7">
+                <a class="relative bolck live-item" i="" href="" target="_blank">
+                    <img class="live-img lozad"
+                        data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                    <div class="absolute bottom75 flex-center w-full">
+                        <div class="live-bg flex-center">
+                            <div class="loading-container">
+                                <div class="loading-bar"></div>
+                                <div class="loading-bar"></div>
+                                <div class="loading-bar"></div>
+                            </div>
+                            <div>&#36827;&#20837;&#30452;&#25773;&#38388;</div>
+                        </div>
+                    </div>
+                    <div class="absolute bottom0 px7 flex-space-between w-full">
+                        <div>
+                            <img class="avatar lozad"
+                                data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                            <span>小九儿</span>
+                        </div>
+                        <div>
+                            <img src="__IMAGES__/hot.svg" alt="">
+                            <span>236</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="title-wrap">
+                <div class="title-l">
+                    <img src="__IMAGES__/yue.svg" alt="" srcset="">
+                    <span class="px7">&#32422;&#28846;</span>
+                    <span class="text1">西安 距您0.8km 65 人</span>
+                </div>
+                <a class="more-btn" href="">&#26356;&#22810;&#36164;&#28304;</a>
+            </div>
+
+            <div class="pb23 grid-cols-2 gap7">
+                <a class="relative bolck girl-item" i="" href="" target="_blank">
+                    <img class="girl-img lozad"
+                        data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                    <div class="absolute bottom71 girl-bg flex-center w-full">
+                        21岁 # 162cm # 47kg # 34D
+                    </div>
+                    <div class="girl-info absolute bottom0 pl5  w-full">
+                        <div class="flex-space-between py7">
+                            <div class="text16">优萌</div>
+                            <div>
+                                <img src="__IMAGES__/map.svg" alt="">
+                                <span>西安 距您0.1km</span>
+                            </div>
+                        </div>
+                        <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
+                    </div>
+                </a>
+            </div>
+            <div class="title-wrap">
+                <div class="title-l">
+                    <img src="__IMAGES__/yao.svg" alt="" srcset="">
+                    <span class="px7">&#26149;&#33647;</span>
+                    <span
+                        class="text1">&#36855;&#33647;&#65292;&#20652;&#24773;&#65292;&#24310;&#26102;&#65292;&#22766;&#38451;</span>
+                </div>
+                <a class="more-btn" href="">&#26356;&#22810;&#33647;&#21697;</a>
+            </div>
+            <div class="y-wrap">
+                <div class="flex-center py7">
+                    <img class="y-title-i" src="__IMAGES__/y1-title.png" alt="" srcset="">
+                </div>
+            </div>
+            <div class="outside">
+                <div class="y-conter">
+                    <div class="y-item">
+                        <div class="y-item-1">
+                            <div>
+                                <img class="lozad"
+                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                            </div>
+                            <div class="y-h-title flex-space-between">
+                                <div class="y-name">烈艳</div>
+                                <div class="y-no">编号：A1</div>
+                            </div>
+                            <div class="y-text">因为此药在体 内代谢极快，被誉为“奸人手无形”“强奸不犯法”由于查不出任何证...</div>
+                        </div>
+                        <a class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="y-wrap">
+                <div class="flex-center py7">
+                    <img class="y-title-i" src="__IMAGES__/y2-title.png" alt="" srcset="">
+                </div>
+            </div>
+            <div class="outside">
+                <div class="y-conter">
+                    <div class="y-item">
+                        <div class="y-item-1">
+                            <div>
+                                <img class="lozad"
+                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                            </div>
+                            <div class="y-h-title flex-space-between">
+                                <div class="y-name">烈艳</div>
+                                <div class="y-no">编号：A1</div>
+                            </div>
+                            <div class="y-text">因为此药在体 内代谢极快，被誉为“奸人手无形”“强奸不犯法”由于查不出任何证...</div>
+                        </div>
+                        <a class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="y-wrap">
+                <div class="flex-center py7">
+                    <img class="y-title-i" src="__IMAGES__/y3-title.png" alt="" srcset="">
+                </div>
+            </div>
+            <div class="outside">
+                <div class="y-conter">
+                    <div class="y-item">
+                        <div class="y-item-1">
+                            <div>
+                                <img class="lozad"
+                                    data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
+                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                            </div>
+                            <div class="y-h-title flex-space-between">
+                                <div class="y-name">烈艳</div>
+                                <div class="y-no">编号：A1</div>
+                            </div>
+                            <div class="y-text">因为此药在体 内代谢极快，被誉为“奸人手无形”“强奸不犯法”由于查不出任何证...</div>
+                        </div>
+                        <a class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-center">
+                <a class="bolck more-btn1" href="">&#26597;&#30475;&#26356;&#22810;</a>
+            </div>
+        </div>
+    </div>
+    <div class="pagination-box">{$page|raw}
+    </div>
+    {include file="mobile_footer"}
 </body>
+
 </html>
