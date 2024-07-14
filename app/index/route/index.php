@@ -45,6 +45,7 @@ Route::get('/drug/:channel','index/drug')->pattern(['channel' => '\d+(_\d+)?$'])
 
 Route::get('/featured/:channel','index/featured')->pattern(['channel' => '\d+(_\d+)?$']);
 
+Route::get('/test','index/test');
 
 Route::post('/tongji','data/tongji');
 

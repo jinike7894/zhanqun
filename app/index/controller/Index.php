@@ -3,6 +3,7 @@ namespace app\index\controller;
 
 use app\BaseController;
 use think\facade\View;
+use EasyAdmin\tool\CommonTool;
 
 class Index extends BaseController
 {
@@ -19,6 +20,17 @@ class Index extends BaseController
             $NavBannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>1))
                 ->where(['pid' => '10'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($NavBannerList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavBannerList',$NavBannerList);
 
             //导航-影院-九宫格 11     $NavCinemaSudokuList
@@ -265,7 +277,7 @@ class Index extends BaseController
 		}else{
 			return View::fetch('vod_mobile');
 		}
-	}	
+	}
 	public function searchhome($channel = 0)
 	{
 		$menulist = $this->Menu->getmenu(0);
@@ -277,7 +289,7 @@ class Index extends BaseController
 	{
 		$keyword = input('param.keyword/s');
 		$menulist = $this->Menu->getmenu(0);
-	
+
 		$videolist = $this->MallVideos->getsearch($keyword);
 		View::assign('menulist',$menulist);
 		View::assign('keyword',$keyword);
@@ -314,18 +326,63 @@ class Index extends BaseController
         return View::fetch('drug_mobile');
     }
 
-	public function test()
-	{
-		/*$data = file_get_contents('./upload/20230724/44a47c7f8ad1e6783708f42132f1a4b6.gif');
-		$arr = str_split($data);
-		$decArr = [];
-		foreach ($arr as $value) {
-			$decArr[] = hexdec(bin2hex($value)) ^ 136;
-		}
-		file_put_contents('./upload/test.jpg', pack('C*', ...$decArr));
-		var_dump($decArr);die;*/
-		
-		//echo($content);die;
-		return View::fetch();
-	}
+    public function test()
+    {
+        /*$data = file_get_contents('./upload/20230724/44a47c7f8ad1e6783708f42132f1a4b6.gif');
+        $arr = str_split($data);
+        $decArr = [];
+        foreach ($arr as $value) {
+            $decArr[] = hexdec(bin2hex($value)) ^ 136;
+        }
+        file_put_contents('./upload/test.jpg', pack('C*', ...$decArr));
+        var_dump($decArr);die;*/
+
+        //echo($content);die;
+        //return View::fetch();
+
+
+        $NavBannerList = $this->Products->field('img')
+            ->where(array('status'=>1))->order('sort asc,id asc')->page(1, 100)->select();
+
+        foreach ($NavBannerList as $val){
+
+            $filePath = root_path() . 'public' . $val['img'];
+            if (strpos($val['img'], '_file') !== false) {
+                continue;
+            }
+            $pdata = file_get_contents($filePath);
+            $parr = str_split($pdata);
+            $decArr = [];
+            foreach ($parr as $value) {
+                $decArr[] = hexdec(bin2hex($value)) ^ 136;
+            }
+            $path_info = pathinfo($filePath);
+            $file_extension = $path_info['extension'];
+            $aa = str_replace('.' . $file_extension, '_file.' . $file_extension, $filePath);
+            file_put_contents($aa, pack('C*', ...$decArr));
+            echo $filePath . '<br/>';
+        }
+// 		$dir = root_path() . 'public' . DIRECTORY_SEPARATOR . 'upload';
+//         $list = CommonTool::readDirAllFiles($dir);
+//         foreach ($list as $key => $val){
+
+//             list($objectName, $filePath) = [$key, $val];
+//             if (strpos($objectName, '_file') !== false) {
+//                 continue;
+//             }
+//             $pdata = file_get_contents($filePath);
+//             $parr = str_split($pdata);
+//             $decArr = [];
+//             foreach ($parr as $value) {
+//                 $decArr[] = hexdec(bin2hex($value)) ^ 136;
+//             }
+//             $path_info = pathinfo($val);
+//             $file_extension = $path_info['extension'];
+//             $aa = str_replace('.' . $file_extension, '_file.' . $file_extension, $val);
+//             file_put_contents($aa, pack('C*', ...$decArr));
+//             var_dump('finish');
+//         }
+
+
+    }
 }
