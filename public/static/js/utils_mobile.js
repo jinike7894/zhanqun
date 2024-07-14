@@ -11,9 +11,7 @@
 var banner = $('.rank-a');
     banner.click(function(){
         $(this).attr('data-href')
-        console.log($(this).attr('data-href'));
-        window.open($(this).attr('data-href'),'_blank')
-        
+        window.location.href=$(this).attr('data-href')
     })
 // // console.log($('.rank-a')[0]);
 
