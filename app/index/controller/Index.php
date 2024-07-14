@@ -37,126 +37,353 @@ class Index extends BaseController
             $NavCinemaSudokuList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '11'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+            foreach ($NavCinemaSudokuList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavCinemaSudokuList',$NavCinemaSudokuList);
 
             //导航-影院-直播大图 12 $NavCinemaLiveList
             $NavCinemaLiveList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '12'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+            foreach ($NavCinemaLiveList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavCinemaLiveList',$NavCinemaLiveList);
 
             //导航-影院-约会大图 13 $NavCinemaHookupList
             $NavCinemaHookupList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '13'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+            foreach ($NavCinemaHookupList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavCinemaHookupList',$NavCinemaHookupList);
 
             //导航-影院-药品大图 14 $NavCinemaMedicineList
             $NavCinemaMedicineList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '14'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+            foreach ($NavCinemaMedicineList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavCinemaMedicineList',$NavCinemaMedicineList);
 
             //导航-BC-九宫格 17.      $NavBCSudokuList
             $NavBCSudokuList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '17'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($NavBCSudokuList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavBCSudokuList',$NavBCSudokuList);
 
             //导航-BC-直播大图 18.  $NavBCLiveList
             $NavBCLiveList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '18'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($NavBCLiveList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavBCLiveList',$NavBCLiveList);
 
             //导航-BC-约会大图 19.  $NavBCHookupList
             $NavBCHookupList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '19'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($NavBCHookupList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavBCHookupList',$NavBCHookupList);
 
             //导航-BC-药品大图 20.  $NavBCMedicineList
             $NavBCMedicineList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '20'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($NavBCMedicineList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavBCMedicineList',$NavBCMedicineList);
 
             //导航-热门-九宫格 21.    $NavHotSudokuList
             $NavHotSudokuList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '21'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($NavHotSudokuList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavHotSudokuList',$NavHotSudokuList);
 
             //导航-热门-直播大图 22 $NavHotLiveList
             $NavHotLiveList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '22'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($NavHotLiveList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavHotLiveList',$NavHotLiveList);
 
             //导航-热门-约会大图 23 $NavHotHookupList
             $NavHotHookupList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '23'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($NavHotHookupList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavHotHookupList',$NavHotHookupList);
 
             //导航-热门-药品大图 24 $NavHotMedicineList
             $NavHotMedicineList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '24'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($NavHotMedicineList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('NavHotMedicineList',$NavHotMedicineList);
         }else{
             //X站banner轮播图 1        $XBannerList
             $XBannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>1))
                 ->where(['pid' => '1'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($XBannerList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('XBannerList',$XBannerList);
 
             //X站九宫格. 2                   $XSudokuList
             $XSudokuList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '2'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($XSudokuList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('XSudokuList',$XSudokuList);
 
             //X站文字九宫格 3            $XSudokuTextList
             $XSudokuTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '3'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($XSudokuTextList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('XSudokuTextList',$XSudokuTextList);
 
             //X站-列表页-插入广告 4 $XVideoListInsertList
             $XVideoListInsertList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '4'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($XVideoListInsertList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('XVideoListInsertList',$XVideoListInsertList);
 
             //X站-猜你喜欢列表页-插入广告 5 $XGuessVideoInsertList
             $XGuessVideoInsertList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '5'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($XGuessVideoInsertList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('XGuessVideoInsertList',$XGuessVideoInsertList);
 
             //X站-播放页-贴片 6      $XPlayVideoPatch
             $XPlayVideoPatch = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '6'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+
+            foreach ($XPlayVideoPatch as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('XPlayVideoPatch',$XPlayVideoPatch);
 
             //X站底飘 7                     $XBottomFloat
             $XBottomFloat = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '7'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+
+            foreach ($XBottomFloat as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('XBottomFloat',$XBottomFloat);
 
             //X站小飘窗 8                 $XFloating
             $XFloating = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '8'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+
+            foreach ($XFloating as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('XFloating',$XFloating);
 
             //X站弹窗位 9                 $XPopUpList
             $XPopUpList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '9'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($XPopUpList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
+                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                }
+                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
+                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+            }
             View::assign('XPopUpList',$XPopUpList);
         }
     }
