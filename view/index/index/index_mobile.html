@@ -188,7 +188,7 @@
                             <div class="y-conter">
                                 {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
                                 {if condition="$index == 1 or $index == 2"}
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item"  href="{$NavHotMedicine['url']}" target="_blank">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
@@ -216,7 +216,7 @@
                             <div class="y-conter">
                                 {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
                                 {if condition="$index == 3 or $index == 4"}
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item"  href="{$NavHotMedicine['url']}" target="_blank">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
@@ -244,7 +244,7 @@
                             <div class="y-conter">
                                 {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
                                 {if condition="$index == 5 or $index == 6"}
-                                <a class="y-item"  href="drug/1.html">
+                                <a class="y-item"  href="{$NavHotMedicine['url']}" target="_blank">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
@@ -375,21 +375,25 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item" href="drug/1.html">
+                                {volist name='NavCinemaMedicineList' id="NavCinemaMedicine" key="index"}
+                                {if condition="$index == 1 or $index == 2"}
+                                <a class="y-item"  href="{$NavCinemaMedicine['url']}" target="_blank">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
-                                                data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                 data-src="{$NavCinemaMedicine['img']}"
+                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">烈艳</div>
-                                            <div class="y-no">编号：A1</div>
+                                            <div class="y-name">{foreach $NavCinemaMedicine['names'] as $key => $index} {if($key == 0) } {$index}  {/if} {/foreach}</div>
+                                            <div class="y-no">编号：{foreach $NavCinemaMedicine['names'] as $key => $index} {if($key == 1) } {$index}  {/if} {/foreach}</div>
                                         </div>
-                                        <div class="y-text">因为此药在体 内代谢极快，被誉为“奸人手无形”“强奸不犯法”由于查不出任何证...</div>
+                                        <div class="y-text">{foreach $NavCinemaMedicine['names'] as $key => $index} {if($key == 2) } {$index}  {/if} {/foreach}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
+                                {/if}
+                                {/volist}
                             </div>
                         </div>
                         <div class="y-wrap">
@@ -399,21 +403,25 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item" href="drug/1.html">
+                                {volist name='NavCinemaMedicineList' id="NavCinemaMedicine" key="index"}
+                                {if condition="$index == 3 or $index == 4"}
+                                <a class="y-item"  href="{$NavCinemaMedicine['url']}" target="_blank">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
-                                                data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                 data-src="{$NavCinemaMedicine['img']}"
+                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">烈艳</div>
-                                            <div class="y-no">编号：A1</div>
+                                            <div class="y-name">{foreach $NavCinemaMedicine['names'] as $key => $index} {if($key == 0) } {$index}  {/if} {/foreach}</div>
+                                            <div class="y-no">编号：{foreach $NavCinemaMedicine['names'] as $key => $index} {if($key == 1) } {$index}  {/if} {/foreach}</div>
                                         </div>
-                                        <div class="y-text">因为此药在体 内代谢极快，被誉为“奸人手无形”“强奸不犯法”由于查不出任何证...</div>
+                                        <div class="y-text">{foreach $NavCinemaMedicine['names'] as $key => $index} {if($key == 2) } {$index}  {/if} {/foreach}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
+                                {/if}
+                                {/volist}
                             </div>
                         </div>
                         <div class="y-wrap">
@@ -423,21 +431,25 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item" href="drug/1.html">
+                                {volist name='NavCinemaMedicineList' id="NavCinemaMedicine" key="index"}
+                                {if condition="$index == 5 or $index == 6"}
+                                <a class="y-item"  href="{$NavCinemaMedicine['url']}" target="_blank">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
-                                                data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                 data-src="{$NavCinemaMedicine['img']}"
+                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">烈艳</div>
-                                            <div class="y-no">编号：A1</div>
+                                            <div class="y-name">{foreach $NavCinemaMedicine['names'] as $key => $index} {if($key == 0) } {$index}  {/if} {/foreach}</div>
+                                            <div class="y-no">编号：{foreach $NavCinemaMedicine['names'] as $key => $index} {if($key == 1) } {$index}  {/if} {/foreach}</div>
                                         </div>
-                                        <div class="y-text">因为此药在体 内代谢极快，被誉为“奸人手无形”“强奸不犯法”由于查不出任何证...</div>
+                                        <div class="y-text">{foreach $NavCinemaMedicine['names'] as $key => $index} {if($key == 2) } {$index}  {/if} {/foreach}</div>
                                     </div>
-                                    <div class="y-info-btn">&#26597;&#30475;&#35814;&#24773;</div>
+                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
+                                {/if}
+                                {/volist}
                             </div>
                         </div>
                         <!-- <div class="flex-center">
@@ -552,21 +564,25 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item" href="drug/1.html">
+                                {volist name='NavBCMedicineList' id="NavBCMedicine" key="index"}
+                                {if condition="$index == 1 or $index == 2"}
+                                <a class="y-item"  href="{$NavBCMedicine['url']}" target="_blank">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
-                                                data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                 data-src="{$NavBCMedicine['img']}"
+                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">烈艳</div>
-                                            <div class="y-no">编号：A1</div>
+                                            <div class="y-name">{foreach $NavBCMedicine['names'] as $key => $index} {if($key == 0) } {$index}  {/if} {/foreach}</div>
+                                            <div class="y-no">编号：{foreach $NavBCMedicine['names'] as $key => $index} {if($key == 1) } {$index}  {/if} {/foreach}</div>
                                         </div>
-                                        <div class="y-text">因为此药在体 内代谢极快，被誉为“奸人手无形”“强奸不犯法”由于查不出任何证...</div>
+                                        <div class="y-text">{foreach $NavBCMedicine['names'] as $key => $index} {if($key == 2) } {$index}  {/if} {/foreach}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
+                                {/if}
+                                {/volist}
                             </div>
                         </div>
                         <div class="y-wrap">
@@ -576,21 +592,25 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item" href="drug/1.html">
+                                {volist name='NavBCMedicineList' id="NavBCMedicine" key="index"}
+                                {if condition="$index == 3 or $index == 4"}
+                                <a class="y-item"  href="{$NavBCMedicine['url']}" target="_blank">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
-                                                data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                 data-src="{$NavBCMedicine['img']}"
+                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">烈艳</div>
-                                            <div class="y-no">编号：A1</div>
+                                            <div class="y-name">{foreach $NavBCMedicine['names'] as $key => $index} {if($key == 0) } {$index}  {/if} {/foreach}</div>
+                                            <div class="y-no">编号：{foreach $NavBCMedicine['names'] as $key => $index} {if($key == 1) } {$index}  {/if} {/foreach}</div>
                                         </div>
-                                        <div class="y-text">因为此药在体 内代谢极快，被誉为“奸人手无形”“强奸不犯法”由于查不出任何证...</div>
+                                        <div class="y-text">{foreach $NavBCMedicine['names'] as $key => $index} {if($key == 2) } {$index}  {/if} {/foreach}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
+                                {/if}
+                                {/volist}
                             </div>
                         </div>
                         <div class="y-wrap">
@@ -600,21 +620,25 @@
                         </div>
                         <div class="outside">
                             <div class="y-conter">
-                                <a class="y-item" href="drug/1.html">
+                                {volist name='NavBCMedicineList' id="NavBCMedicine" key="index"}
+                                {if condition="$index == 5 or $index == 6"}
+                                <a class="y-item"  href="{$NavBCMedicine['url']}" target="_blank">
                                     <div class="y-item-1">
                                         <div>
                                             <img class="lozad"
-                                                data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                 data-src="{$NavBCMedicine['img']}"
+                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">烈艳</div>
-                                            <div class="y-no">编号：A1</div>
+                                            <div class="y-name">{foreach $NavBCMedicine['names'] as $key => $index} {if($key == 0) } {$index}  {/if} {/foreach}</div>
+                                            <div class="y-no">编号：{foreach $NavBCMedicine['names'] as $key => $index} {if($key == 1) } {$index}  {/if} {/foreach}</div>
                                         </div>
-                                        <div class="y-text">因为此药在体 内代谢极快，被誉为“奸人手无形”“强奸不犯法”由于查不出任何证...</div>
+                                        <div class="y-text">{foreach $NavBCMedicine['names'] as $key => $index} {if($key == 2) } {$index}  {/if} {/foreach}</div>
                                     </div>
-                                    <div class="y-info-btn">&#26597;&#30475;&#35814;&#24773;</div>
+                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
+                                {/if}
+                                {/volist}
                             </div>
                         </div>
                         <!-- <div class="flex-center">
