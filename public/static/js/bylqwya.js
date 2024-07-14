@@ -161,6 +161,10 @@ $(document).ready(
                 swiperAd.slideTo(t);
             });
         $("a").click(adClick)
+        $('.top-nav .nav-item').click(function(){
+            $('.nav-menu-selected').removeClass('nav-menu-selected')
+            $(this).addClass('nav-menu-selected')
+        })
     }
 
 )
