@@ -11,7 +11,7 @@
     let qrEl = document.body.querySelector(".s-window-tips .qr-box");
     try {
       new QRCode(qrEl, {
-        text: location.origin + '/10.html',
+        text: location.origin + '/{$channel}.html',
         width: 128,
         height: 128,
         colorDark: "#000000",
