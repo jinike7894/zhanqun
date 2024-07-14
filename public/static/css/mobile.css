@@ -161,11 +161,6 @@
     width: 100%;
 }
 
-.textad a {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
 
 /* .mask_info::before {
     content: "";
@@ -290,6 +285,7 @@
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 5px;
+    margin-top: 5px;
 }
 
 .textad a {
@@ -298,6 +294,10 @@
     padding: 5px 10px;
     border-radius: 4px;
     color: #074995;
+    font-size: 11px;
+    /* text-overflow: ellipsis; */
+    overflow: hidden;
+    white-space: nowrap;
 }
 #swiper-banner{
     margin-top: 10px;
