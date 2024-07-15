@@ -27,9 +27,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('NavBannerList',$NavBannerList);
 
@@ -43,9 +40,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('NavCinemaSudokuList',$NavCinemaSudokuList);
 
@@ -108,9 +102,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('NavBCSudokuList',$NavBCSudokuList);
 
@@ -176,9 +167,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('NavHotSudokuList',$NavHotSudokuList);
 
@@ -244,9 +232,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('XBannerList',$XBannerList);
 
@@ -261,9 +246,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('XSudokuList',$XSudokuList);
 
@@ -278,9 +260,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('XSudokuTextList',$XSudokuTextList);
 
@@ -295,9 +274,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('XVideoListInsertList',$XVideoListInsertList);
 
@@ -312,9 +288,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('XGuessVideoInsertList',$XGuessVideoInsertList);
 
@@ -329,9 +302,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('XPlayVideoPatch',$XPlayVideoPatch);
 
@@ -346,9 +316,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('XBottomFloat',$XBottomFloat);
 
@@ -363,9 +330,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('XFloating',$XFloating);
 
@@ -380,9 +344,6 @@ class Index extends BaseController
                     $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
                     $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
             View::assign('XPopUpList',$XPopUpList);
         }
@@ -390,8 +351,11 @@ class Index extends BaseController
 	public function index($channel = 0)
 	{
 		$menulist = $this->Menu->getmenu(0);
+        $ip = GetIP();
+        $location = get_location($ip);
 		View::assign('menulist',$menulist);
         View::assign('channel',$channel);
+        View::assign('location',$location);
 		if(ismobile())
 		{
 			return View::fetch('index_mobile');
