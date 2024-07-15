@@ -27,8 +27,7 @@ class Index extends BaseController
             foreach ($NavBannerList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('NavBannerList',$NavBannerList);
@@ -40,8 +39,7 @@ class Index extends BaseController
             foreach ($NavCinemaSudokuList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('NavCinemaSudokuList',$NavCinemaSudokuList);
@@ -53,8 +51,7 @@ class Index extends BaseController
             foreach ($NavCinemaLiveList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = explode('<br />', nl2br($item['name']));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
@@ -69,8 +66,7 @@ class Index extends BaseController
             foreach ($NavCinemaHookupList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = explode('<br />', nl2br($item['name']));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
@@ -85,8 +81,7 @@ class Index extends BaseController
             foreach ($NavCinemaMedicineList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = explode('<br />', nl2br($item['name']));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
@@ -102,8 +97,7 @@ class Index extends BaseController
             foreach ($NavBCSudokuList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('NavBCSudokuList',$NavBCSudokuList);
@@ -116,8 +110,7 @@ class Index extends BaseController
             foreach ($NavBCLiveList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = explode('<br />', nl2br($item['name']));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
@@ -133,8 +126,7 @@ class Index extends BaseController
             foreach ($NavBCHookupList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = explode('<br />', nl2br($item['name']));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
@@ -150,8 +142,7 @@ class Index extends BaseController
             foreach ($NavBCMedicineList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = explode('<br />', nl2br($item['name']));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
@@ -167,8 +158,7 @@ class Index extends BaseController
             foreach ($NavHotSudokuList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('NavHotSudokuList',$NavHotSudokuList);
@@ -181,8 +171,7 @@ class Index extends BaseController
             foreach ($NavHotLiveList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = explode('<br />', nl2br($item['name']));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
@@ -198,8 +187,7 @@ class Index extends BaseController
             foreach ($NavHotHookupList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = explode('<br />', nl2br($item['name']));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
@@ -215,8 +203,7 @@ class Index extends BaseController
             foreach ($NavHotMedicineList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = explode('<br />', nl2br($item['name']));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
@@ -232,8 +219,7 @@ class Index extends BaseController
             foreach ($XBannerList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('XBannerList',$XBannerList);
@@ -246,8 +232,7 @@ class Index extends BaseController
             foreach ($XSudokuList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('XSudokuList',$XSudokuList);
@@ -260,8 +245,7 @@ class Index extends BaseController
             foreach ($XSudokuTextList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('XSudokuTextList',$XSudokuTextList);
@@ -274,8 +258,7 @@ class Index extends BaseController
             foreach ($XVideoListInsertList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('XVideoListInsertList',$XVideoListInsertList);
@@ -288,8 +271,7 @@ class Index extends BaseController
             foreach ($XGuessVideoInsertList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('XGuessVideoInsertList',$XGuessVideoInsertList);
@@ -302,8 +284,7 @@ class Index extends BaseController
             foreach ($XPlayVideoPatch as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('XPlayVideoPatch',$XPlayVideoPatch);
@@ -316,8 +297,7 @@ class Index extends BaseController
             foreach ($XBottomFloat as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('XBottomFloat',$XBottomFloat);
@@ -330,8 +310,7 @@ class Index extends BaseController
             foreach ($XFloating as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('XFloating',$XFloating);
@@ -344,8 +323,7 @@ class Index extends BaseController
             foreach ($XPopUpList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
-                    $file_extension = pathinfo($item['img'], PATHINFO_EXTENSION);
-                    $item['img'] = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $item['img']);
+                    $item['img'] = replaceAdCdn($item['img']);
                 }
             }
             View::assign('XPopUpList',$XPopUpList);
