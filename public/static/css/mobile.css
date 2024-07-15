@@ -718,7 +718,9 @@ a:active {
     height: 21px;
     color: #000;
 }
-
+.vidoe-title-1 img {
+   width: 30px; 
+}
 .video-title-text {
     text-align: end;
     display: block;
