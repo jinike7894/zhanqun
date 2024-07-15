@@ -20,26 +20,34 @@
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label">版本信息</label>
+        <label class="layui-form-label">视频封面CDN</label>
         <div class="layui-input-block">
-            <input type="text" name="site_version" class="layui-input" lay-verify="required" placeholder="请输入版本信息" value="{:sysconfig('site','site_version')}">
-            <tip>填写版本信息。</tip>
+            <input type="text" name="video_img_cdn" class="layui-input" lay-verify="required" placeholder="请输入视频封面CDN" value="{:sysconfig('site','video_img_cdn')}">
+            <tip>填写视频封面CDN。</tip>
         </div>
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label">备案信息</label>
+        <label class="layui-form-label">视频CDN</label>
         <div class="layui-input-block">
-            <input type="text" name="site_beian" class="layui-input" lay-verify="required" placeholder="请输入备案信息" value="{:sysconfig('site','site_beian')}">
-            <tip>填写备案信息。</tip>
+            <input type="text" name="video_cdn" class="layui-input" lay-verify="required" placeholder="请输入视频CDN" value="{:sysconfig('site','video_cdn')}">
+            <tip>填写视频CDN。</tip>
         </div>
     </div>
 
     <div class="layui-form-item">
-        <label class="layui-form-label">版权信息</label>
+        <label class="layui-form-label">JS/CSS资源CDN</label>
         <div class="layui-input-block">
-            <input type="text" name="site_copyright" class="layui-input" lay-verify="required" placeholder="请输入版权信息" value="{:sysconfig('site','site_copyright')}">
-            <tip>填写版权信息。</tip>
+            <input type="text" name="jscss_cdn" class="layui-input" lay-verify="required" placeholder="请输入JS/CSS资源CDN" value="{:sysconfig('site','jscss_cdn')}">
+            <tip>填写JS/CSS资源CDN。</tip>
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">广告图片CDN</label>
+        <div class="layui-input-block">
+            <input type="text" name="ad_cdn" class="layui-input" lay-verify="required" placeholder="请填写广告图片CDN" value="{:sysconfig('site','ad_cdn')}">
+            <tip>填写广告图片CDN。</tip>
         </div>
     </div>
 
