@@ -12,6 +12,7 @@ define(["jquery", "easy-admin", "treetable", "iconPickerFa", "autocomplete"], fu
         index_url: 'mall.clicks/index',
         modify_url: 'mall.clicks/modify',
         show_url: 'mall.clicks/show',
+        export_url: 'mall.clicks/export',
     };
 
     var Controller = {

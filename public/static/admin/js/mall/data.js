@@ -11,6 +11,7 @@ define(["jquery", "easy-admin", "treetable", "iconPickerFa", "autocomplete"], fu
         table_render_id: 'currentTableRenderId',
         index_url: 'mall.data/index',
         modify_url: 'mall.data/modify',
+        export_url: 'mall.data/export',
     };
 
     var Controller = {
