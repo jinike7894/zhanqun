@@ -727,9 +727,12 @@ a:active {
 
 .girl-info {
     height: 71px;
-    background-color: #49494C;
+    background-color: #D4E9FB;
+    color: #007bff;
 }
-
+.girl-info span {
+    color: #8A8A8A;
+}
 .bottom71 {
     bottom: 71px;
 }
@@ -747,8 +750,8 @@ a:active {
     height: 27px;
     width: 157px;
     line-height: 27px;
-    background-color: #D9D9D9;
-    color: #333;
+    background: linear-gradient(93.06deg, #46B1FF 9.76%, #2674F5 94.75%);
+    color: #fff;
     border-radius: 4px;
     margin: 0 auto;
     text-align: center;
