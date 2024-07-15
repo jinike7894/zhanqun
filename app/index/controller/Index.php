@@ -466,6 +466,8 @@ class Index extends BaseController
 		$menulist = $this->Menu->getmenu(0);
 		$child_menu = $this->Menu->getmenu($category_id);
 		$vodlist = $this->MallVideos->getById($vid);
+        $vodlist['enpic'] = replaceVideoCdn($vodlist['enpic'], 'video_img_cdn');
+        $vodlist['video'] = replaceVideoCdn($vodlist['video'], 'video_cdn');
 		$guesslist = $this->MallVideos->getmorelist($vodlist['cate_id'],24);
 		$arr['id'] = $vodlist['id'];
 		$arr['url'] = $vodlist['pic'];

@@ -46,6 +46,10 @@ class MallVideos extends TimeModel
 			$list=$this->where($map1)->order('sort desc,id desc')->cache(600)->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
 		}		
 		$page = $list->render();
+        foreach ($list as &$item){
+            $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
+            $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+        }
 		$data=array("list"=>$list,"page"=>$page);
         return $data;
 	}
@@ -53,6 +57,10 @@ class MallVideos extends TimeModel
 	{
 		$map[] = ['cate_id','=',$cate_id];
 		$list = $this->where($map)->cache(600)->limit(24)->orderRaw("rand()")->select();
+        foreach ($list as &$item){
+            $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
+            $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+        }
 		return $list;
 	}
 	public function getsearch($keyword)
@@ -73,6 +81,10 @@ class MallVideos extends TimeModel
 			}
 		}
 		$page = $list->render();
+        foreach ($list as &$item){
+            $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
+            $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+        }
 		$data=array("list"=>$list,"page"=>$page);
 		return $data;
 	}
@@ -129,6 +141,10 @@ class MallVideos extends TimeModel
 				$list[$i]['category_child_id'] = $list[$i]['cate_id'];
 			}
 		}
+        foreach ($list as &$item){
+            $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
+            $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+        }
 		return $list;
 	}
 

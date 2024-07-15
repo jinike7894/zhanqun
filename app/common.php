@@ -176,3 +176,14 @@ if (!function_exists('getIP')) {
         return $realip;
     }
 }
+
+
+
+if (!function_exists('replaceVideoCdn')) {
+    function replaceVideoCdn($oldPath,$configName): string
+    {
+        $url_parts = parse_url($oldPath);
+        $path = isset($url_parts['path']) ? $url_parts['path'] : '';
+        return sysconfig('site', $configName) . $path ;
+    }
+}
