@@ -352,10 +352,10 @@ class Index extends BaseController
 	{
 		$menulist = $this->Menu->getmenu(0);
         $ip = GetIP();
-        $location = get_location($ip);
+//        $location = get_location($ip);
 		View::assign('menulist',$menulist);
         View::assign('channel',$channel);
-        View::assign('location',$location);
+//        View::assign('location',$location);
 		if(ismobile())
 		{
 			return View::fetch('index_mobile');
