@@ -38,19 +38,19 @@
             {/volist}
         </div>
     </div>
-    <div id="swiper-banner" class="swiper">
+    <div id="swiper-jx" class="swiper">
         <div class="swiper-wrapper">
-            {volist name='XBannerList' id="XBanner"}
-            <div class="swiper-slide">
-                <a rel="external nofollow" i="{$XBanner['id']}" href="{$XBanner['url']}" target="_blank">
-                    <div >
-                        <img class="lozad" data-src="{$XBanner['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
-                    </div>
-                </a>
-            </div>
-            {/volist}
+          {volist name='XBannerList' id="XBanner"}
+          <div class="swiper-slide">
+            <a rel="external nofollow" i="{$XBanner['id']}" href="{$XBanner['url']}" target="_blank">
+              <div title="{$XBanner['name']}">
+                <img class="jx-img lozad" data-src="{$XBanner['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
+              </div>
+            </a>
+          </div>
+          {/volist}
         </div>
-    </div>
+      </div>
     <div class="marquee-wrap">
         <div class="marquee-box">
             <div class="icon-speaker">
@@ -117,7 +117,14 @@
         <div class="pagination-box">{$page|raw}
         </div>
     </div>
-
+    <script>
+        createdS('#swiper-jx', {
+          loop: !0,
+          autoplay: !0,
+          observer: !0,
+          slidesPerView: 'auto',
+        })
+      </script>
     {include file="mobile_footer"}
 </body>
 
