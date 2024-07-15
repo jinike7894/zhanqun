@@ -33,6 +33,9 @@
       clipboard.destroy();
     });
   }
+  if(/iOS|iPhone|iPad/i.test(navigator.userAgent)){
+    $('body').addClass('ios')
+  }
 </script>
 <style>
   .x_tap_top {
