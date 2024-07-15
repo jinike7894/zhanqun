@@ -473,7 +473,17 @@ a:active {
     flex-direction: row;
     width: 100%;
 }
-
+.tj-flex{
+    display: flex;
+    align-items: center;
+}
+.p-card-txt{
+    padding: 4px 8px;
+    margin-left:6px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 2px;
+}
 
 /* .mask_info::before {
     content: "";
@@ -706,13 +716,13 @@ a:active {
 .vidoe-title-1 {
     margin: 12px 0;
     height: 21px;
-    color: #98999A;
+    color: #000;
 }
 
 .video-title-text {
     text-align: end;
     display: block;
-    font-size: 12px;
+    font-size: 16px;
     margin-left: 2px;
 }
 
