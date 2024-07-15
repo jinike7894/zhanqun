@@ -173,54 +173,27 @@ a:active {
     padding: 8px 2px !important;
 }
 #swiper-banner {
-    height: 115px;
-    padding-bottom: 12px;
     box-sizing: content-box;
     position: relative;
 }
 
-#swiper-banner a {
-    display: block;
-    height: 115px;
-    width: 322px;
-    border-radius: 34px;
-    overflow: hidden;
-    transition: height .3s
-}
+
 
 #swiper-banner a img {
-    width: 322px;
-    height: 115px;
+    width: 100vw;
+    min-height: 196px;
+    max-height: 196px;
 }
 
 #swiper-banner .swiper-slide {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: translateX(0)
 }
 
-#swiper-banner .swiper-slide-active a {
-    width: 322px
-}
 
-#swiper-banner .swiper-slide-prev {
-    transform: translateX(20px);
-    justify-content:flex-end;
-}
 
-#swiper-banner .swiper-slide-prev a {
-    height: 115px
-}
 
-#swiper-banner .swiper-slide-next {
-    transform: translateX(-20px);
-    justify-content:flex-start;
-}
-
-#swiper-banner .swiper-slide-next a {
-    height: 115px
-}
 
 .jx-img {
     width: 100vw;
@@ -814,6 +787,7 @@ a:active {
     row-gap: 16px;
     column-gap: 4px;
     padding: 8px 0;
+    background-color: #d4e9fb;
 }
 
 .y-item {
@@ -829,7 +803,7 @@ a:active {
     width: 100%;
     height: 207px;
     border-radius: 7px;
-    border: 1px solid #CC6600;
+    border: 1px solid #074995;
     padding: 7px 5px;
 }
 
@@ -844,7 +818,7 @@ a:active {
     height: 28px;
     line-height: 28px;
     text-align: center;
-    background-color: #CC6600;
+    background: linear-gradient(93.06deg, #46B1FF 9.76%, #2674F5 94.75%);
     margin-top: 4px;
     border-radius: 14px;
     color: #fff;
@@ -853,12 +827,12 @@ a:active {
 .y-h-title {
     margin-top: 12px;
     padding-bottom: 7px;
-    border-bottom: 1px solid #ECCBA5;
+    border-bottom: 1px solid #074995;
 }
 
 .y-name {
     font-size: 15px;
-    color: #FF0000;
+    color: #074995;
 }
 
 .y-no {
@@ -873,7 +847,7 @@ a:active {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     font-size: 12px;
-    color: #F4684D;
+    color: #074995;
 }
 
 
