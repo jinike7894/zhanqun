@@ -15,6 +15,9 @@ class Index extends BaseController
 
         $action = $this->request->action();
 
+        $jscsscdn = sysconfig('site', 'jscss_cdn');
+        View::assign('jscsscdn',$jscsscdn);
+
         if($action == 'index' || $action == 'hookup' || $action == 'livestreaming'){
             //导航-banner轮播图 10 $NavBannerList
             $NavBannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')

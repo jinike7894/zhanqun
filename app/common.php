@@ -187,3 +187,19 @@ if (!function_exists('replaceVideoCdn')) {
         return sysconfig('site', $configName) . $path ;
     }
 }
+
+if (!function_exists('replaceAdCdn')) {
+    function replaceAdCdn($oldPath): string
+    {
+        $file_extension = pathinfo($oldPath, PATHINFO_EXTENSION);
+        $newPath = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $oldPath);
+
+        $adCdnConfig = sysconfig('site', 'ad_cdn');
+        if(empty($adCdnConfig)){
+            return $newPath;
+        }
+        $url_parts = parse_url($newPath);
+        $path = isset($url_parts['path']) ? $url_parts['path'] : '';
+        return sysconfig('site', 'ad_cdn') . $path ;
+    }
+}
