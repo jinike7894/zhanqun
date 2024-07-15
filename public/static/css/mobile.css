@@ -205,7 +205,8 @@ a:active {
 }
 
 #swiper-banner .swiper-slide-prev {
-    transform: translateX(7%)
+    transform: translateX(20px);
+    justify-content:flex-end;
 }
 
 #swiper-banner .swiper-slide-prev a {
@@ -213,7 +214,8 @@ a:active {
 }
 
 #swiper-banner .swiper-slide-next {
-    transform: translateX(-7%)
+    transform: translateX(-20px);
+    justify-content:flex-start;
 }
 
 #swiper-banner .swiper-slide-next a {
