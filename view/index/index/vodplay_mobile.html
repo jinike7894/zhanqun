@@ -116,8 +116,9 @@
         <div class="play-search">{include file="search"}</div>
         <div class="item-title-box">
             <div class="title-name">猜你喜欢</div>
-            <a class="p-card-txt" href="" i="" target="_blank">同城外围</a>
-            <a class="p-card-txt" href="" i="" target="_blank">同城外围</a>
+            {volist name='XGuessTextList' id="XGuessText"}
+            <a class="p-card-txt" href="{$XGuessText['url']}" i="{$XGuessText['id']}" target="_blank">{$XGuessText['name']}</a>
+            {/volist}
         </div>
         <div class="ran-box" style="padding: 10px 0px !important">
             {volist name="guesslist" id="guess"}

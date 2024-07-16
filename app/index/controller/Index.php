@@ -244,9 +244,6 @@ class Index extends BaseController
 
             foreach ($XSudokuTextList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
-                if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
-                }
             }
             View::assign('XSudokuTextList',$XSudokuTextList);
 
@@ -327,6 +324,28 @@ class Index extends BaseController
                 }
             }
             View::assign('XPopUpList',$XPopUpList);
+
+
+            //X站-今日推荐-文字广告 58            $XRecommendTextList
+            $XRecommendTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '58'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($XRecommendTextList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+            }
+            View::assign('XRecommendTextList',$XRecommendTextList);
+
+
+            //X站-猜你喜欢-文字广告 59            $XGuessTextList
+            $XGuessTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '59'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($XGuessTextList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+            }
+            View::assign('XGuessTextList',$XGuessTextList);
         }
     }
 	public function index($channel = 0)
