@@ -514,7 +514,7 @@ class Index extends BaseController
 
 		$videolist = $this->MallVideos->getsearch($keyword);
 		View::assign('menulist',$menulist);
-		View::assign('keyword',mbConvert($keyword));
+		View::assign('keyword',$keyword);
 		View::assign('videolist',$videolist['list']);
 		View::assign('page',$videolist['page']);
         View::assign('channel',$channel);
