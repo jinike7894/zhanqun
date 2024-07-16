@@ -285,6 +285,12 @@ a:hover {
     height: 57px;
     border-radius: 4px;
 }
+.ad-conter a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 .ad-conter a div {
     font-size: 10px;
     color: #000;
