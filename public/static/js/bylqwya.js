@@ -154,9 +154,8 @@ function Dialog (list =[]){
         return image;
     }
     function  getImg() {
-        if(list.length) return
+        if(!list.length) return
         let { url, id, herf } = list.shift()
-        console.log(url, id, herf);
         let xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
         xhr.responseType = 'arraybuffer';
@@ -181,6 +180,10 @@ function Dialog (list =[]){
 </div>`
         $('body').append(temp)
         $('.dialog-img').click(adClick)
+        $('.p-screen-dialog').click(function(e){
+            e.stopPropagation();
+            $(this).remove()
+        })
         $('.s-loading-circular').click(function (e) {
             $('.p-screen-dialog').remove()
             if (list.length) {
