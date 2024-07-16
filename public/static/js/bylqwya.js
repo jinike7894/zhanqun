@@ -139,6 +139,58 @@ function downloadApp (){
 	}
 
 }
+function Dialog (list =[]){
+
+   function decode(data, key = '0x88') {
+        let buffer = data;
+        let binary = '';
+        let bytes = new Uint8Array(buffer);
+        let len = bytes.byteLength;
+        for (let i = 0; i < len; i++) {
+            binary += String.fromCharCode(bytes[i] ^ key);
+        }
+        let src = window.btoa(binary);
+        let image = 'data:image/jpeg;base64,' + src;
+        return image;
+    }
+    function  getImg() {
+        let { url, id, herf } = list.shift()
+        console.log(url, id, herf);
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.responseType = 'arraybuffer';
+        xhr.setRequestHeader('Accept', 'no-cache');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // 解码图片base64数据
+                let decodeSrc = decode(xhr.response);
+                setDialog(decodeSrc, id, herf)
+            }
+        }
+        xhr.send();
+    }
+    function setDialog(_src, id, herf) {
+        const temp = `<div class="p-screen-dialog">
+    <div class="dialog-wrap">
+        <a class="dialog-img" href="${herf}" i='${id}' target='_blank'>
+            <img src="${_src}" alt="">
+        </a>
+        <div class="s-loading-circular "><i class="bi bi-x-lg"></i></div>
+    </div>
+</div>`
+        $('body').append(temp)
+        $('.dialog-img').click(adClick)
+        $('.s-loading-circular').click(function (e) {
+            $('.p-screen-dialog').remove()
+            if (list.length) {
+                getImg()
+            }
+            e.stopPropagation();
+        })
+    }
+    
+    getImg()
+}
 $(document).ready(
     function () {
         mySetRem();

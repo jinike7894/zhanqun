@@ -1013,3 +1013,47 @@ a:hover {
     font-size: 16px;
     padding-top: .2rem;
 }
+
+.p-screen-dialog {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 12;
+    position: fixed;
+    top: 0;
+}
+
+.dialog-wrap {
+    max-width: 80vw;
+    position: relative;
+}
+
+.dialog-wrap img {
+    width: 100%;
+    min-width: 80vw;
+    ;
+    height: auto;
+    border-radius: 10px;
+}
+
+.s-loading-circular {
+    
+    position: absolute;
+    top:5px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, .6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.s-loading-circular .bi {
+    color: #fff;
+    font-size: 20ox;
+}
