@@ -386,9 +386,6 @@ class Index extends BaseController
         $newlist = $this->MallVideos->getorderlist('sort desc,create_time desc,id desc',25);
         $pxlist = $this->MallVideos->getorderlist('eye desc,id desc',31);
         $yuanclist = $this->MallVideos->getlist(40,0,1,13);
-        foreach ($yuanclist as &$item){
-            $item['title'] = mbConvert($item['title']);
-        }
         $chigualist = $this->MallVideos->getlist(1,0,1,13);
         $guochanlist = $this->MallVideos->getlist(2,0,1,13);
         $rihanlist = $this->MallVideos->getlist(3,0,1,13);
