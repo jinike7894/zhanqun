@@ -203,3 +203,29 @@ if (!function_exists('replaceAdCdn')) {
         return sysconfig('site', 'ad_cdn') . $path ;
     }
 }
+
+
+
+if (!function_exists('mbConvert')) {
+    function mbConvert($value)
+    {
+        if(is_array($value)){
+            foreach ($value as $key => &$item) {
+                $unicode = unpack('n*', mb_convert_encoding($item, 'UTF-16BE', 'UTF-8'));
+                $str = '';
+                foreach ($unicode as $val) {
+                    $str .= '&#'.$val . ';';
+                }
+                $item[$key] = $str;
+            }
+            return $value;
+        }
+
+        $unicode = unpack('n*', mb_convert_encoding($value, 'UTF-16BE', 'UTF-8'));
+        $str = '';
+        foreach ($unicode as $val) {
+            $str .= '&#'.$val . ';';
+        }
+        return $str;
+    }
+}
