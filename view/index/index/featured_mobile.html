@@ -117,7 +117,7 @@
         </div>
         <a
           href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
-          <div class="rank-title">{$yc['title']}</div>
+          <div class="rank-title">{$yc['title'] | raw}</div>
         </a>
       </div>
       {/volist}
