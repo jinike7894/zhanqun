@@ -154,6 +154,7 @@ function Dialog (list =[]){
         return image;
     }
     function  getImg() {
+        if(list.length) return
         let { url, id, herf } = list.shift()
         console.log(url, id, herf);
         let xhr = new XMLHttpRequest();
