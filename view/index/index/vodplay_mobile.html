@@ -96,7 +96,7 @@
     </script>
 
     <div class="px10">
-        <div class="video-title">{$vodlist['title']}</div>
+        <div class="video-title">{$vodlist['title'] | raw}</div>
         <div class="tips-remind" style="margin-bottom: 0px;">
             <span style="color: red;">本站域名：域名</span>
             <span style="color: #007bff;" class="clipboard-select-bindings" onclick="copyUrlxs('http://域名')"
@@ -142,7 +142,7 @@
                 </div>
                 <a
                     href="/videoplay/{$channel}.html?category_id={$category_id}&category_child_id={$category_child_id}&vid={$guess['id']}">
-                    <div class="rank-title">{$guess['title']}</div>
+                    <div class="rank-title">{$guess['title'] | raw}</div>
                 </a>
             </div>
             {/volist}

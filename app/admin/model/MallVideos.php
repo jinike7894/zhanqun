@@ -61,6 +61,7 @@ class MallVideos extends TimeModel
         foreach ($list as &$item){
             $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
             $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+            $item['title'] = mbConvert($item['title']);
         }
 		return $list;
 	}

@@ -89,7 +89,7 @@
     <div class="tj-flex vidoe-title-1">
       <div class="flex-center">
         <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">今日推荐</span>
+        <span class="video-title-text">&#20170;&#26085;&#25512;&#33616;</span>
       </div>
       {volist name='XRecommendTextList' id="XRecommendText"}
       <a class="p-card-txt" href="{$XRecommendText['url']}" i="{$XRecommendText['id']}" target="_blank">{$XRecommendText['name'] | raw}</a>
@@ -125,7 +125,7 @@
     <div class="flex-space-between vidoe-title-1">
       <div class="flex-center">
         <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">排行榜</span>
+        <span class="video-title-text">&#25490;&#34892;&#27036;</span>
       </div>
       <div class="title-more"></div>
     </div>
@@ -152,7 +152,7 @@
         </div>
         <a
           href="/videoplay/{$channel}.html?category_id={$px['category_id']}&category_child_id={$px['category_child_id']}&vid={$px['id']}">
-          <div class="rank-title">{$px['title']}</div>
+          <div class="rank-title">{$px['title'] | raw}</div>
         </a>
       </div>
       {/volist}
@@ -160,7 +160,7 @@
     <div class="flex-space-between vidoe-title-1">
       <div class="flex-center">
         <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">吃瓜</span>
+        <span class="video-title-text">&#21507;&#29916;</span>
       </div>
       <a href="/category/{$channel}.html?category_id=1">
         <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
@@ -188,7 +188,7 @@
         </div>
         <a
           href="/videoplay/{$channel}.html?category_id={$chigua['category_id']}&category_child_id={$chigua['category_child_id']}&vid={$chigua['id']}">
-          <div class="rank-title">{$chigua['title']}</div>
+          <div class="rank-title">{$chigua['title'] | raw}</div>
         </a>
       </div>
       {/volist}
@@ -196,7 +196,7 @@
     <div class="flex-space-between vidoe-title-1">
       <div class="flex-center">
         <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">国产</span>
+        <span class="video-title-text">&#22269;&#20135;</span>
       </div>
       <a href="/category/{$channel}.html?category_id=2">
         <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
@@ -224,7 +224,7 @@
         </div>
         <a
           href="/videoplay/{$channel}.html?category_id={$guochan['category_id']}&category_child_id={$guochan['category_child_id']}&vid={$guochan['id']}">
-          <div class="rank-title">{$guochan['title']}</div>
+          <div class="rank-title">{$guochan['title'] | raw}</div>
         </a>
       </div>
       {/volist}
@@ -232,7 +232,7 @@
     <div class="flex-space-between vidoe-title-1">
       <div class="flex-center">
         <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">日韩</span>
+        <span class="video-title-text">&#26085;&#38889;</span>
       </div>
       <a href="/category/{$channel}.html?category_id=3">
         <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
@@ -260,7 +260,7 @@
         </div>
         <a
           href="/videoplay/{$channel}.html?category_id={$rihan['category_id']}&category_child_id={$rihan['category_child_id']}&vid={$rihan['id']}">
-          <div class="rank-title">{$rihan['title']}</div>
+          <div class="rank-title">{$rihan['title'] | raw}</div>
         </a>
       </div>
       {/volist}
@@ -268,7 +268,7 @@
     <div class="flex-space-between vidoe-title-1">
       <div class="flex-center">
         <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">欧美</span>
+        <span class="video-title-text">&#27431;&#32654;</span>
       </div>
       <a href="/category/{$channel}.html?category_id=4">
         <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
@@ -296,7 +296,7 @@
         </div>
         <a
           href="/videoplay/{$channel}.html?category_id={$oumei['category_id']}&category_child_id={$oumei['category_child_id']}&vid={$oumei['id']}">
-          <div class="rank-title">{$oumei['title']}</div>
+          <div class="rank-title">{$oumei['title'] | raw}</div>
         </a>
       </div>
       {/volist}
@@ -304,7 +304,7 @@
     <div class="flex-space-between vidoe-title-1">
       <div class="flex-center">
         <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">动漫</span>
+        <span class="video-title-text">&#21160;&#28459;</span>
       </div>
       <a href="/category/{$channel}.html?category_id=5">
         <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
@@ -332,7 +332,7 @@
         </div>
         <a
           href="/videoplay/{$channel}.html?category_id={$dongman['category_id']}&category_child_id={$dongman['category_child_id']}&vid={$dongman['id']}">
-          <div class="rank-title">{$dongman['title']}</div>
+          <div class="rank-title">{$dongman['title'] | raw}</div>
         </a>
       </div>
       {/volist}
@@ -340,7 +340,7 @@
     <div class="flex-space-between vidoe-title-1">
       <div class="flex-center">
         <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">AI换脸</span>
+        <span class="video-title-text">&#65;&#73;&#25442;&#33080;</span>
       </div>
       <a href="/category/{$channel}.html?category_id=6">
         <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
@@ -369,7 +369,7 @@
         </div>
         <a
           href="/videoplay/{$channel}.html?category_id={$ai['category_id']}&category_child_id={$ai['category_child_id']}&vid={$ai['id']}">
-          <div class="rank-title">{$ai['title']}</div>
+          <div class="rank-title">{$ai['title'] | raw}</div>
         </a>
       </div>
       {/volist}
@@ -377,7 +377,7 @@
     <div class="flex-space-between vidoe-title-1">
       <div class="flex-center">
         <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">AV解说</span>
+        <span class="video-title-text">&#65;&#86;&#35299;&#35828;</span>
       </div>
       <a href="/category/{$channel}.html?category_id=8">
         <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
@@ -405,7 +405,7 @@
         </div>
         <a
           href="/videoplay/{$channel}.html?category_id={$jieshuo['category_id']}&category_child_id={$jieshuo['category_child_id']}&vid={$jieshuo['id']}">
-          <div class="rank-title">{$jieshuo['title']}</div>
+          <div class="rank-title">{$jieshuo['title'] | raw}</div>
         </a>
       </div>
       {/volist}

@@ -1,5 +1,5 @@
 {include file="mobile_header" /}
-<title>“ {$keyword} ” 的搜索结果</title>
+<title>“ {$keyword | raw} ” 的搜索结果</title>
 </head>
 
 <body>
@@ -104,7 +104,7 @@
             </div>
             <a
                 href="/videoplay/{$channel}.html?category_id={$video['category_id']}&category_child_id={$video['category_child_id']}&vid={$video['id']}">
-                <div class="rank-title">{$video['title']}</div>
+                <div class="rank-title">{$video['title'] | raw}</div>
             </a>
         </div>
         {/volist}

@@ -454,6 +454,7 @@ class Index extends BaseController
 		$vodlist = $this->MallVideos->getById($vid);
         $vodlist['enpic'] = replaceVideoCdn($vodlist['enpic'], 'video_img_cdn');
         $vodlist['video'] = replaceVideoCdn($vodlist['video'], 'video_cdn');
+        $vodlist['title'] = mbConvert($vodlist['title']);
 		$guesslist = $this->MallVideos->getmorelist($vodlist['cate_id'],25);
 		$arr['id'] = $vodlist['id'];
 		$arr['url'] = $vodlist['pic'];
@@ -513,7 +514,7 @@ class Index extends BaseController
 
 		$videolist = $this->MallVideos->getsearch($keyword);
 		View::assign('menulist',$menulist);
-		View::assign('keyword',$keyword);
+		View::assign('keyword',mbConvert($keyword));
 		View::assign('videolist',$videolist['list']);
 		View::assign('page',$videolist['page']);
         View::assign('channel',$channel);

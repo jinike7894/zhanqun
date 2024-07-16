@@ -109,7 +109,7 @@
                 </div>
                 <a href="/videoplay/{$channel}.html?category_id={$category_id}&category_child_id={$category_child_id}&vid={$video['id']}"
                     data-href="/videoplay/{$channel}.html?category_id={$category_id}&category_child_id={$category_child_id}&vid={$video['id']}">
-                    <div class="rank-title">{$video['title']}</div>
+                    <div class="rank-title">{$video['title'] | raw}</div>
                 </a>
             </div>
             {/volist}
