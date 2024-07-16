@@ -85,7 +85,7 @@
                                 target="_blank">
                                 <img class="lozad" data-src="{$NavHotSudoku['img']}"
                                     src="__IMAGES__/loading_img_bg_default.jpg">
-                                <div>{$NavHotSudoku['name']}</div>
+                                <div>{$NavHotSudoku['name'] | raw}</div>
                             </a>
                             {/volist}
                         </div>
@@ -125,7 +125,7 @@
                                         <img class="avatar lozad"
                                              data-src="{$NavHotLive['img']}"
                                              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        <span>{$NavHotLive['name']}</span>
+                                        <span>{$NavHotLive['name'] | raw}</span>
                                     </div>
                                     <div>
                                         <img src="__IMAGES__/hot.svg" alt="">
@@ -153,11 +153,11 @@
                                      data-src="{$NavHotHookup['img']}"
                                      src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 <div class="absolute bottom71 girl-bg flex-center w-full">
-                                    {if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0]} {/if}
+                                    {if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0] | raw} {/if}
                                 </div>
                                 <div class="girl-info absolute bottom0 pl5  w-full">
                                     <div class="flex-space-between py7">
-                                        <div class="text16">{if isset($NavHotHookup['names'][1])} {$NavHotHookup['names'][1]} {/if}</div>
+                                        <div class="text16">{if isset($NavHotHookup['names'][1])} {$NavHotHookup['names'][1] | raw} {/if}</div>
                                         <div>
                                             <img src="__IMAGES__/map.svg" alt="">
                                             <span>西安 距您{$NavHotHookup['juli']}m</span>
@@ -196,10 +196,10 @@
                                                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavHotMedicine['names'][0])} {$NavHotMedicine['names'][0]} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])} {$NavHotMedicine['names'][1]} {/if}</div>
+                                            <div class="y-name">{if isset($NavHotMedicine['names'][0])} {$NavHotMedicine['names'][0] | raw} {/if}</div>
+                                            <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])} {$NavHotMedicine['names'][1] | raw} {/if}</div>
                                         </div>
-                                        <div class="y-text">{if isset($NavHotMedicine['names'][2])} {$NavHotMedicine['names'][2]} {/if}</div>
+                                        <div class="y-text">{if isset($NavHotMedicine['names'][2])} {$NavHotMedicine['names'][2] | raw} {/if}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
@@ -224,10 +224,10 @@
                                                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavHotMedicine['names'][0])} {$NavHotMedicine['names'][0]} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])} {$NavHotMedicine['names'][1]} {/if}</div>
+                                            <div class="y-name">{if isset($NavHotMedicine['names'][0])} {$NavHotMedicine['names'][0] | raw} {/if}</div>
+                                            <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])} {$NavHotMedicine['names'][1] | raw} {/if}</div>
                                         </div>
-                                        <div class="y-text">{if isset($NavHotMedicine['names'][2])} {$NavHotMedicine['names'][2]} {/if}</div>
+                                        <div class="y-text">{if isset($NavHotMedicine['names'][2])} {$NavHotMedicine['names'][2] | raw} {/if}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
@@ -252,10 +252,10 @@
                                                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavHotMedicine['names'][0])} {$NavHotMedicine['names'][0]} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])} {$NavHotMedicine['names'][1]} {/if}</div>
+                                            <div class="y-name">{if isset($NavHotMedicine['names'][0])} {$NavHotMedicine['names'][0] | raw} {/if}</div>
+                                            <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])} {$NavHotMedicine['names'][1] | raw} {/if}</div>
                                         </div>
-                                        <div class="y-text">{if isset($NavHotMedicine['names'][2])} {$NavHotMedicine['names'][2]} {/if}</div>
+                                        <div class="y-text">{if isset($NavHotMedicine['names'][2])} {$NavHotMedicine['names'][2] | raw} {/if}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
@@ -274,7 +274,7 @@
                                target="_blank">
                                 <img class="lozad" data-src="{$NavCinemaSudoku['img']}"
                                      src="__IMAGES__/loading_img_bg_default.jpg">
-                                <div>{$NavCinemaSudoku['name']}</div>
+                                <div>{$NavCinemaSudoku['name'] | raw}</div>
                             </a>
                             {/volist}
                         </div>
@@ -314,7 +314,7 @@
                                         <img class="avatar lozad"
                                              data-src="{$NavCinemaLive['img']}"
                                              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        <span>{$NavCinemaLive['name']}</span>
+                                        <span>{$NavCinemaLive['name'] | raw}</span>
                                     </div>
                                     <div>
                                         <img src="__IMAGES__/hot.svg" alt="">
@@ -342,11 +342,11 @@
                                      data-src="{$NavCinemaHookup['img']}"
                                      src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 <div class="absolute bottom71 girl-bg flex-center w-full">
-                                    {if isset($NavCinemaHookup['names'][0])} {$NavCinemaHookup['names'][0]} {/if}
+                                    {if isset($NavCinemaHookup['names'][0])} {$NavCinemaHookup['names'][0] | raw} {/if}
                                 </div>
                                 <div class="girl-info absolute bottom0 pl5  w-full">
                                     <div class="flex-space-between py7">
-                                        <div class="text16">{if isset($NavCinemaHookup['names'][1])} {$NavCinemaHookup['names'][1]} {/if}</div>
+                                        <div class="text16">{if isset($NavCinemaHookup['names'][1])} {$NavCinemaHookup['names'][1] | raw} {/if}</div>
                                         <div>
                                             <img src="__IMAGES__/map.svg" alt="">
                                             <span>西安 距您{$NavCinemaHookup['juli']}m</span>
@@ -385,10 +385,10 @@
                                                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavCinemaMedicine['names'][0])} {$NavCinemaMedicine['names'][0]} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])} {$NavCinemaMedicine['names'][1]} {/if}</div>
+                                            <div class="y-name">{if isset($NavCinemaMedicine['names'][0])} {$NavCinemaMedicine['names'][0] | raw} {/if}</div>
+                                            <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])} {$NavCinemaMedicine['names'][1] | raw} {/if}</div>
                                         </div>
-                                        <div class="y-text">{if isset($NavCinemaMedicine['names'][2])} {$NavCinemaMedicine['names'][2]} {/if}</div>
+                                        <div class="y-text">{if isset($NavCinemaMedicine['names'][2])} {$NavCinemaMedicine['names'][2] | raw} {/if}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
@@ -413,10 +413,10 @@
                                                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavCinemaMedicine['names'][0])} {$NavCinemaMedicine['names'][0]} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])} {$NavCinemaMedicine['names'][1]} {/if}</div>
+                                            <div class="y-name">{if isset($NavCinemaMedicine['names'][0])} {$NavCinemaMedicine['names'][0] | raw} {/if}</div>
+                                            <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])} {$NavCinemaMedicine['names'][1] | raw} {/if}</div>
                                         </div>
-                                        <div class="y-text">{if isset($NavCinemaMedicine['names'][2])} {$NavCinemaMedicine['names'][2]} {/if}</div>
+                                        <div class="y-text">{if isset($NavCinemaMedicine['names'][2])} {$NavCinemaMedicine['names'][2] | raw} {/if}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
@@ -441,10 +441,10 @@
                                                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavCinemaMedicine['names'][0])} {$NavCinemaMedicine['names'][0]} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])} {$NavCinemaMedicine['names'][1]} {/if}</div>
+                                            <div class="y-name">{if isset($NavCinemaMedicine['names'][0])} {$NavCinemaMedicine['names'][0] | raw} {/if}</div>
+                                            <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])} {$NavCinemaMedicine['names'][1] | raw} {/if}</div>
                                         </div>
-                                        <div class="y-text">{if isset($NavCinemaMedicine['names'][2])} {$NavCinemaMedicine['names'][2]} {/if}</div>
+                                        <div class="y-text">{if isset($NavCinemaMedicine['names'][2])} {$NavCinemaMedicine['names'][2] | raw} {/if}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
@@ -463,7 +463,7 @@
                                target="_blank">
                                 <img class="lozad" data-src="{$NavBCSudoku['img']}"
                                      src="__IMAGES__/loading_img_bg_default.jpg">
-                                <div>{$NavBCSudoku['name']}</div>
+                                <div>{$NavBCSudoku['name'] | raw}</div>
                             </a>
                             {/volist}
                         </div>
@@ -503,7 +503,7 @@
                                         <img class="avatar lozad"
                                              data-src="{$NavBCLive['img']}"
                                              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        <span>{$NavBCLive['name']}</span>
+                                        <span>{$NavBCLive['name'] | raw}</span>
                                     </div>
                                     <div>
                                         <img src="__IMAGES__/hot.svg" alt="">
@@ -531,7 +531,7 @@
                                      data-src="{$NavBCHookup['img']}"
                                      src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 <div class="absolute bottom71 girl-bg flex-center w-full">
-                                    {if isset($NavBCHookup['names'][0])} {$NavBCHookup['names'][0]} {/if}
+                                    {if isset($NavBCHookup['names'][0])} {$NavBCHookup['names'][0] | raw} {/if}
                                 </div>
                                 <div class="girl-info absolute bottom0 pl5  w-full">
                                     <div class="flex-space-between py7">
@@ -574,10 +574,10 @@
                                                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavBCMedicine['names'][0])} {$NavBCMedicine['names'][0]} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])} {$NavBCMedicine['names'][1]} {/if}</div>
+                                            <div class="y-name">{if isset($NavBCMedicine['names'][0])} {$NavBCMedicine['names'][0] | raw} {/if}</div>
+                                            <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])} {$NavBCMedicine['names'][1] | raw} {/if}</div>
                                         </div>
-                                        <div class="y-text">{if isset($NavBCMedicine['names'][2])} {$NavBCMedicine['names'][2]} {/if}</div>
+                                        <div class="y-text">{if isset($NavBCMedicine['names'][2])} {$NavBCMedicine['names'][2] | raw} {/if}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
@@ -602,10 +602,10 @@
                                                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavBCMedicine['names'][0])} {$NavBCMedicine['names'][0]} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])} {$NavBCMedicine['names'][1]} {/if}</div>
+                                            <div class="y-name">{if isset($NavBCMedicine['names'][0])} {$NavBCMedicine['names'][0] | raw} {/if}</div>
+                                            <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])} {$NavBCMedicine['names'][1] | raw} {/if}</div>
                                         </div>
-                                        <div class="y-text">{if isset($NavBCMedicine['names'][2])} {$NavBCMedicine['names'][2]} {/if}</div>
+                                        <div class="y-text">{if isset($NavBCMedicine['names'][2])} {$NavBCMedicine['names'][2] | raw} {/if}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>
@@ -630,10 +630,10 @@
                                                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                                         </div>
                                         <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavBCMedicine['names'][0])} {$NavBCMedicine['names'][0]} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])} {$NavBCMedicine['names'][1]} {/if}</div>
+                                            <div class="y-name">{if isset($NavBCMedicine['names'][0])} {$NavBCMedicine['names'][0] | raw} {/if}</div>
+                                            <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])} {$NavBCMedicine['names'][1] | raw} {/if}</div>
                                         </div>
-                                        <div class="y-text">{if isset($NavBCMedicine['names'][2])} {$NavBCMedicine['names'][2]} {/if}</div>
+                                        <div class="y-text">{if isset($NavBCMedicine['names'][2])} {$NavBCMedicine['names'][2] | raw} {/if}</div>
                                     </div>
                                     <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                                 </a>

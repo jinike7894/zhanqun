@@ -43,7 +43,7 @@
           {volist name='XBannerList' id="XBanner"}
           <div class="swiper-slide">
             <a rel="external nofollow" i="{$XBanner['id']}" href="{$XBanner['url']}" target="_blank">
-              <div title="{$XBanner['name']}">
+              <div title="{$XBanner['name'] | raw}">
                 <img class="jx-img lozad" data-src="{$XBanner['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
               </div>
             </a>
@@ -67,14 +67,14 @@
             {volist name='XSudokuList' id="XSudoku"}
             <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url']}" target="_blank">
                 <img class="lozad" data-src="{$XSudoku['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
-                <div>{$XSudoku['name']}</div>
+                <div>{$XSudoku['name'] | raw}</div>
             </a>
             {/volist}
         </div>
         <div class="textad">
             {volist name='XSudokuTextList' id="XSudokuText"}
             <a rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
-                {$XSudokuText['name']}
+                {$XSudokuText['name'] | raw}
             </a>
             {/volist}
         </div>
@@ -84,7 +84,7 @@
                 <span class="video-title-text">今日推荐</span>
             </div>
             {volist name='XRecommendTextList' id="XRecommendText"}
-            <a class="p-card-txt" href="{$XRecommendText['url']}" i="{$XRecommendText['id']}" target="_blank">{$XRecommendText['name']}</a>
+            <a class="p-card-txt" href="{$XRecommendText['url']}" i="{$XRecommendText['id']}" target="_blank">{$XRecommendText['name'] | raw}</a>
             {/volist}
         </div>
         <div class="ran-box">
