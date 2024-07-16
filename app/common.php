@@ -210,15 +210,16 @@ if (!function_exists('mbConvert')) {
     function mbConvert($value)
     {
         if(is_array($value)){
+            $arr = [];
             foreach ($value as $key => &$item) {
                 $unicode = unpack('n*', mb_convert_encoding($item, 'UTF-16BE', 'UTF-8'));
                 $str = '';
                 foreach ($unicode as $val) {
                     $str .= '&#'.$val . ';';
                 }
-                $item[$key] = $str;
+                $arr[$key] = $str;
             }
-            return $value;
+            return $arr;
         }
 
         $unicode = unpack('n*', mb_convert_encoding($value, 'UTF-16BE', 'UTF-8'));

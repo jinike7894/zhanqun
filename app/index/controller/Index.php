@@ -41,6 +41,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
+                $item['name'] = mbConvert($item['name']);
             }
             View::assign('NavCinemaSudokuList',$NavCinemaSudokuList);
 
@@ -53,7 +54,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['name'] = mbConvert($item['name']);
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
                 $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
@@ -68,7 +69,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
                 $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
@@ -83,7 +84,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
                 $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
@@ -99,6 +100,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
+                $item['name'] = mbConvert($item['name']);
             }
             View::assign('NavBCSudokuList',$NavBCSudokuList);
 
@@ -112,7 +114,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['name'] = mbConvert($item['name']);
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
                 $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
@@ -128,7 +130,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
                 $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
@@ -144,7 +146,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
                 $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
@@ -160,6 +162,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
+                $item['name'] = mbConvert($item['name']);
             }
             View::assign('NavHotSudokuList',$NavHotSudokuList);
 
@@ -173,7 +176,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['name'] = mbConvert($item['name']);
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
                 $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
@@ -189,7 +192,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
                 $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
@@ -205,7 +208,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
-                $item['names'] = explode('<br />', nl2br($item['name']));
+                $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
                 $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
             }
@@ -234,6 +237,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
+                $item['name'] = mbConvert($item['name']);
             }
             View::assign('XSudokuList',$XSudokuList);
 
@@ -244,6 +248,7 @@ class Index extends BaseController
 
             foreach ($XSudokuTextList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
+                $item['name'] = mbConvert($item['name']);
             }
             View::assign('XSudokuTextList',$XSudokuTextList);
 
@@ -257,6 +262,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
+                $item['name'] = mbConvert($item['name']);
             }
             View::assign('XVideoListInsertList',$XVideoListInsertList);
 
@@ -270,6 +276,7 @@ class Index extends BaseController
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
+                $item['name'] = mbConvert($item['name']);
             }
             View::assign('XGuessVideoInsertList',$XGuessVideoInsertList);
 
@@ -333,6 +340,7 @@ class Index extends BaseController
 
             foreach ($XRecommendTextList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
+                $item['name'] = mbConvert($item['name']);
             }
             View::assign('XRecommendTextList',$XRecommendTextList);
 
@@ -344,6 +352,7 @@ class Index extends BaseController
 
             foreach ($XGuessTextList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
+                $item['name'] = mbConvert($item['name']);
             }
             View::assign('XGuessTextList',$XGuessTextList);
         }
