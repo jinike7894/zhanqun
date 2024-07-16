@@ -530,6 +530,23 @@ class Index extends BaseController
 
     public function test()
     {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /*$data = file_get_contents('./upload/20230724/44a47c7f8ad1e6783708f42132f1a4b6.gif');
         $arr = str_split($data);
         $decArr = [];
@@ -543,27 +560,27 @@ class Index extends BaseController
         //return View::fetch();
 
 
-        $NavBannerList = $this->Products->field('img')
-            ->where(array('status'=>1))->order('sort asc,id asc')->page(1, 100)->select();
-
-        foreach ($NavBannerList as $val){
-
-            $filePath = root_path() . 'public' . $val['img'];
-            if (strpos($val['img'], '_file') !== false) {
-                continue;
-            }
-            $pdata = file_get_contents($filePath);
-            $parr = str_split($pdata);
-            $decArr = [];
-            foreach ($parr as $value) {
-                $decArr[] = hexdec(bin2hex($value)) ^ 136;
-            }
-            $path_info = pathinfo($filePath);
-            $file_extension = $path_info['extension'];
-            $aa = str_replace('.' . $file_extension, '_file.' . $file_extension, $filePath);
-            file_put_contents($aa, pack('C*', ...$decArr));
-            echo $filePath . '<br/>';
-        }
+//        $NavBannerList = $this->Products->field('img')
+//            ->where(array('status'=>1))->order('sort asc,id asc')->page(1, 100)->select();
+//
+//        foreach ($NavBannerList as $val){
+//
+//            $filePath = root_path() . 'public' . $val['img'];
+//            if (strpos($val['img'], '_file') !== false) {
+//                continue;
+//            }
+//            $pdata = file_get_contents($filePath);
+//            $parr = str_split($pdata);
+//            $decArr = [];
+//            foreach ($parr as $value) {
+//                $decArr[] = hexdec(bin2hex($value)) ^ 136;
+//            }
+//            $path_info = pathinfo($filePath);
+//            $file_extension = $path_info['extension'];
+//            $aa = str_replace('.' . $file_extension, '_file.' . $file_extension, $filePath);
+//            file_put_contents($aa, pack('C*', ...$decArr));
+//            echo $filePath . '<br/>';
+//        }
 // 		$dir = root_path() . 'public' . DIRECTORY_SEPARATOR . 'upload';
 //         $list = CommonTool::readDirAllFiles($dir);
 //         foreach ($list as $key => $val){

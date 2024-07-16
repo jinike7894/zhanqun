@@ -57,10 +57,10 @@ class Login extends AdminController
             $this->validate($post, $rule);
             $admin = SystemAdmin::where(['username' => $post['username']])->find();
             if (empty($admin)) {
-                $this->error('用户不存在');
+                $this->error('账户或密码输入有误');
             }
             if (password($post['password']) != $admin->password) {
-                //$this->error('密码输入有误');
+                $this->error('账户或密码输入有误');
             }
             if ($admin->status == 0) {
                 $this->error('账号已被禁用');
