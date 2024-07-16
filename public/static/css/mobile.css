@@ -6,8 +6,8 @@
     padding-top: 5px;
     padding-bottom: 5px;
 }
-.ios .d-load-btn{
-    display: none;
+.is-load .d-load-btn{
+    display: block;
 }
 .v-s-nav-box-h {
     width: 100%;
@@ -289,7 +289,7 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column  ;
 }
 .ad-conter a div {
     font-size: 10px;
@@ -304,6 +304,7 @@ a:hover {
     padding: 2px .8rem;
     text-overflow: ellipsis;
     white-space:  nowrap;
+    display: none;
 }
 .p9{
     padding: 9px;

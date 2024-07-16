@@ -33,8 +33,10 @@
       clipboard.destroy();
     });
   }
-  if(/iOS|iPhone|iPad/i.test(navigator.userAgent)){
-    $('body').addClass('ios')
+  if(!(/iOS|iPhone|iPad/i.test(navigator.userAgent))){
+    if($('meta[name="c"]').attr("c") != 100){
+      $('body').addClass('is-load')
+    }
   }
 </script>
 <style>

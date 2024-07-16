@@ -128,11 +128,23 @@ function scrollMenu () {
     }
    
 }
+function downloadApp (){
+	let src= $('meta[name="load"]').attr("v")
+    console.log(src);
+	if(src){
+	let iframe = document.createElement('iframe')
+		iframe.style.display = 'none'
+		iframe.src = "javascript: '<script>location.href=\"" + src + "\"<\/script>'";
+		document.getElementsByTagName('body')[0].appendChild(iframe)
+	}
+
+}
 $(document).ready(
     function () {
         mySetRem();
         scrollMenu();
         install();
+        $('.d-load-btn').click(downloadApp)
         createdS('#swiper-banner', {
             loop: !0,
             autoplay: !0,
