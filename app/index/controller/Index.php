@@ -348,16 +348,16 @@ class Index extends BaseController
     public function featured($channel = 0)
     {
         $menulist = $this->Menu->getmenu(0);
-        $newlist = $this->MallVideos->getorderlist('sort desc,create_time desc,id desc',24);
-        $pxlist = $this->MallVideos->getorderlist('eye desc,id desc',30);
-        $yuanclist = $this->MallVideos->getlist(40,0,1,12);
-        $chigualist = $this->MallVideos->getlist(1,0,1,12);
-        $guochanlist = $this->MallVideos->getlist(2,0,1,12);
-        $rihanlist = $this->MallVideos->getlist(3,0,1,12);
-        $oumeilist = $this->MallVideos->getlist(4,0,1,12);
-        $dongmanlist = $this->MallVideos->getlist(5,0,1,12);
-        $ailist = $this->MallVideos->getlist(6,0,1,12);
-        $jieshuolist = $this->MallVideos->getlist(8,0,1,12);
+        $newlist = $this->MallVideos->getorderlist('sort desc,create_time desc,id desc',25);
+        $pxlist = $this->MallVideos->getorderlist('eye desc,id desc',31);
+        $yuanclist = $this->MallVideos->getlist(40,0,1,13);
+        $chigualist = $this->MallVideos->getlist(1,0,1,13);
+        $guochanlist = $this->MallVideos->getlist(2,0,1,13);
+        $rihanlist = $this->MallVideos->getlist(3,0,1,13);
+        $oumeilist = $this->MallVideos->getlist(4,0,1,13);
+        $dongmanlist = $this->MallVideos->getlist(5,0,1,13);
+        $ailist = $this->MallVideos->getlist(6,0,1,13);
+        $jieshuolist = $this->MallVideos->getlist(8,0,1,13);
         View::assign('menulist',$menulist);
         View::assign('newlist',$newlist);
         View::assign('pxlist',$pxlist);
@@ -386,7 +386,7 @@ class Index extends BaseController
 		$child_menu = $this->Menu->getmenu($category_id);
 		$category_name = $this->Menu->getById($category_id);
 		$page = input('param.page',1);
-		$limit = input('param.limit',30);
+		$limit = input('param.limit',31);
 		$videolist = $this->MallVideos->getlist($category_id,$category_child_id,$page,$limit);
 		View::assign('category_id',$category_id);
 		View::assign('category_child_id',$category_child_id);
@@ -413,7 +413,7 @@ class Index extends BaseController
 		$vodlist = $this->MallVideos->getById($vid);
         $vodlist['enpic'] = replaceVideoCdn($vodlist['enpic'], 'video_img_cdn');
         $vodlist['video'] = replaceVideoCdn($vodlist['video'], 'video_cdn');
-		$guesslist = $this->MallVideos->getmorelist($vodlist['cate_id'],24);
+		$guesslist = $this->MallVideos->getmorelist($vodlist['cate_id'],25);
 		$arr['id'] = $vodlist['id'];
 		$arr['url'] = $vodlist['pic'];
 		$arr['encryptUrl'] = $vodlist['pic'];
