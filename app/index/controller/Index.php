@@ -360,6 +360,9 @@ class Index extends BaseController
 	public function index($channel = 0)
 	{
 		$menulist = $this->Menu->getmenu(0);
+        foreach ($menulist as &$item){
+            $item['title'] = mbConvert($item['title']);
+        }
         $ip = GetIP();
 //        $location = get_location($ip);
 		View::assign('menulist',$menulist);
@@ -376,6 +379,9 @@ class Index extends BaseController
     public function featured($channel = 0)
     {
         $menulist = $this->Menu->getmenu(0);
+        foreach ($menulist as &$item){
+            $item['title'] = mbConvert($item['title']);
+        }
         $newlist = $this->MallVideos->getorderlist('sort desc,create_time desc,id desc',25);
         $pxlist = $this->MallVideos->getorderlist('eye desc,id desc',31);
         $yuanclist = $this->MallVideos->getlist(40,0,1,13);
@@ -411,6 +417,9 @@ class Index extends BaseController
 		$category_id = input('param.category_id/d',0);
 		$category_child_id = input('param.category_child_id/d',0);
 		$menulist = $this->Menu->getmenu(0);
+        foreach ($menulist as &$item){
+            $item['title'] = mbConvert($item['title']);
+        }
 		$child_menu = $this->Menu->getmenu($category_id);
 		$category_name = $this->Menu->getById($category_id);
 		$page = input('param.page',1);
@@ -437,6 +446,9 @@ class Index extends BaseController
 		$category_id = input('param.category_id/d',0);
 		$category_child_id = input('param.category_child_id/d',0);
 		$menulist = $this->Menu->getmenu(0);
+        foreach ($menulist as &$item){
+            $item['title'] = mbConvert($item['title']);
+        }
 		$child_menu = $this->Menu->getmenu($category_id);
 		$vodlist = $this->MallVideos->getById($vid);
         $vodlist['enpic'] = replaceVideoCdn($vodlist['enpic'], 'video_img_cdn');
@@ -483,6 +495,9 @@ class Index extends BaseController
 	public function searchhome($channel = 0)
 	{
 		$menulist = $this->Menu->getmenu(0);
+        foreach ($menulist as &$item){
+            $item['title'] = mbConvert($item['title']);
+        }
 		View::assign('menulist',$menulist);
         View::assign('channel',$channel);
 		return View::fetch();
@@ -491,6 +506,9 @@ class Index extends BaseController
 	{
 		$keyword = input('param.keyword/s');
 		$menulist = $this->Menu->getmenu(0);
+        foreach ($menulist as &$item){
+            $item['title'] = mbConvert($item['title']);
+        }
 
 		$videolist = $this->MallVideos->getsearch($keyword);
 		View::assign('menulist',$menulist);

@@ -30,7 +30,7 @@
       </a>
         {volist name='menulist' id="menu"}
         <a href="/category/{$channel}.html?category_id={$menu['id']}">
-            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">{$menu['title']}</div>
+            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">{$menu['title'] | raw}</div>
         </a>
         {/volist}
     </div>
