@@ -535,7 +535,7 @@
                                 </div>
                                 <div class="girl-info absolute bottom0 pl5  w-full">
                                     <div class="flex-space-between py7">
-                                        <div class="text16">{if isset($NavBCHookup['names'][1])} {$NavBCHookup['names'][1]} {/if}</div>
+                                        <div class="text16">{if isset($NavBCHookup['names'][1])} {$NavBCHookup['names'][1] | raw} {/if}</div>
                                         <div>
                                             <img src="__IMAGES__/map.svg" alt="">
                                             <span>西安 距您{$NavBCHookup['juli']}m</span>
