@@ -738,7 +738,7 @@ a:hover {
 
 .info-btn {
     height: 27px;
-    width: 157px;
+    width: 100%;;
     line-height: 27px;
     background: linear-gradient(93.06deg, #46B1FF 9.76%, #2674F5 94.75%);
     color: #fff;
