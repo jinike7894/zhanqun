@@ -3,656 +3,692 @@
 </head>
 
 <body>
-    <div class="v-s-nav-box-h">
-        <div class="main-box p9">
-            <div class="v-s-logo"><a href="/{$channel}.html"><img
-                        src="__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
-            <div class="v-s-nav-search-box">
-                <a href="/searchhome/{$channel}.html">
-                    <div class="search-person">
-                        <div class="s-text">&#30334;&#19975;&#29255;&#24211;</div>
-                        <i class="bi bi-search"></i>
-                    </div>
-                </a>
-                <img class="left-img" src="__IMAGES__/collect-icon.gif" alt="" srcset="">
-                <div class="d-load-btn">
-                    <img src="__IMAGES__/d-load.svg" alt="">
-                    <span>&#19979;&#36733;&#65;&#80;&#80;</span>
-                </div>
-            </div>
-        </div>
-        <!-- 标题栏bp -->
-        <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
-            <a href="/{$channel}.html">
-                <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item nav-menu-selected">&#23548;&#33322;</div>
-            </a>
-            <a href="/featured/{$channel}.html">
-                <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#31934;&#36873;</div>
-            </a>
-            {volist name='menulist' id="menu"}
-            <a href="/category/{$channel}.html?category_id={$menu['id']}">
-                <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">{$menu['title'] | raw}</div>
-            </a>
-            {/volist}
-        </div>
-    </div>
-    <div id="swiper-banner" class="swiper">
-        <div class="swiper-wrapper">
-            {volist name='NavBannerList' id="NavBanner"}
-            <div class="swiper-slide">
-                <a rel="external nofollow" i="{$NavBanner['id']}" href="{$NavBanner['androidurl']}" target="_blank">
-                    <div title="{$NavBanner['name']}">
-                        <img class="lozad" data-src="{$NavBanner['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
-                    </div>
-                </a>
-            </div>
-            {/volist}
-        </div>
-    </div>
-    <div class="marquee-wrap">
-        <div class="marquee-box">
-            <div class="icon-speaker">
-                <i class="not bi-bell-fill"></i>
-            </div>
-            <div class="container-main">
-                <p>&#26816;&#27979;&#21040;&#24403;&#21069;&#27983;&#35272;&#22120;&#24050;&#25318;&#25130;&#26412;&#31449;&#37096;&#20998;&#33394;&#24773;APP&#65292;&#22914;APP&#22270;&#26631;&#26080;&#27861;&#28857;&#20987;&#65292;&#35831;&#22797;&#21046;&#32593;&#22336;&#23581;&#35797;&#19981;&#21516;&#27983;&#35272;&#22120;
-                </p>
-            </div>
-        </div>
-    </div>
-    <div>
-        <div class="ad-menu-wrap">
-            <div class="ad-menu-item active">
-                <div class="ad-t">&#28909;&#38376;&#31934;&#21697;</div>
-                <div>&#26497;&#33268;&#29956;&#36873;&#32;&#24050;&#39046;&#28526;&#27969;</div>
-            </div>
-            <div class="ad-menu-item">
-                <div class="ad-t">&#25104;&#20154;&#24433;&#38498;</div>
-                <div>&#28023;&#37327;&#35270;&#39057;&#44;&#39640;&#28165;&#30011;&#36136;</div>
-            </div>
-            <div class="ad-menu-item">
-                <div class="ad-t">&#20307;&#32946;&#26827;&#29260;</div>
-                <div>&#19981;&#20013;&#21253;&#36180;&#65292;&#20805;&#20540;&#36192;&#36865;&#53;&#48;&#37;</div>
-            </div>
-        </div>
-        <div class="conter-wrap">
-            <div id="swiper-ad" class="swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="ad-conter">
-                            {volist name='NavHotSudokuList' id="NavHotSudoku"}
-                            <a rel="external nofollow" i="{$NavHotSudoku['id']}" href="{$NavHotSudoku['url']}"
-                                target="_blank">
-                                <img class="lozad" data-src="{$NavHotSudoku['img']}"
-                                    src="__IMAGES__/loading_img_bg_default.jpg">
-                                <div>{$NavHotSudoku['name'] | raw}</div>
-                            </a>
-                            {/volist}
+    <div id="app">
+        <div class="v-s-nav-box-h">
+            <div class="main-box p9">
+                <div class="v-s-logo"><a href="/{$channel}.html"><img
+                            src="__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
+                <div class="v-s-nav-search-box">
+                    <a href="/searchhome/{$channel}.html">
+                        <div class="search-person">
+                            <div class="s-text">&#30334;&#19975;&#29255;&#24211;</div>
+                            <i class="bi bi-search"></i>
                         </div>
-                        <div class="title-wrap">
-                            <div class="title-l">
-                                <div class="loading-container">
-                                    <div class="loading-bar"></div>
-                                    <div class="loading-bar"></div>
-                                    <div class="loading-bar"></div>
-                                    <div class="loading-bar"></div>
-                                </div>
-                                <span class="px7">&#30452;&#25773;</span>
-                                <span
-                                    class="text1">&#23569;&#22919;&#23273;&#27169;&#65292;&#22812;&#22812;&#31513;&#27468;&#65292;&#39640;&#28526;&#19981;&#26029;</span>
-                            </div>
-                            <a class="more-btn" href="/livestreaming/{$channel}.html">&#26356;&#22810;&#20027;&#25773;</a>
-                        </div>
-                        <div class="pb23 grid-cols-2 gap7">
-                            {volist name='NavHotLiveList' id="NavHotLive" key="index"}
-                            {if condition="$index == 1 or $index == 2"}
-                            <a class="relative bolck live-item" i="{$NavHotLive['id']}" href="{$NavHotLive['url']}" target="_blank">
-                                <img class="live-img lozad"
-                                     data-src="{$NavHotLive['img']}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                <div class="absolute bottom75 flex-center w-full">
-                                    <div class="live-bg flex-center">
-                                        <div class="loading-container">
-                                            <div class="loading-bar"></div>
-                                            <div class="loading-bar"></div>
-                                            <div class="loading-bar"></div>
-                                        </div>
-                                        <div>&#36827;&#20837;&#30452;&#25773;&#38388;</div>
-                                    </div>
-                                </div>
-                                <div class="absolute bottom0 px7 flex-space-between w-full">
-                                    <div>
-                                        <img class="avatar lozad"
-                                             data-src="{$NavHotLive['img']}"
-                                             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        <span>{$NavHotLive['name'] | raw}</span>
-                                    </div>
-                                    <div>
-                                        <img src="__IMAGES__/hot.svg" alt="">
-                                        <span>{$NavHotLive['yueNum']}</span>
-                                    </div>
-                                </div>
-                            </a>
-                            {/if}
-                            {/volist}
-                        </div>
-                        <div class="title-wrap">
-                            <div class="title-l">
-                                <img src="__IMAGES__/yue.svg" alt="" srcset="">
-                                <span class="px7">&#32422;&#28846;</span>
-                                <span class="text1">西安 距您0.8km 65 人</span>
-                            </div>
-                            <a class="more-btn" href="/hookup/{$channel}.html">&#26356;&#22810;&#36164;&#28304;</a>
-                        </div>
-
-                        <div class="pb23 grid-cols-2 gap7">
-                            {volist name='NavHotHookupList' id="NavHotHookup" key="index"}
-                            {if condition="$index == 1 or $index == 2"}
-                            <a class="relative bolck girl-item" i="{$NavHotHookup['id']}" href="{$NavHotHookup['url']}" target="_blank">
-                                <img class="girl-img lozad"
-                                     data-src="{$NavHotHookup['img']}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                <div class="absolute bottom71 girl-bg flex-center w-full">
-                                    {if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0] | raw} {/if}
-                                </div>
-                                <div class="girl-info absolute bottom0 pl5  w-full">
-                                    <div class="flex-space-between py7">
-                                        <div class="text16">{if isset($NavHotHookup['names'][1])} {$NavHotHookup['names'][1] | raw} {/if}</div>
-                                        <div>
-                                            <img src="__IMAGES__/map.svg" alt="">
-                                            <span>西安 距您{$NavHotHookup['juli']}m</span>
-                                        </div>
-                                    </div>
-                                    <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
-                                </div>
-                            </a>
-                            {/if}
-                            {/volist}
-                        </div>
-                        <div class="title-wrap">
-                            <div class="title-l">
-                                <img src="__IMAGES__/yao.svg" alt="" srcset="">
-                                <span class="px7">&#26149;&#33647;</span>
-                                <span
-                                    class="text1">&#36855;&#33647;&#65292;&#20652;&#24773;&#65292;&#24310;&#26102;&#65292;&#22766;&#38451;</span>
-                            </div>
-                            <span></span>
-                            <!-- <a class="more-btn" href="/drugstore/1.html">&#26356;&#22810;&#33647;&#21697;</a> -->
-                        </div>
-                        <div class="y-wrap">
-                            <div class="flex-center">
-                                <img class="y-title-i" src="__IMAGES__/y1-title.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="outside">
-                            <div class="y-conter">
-                                {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
-                                {if condition="$index == 1 or $index == 2"}
-                                <a class="y-item" i="{$NavHotMedicine['id']}"  href="{$NavHotMedicine['url']}" target="_blank">
-                                    <div class="y-item-1">
-                                        <div>
-                                            <img class="lozad"
-                                                 data-src="{$NavHotMedicine['img']}"
-                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        </div>
-                                        <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavHotMedicine['names'][0])} {$NavHotMedicine['names'][0] | raw} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])} {$NavHotMedicine['names'][1] | raw} {/if}</div>
-                                        </div>
-                                        <div class="y-text">{if isset($NavHotMedicine['names'][2])} {$NavHotMedicine['names'][2] | raw} {/if}</div>
-                                    </div>
-                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
-                                </a>
-                                {/if}
-                                {/volist}
-                            </div>
-                        </div>
-                        <div class="y-wrap">
-                            <div class="flex-center">
-                                <img class="y-title-i" src="__IMAGES__/y2-title.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="outside">
-                            <div class="y-conter">
-                                {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
-                                {if condition="$index == 3 or $index == 4"}
-                                <a class="y-item" i="{$NavHotMedicine['id']}"  href="{$NavHotMedicine['url']}" target="_blank">
-                                    <div class="y-item-1">
-                                        <div>
-                                            <img class="lozad"
-                                                 data-src="{$NavHotMedicine['img']}"
-                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        </div>
-                                        <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavHotMedicine['names'][0])} {$NavHotMedicine['names'][0] | raw} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])} {$NavHotMedicine['names'][1] | raw} {/if}</div>
-                                        </div>
-                                        <div class="y-text">{if isset($NavHotMedicine['names'][2])} {$NavHotMedicine['names'][2] | raw} {/if}</div>
-                                    </div>
-                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
-                                </a>
-                                {/if}
-                                {/volist}
-                            </div>
-                        </div>
-                        <div class="y-wrap">
-                            <div class="flex-center">
-                                <img class="y-title-i" src="__IMAGES__/y3-title.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="outside">
-                            <div class="y-conter">
-                                {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
-                                {if condition="$index == 5 or $index == 6"}
-                                <a class="y-item" i="{$NavHotMedicine['id']}"  href="{$NavHotMedicine['url']}" target="_blank">
-                                    <div class="y-item-1">
-                                        <div>
-                                            <img class="lozad"
-                                                 data-src="{$NavHotMedicine['img']}"
-                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        </div>
-                                        <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavHotMedicine['names'][0])} {$NavHotMedicine['names'][0] | raw} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])} {$NavHotMedicine['names'][1] | raw} {/if}</div>
-                                        </div>
-                                        <div class="y-text">{if isset($NavHotMedicine['names'][2])} {$NavHotMedicine['names'][2] | raw} {/if}</div>
-                                    </div>
-                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
-                                </a>
-                                {/if}
-                                {/volist}
-                            </div>
-                        </div>
-                        <!-- <div class="flex-center">
-                            <a class="bolck more-btn1" href="/drugstore/1.html">&#26597;&#30475;&#26356;&#22810;</a>
-                        </div> -->
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="ad-conter">
-                            {volist name='NavCinemaSudokuList' id="NavCinemaSudoku"}
-                            <a rel="external nofollow" i="{$NavCinemaSudoku['id']}" href="{$NavCinemaSudoku['url']}"
-                               target="_blank">
-                                <img class="lozad" data-src="{$NavCinemaSudoku['img']}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg">
-                                <div>{$NavCinemaSudoku['name'] | raw}</div>
-                            </a>
-                            {/volist}
-                        </div>
-                        <div class="title-wrap">
-                            <div class="title-l">
-                                <div class="loading-container">
-                                    <div class="loading-bar"></div>
-                                    <div class="loading-bar"></div>
-                                    <div class="loading-bar"></div>
-                                    <div class="loading-bar"></div>
-                                </div>
-                                <span class="px7">&#30452;&#25773;</span>
-                                <span
-                                    class="text1">&#23569;&#22919;&#23273;&#27169;&#65292;&#22812;&#22812;&#31513;&#27468;&#65292;&#39640;&#28526;&#19981;&#26029;</span>
-                            </div>
-                            <a class="more-btn" href="/livestreaming/{$channel}.html">&#26356;&#22810;&#20027;&#25773;</a>
-                        </div>
-                        <div class="pb23 grid-cols-2 gap7">
-                            {volist name='NavCinemaLiveList' id="NavCinemaLive" key="index"}
-                            {if condition="$index == 1 or $index == 2"}
-                            <a class="relative bolck live-item" i="{$NavCinemaLive['id']}" href="{$NavCinemaLive['url']}" target="_blank">
-                                <img class="live-img lozad"
-                                     data-src="{$NavCinemaLive['img']}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                <div class="absolute bottom75 flex-center w-full">
-                                    <div class="live-bg flex-center">
-                                        <div class="loading-container">
-                                            <div class="loading-bar"></div>
-                                            <div class="loading-bar"></div>
-                                            <div class="loading-bar"></div>
-                                        </div>
-                                        <div>&#36827;&#20837;&#30452;&#25773;&#38388;</div>
-                                    </div>
-                                </div>
-                                <div class="absolute bottom0 px7 flex-space-between w-full">
-                                    <div>
-                                        <img class="avatar lozad"
-                                             data-src="{$NavCinemaLive['img']}"
-                                             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        <span>{$NavCinemaLive['name'] | raw}</span>
-                                    </div>
-                                    <div>
-                                        <img src="__IMAGES__/hot.svg" alt="">
-                                        <span>{$NavCinemaLive['yueNum']}</span>
-                                    </div>
-                                </div>
-                            </a>
-                            {/if}
-                            {/volist}
-                        </div>
-                        <div class="title-wrap">
-                            <div class="title-l">
-                                <img src="__IMAGES__/yue.svg" alt="" srcset="">
-                                <span class="px7">&#32422;&#28846;</span>
-                                <span class="text1">西安 距您0.8km 65 人</span>
-                            </div>
-                            <a class="more-btn" href="/hookup/{$channel}.html">&#26356;&#22810;&#36164;&#28304;</a>
-                        </div>
-
-                        <div class="pb23 grid-cols-2 gap7">
-                            {volist name='NavCinemaHookupList' id="NavCinemaHookup" key="index"}
-                            {if condition="$index == 1 or $index == 2"}
-                            <a class="relative bolck girl-item" i="{$NavCinemaHookup['id']}"  href="{$NavCinemaHookup['url']}" target="_blank">
-                                <img class="girl-img lozad"
-                                     data-src="{$NavCinemaHookup['img']}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                <div class="absolute bottom71 girl-bg flex-center w-full">
-                                    {if isset($NavCinemaHookup['names'][0])} {$NavCinemaHookup['names'][0] | raw} {/if}
-                                </div>
-                                <div class="girl-info absolute bottom0 pl5  w-full">
-                                    <div class="flex-space-between py7">
-                                        <div class="text16">{if isset($NavCinemaHookup['names'][1])} {$NavCinemaHookup['names'][1] | raw} {/if}</div>
-                                        <div>
-                                            <img src="__IMAGES__/map.svg" alt="">
-                                            <span>西安 距您{$NavCinemaHookup['juli']}m</span>
-                                        </div>
-                                    </div>
-                                    <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
-                                </div>
-                            </a>
-                            {/if}
-                            {/volist}
-                        </div>
-                        <div class="title-wrap">
-                            <div class="title-l">
-                                <img src="__IMAGES__/yao.svg" alt="" srcset="">
-                                <span class="px7">&#26149;&#33647;</span>
-                                <span
-                                    class="text1">&#36855;&#33647;&#65292;&#20652;&#24773;&#65292;&#24310;&#26102;&#65292;&#22766;&#38451;</span>
-                            </div>
-                            <span></span>
-                            <!-- <a class="more-btn" href="/drugstore/1.html">&#26356;&#22810;&#33647;&#21697;</a> -->
-                        </div>
-                        <div class="y-wrap">
-                            <div class="flex-center">
-                                <img class="y-title-i" src="__IMAGES__/y1-title.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="outside">
-                            <div class="y-conter">
-                                {volist name='NavCinemaMedicineList' id="NavCinemaMedicine" key="index"}
-                                {if condition="$index == 1 or $index == 2"}
-                                <a class="y-item" i="{$NavCinemaMedicine['id']}" href="{$NavCinemaMedicine['url']}" target="_blank">
-                                    <div class="y-item-1">
-                                        <div>
-                                            <img class="lozad"
-                                                 data-src="{$NavCinemaMedicine['img']}"
-                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        </div>
-                                        <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavCinemaMedicine['names'][0])} {$NavCinemaMedicine['names'][0] | raw} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])} {$NavCinemaMedicine['names'][1] | raw} {/if}</div>
-                                        </div>
-                                        <div class="y-text">{if isset($NavCinemaMedicine['names'][2])} {$NavCinemaMedicine['names'][2] | raw} {/if}</div>
-                                    </div>
-                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
-                                </a>
-                                {/if}
-                                {/volist}
-                            </div>
-                        </div>
-                        <div class="y-wrap">
-                            <div class="flex-center">
-                                <img class="y-title-i" src="__IMAGES__/y2-title.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="outside">
-                            <div class="y-conter">
-                                {volist name='NavCinemaMedicineList' id="NavCinemaMedicine" key="index"}
-                                {if condition="$index == 3 or $index == 4"}
-                                <a class="y-item" i="{$NavCinemaMedicine['id']}" href="{$NavCinemaMedicine['url']}" target="_blank">
-                                    <div class="y-item-1">
-                                        <div>
-                                            <img class="lozad"
-                                                 data-src="{$NavCinemaMedicine['img']}"
-                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        </div>
-                                        <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavCinemaMedicine['names'][0])} {$NavCinemaMedicine['names'][0] | raw} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])} {$NavCinemaMedicine['names'][1] | raw} {/if}</div>
-                                        </div>
-                                        <div class="y-text">{if isset($NavCinemaMedicine['names'][2])} {$NavCinemaMedicine['names'][2] | raw} {/if}</div>
-                                    </div>
-                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
-                                </a>
-                                {/if}
-                                {/volist}
-                            </div>
-                        </div>
-                        <div class="y-wrap">
-                            <div class="flex-center">
-                                <img class="y-title-i" src="__IMAGES__/y3-title.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="outside">
-                            <div class="y-conter">
-                                {volist name='NavCinemaMedicineList' id="NavCinemaMedicine" key="index"}
-                                {if condition="$index == 5 or $index == 6"}
-                                <a class="y-item" i="{$NavCinemaMedicine['id']}" href="{$NavCinemaMedicine['url']}" target="_blank">
-                                    <div class="y-item-1">
-                                        <div>
-                                            <img class="lozad"
-                                                 data-src="{$NavCinemaMedicine['img']}"
-                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        </div>
-                                        <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavCinemaMedicine['names'][0])} {$NavCinemaMedicine['names'][0] | raw} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])} {$NavCinemaMedicine['names'][1] | raw} {/if}</div>
-                                        </div>
-                                        <div class="y-text">{if isset($NavCinemaMedicine['names'][2])} {$NavCinemaMedicine['names'][2] | raw} {/if}</div>
-                                    </div>
-                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
-                                </a>
-                                {/if}
-                                {/volist}
-                            </div>
-                        </div>
-                        <!-- <div class="flex-center">
-                            <a class="bolck more-btn1" href="/drugstore/1.html">&#26597;&#30475;&#26356;&#22810;</a>
-                        </div> -->
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="ad-conter">
-                            {volist name='NavBCSudokuList' id="NavBCSudoku"}
-                            <a rel="external nofollow" i="{$NavBCSudoku['id']}" href="{$NavBCSudoku['url']}"
-                               target="_blank">
-                                <img class="lozad" data-src="{$NavBCSudoku['img']}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg">
-                                <div>{$NavBCSudoku['name'] | raw}</div>
-                            </a>
-                            {/volist}
-                        </div>
-                        <div class="title-wrap">
-                            <div class="title-l">
-                                <div class="loading-container">
-                                    <div class="loading-bar"></div>
-                                    <div class="loading-bar"></div>
-                                    <div class="loading-bar"></div>
-                                    <div class="loading-bar"></div>
-                                </div>
-                                <span class="px7">&#30452;&#25773;</span>
-                                <span
-                                    class="text1">&#23569;&#22919;&#23273;&#27169;&#65292;&#22812;&#22812;&#31513;&#27468;&#65292;&#39640;&#28526;&#19981;&#26029;</span>
-                            </div>
-                            <a class="more-btn" href="/livestreaming/{$channel}.html">&#26356;&#22810;&#20027;&#25773;</a>
-                        </div>
-                        <div class="pb23 grid-cols-2 gap7">
-                            {volist name='NavBCLiveList' id="NavBCLive" key="index"}
-                            {if condition="$index == 1 or $index == 2"}
-                            <a class="relative bolck live-item" i="{$NavBCLive['id']}" href="{$NavBCLive['url']}" target="_blank">
-                                <img class="live-img lozad"
-                                     data-src="{$NavBCLive['img']}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                <div class="absolute bottom75 flex-center w-full">
-                                    <div class="live-bg flex-center">
-                                        <div class="loading-container">
-                                            <div class="loading-bar"></div>
-                                            <div class="loading-bar"></div>
-                                            <div class="loading-bar"></div>
-                                        </div>
-                                        <div>&#36827;&#20837;&#30452;&#25773;&#38388;</div>
-                                    </div>
-                                </div>
-                                <div class="absolute bottom0 px7 flex-space-between w-full">
-                                    <div>
-                                        <img class="avatar lozad"
-                                             data-src="{$NavBCLive['img']}"
-                                             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        <span>{$NavBCLive['name'] | raw}</span>
-                                    </div>
-                                    <div>
-                                        <img src="__IMAGES__/hot.svg" alt="">
-                                        <span>{$NavBCLive['yueNum']}</span>
-                                    </div>
-                                </div>
-                            </a>
-                            {/if}
-                            {/volist}
-                        </div>
-                        <div class="title-wrap">
-                            <div class="title-l">
-                                <img src="__IMAGES__/yue.svg" alt="" srcset="">
-                                <span class="px7">&#32422;&#28846;</span>
-                                <span class="text1">西安 距您0.8km 65 人</span>
-                            </div>
-                            <a class="more-btn" href="/hookup/{$channel}.html">&#26356;&#22810;&#36164;&#28304;</a>
-                        </div>
-
-                        <div class="pb23 grid-cols-2 gap7">
-                            {volist name='NavBCHookupList' id="NavBCHookup" key="index"}
-                            {if condition="$index == 1 or $index == 2"}
-                            <a class="relative bolck girl-item" i="{$NavBCHookup['id']}"  href="{$NavBCHookup['url']}" target="_blank">
-                                <img class="girl-img lozad"
-                                     data-src="{$NavBCHookup['img']}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                <div class="absolute bottom71 girl-bg flex-center w-full">
-                                    {if isset($NavBCHookup['names'][0])} {$NavBCHookup['names'][0] | raw} {/if}
-                                </div>
-                                <div class="girl-info absolute bottom0 pl5  w-full">
-                                    <div class="flex-space-between py7">
-                                        <div class="text16">{if isset($NavBCHookup['names'][1])} {$NavBCHookup['names'][1] | raw} {/if}</div>
-                                        <div>
-                                            <img src="__IMAGES__/map.svg" alt="">
-                                            <span>西安 距您{$NavBCHookup['juli']}m</span>
-                                        </div>
-                                    </div>
-                                    <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
-                                </div>
-                            </a>
-                            {/if}
-                            {/volist}
-                        </div>
-                        <div class="title-wrap">
-                            <div class="title-l">
-                                <img src="__IMAGES__/yao.svg" alt="" srcset="">
-                                <span class="px7">&#26149;&#33647;</span>
-                                <span
-                                    class="text1">&#36855;&#33647;&#65292;&#20652;&#24773;&#65292;&#24310;&#26102;&#65292;&#22766;&#38451;</span>
-                            </div>
-                            <span></span>
-                            <!-- <a class="more-btn" href="/drugstore/1.html">&#26356;&#22810;&#33647;&#21697;</a> -->
-                        </div>
-                        <div class="y-wrap">
-                            <div class="flex-center">
-                                <img class="y-title-i" src="__IMAGES__/y1-title.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="outside">
-                            <div class="y-conter">
-                                {volist name='NavBCMedicineList' id="NavBCMedicine" key="index"}
-                                {if condition="$index == 1 or $index == 2"}
-                                <a class="y-item" i="{$NavBCMedicine['id']}" href="{$NavBCMedicine['url']}" target="_blank">
-                                    <div class="y-item-1">
-                                        <div>
-                                            <img class="lozad"
-                                                 data-src="{$NavBCMedicine['img']}"
-                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        </div>
-                                        <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavBCMedicine['names'][0])} {$NavBCMedicine['names'][0] | raw} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])} {$NavBCMedicine['names'][1] | raw} {/if}</div>
-                                        </div>
-                                        <div class="y-text">{if isset($NavBCMedicine['names'][2])} {$NavBCMedicine['names'][2] | raw} {/if}</div>
-                                    </div>
-                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
-                                </a>
-                                {/if}
-                                {/volist}
-                            </div>
-                        </div>
-                        <div class="y-wrap">
-                            <div class="flex-center">
-                                <img class="y-title-i" src="__IMAGES__/y2-title.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="outside">
-                            <div class="y-conter">
-                                {volist name='NavBCMedicineList' id="NavBCMedicine" key="index"}
-                                {if condition="$index == 3 or $index == 4"}
-                                <a class="y-item" i="{$NavBCMedicine['id']}" href="{$NavBCMedicine['url']}" target="_blank">
-                                    <div class="y-item-1">
-                                        <div>
-                                            <img class="lozad"
-                                                 data-src="{$NavBCMedicine['img']}"
-                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        </div>
-                                        <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavBCMedicine['names'][0])} {$NavBCMedicine['names'][0] | raw} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])} {$NavBCMedicine['names'][1] | raw} {/if}</div>
-                                        </div>
-                                        <div class="y-text">{if isset($NavBCMedicine['names'][2])} {$NavBCMedicine['names'][2] | raw} {/if}</div>
-                                    </div>
-                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
-                                </a>
-                                {/if}
-                                {/volist}
-                            </div>
-                        </div>
-                        <div class="y-wrap">
-                            <div class="flex-center">
-                                <img class="y-title-i" src="__IMAGES__/y3-title.png" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="outside">
-                            <div class="y-conter">
-                                {volist name='NavBCMedicineList' id="NavBCMedicine" key="index"}
-                                {if condition="$index == 5 or $index == 6"}
-                                <a class="y-item" i="{$NavBCMedicine['id']}" href="{$NavBCMedicine['url']}" target="_blank">
-                                    <div class="y-item-1">
-                                        <div>
-                                            <img class="lozad"
-                                                 data-src="{$NavBCMedicine['img']}"
-                                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                        </div>
-                                        <div class="y-h-title flex-space-between">
-                                            <div class="y-name">{if isset($NavBCMedicine['names'][0])} {$NavBCMedicine['names'][0] | raw} {/if}</div>
-                                            <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])} {$NavBCMedicine['names'][1] | raw} {/if}</div>
-                                        </div>
-                                        <div class="y-text">{if isset($NavBCMedicine['names'][2])} {$NavBCMedicine['names'][2] | raw} {/if}</div>
-                                    </div>
-                                    <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
-                                </a>
-                                {/if}
-                                {/volist}
-                            </div>
-                        </div>
-                        <!-- <div class="flex-center">
-                            <a class="bolck more-btn1" href="/drugstore/1.html">&#26597;&#30475;&#26356;&#22810;</a>
-                        </div> -->
+                    </a>
+                    <img class="left-img" src="__IMAGES__/collect-icon.gif" alt="" srcset="">
+                    <div class="d-load-btn">
+                        <img src="__IMAGES__/d-load.svg" alt="">
+                        <span>&#19979;&#36733;&#65;&#80;&#80;</span>
                     </div>
                 </div>
             </div>
+            <!-- 标题栏bp -->
+            <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
+                <a href="/{$channel}.html">
+                    <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item nav-menu-selected">
+                        &#23548;&#33322;</div>
+                </a>
+                <a href="/featured/{$channel}.html">
+                    <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#31934;&#36873;</div>
+                </a>
+                {volist name='menulist' id="menu"}
+                <a href="/category/{$channel}.html?category_id={$menu['id']}">
+                    <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">{$menu['title'] | raw}
+                    </div>
+                </a>
+                {/volist}
+            </div>
+        </div>
+        <div id="swiper-banner" class="swiper">
+            <div class="swiper-wrapper">
+                {volist name='NavBannerList' id="NavBanner"}
+                <div class="swiper-slide">
+                    <a rel="external nofollow" i="{$NavBanner['id']}" href="{$NavBanner['androidurl']}" target="_blank">
+                        <div title="{$NavBanner['name']}">
+                            <img class="lozad" data-src="{$NavBanner['img']}"
+                                src="__IMAGES__/loading_img_bg_default.jpg">
+                        </div>
+                    </a>
+                </div>
+                {/volist}
+            </div>
+        </div>
+        <div class="marquee-wrap">
+            <div class="marquee-box">
+                <div class="icon-speaker">
+                    <i class="not bi-bell-fill"></i>
+                </div>
+                <div class="container-main">
+                    <p>&#26816;&#27979;&#21040;&#24403;&#21069;&#27983;&#35272;&#22120;&#24050;&#25318;&#25130;&#26412;&#31449;&#37096;&#20998;&#33394;&#24773;APP&#65292;&#22914;APP&#22270;&#26631;&#26080;&#27861;&#28857;&#20987;&#65292;&#35831;&#22797;&#21046;&#32593;&#22336;&#23581;&#35797;&#19981;&#21516;&#27983;&#35272;&#22120;
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="ad-menu-wrap">
+                <div class="ad-menu-item active">
+                    <div class="ad-t">&#28909;&#38376;&#31934;&#21697;</div>
+                    <div>&#26497;&#33268;&#29956;&#36873;&#32;&#24050;&#39046;&#28526;&#27969;</div>
+                </div>
+                <div class="ad-menu-item">
+                    <div class="ad-t">&#25104;&#20154;&#24433;&#38498;</div>
+                    <div>&#28023;&#37327;&#35270;&#39057;&#44;&#39640;&#28165;&#30011;&#36136;</div>
+                </div>
+                <div class="ad-menu-item">
+                    <div class="ad-t">&#20307;&#32946;&#26827;&#29260;</div>
+                    <div>&#19981;&#20013;&#21253;&#36180;&#65292;&#20805;&#20540;&#36192;&#36865;&#53;&#48;&#37;</div>
+                </div>
+            </div>
+            <div class="conter-wrap">
+                <div id="swiper-ad" class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="ad-conter">
+                                {volist name='NavHotSudokuList' id="NavHotSudoku"}
+                                <a rel="external nofollow" i="{$NavHotSudoku['id']}" href="{$NavHotSudoku['url']}"
+                                    target="_blank">
+                                    <img class="lozad" data-src="{$NavHotSudoku['img']}"
+                                        src="__IMAGES__/loading_img_bg_default.jpg">
+                                    <div>{$NavHotSudoku['name'] | raw}</div>
+                                </a>
+                                {/volist}
+                            </div>
+                            <div class="title-wrap">
+                                <div class="title-l">
+                                    <div class="loading-container">
+                                        <div class="loading-bar"></div>
+                                        <div class="loading-bar"></div>
+                                        <div class="loading-bar"></div>
+                                        <div class="loading-bar"></div>
+                                    </div>
+                                    <span class="px7">&#30452;&#25773;</span>
+                                    <span
+                                        class="text1">&#23569;&#22919;&#23273;&#27169;&#65292;&#22812;&#22812;&#31513;&#27468;&#65292;&#39640;&#28526;&#19981;&#26029;</span>
+                                </div>
+                                <a class="more-btn"
+                                    href="/livestreaming/{$channel}.html">&#26356;&#22810;&#20027;&#25773;</a>
+                            </div>
+                            <div class="pb23 grid-cols-2 gap7">
+                                {volist name='NavHotLiveList' id="NavHotLive" key="index"}
+                                {if condition="$index == 1 or $index == 2"}
+                                <a class="relative bolck live-item" i="{$NavHotLive['id']}" href="{$NavHotLive['url']}"
+                                    target="_blank">
+                                    <img class="live-img lozad" data-src="{$NavHotLive['img']}"
+                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                    <div class="absolute bottom75 flex-center w-full">
+                                        <div class="live-bg flex-center">
+                                            <div class="loading-container">
+                                                <div class="loading-bar"></div>
+                                                <div class="loading-bar"></div>
+                                                <div class="loading-bar"></div>
+                                            </div>
+                                            <div>&#36827;&#20837;&#30452;&#25773;&#38388;</div>
+                                        </div>
+                                    </div>
+                                    <div class="absolute bottom0 px7 flex-space-between w-full">
+                                        <div>
+                                            <img class="avatar lozad" data-src="{$NavHotLive['img']}"
+                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            <span>{$NavHotLive['name'] | raw}</span>
+                                        </div>
+                                        <div>
+                                            <img src="__IMAGES__/hot.svg" alt="">
+                                            <span>{$NavHotLive['yueNum']}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                {/if}
+                                {/volist}
+                            </div>
+                            <div class="title-wrap">
+                                <div class="title-l">
+                                    <img src="__IMAGES__/yue.svg" alt="" srcset="">
+                                    <span class="px7">&#32422;&#28846;</span>
+                                    <span class="text1">西安 距您0.8km 65 人</span>
+                                </div>
+                                <a class="more-btn" href="/hookup/{$channel}.html">&#26356;&#22810;&#36164;&#28304;</a>
+                            </div>
 
+                            <div class="pb23 grid-cols-2 gap7">
+                                {volist name='NavHotHookupList' id="NavHotHookup" key="index"}
+                                {if condition="$index == 1 or $index == 2"}
+                                <a class="relative bolck girl-item" i="{$NavHotHookup['id']}"
+                                    href="{$NavHotHookup['url']}" target="_blank">
+                                    <img class="girl-img lozad" data-src="{$NavHotHookup['img']}"
+                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                    <div class="absolute bottom71 girl-bg flex-center w-full">
+                                        {if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0] | raw} {/if}
+                                    </div>
+                                    <div class="girl-info absolute bottom0 pl5  w-full">
+                                        <div class="flex-space-between py7">
+                                            <div class="text16">{if isset($NavHotHookup['names'][1])}
+                                                {$NavHotHookup['names'][1] | raw} {/if}</div>
+                                            <div>
+                                                <img src="__IMAGES__/map.svg" alt="">
+                                                <span>西安 距您{$NavHotHookup['juli']}m</span>
+                                            </div>
+                                        </div>
+                                        <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </div>
+                                </a>
+                                {/if}
+                                {/volist}
+                            </div>
+                            <div class="title-wrap">
+                                <div class="title-l">
+                                    <img src="__IMAGES__/yao.svg" alt="" srcset="">
+                                    <span class="px7">&#26149;&#33647;</span>
+                                    <span
+                                        class="text1">&#36855;&#33647;&#65292;&#20652;&#24773;&#65292;&#24310;&#26102;&#65292;&#22766;&#38451;</span>
+                                </div>
+                                <span></span>
+                                <!-- <a class="more-btn" href="/drugstore/1.html">&#26356;&#22810;&#33647;&#21697;</a> -->
+                            </div>
+                            <div class="y-wrap">
+                                <div class="flex-center">
+                                    <img class="y-title-i" src="__IMAGES__/y1-title.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="outside">
+                                <div class="y-conter">
+                                    {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
+                                    {if condition="$index == 1 or $index == 2"}
+                                    <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url']}"
+                                        target="_blank">
+                                        <div class="y-item-1">
+                                            <div>
+                                                <img class="lozad" data-src="{$NavHotMedicine['img']}"
+                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            </div>
+                                            <div class="y-h-title flex-space-between">
+                                                <div class="y-name">{if isset($NavHotMedicine['names'][0])}
+                                                    {$NavHotMedicine['names'][0] | raw} {/if}</div>
+                                                <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])}
+                                                    {$NavHotMedicine['names'][1] | raw} {/if}</div>
+                                            </div>
+                                            <div class="y-text">{if isset($NavHotMedicine['names'][2])}
+                                                {$NavHotMedicine['names'][2] | raw} {/if}</div>
+                                        </div>
+                                        <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </a>
+                                    {/if}
+                                    {/volist}
+                                </div>
+                            </div>
+                            <div class="y-wrap">
+                                <div class="flex-center">
+                                    <img class="y-title-i" src="__IMAGES__/y2-title.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="outside">
+                                <div class="y-conter">
+                                    {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
+                                    {if condition="$index == 3 or $index == 4"}
+                                    <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url']}"
+                                        target="_blank">
+                                        <div class="y-item-1">
+                                            <div>
+                                                <img class="lozad" data-src="{$NavHotMedicine['img']}"
+                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            </div>
+                                            <div class="y-h-title flex-space-between">
+                                                <div class="y-name">{if isset($NavHotMedicine['names'][0])}
+                                                    {$NavHotMedicine['names'][0] | raw} {/if}</div>
+                                                <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])}
+                                                    {$NavHotMedicine['names'][1] | raw} {/if}</div>
+                                            </div>
+                                            <div class="y-text">{if isset($NavHotMedicine['names'][2])}
+                                                {$NavHotMedicine['names'][2] | raw} {/if}</div>
+                                        </div>
+                                        <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </a>
+                                    {/if}
+                                    {/volist}
+                                </div>
+                            </div>
+                            <div class="y-wrap">
+                                <div class="flex-center">
+                                    <img class="y-title-i" src="__IMAGES__/y3-title.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="outside">
+                                <div class="y-conter">
+                                    {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
+                                    {if condition="$index == 5 or $index == 6"}
+                                    <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url']}"
+                                        target="_blank">
+                                        <div class="y-item-1">
+                                            <div>
+                                                <img class="lozad" data-src="{$NavHotMedicine['img']}"
+                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            </div>
+                                            <div class="y-h-title flex-space-between">
+                                                <div class="y-name">{if isset($NavHotMedicine['names'][0])}
+                                                    {$NavHotMedicine['names'][0] | raw} {/if}</div>
+                                                <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])}
+                                                    {$NavHotMedicine['names'][1] | raw} {/if}</div>
+                                            </div>
+                                            <div class="y-text">{if isset($NavHotMedicine['names'][2])}
+                                                {$NavHotMedicine['names'][2] | raw} {/if}</div>
+                                        </div>
+                                        <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </a>
+                                    {/if}
+                                    {/volist}
+                                </div>
+                            </div>
+                            <!-- <div class="flex-center">
+                                <a class="bolck more-btn1" href="/drugstore/1.html">&#26597;&#30475;&#26356;&#22810;</a>
+                            </div> -->
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="ad-conter">
+                                {volist name='NavCinemaSudokuList' id="NavCinemaSudoku"}
+                                <a rel="external nofollow" i="{$NavCinemaSudoku['id']}" href="{$NavCinemaSudoku['url']}"
+                                    target="_blank">
+                                    <img class="lozad" data-src="{$NavCinemaSudoku['img']}"
+                                        src="__IMAGES__/loading_img_bg_default.jpg">
+                                    <div>{$NavCinemaSudoku['name'] | raw}</div>
+                                </a>
+                                {/volist}
+                            </div>
+                            <div class="title-wrap">
+                                <div class="title-l">
+                                    <div class="loading-container">
+                                        <div class="loading-bar"></div>
+                                        <div class="loading-bar"></div>
+                                        <div class="loading-bar"></div>
+                                        <div class="loading-bar"></div>
+                                    </div>
+                                    <span class="px7">&#30452;&#25773;</span>
+                                    <span
+                                        class="text1">&#23569;&#22919;&#23273;&#27169;&#65292;&#22812;&#22812;&#31513;&#27468;&#65292;&#39640;&#28526;&#19981;&#26029;</span>
+                                </div>
+                                <a class="more-btn"
+                                    href="/livestreaming/{$channel}.html">&#26356;&#22810;&#20027;&#25773;</a>
+                            </div>
+                            <div class="pb23 grid-cols-2 gap7">
+                                {volist name='NavCinemaLiveList' id="NavCinemaLive" key="index"}
+                                {if condition="$index == 1 or $index == 2"}
+                                <a class="relative bolck live-item" i="{$NavCinemaLive['id']}"
+                                    href="{$NavCinemaLive['url']}" target="_blank">
+                                    <img class="live-img lozad" data-src="{$NavCinemaLive['img']}"
+                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                    <div class="absolute bottom75 flex-center w-full">
+                                        <div class="live-bg flex-center">
+                                            <div class="loading-container">
+                                                <div class="loading-bar"></div>
+                                                <div class="loading-bar"></div>
+                                                <div class="loading-bar"></div>
+                                            </div>
+                                            <div>&#36827;&#20837;&#30452;&#25773;&#38388;</div>
+                                        </div>
+                                    </div>
+                                    <div class="absolute bottom0 px7 flex-space-between w-full">
+                                        <div>
+                                            <img class="avatar lozad" data-src="{$NavCinemaLive['img']}"
+                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            <span>{$NavCinemaLive['name'] | raw}</span>
+                                        </div>
+                                        <div>
+                                            <img src="__IMAGES__/hot.svg" alt="">
+                                            <span>{$NavCinemaLive['yueNum']}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                {/if}
+                                {/volist}
+                            </div>
+                            <div class="title-wrap">
+                                <div class="title-l">
+                                    <img src="__IMAGES__/yue.svg" alt="" srcset="">
+                                    <span class="px7">&#32422;&#28846;</span>
+                                    <span class="text1">西安 距您0.8km 65 人</span>
+                                </div>
+                                <a class="more-btn" href="/hookup/{$channel}.html">&#26356;&#22810;&#36164;&#28304;</a>
+                            </div>
+
+                            <div class="pb23 grid-cols-2 gap7">
+                                {volist name='NavCinemaHookupList' id="NavCinemaHookup" key="index"}
+                                {if condition="$index == 1 or $index == 2"}
+                                <a class="relative bolck girl-item" i="{$NavCinemaHookup['id']}"
+                                    href="{$NavCinemaHookup['url']}" target="_blank">
+                                    <img class="girl-img lozad" data-src="{$NavCinemaHookup['img']}"
+                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                    <div class="absolute bottom71 girl-bg flex-center w-full">
+                                        {if isset($NavCinemaHookup['names'][0])} {$NavCinemaHookup['names'][0] | raw}
+                                        {/if}
+                                    </div>
+                                    <div class="girl-info absolute bottom0 pl5  w-full">
+                                        <div class="flex-space-between py7">
+                                            <div class="text16">{if isset($NavCinemaHookup['names'][1])}
+                                                {$NavCinemaHookup['names'][1] | raw} {/if}</div>
+                                            <div>
+                                                <img src="__IMAGES__/map.svg" alt="">
+                                                <span>西安 距您{$NavCinemaHookup['juli']}m</span>
+                                            </div>
+                                        </div>
+                                        <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </div>
+                                </a>
+                                {/if}
+                                {/volist}
+                            </div>
+                            <div class="title-wrap">
+                                <div class="title-l">
+                                    <img src="__IMAGES__/yao.svg" alt="" srcset="">
+                                    <span class="px7">&#26149;&#33647;</span>
+                                    <span
+                                        class="text1">&#36855;&#33647;&#65292;&#20652;&#24773;&#65292;&#24310;&#26102;&#65292;&#22766;&#38451;</span>
+                                </div>
+                                <span></span>
+                                <!-- <a class="more-btn" href="/drugstore/1.html">&#26356;&#22810;&#33647;&#21697;</a> -->
+                            </div>
+                            <div class="y-wrap">
+                                <div class="flex-center">
+                                    <img class="y-title-i" src="__IMAGES__/y1-title.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="outside">
+                                <div class="y-conter">
+                                    {volist name='NavCinemaMedicineList' id="NavCinemaMedicine" key="index"}
+                                    {if condition="$index == 1 or $index == 2"}
+                                    <a class="y-item" i="{$NavCinemaMedicine['id']}" href="{$NavCinemaMedicine['url']}"
+                                        target="_blank">
+                                        <div class="y-item-1">
+                                            <div>
+                                                <img class="lozad" data-src="{$NavCinemaMedicine['img']}"
+                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            </div>
+                                            <div class="y-h-title flex-space-between">
+                                                <div class="y-name">{if isset($NavCinemaMedicine['names'][0])}
+                                                    {$NavCinemaMedicine['names'][0] | raw} {/if}</div>
+                                                <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])}
+                                                    {$NavCinemaMedicine['names'][1] | raw} {/if}</div>
+                                            </div>
+                                            <div class="y-text">{if isset($NavCinemaMedicine['names'][2])}
+                                                {$NavCinemaMedicine['names'][2] | raw} {/if}</div>
+                                        </div>
+                                        <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </a>
+                                    {/if}
+                                    {/volist}
+                                </div>
+                            </div>
+                            <div class="y-wrap">
+                                <div class="flex-center">
+                                    <img class="y-title-i" src="__IMAGES__/y2-title.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="outside">
+                                <div class="y-conter">
+                                    {volist name='NavCinemaMedicineList' id="NavCinemaMedicine" key="index"}
+                                    {if condition="$index == 3 or $index == 4"}
+                                    <a class="y-item" i="{$NavCinemaMedicine['id']}" href="{$NavCinemaMedicine['url']}"
+                                        target="_blank">
+                                        <div class="y-item-1">
+                                            <div>
+                                                <img class="lozad" data-src="{$NavCinemaMedicine['img']}"
+                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            </div>
+                                            <div class="y-h-title flex-space-between">
+                                                <div class="y-name">{if isset($NavCinemaMedicine['names'][0])}
+                                                    {$NavCinemaMedicine['names'][0] | raw} {/if}</div>
+                                                <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])}
+                                                    {$NavCinemaMedicine['names'][1] | raw} {/if}</div>
+                                            </div>
+                                            <div class="y-text">{if isset($NavCinemaMedicine['names'][2])}
+                                                {$NavCinemaMedicine['names'][2] | raw} {/if}</div>
+                                        </div>
+                                        <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </a>
+                                    {/if}
+                                    {/volist}
+                                </div>
+                            </div>
+                            <div class="y-wrap">
+                                <div class="flex-center">
+                                    <img class="y-title-i" src="__IMAGES__/y3-title.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="outside">
+                                <div class="y-conter">
+                                    {volist name='NavCinemaMedicineList' id="NavCinemaMedicine" key="index"}
+                                    {if condition="$index == 5 or $index == 6"}
+                                    <a class="y-item" i="{$NavCinemaMedicine['id']}" href="{$NavCinemaMedicine['url']}"
+                                        target="_blank">
+                                        <div class="y-item-1">
+                                            <div>
+                                                <img class="lozad" data-src="{$NavCinemaMedicine['img']}"
+                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            </div>
+                                            <div class="y-h-title flex-space-between">
+                                                <div class="y-name">{if isset($NavCinemaMedicine['names'][0])}
+                                                    {$NavCinemaMedicine['names'][0] | raw} {/if}</div>
+                                                <div class="y-no">编号：{if isset($NavCinemaMedicine['names'][1])}
+                                                    {$NavCinemaMedicine['names'][1] | raw} {/if}</div>
+                                            </div>
+                                            <div class="y-text">{if isset($NavCinemaMedicine['names'][2])}
+                                                {$NavCinemaMedicine['names'][2] | raw} {/if}</div>
+                                        </div>
+                                        <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </a>
+                                    {/if}
+                                    {/volist}
+                                </div>
+                            </div>
+                            <!-- <div class="flex-center">
+                                <a class="bolck more-btn1" href="/drugstore/1.html">&#26597;&#30475;&#26356;&#22810;</a>
+                            </div> -->
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="ad-conter">
+                                {volist name='NavBCSudokuList' id="NavBCSudoku"}
+                                <a rel="external nofollow" i="{$NavBCSudoku['id']}" href="{$NavBCSudoku['url']}"
+                                    target="_blank">
+                                    <img class="lozad" data-src="{$NavBCSudoku['img']}"
+                                        src="__IMAGES__/loading_img_bg_default.jpg">
+                                    <div>{$NavBCSudoku['name'] | raw}</div>
+                                </a>
+                                {/volist}
+                            </div>
+                            <div class="title-wrap">
+                                <div class="title-l">
+                                    <div class="loading-container">
+                                        <div class="loading-bar"></div>
+                                        <div class="loading-bar"></div>
+                                        <div class="loading-bar"></div>
+                                        <div class="loading-bar"></div>
+                                    </div>
+                                    <span class="px7">&#30452;&#25773;</span>
+                                    <span
+                                        class="text1">&#23569;&#22919;&#23273;&#27169;&#65292;&#22812;&#22812;&#31513;&#27468;&#65292;&#39640;&#28526;&#19981;&#26029;</span>
+                                </div>
+                                <a class="more-btn"
+                                    href="/livestreaming/{$channel}.html">&#26356;&#22810;&#20027;&#25773;</a>
+                            </div>
+                            <div class="pb23 grid-cols-2 gap7">
+                                {volist name='NavBCLiveList' id="NavBCLive" key="index"}
+                                {if condition="$index == 1 or $index == 2"}
+                                <a class="relative bolck live-item" i="{$NavBCLive['id']}" href="{$NavBCLive['url']}"
+                                    target="_blank">
+                                    <img class="live-img lozad" data-src="{$NavBCLive['img']}"
+                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                    <div class="absolute bottom75 flex-center w-full">
+                                        <div class="live-bg flex-center">
+                                            <div class="loading-container">
+                                                <div class="loading-bar"></div>
+                                                <div class="loading-bar"></div>
+                                                <div class="loading-bar"></div>
+                                            </div>
+                                            <div>&#36827;&#20837;&#30452;&#25773;&#38388;</div>
+                                        </div>
+                                    </div>
+                                    <div class="absolute bottom0 px7 flex-space-between w-full">
+                                        <div>
+                                            <img class="avatar lozad" data-src="{$NavBCLive['img']}"
+                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            <span>{$NavBCLive['name'] | raw}</span>
+                                        </div>
+                                        <div>
+                                            <img src="__IMAGES__/hot.svg" alt="">
+                                            <span>{$NavBCLive['yueNum']}</span>
+                                        </div>
+                                    </div>
+                                </a>
+                                {/if}
+                                {/volist}
+                            </div>
+                            <div class="title-wrap">
+                                <div class="title-l">
+                                    <img src="__IMAGES__/yue.svg" alt="" srcset="">
+                                    <span class="px7">&#32422;&#28846;</span>
+                                    <span class="text1">西安 距您0.8km 65 人</span>
+                                </div>
+                                <a class="more-btn" href="/hookup/{$channel}.html">&#26356;&#22810;&#36164;&#28304;</a>
+                            </div>
+
+                            <div class="pb23 grid-cols-2 gap7">
+                                {volist name='NavBCHookupList' id="NavBCHookup" key="index"}
+                                {if condition="$index == 1 or $index == 2"}
+                                <a class="relative bolck girl-item" i="{$NavBCHookup['id']}"
+                                    href="{$NavBCHookup['url']}" target="_blank">
+                                    <img class="girl-img lozad" data-src="{$NavBCHookup['img']}"
+                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                    <div class="absolute bottom71 girl-bg flex-center w-full">
+                                        {if isset($NavBCHookup['names'][0])} {$NavBCHookup['names'][0] | raw} {/if}
+                                    </div>
+                                    <div class="girl-info absolute bottom0 pl5  w-full">
+                                        <div class="flex-space-between py7">
+                                            <div class="text16">{if isset($NavBCHookup['names'][1])}
+                                                {$NavBCHookup['names'][1] | raw} {/if}</div>
+                                            <div>
+                                                <img src="__IMAGES__/map.svg" alt="">
+                                                <span>西安 距您{$NavBCHookup['juli']}m</span>
+                                            </div>
+                                        </div>
+                                        <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </div>
+                                </a>
+                                {/if}
+                                {/volist}
+                            </div>
+                            <div class="title-wrap">
+                                <div class="title-l">
+                                    <img src="__IMAGES__/yao.svg" alt="" srcset="">
+                                    <span class="px7">&#26149;&#33647;</span>
+                                    <span
+                                        class="text1">&#36855;&#33647;&#65292;&#20652;&#24773;&#65292;&#24310;&#26102;&#65292;&#22766;&#38451;</span>
+                                </div>
+                                <span></span>
+                                <!-- <a class="more-btn" href="/drugstore/1.html">&#26356;&#22810;&#33647;&#21697;</a> -->
+                            </div>
+                            <div class="y-wrap">
+                                <div class="flex-center">
+                                    <img class="y-title-i" src="__IMAGES__/y1-title.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="outside">
+                                <div class="y-conter">
+                                    {volist name='NavBCMedicineList' id="NavBCMedicine" key="index"}
+                                    {if condition="$index == 1 or $index == 2"}
+                                    <a class="y-item" i="{$NavBCMedicine['id']}" href="{$NavBCMedicine['url']}"
+                                        target="_blank">
+                                        <div class="y-item-1">
+                                            <div>
+                                                <img class="lozad" data-src="{$NavBCMedicine['img']}"
+                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            </div>
+                                            <div class="y-h-title flex-space-between">
+                                                <div class="y-name">{if isset($NavBCMedicine['names'][0])}
+                                                    {$NavBCMedicine['names'][0] | raw} {/if}</div>
+                                                <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])}
+                                                    {$NavBCMedicine['names'][1] | raw} {/if}</div>
+                                            </div>
+                                            <div class="y-text">{if isset($NavBCMedicine['names'][2])}
+                                                {$NavBCMedicine['names'][2] | raw} {/if}</div>
+                                        </div>
+                                        <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </a>
+                                    {/if}
+                                    {/volist}
+                                </div>
+                            </div>
+                            <div class="y-wrap">
+                                <div class="flex-center">
+                                    <img class="y-title-i" src="__IMAGES__/y2-title.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="outside">
+                                <div class="y-conter">
+                                    {volist name='NavBCMedicineList' id="NavBCMedicine" key="index"}
+                                    {if condition="$index == 3 or $index == 4"}
+                                    <a class="y-item" i="{$NavBCMedicine['id']}" href="{$NavBCMedicine['url']}"
+                                        target="_blank">
+                                        <div class="y-item-1">
+                                            <div>
+                                                <img class="lozad" data-src="{$NavBCMedicine['img']}"
+                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            </div>
+                                            <div class="y-h-title flex-space-between">
+                                                <div class="y-name">{if isset($NavBCMedicine['names'][0])}
+                                                    {$NavBCMedicine['names'][0] | raw} {/if}</div>
+                                                <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])}
+                                                    {$NavBCMedicine['names'][1] | raw} {/if}</div>
+                                            </div>
+                                            <div class="y-text">{if isset($NavBCMedicine['names'][2])}
+                                                {$NavBCMedicine['names'][2] | raw} {/if}</div>
+                                        </div>
+                                        <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </a>
+                                    {/if}
+                                    {/volist}
+                                </div>
+                            </div>
+                            <div class="y-wrap">
+                                <div class="flex-center">
+                                    <img class="y-title-i" src="__IMAGES__/y3-title.png" alt="" srcset="">
+                                </div>
+                            </div>
+                            <div class="outside">
+                                <div class="y-conter">
+                                    {volist name='NavBCMedicineList' id="NavBCMedicine" key="index"}
+                                    {if condition="$index == 5 or $index == 6"}
+                                    <a class="y-item" i="{$NavBCMedicine['id']}" href="{$NavBCMedicine['url']}"
+                                        target="_blank">
+                                        <div class="y-item-1">
+                                            <div>
+                                                <img class="lozad" data-src="{$NavBCMedicine['img']}"
+                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                            </div>
+                                            <div class="y-h-title flex-space-between">
+                                                <div class="y-name">{if isset($NavBCMedicine['names'][0])}
+                                                    {$NavBCMedicine['names'][0] | raw} {/if}</div>
+                                                <div class="y-no">编号：{if isset($NavBCMedicine['names'][1])}
+                                                    {$NavBCMedicine['names'][1] | raw} {/if}</div>
+                                            </div>
+                                            <div class="y-text">{if isset($NavBCMedicine['names'][2])}
+                                                {$NavBCMedicine['names'][2] | raw} {/if}</div>
+                                        </div>
+                                        <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
+                                    </a>
+                                    {/if}
+                                    {/volist}
+                                </div>
+                            </div>
+                            <!-- <div class="flex-center">
+                                <a class="bolck more-btn1" href="/drugstore/1.html">&#26597;&#30475;&#26356;&#22810;</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
     {include file="mobile_footer"}
 </body>
-<script>    
+<script>
     // Dialog([{
     //     url: 'https://static.77zy.com/upload/20231116/3aa24020600d6a717faa0f3b88e0b810_file.jpg',
     //     id: 1,

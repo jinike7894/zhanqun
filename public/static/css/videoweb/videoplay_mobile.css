@@ -292,9 +292,10 @@ ul>li.text{font-size:12px;clear:both;width:100%}
 }
 
 .btn{
-      padding: 0.225rem 0.55rem !important;
-      margin: 0.2rem;
-      font-size: 13px;
+      padding: 0.02rem 0.05rem !important;
+      margin: 0.02rem;
+      font-size: .22rem;
+      border-radius:.04rem;
 }
 /* 登录窗口相关 */
 .login-ran-box{

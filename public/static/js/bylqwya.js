@@ -197,7 +197,7 @@ function Dialog (list =[]){
 }
 $(document).ready(
     function () {
-        mySetRem();
+        // mySetRem();
         scrollMenu();
         install();
         $('.d-load-btn').click(downloadApp)

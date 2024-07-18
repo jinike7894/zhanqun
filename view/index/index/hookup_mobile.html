@@ -3,82 +3,83 @@
 </head>
 
 <body>
-    <div class="nav-title px10">
-        <a href="/{$channel}.html">
-            <i class="bi bi-chevron-left"></i>
-        </a>
-        <div>&#21516;&#22478;&#32422;&#28846;</div>
-        <div></div>
-    </div>
-    <div class="px10 py11">
-        <div class="grid-cols-2 gap7">
-            {volist name='NavHotHookupList' id="NavHotHookup" key="index"}
-            <a class="relative bolck girl-item"  i="{$NavHotHookup['id']}"  href="{$NavHotHookup['url']}" target="_blank">
-                <img class="girl-img lozad"
-                     data-src="{$NavHotHookup['img']}"
-                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                <div class="absolute bottom71 girl-bg flex-center w-full">
-                    {if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0] | raw} {/if}
-                </div>
-                <div class="girl-info absolute bottom0 pl5  w-full">
-                    <div class="flex-space-between py7">
-                        <div class="text16">{if isset($NavHotHookup['names'][1])} {$NavHotHookup['names'][1] | raw} {/if}</div>
-                        <div>
-                            <img src="__IMAGES__/map.svg" alt="">
-                            <span>西安 距您{$NavHotHookup['juli']}m</span>
-                        </div>
-                    </div>
-                    <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
-                </div>
+    <div id="app">
+        <div class="nav-title px10">
+            <a href="/{$channel}.html">
+                <i class="bi bi-chevron-left"></i>
             </a>
-            {/volist}
-
-
-            {volist name='NavCinemaHookupList' id="NavCinemaHookup" key="index"}
-            <a class="relative bolck girl-item"  i="{$NavCinemaHookup['id']}"  href="{$NavCinemaHookup['url']}" target="_blank">
-                <img class="girl-img lozad"
-                     data-src="{$NavCinemaHookup['img']}"
-                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                <div class="absolute bottom71 girl-bg flex-center w-full">
-                    {if isset($NavCinemaHookup['names'][0])} {$NavCinemaHookup['names'][0] | raw} {/if}
-                </div>
-                <div class="girl-info absolute bottom0 pl5  w-full">
-                    <div class="flex-space-between py7">
-                        <div class="text16">{if isset($NavCinemaHookup['names'][1])} {$NavCinemaHookup['names'][1] | raw} {/if}</div>
-                        <div>
-                            <img src="__IMAGES__/map.svg" alt="">
-                            <span>西安 距您{$NavCinemaHookup['juli']}m</span>
-                        </div>
+            <div>&#21516;&#22478;&#32422;&#28846;</div>
+            <div></div>
+        </div>
+        <div class="px10 py11">
+            <div class="grid-cols-2 gap7">
+                {volist name='NavHotHookupList' id="NavHotHookup" key="index"}
+                <a class="relative bolck girl-item"  i="{$NavHotHookup['id']}"  href="{$NavHotHookup['url']}" target="_blank">
+                    <img class="girl-img lozad"
+                         data-src="{$NavHotHookup['img']}"
+                         src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                    <div class="absolute bottom71 girl-bg flex-center w-full">
+                        {if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0] | raw} {/if}
                     </div>
-                    <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
-                </div>
-            </a>
-            {/volist}
-
-
-            {volist name='NavBCHookupList' id="NavBCHookup" key="index"}
-            <a class="relative bolck girl-item"  i="{$NavBCHookup['id']}"  href="{$NavBCHookup['url']}" target="_blank">
-                <img class="girl-img lozad"
-                     data-src="{$NavBCHookup['img']}"
-                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                <div class="absolute bottom71 girl-bg flex-center w-full">
-                    {if isset($NavBCHookup['names'][0])} {$NavBCHookup['names'][0] | raw} {/if}
-                </div>
-                <div class="girl-info absolute bottom0 pl5  w-full">
-                    <div class="flex-space-between py7">
-                        <div class="text16">{if isset($NavBCHookup['names'][1])} {$NavBCHookup['names'][1] | raw} {/if}</div>
-                        <div>
-                            <img src="__IMAGES__/map.svg" alt="">
-                            <span>西安 距您{$NavBCHookup['juli']}m</span>
+                    <div class="girl-info absolute bottom0 pl5  w-full">
+                        <div class="flex-space-between py7">
+                            <div class="text16">{if isset($NavHotHookup['names'][1])} {$NavHotHookup['names'][1] | raw} {/if}</div>
+                            <div>
+                                <img src="__IMAGES__/map.svg" alt="">
+                                <span>西安 距您{$NavHotHookup['juli']}m</span>
+                            </div>
                         </div>
+                        <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
                     </div>
-                    <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
-                </div>
-            </a>
-            {/volist}
+                </a>
+                {/volist}
+    
+    
+                {volist name='NavCinemaHookupList' id="NavCinemaHookup" key="index"}
+                <a class="relative bolck girl-item"  i="{$NavCinemaHookup['id']}"  href="{$NavCinemaHookup['url']}" target="_blank">
+                    <img class="girl-img lozad"
+                         data-src="{$NavCinemaHookup['img']}"
+                         src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                    <div class="absolute bottom71 girl-bg flex-center w-full">
+                        {if isset($NavCinemaHookup['names'][0])} {$NavCinemaHookup['names'][0] | raw} {/if}
+                    </div>
+                    <div class="girl-info absolute bottom0 pl5  w-full">
+                        <div class="flex-space-between py7">
+                            <div class="text16">{if isset($NavCinemaHookup['names'][1])} {$NavCinemaHookup['names'][1] | raw} {/if}</div>
+                            <div>
+                                <img src="__IMAGES__/map.svg" alt="">
+                                <span>西安 距您{$NavCinemaHookup['juli']}m</span>
+                            </div>
+                        </div>
+                        <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
+                    </div>
+                </a>
+                {/volist}
+    
+    
+                {volist name='NavBCHookupList' id="NavBCHookup" key="index"}
+                <a class="relative bolck girl-item"  i="{$NavBCHookup['id']}"  href="{$NavBCHookup['url']}" target="_blank">
+                    <img class="girl-img lozad"
+                         data-src="{$NavBCHookup['img']}"
+                         src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                    <div class="absolute bottom71 girl-bg flex-center w-full">
+                        {if isset($NavBCHookup['names'][0])} {$NavBCHookup['names'][0] | raw} {/if}
+                    </div>
+                    <div class="girl-info absolute bottom0 pl5  w-full">
+                        <div class="flex-space-between py7">
+                            <div class="text16">{if isset($NavBCHookup['names'][1])} {$NavBCHookup['names'][1] | raw} {/if}</div>
+                            <div>
+                                <img src="__IMAGES__/map.svg" alt="">
+                                <span>西安 距您{$NavBCHookup['juli']}m</span>
+                            </div>
+                        </div>
+                        <div class="info-btn">&#26597;&#30475;&#35814;&#24773;</div>
+                    </div>
+                </a>
+                {/volist}
+            </div>
         </div>
     </div>
-
     {include file="mobile_footer"}
 </body>
 

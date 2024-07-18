@@ -10,408 +10,408 @@
 </head>
 
 <body>
-  <div class="v-s-nav-box-h">
-    <div class="main-box p9">
-      <div class="v-s-logo"><a href="/{$channel}.html"><img
-            src="__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
-      <div class="v-s-nav-search-box">
-        <a href="/searchhome/{$channel}.html">
-          <div class="search-person">
-            <div class="s-text">&#30334;&#19975;&#29255;&#24211;</div>
-            <i class="bi bi-search"></i>
+  <div id="app">
+    <div class="v-s-nav-box-h">
+      <div class="main-box p9">
+        <div class="v-s-logo"><a href="/{$channel}.html"><img
+              src="__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
+        <div class="v-s-nav-search-box">
+          <a href="/searchhome/{$channel}.html">
+            <div class="search-person">
+              <div class="s-text">&#30334;&#19975;&#29255;&#24211;</div>
+              <i class="bi bi-search"></i>
+            </div>
+          </a>
+          <img class="left-img" src="__IMAGES__/collect-icon.gif" alt="" srcset="">
+          <div class="d-load-btn">
+            <img src="__IMAGES__/d-load.svg" alt="">
+            <span>&#19979;&#36733;&#65;&#80;&#80;</span>
           </div>
+        </div>
+      </div>
+      <!-- 标题栏bp -->
+      <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
+        <a href="/{$channel}.html">
+          <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
         </a>
-        <img class="left-img" src="__IMAGES__/collect-icon.gif" alt="" srcset="">
-        <div class="d-load-btn">
-          <img src="__IMAGES__/d-load.svg" alt="">
-          <span>&#19979;&#36733;&#65;&#80;&#80;</span>
+        <a href="/featured/{$channel}.html">
+          <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item nav-menu-selected">&#31934;&#36873;</div>
+        </a>
+        {volist name='menulist' id="menu"}
+        <a href="/category/{$channel}.html?category_id={$menu['id']}">
+          <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">{$menu['title'] | raw}</div>
+        </a>
+        {/volist}
+      </div>
+    </div>
+    <div id="swiper-jx" class="swiper">
+      <div class="swiper-wrapper">
+        {volist name='XBannerList' id="XBanner"}
+        <div class="swiper-slide">
+          <a rel="external nofollow" i="{$XBanner['id']}" href="{$XBanner['url']}" target="_blank">
+            <div title="{$XBanner['name'] | raw}">
+              <img class="jx-img lozad" data-src="{$XBanner['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
+            </div>
+          </a>
+        </div>
+        {/volist}
+      </div>
+    </div>
+    <div class="marquee-wrap">
+      <div class="marquee-box">
+        <div class="icon-speaker">
+          <i class="not bi-bell-fill"></i>
+        </div>
+        <div class="container-main">
+          <p>
+            &#26816;&#27979;&#21040;&#24403;&#21069;&#27983;&#35272;&#22120;&#24050;&#25318;&#25130;&#26412;&#31449;&#37096;&#20998;&#33394;&#24773;APP&#65292;&#22914;APP&#22270;&#26631;&#26080;&#27861;&#28857;&#20987;&#65292;&#35831;&#22797;&#21046;&#32593;&#22336;&#23581;&#35797;&#19981;&#21516;&#27983;&#35272;&#22120;
+          </p>
         </div>
       </div>
     </div>
-    <!-- 标题栏bp -->
-    <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
-      <a href="/{$channel}.html">
-        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
-      </a>
-      <a href="/featured/{$channel}.html">
-        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item nav-menu-selected">&#31934;&#36873;</div>
-      </a>
-      {volist name='menulist' id="menu"}
-      <a href="/category/{$channel}.html?category_id={$menu['id']}">
-        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">{$menu['title'] | raw}</div>
-      </a>
-      {/volist}
-    </div>
-  </div>
-  <div id="swiper-jx" class="swiper">
-    <div class="swiper-wrapper">
-      {volist name='XBannerList' id="XBanner"}
-      <div class="swiper-slide">
-        <a rel="external nofollow" i="{$XBanner['id']}" href="{$XBanner['url']}" target="_blank">
-          <div title="{$XBanner['name'] | raw}">
-            <img class="jx-img lozad" data-src="{$XBanner['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
-          </div>
+    <div class="px10">
+      <div class="ad-conter ">
+        {volist name='XSudokuList' id="XSudoku"}
+        <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url']}" target="_blank">
+          <img class="lozad"
+            data-src="{$XSudoku['img']}"
+            src="__IMAGES__/loading_img_bg_default.jpg">
+          <div>{$XSudoku['name'] | raw}</div>
         </a>
+        {/volist}
       </div>
-      {/volist}
-    </div>
-  </div>
-  <div class="marquee-wrap">
-    <div class="marquee-box">
-      <div class="icon-speaker">
-        <i class="not bi-bell-fill"></i>
+      <div class="textad">
+        {volist name='XSudokuTextList' id="XSudokuText"}
+        <a rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
+          {$XSudokuText['name'] | raw}
+        </a>
+        {/volist}
       </div>
-      <div class="container-main">
-        <p>
-          &#26816;&#27979;&#21040;&#24403;&#21069;&#27983;&#35272;&#22120;&#24050;&#25318;&#25130;&#26412;&#31449;&#37096;&#20998;&#33394;&#24773;APP&#65292;&#22914;APP&#22270;&#26631;&#26080;&#27861;&#28857;&#20987;&#65292;&#35831;&#22797;&#21046;&#32593;&#22336;&#23581;&#35797;&#19981;&#21516;&#27983;&#35272;&#22120;
-        </p>
+      <div class="tj-flex vidoe-title-1">
+        <div class="flex-center">
+          <img src="__IMAGES__/video-icon.svg" alt="">
+          <span class="video-title-text">&#20170;&#26085;&#25512;&#33616;</span>
+        </div>
+        {volist name='XRecommendTextList' id="XRecommendText"}
+        <a class="p-card-txt" href="{$XRecommendText['url']}" i="{$XRecommendText['id']}" target="_blank">{$XRecommendText['name'] | raw}</a>
+        {/volist}
       </div>
-    </div>
-  </div>
-  <div class="px10">
-    <div class="ad-conter ">
-      {volist name='XSudokuList' id="XSudoku"}
-      <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url']}" target="_blank">
-        <img class="lozad"
-          data-src="{$XSudoku['img']}"
-          src="__IMAGES__/loading_img_bg_default.jpg">
-        <div>{$XSudoku['name'] | raw}</div>
-      </a>
-      {/volist}
-    </div>
-    <div class="textad">
-      {volist name='XSudokuTextList' id="XSudokuText"}
-      <a rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
-        {$XSudokuText['name'] | raw}
-      </a>
-      {/volist}
-    </div>
-    <div class="tj-flex vidoe-title-1">
-      <div class="flex-center">
-        <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">&#20170;&#26085;&#25512;&#33616;</span>
-      </div>
-      {volist name='XRecommendTextList' id="XRecommendText"}
-      <a class="p-card-txt" href="{$XRecommendText['url']}" i="{$XRecommendText['id']}" target="_blank">{$XRecommendText['name'] | raw}</a>
-      {/volist}
-    </div>
-    <div class="ran-box">
-      {volist name="yuanclist" id="yc"}
-      <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
-        <div class="rank-a relative" data-vid="{$yc['id']}" data-sl="{$yc['video']}"
-          data-href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
-          <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-            data-src="{$yc['enpic']}" />
-          <div class="mask_info">
-            <div class="flex-space-between">
-              <div class="pre-eye">
-                <i class="bi bi-eye"></i>
-                <span>{$yc['eye']|qqw}</span>
-              </div>
-              <div class="pre-time">
-                <i class="bi bi-clock"></i>
-                <span>{$yc['time']}</span>
+      <div class="ran-box">
+        {volist name="yuanclist" id="yc"}
+        <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
+          <div class="rank-a relative" data-vid="{$yc['id']}" data-sl="{$yc['video']}"
+            data-href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
+            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+              data-src="{$yc['enpic']}" />
+            <div class="mask_info">
+              <div class="flex-space-between">
+                <div class="pre-eye">
+                  <i class="bi bi-eye"></i>
+                  <span>{$yc['eye']|qqw}</span>
+                </div>
+                <div class="pre-time">
+                  <i class="bi bi-clock"></i>
+                  <span>{$yc['time']}</span>
+                </div>
               </div>
             </div>
           </div>
+          <a
+            href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
+            <div class="rank-title">{$yc['title'] | raw}</div>
+          </a>
         </div>
-        <a
-          href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
-          <div class="rank-title">{$yc['title'] | raw}</div>
-        </a>
+        {/volist}
       </div>
-      {/volist}
-    </div>
-    <div class="flex-space-between vidoe-title-1">
-      <div class="flex-center">
-        <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">&#25490;&#34892;&#27036;</span>
+      <div class="flex-space-between vidoe-title-1">
+        <div class="flex-center">
+          <img src="__IMAGES__/video-icon.svg" alt="">
+          <span class="video-title-text">&#25490;&#34892;&#27036;</span>
+        </div>
+        <div class="title-more"></div>
       </div>
-      <div class="title-more"></div>
-    </div>
-
-    <div class="ran-box">
-      {volist name="pxlist" id="px"}
-      <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
-        <div class="rank-a relative" data-vid="{$px['id']}" data-sl="{$px['video']}"
-          data-href="/videoplay/{$channel}.html?category_id={$px['category_id']}&category_child_id={$px['category_child_id']}&vid={$px['id']}">
-          <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-            data-src="{$px['enpic']}" />
-          <div class="mask_info">
-            <div class="flex-space-between">
-              <div class="pre-eye">
-                <i class="bi bi-eye"></i>
-                <span>{$px['eye']|qqw}</span>
-              </div>
-              <div class="pre-time">
-                <i class="bi bi-clock"></i>
-                <span>{$px['time']}</span>
+  
+      <div class="ran-box">
+        {volist name="pxlist" id="px"}
+        <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
+          <div class="rank-a relative" data-vid="{$px['id']}" data-sl="{$px['video']}"
+            data-href="/videoplay/{$channel}.html?category_id={$px['category_id']}&category_child_id={$px['category_child_id']}&vid={$px['id']}">
+            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+              data-src="{$px['enpic']}" />
+            <div class="mask_info">
+              <div class="flex-space-between">
+                <div class="pre-eye">
+                  <i class="bi bi-eye"></i>
+                  <span>{$px['eye']|qqw}</span>
+                </div>
+                <div class="pre-time">
+                  <i class="bi bi-clock"></i>
+                  <span>{$px['time']}</span>
+                </div>
               </div>
             </div>
           </div>
+          <a
+            href="/videoplay/{$channel}.html?category_id={$px['category_id']}&category_child_id={$px['category_child_id']}&vid={$px['id']}">
+            <div class="rank-title">{$px['title'] | raw}</div>
+          </a>
         </div>
-        <a
-          href="/videoplay/{$channel}.html?category_id={$px['category_id']}&category_child_id={$px['category_child_id']}&vid={$px['id']}">
-          <div class="rank-title">{$px['title'] | raw}</div>
+        {/volist}
+      </div>
+      <div class="flex-space-between vidoe-title-1">
+        <div class="flex-center">
+          <img src="__IMAGES__/video-icon.svg" alt="">
+          <span class="video-title-text">&#21507;&#29916;</span>
+        </div>
+        <a href="/category/{$channel}.html?category_id=1">
+          <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
         </a>
       </div>
-      {/volist}
-    </div>
-    <div class="flex-space-between vidoe-title-1">
-      <div class="flex-center">
-        <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">&#21507;&#29916;</span>
-      </div>
-      <a href="/category/{$channel}.html?category_id=1">
-        <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
-      </a>
-    </div>
-    <div class="ran-box">
-      {volist name="chigualist" id="chigua"}
-      <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
-        <div class="rank-a relative" data-vid="{$chigua['id']}" data-sl="{$chigua['video']}"
-          data-href="/videoplay/{$channel}.html?category_id={$chigua['category_id']}&category_child_id={$chigua['category_child_id']}&vid={$chigua['id']}">
-          <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-            data-src="{$chigua['enpic']}" />
-          <div class="mask_info">
-            <div class="flex-space-between">
-              <div class="pre-eye">
-                <i class="bi bi-eye"></i>
-                <span>{$chigua['eye']|qqw}</span>
-              </div>
-              <div class="pre-time">
-                <i class="bi bi-clock"></i>
-                <span>{$chigua['time']}</span>
+      <div class="ran-box">
+        {volist name="chigualist" id="chigua"}
+        <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
+          <div class="rank-a relative" data-vid="{$chigua['id']}" data-sl="{$chigua['video']}"
+            data-href="/videoplay/{$channel}.html?category_id={$chigua['category_id']}&category_child_id={$chigua['category_child_id']}&vid={$chigua['id']}">
+            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+              data-src="{$chigua['enpic']}" />
+            <div class="mask_info">
+              <div class="flex-space-between">
+                <div class="pre-eye">
+                  <i class="bi bi-eye"></i>
+                  <span>{$chigua['eye']|qqw}</span>
+                </div>
+                <div class="pre-time">
+                  <i class="bi bi-clock"></i>
+                  <span>{$chigua['time']}</span>
+                </div>
               </div>
             </div>
           </div>
+          <a
+            href="/videoplay/{$channel}.html?category_id={$chigua['category_id']}&category_child_id={$chigua['category_child_id']}&vid={$chigua['id']}">
+            <div class="rank-title">{$chigua['title'] | raw}</div>
+          </a>
         </div>
-        <a
-          href="/videoplay/{$channel}.html?category_id={$chigua['category_id']}&category_child_id={$chigua['category_child_id']}&vid={$chigua['id']}">
-          <div class="rank-title">{$chigua['title'] | raw}</div>
+        {/volist}
+      </div>
+      <div class="flex-space-between vidoe-title-1">
+        <div class="flex-center">
+          <img src="__IMAGES__/video-icon.svg" alt="">
+          <span class="video-title-text">&#22269;&#20135;</span>
+        </div>
+        <a href="/category/{$channel}.html?category_id=2">
+          <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
         </a>
       </div>
-      {/volist}
-    </div>
-    <div class="flex-space-between vidoe-title-1">
-      <div class="flex-center">
-        <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">&#22269;&#20135;</span>
-      </div>
-      <a href="/category/{$channel}.html?category_id=2">
-        <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
-      </a>
-    </div>
-    <div class="ran-box">
-      {volist name="guochanlist" id="guochan"}
-      <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
-        <div class="rank-a relative" data-vid="{$guochan['id']}" data-sl="{$guochan['video']}"
-          data-href="/videoplay/{$channel}.html?category_id={$guochan['category_id']}&category_child_id={$guochan['category_child_id']}&vid={$guochan['id']}">
-          <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-            data-src="{$guochan['enpic']}" />
-          <div class="mask_info">
-            <div class="flex-space-between">
-              <div class="pre-eye">
-                <i class="bi bi-eye"></i>
-                <span>{$guochan['eye']|qqw}</span>
-              </div>
-              <div class="pre-time">
-                <i class="bi bi-clock"></i>
-                <span>{$guochan['time']}</span>
+      <div class="ran-box">
+        {volist name="guochanlist" id="guochan"}
+        <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
+          <div class="rank-a relative" data-vid="{$guochan['id']}" data-sl="{$guochan['video']}"
+            data-href="/videoplay/{$channel}.html?category_id={$guochan['category_id']}&category_child_id={$guochan['category_child_id']}&vid={$guochan['id']}">
+            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+              data-src="{$guochan['enpic']}" />
+            <div class="mask_info">
+              <div class="flex-space-between">
+                <div class="pre-eye">
+                  <i class="bi bi-eye"></i>
+                  <span>{$guochan['eye']|qqw}</span>
+                </div>
+                <div class="pre-time">
+                  <i class="bi bi-clock"></i>
+                  <span>{$guochan['time']}</span>
+                </div>
               </div>
             </div>
           </div>
+          <a
+            href="/videoplay/{$channel}.html?category_id={$guochan['category_id']}&category_child_id={$guochan['category_child_id']}&vid={$guochan['id']}">
+            <div class="rank-title">{$guochan['title'] | raw}</div>
+          </a>
         </div>
-        <a
-          href="/videoplay/{$channel}.html?category_id={$guochan['category_id']}&category_child_id={$guochan['category_child_id']}&vid={$guochan['id']}">
-          <div class="rank-title">{$guochan['title'] | raw}</div>
+        {/volist}
+      </div>
+      <div class="flex-space-between vidoe-title-1">
+        <div class="flex-center">
+          <img src="__IMAGES__/video-icon.svg" alt="">
+          <span class="video-title-text">&#26085;&#38889;</span>
+        </div>
+        <a href="/category/{$channel}.html?category_id=3">
+          <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
         </a>
       </div>
-      {/volist}
-    </div>
-    <div class="flex-space-between vidoe-title-1">
-      <div class="flex-center">
-        <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">&#26085;&#38889;</span>
-      </div>
-      <a href="/category/{$channel}.html?category_id=3">
-        <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
-      </a>
-    </div>
-    <div class="ran-box">
-      {volist name="rihanlist" id="rihan"}
-      <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
-        <div class="rank-a relative" data-vid="{$rihan['id']}" data-sl="{$rihan['video']}"
-          data-href="/videoplay/{$channel}.html?category_id={$rihan['category_id']}&category_child_id={$rihan['category_child_id']}&vid={$rihan['id']}">
-          <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-            data-src="{$rihan['enpic']}" />
-          <div class="mask_info">
-            <div class="flex-space-between">
-              <div class="pre-eye">
-                <i class="bi bi-eye"></i>
-                <span>{$rihan['eye']|qqw}</span>
-              </div>
-              <div class="pre-time">
-                <i class="bi bi-clock"></i>
-                <span>{$rihan['time']}</span>
+      <div class="ran-box">
+        {volist name="rihanlist" id="rihan"}
+        <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
+          <div class="rank-a relative" data-vid="{$rihan['id']}" data-sl="{$rihan['video']}"
+            data-href="/videoplay/{$channel}.html?category_id={$rihan['category_id']}&category_child_id={$rihan['category_child_id']}&vid={$rihan['id']}">
+            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+              data-src="{$rihan['enpic']}" />
+            <div class="mask_info">
+              <div class="flex-space-between">
+                <div class="pre-eye">
+                  <i class="bi bi-eye"></i>
+                  <span>{$rihan['eye']|qqw}</span>
+                </div>
+                <div class="pre-time">
+                  <i class="bi bi-clock"></i>
+                  <span>{$rihan['time']}</span>
+                </div>
               </div>
             </div>
           </div>
+          <a
+            href="/videoplay/{$channel}.html?category_id={$rihan['category_id']}&category_child_id={$rihan['category_child_id']}&vid={$rihan['id']}">
+            <div class="rank-title">{$rihan['title'] | raw}</div>
+          </a>
         </div>
-        <a
-          href="/videoplay/{$channel}.html?category_id={$rihan['category_id']}&category_child_id={$rihan['category_child_id']}&vid={$rihan['id']}">
-          <div class="rank-title">{$rihan['title'] | raw}</div>
+        {/volist}
+      </div>
+      <div class="flex-space-between vidoe-title-1">
+        <div class="flex-center">
+          <img src="__IMAGES__/video-icon.svg" alt="">
+          <span class="video-title-text">&#27431;&#32654;</span>
+        </div>
+        <a href="/category/{$channel}.html?category_id=4">
+          <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
         </a>
       </div>
-      {/volist}
-    </div>
-    <div class="flex-space-between vidoe-title-1">
-      <div class="flex-center">
-        <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">&#27431;&#32654;</span>
-      </div>
-      <a href="/category/{$channel}.html?category_id=4">
-        <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
-      </a>
-    </div>
-    <div class="ran-box">
-      {volist name="oumeilist" id="oumei"}
-      <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
-        <div class="rank-a relative" data-vid="{$oumei['id']}" data-sl="{$oumei['video']}"
-          data-href="/videoplay/{$channel}.html?category_id={$oumei['category_id']}&category_child_id={$oumei['category_child_id']}&vid={$oumei['id']}">
-          <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-            data-src="{$oumei['enpic']}" />
-          <div class="mask_info">
-            <div class="flex-space-between">
-              <div class="pre-eye">
-                <i class="bi bi-eye"></i>
-                <span>{$oumei['eye']|qqw}</span>
-              </div>
-              <div class="pre-time">
-                <i class="bi bi-clock"></i>
-                <span>{$oumei['time']}</span>
+      <div class="ran-box">
+        {volist name="oumeilist" id="oumei"}
+        <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
+          <div class="rank-a relative" data-vid="{$oumei['id']}" data-sl="{$oumei['video']}"
+            data-href="/videoplay/{$channel}.html?category_id={$oumei['category_id']}&category_child_id={$oumei['category_child_id']}&vid={$oumei['id']}">
+            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+              data-src="{$oumei['enpic']}" />
+            <div class="mask_info">
+              <div class="flex-space-between">
+                <div class="pre-eye">
+                  <i class="bi bi-eye"></i>
+                  <span>{$oumei['eye']|qqw}</span>
+                </div>
+                <div class="pre-time">
+                  <i class="bi bi-clock"></i>
+                  <span>{$oumei['time']}</span>
+                </div>
               </div>
             </div>
           </div>
+          <a
+            href="/videoplay/{$channel}.html?category_id={$oumei['category_id']}&category_child_id={$oumei['category_child_id']}&vid={$oumei['id']}">
+            <div class="rank-title">{$oumei['title'] | raw}</div>
+          </a>
         </div>
-        <a
-          href="/videoplay/{$channel}.html?category_id={$oumei['category_id']}&category_child_id={$oumei['category_child_id']}&vid={$oumei['id']}">
-          <div class="rank-title">{$oumei['title'] | raw}</div>
+        {/volist}
+      </div>
+      <div class="flex-space-between vidoe-title-1">
+        <div class="flex-center">
+          <img src="__IMAGES__/video-icon.svg" alt="">
+          <span class="video-title-text">&#21160;&#28459;</span>
+        </div>
+        <a href="/category/{$channel}.html?category_id=5">
+          <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
         </a>
       </div>
-      {/volist}
-    </div>
-    <div class="flex-space-between vidoe-title-1">
-      <div class="flex-center">
-        <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">&#21160;&#28459;</span>
-      </div>
-      <a href="/category/{$channel}.html?category_id=5">
-        <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
-      </a>
-    </div>
-    <div class="ran-box">
-      {volist name="dongmanlist" id="dongman"}
-      <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
-        <div class="rank-a relative" data-vid="{$dongman['id']}" data-sl="{$dongman['video']}"
-          data-href="/videoplay/{$channel}.html?category_id={$dongman['category_id']}&category_child_id={$dongman['category_child_id']}&vid={$dongman['id']}">
-          <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-            data-src="{$dongman['enpic']}" />
-          <div class="mask_info">
-            <div class="flex-space-between">
-              <div class="pre-eye">
-                <i class="bi bi-eye"></i>
-                <span>{$dongman['eye']|qqw}</span>
-              </div>
-              <div class="pre-time">
-                <i class="bi bi-clock"></i>
-                <span>{$dongman['time']}</span>
+      <div class="ran-box">
+        {volist name="dongmanlist" id="dongman"}
+        <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
+          <div class="rank-a relative" data-vid="{$dongman['id']}" data-sl="{$dongman['video']}"
+            data-href="/videoplay/{$channel}.html?category_id={$dongman['category_id']}&category_child_id={$dongman['category_child_id']}&vid={$dongman['id']}">
+            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+              data-src="{$dongman['enpic']}" />
+            <div class="mask_info">
+              <div class="flex-space-between">
+                <div class="pre-eye">
+                  <i class="bi bi-eye"></i>
+                  <span>{$dongman['eye']|qqw}</span>
+                </div>
+                <div class="pre-time">
+                  <i class="bi bi-clock"></i>
+                  <span>{$dongman['time']}</span>
+                </div>
               </div>
             </div>
           </div>
+          <a
+            href="/videoplay/{$channel}.html?category_id={$dongman['category_id']}&category_child_id={$dongman['category_child_id']}&vid={$dongman['id']}">
+            <div class="rank-title">{$dongman['title'] | raw}</div>
+          </a>
         </div>
-        <a
-          href="/videoplay/{$channel}.html?category_id={$dongman['category_id']}&category_child_id={$dongman['category_child_id']}&vid={$dongman['id']}">
-          <div class="rank-title">{$dongman['title'] | raw}</div>
+        {/volist}
+      </div>
+      <div class="flex-space-between vidoe-title-1">
+        <div class="flex-center">
+          <img src="__IMAGES__/video-icon.svg" alt="">
+          <span class="video-title-text">&#65;&#73;&#25442;&#33080;</span>
+        </div>
+        <a href="/category/{$channel}.html?category_id=6">
+          <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
         </a>
       </div>
-      {/volist}
-    </div>
-    <div class="flex-space-between vidoe-title-1">
-      <div class="flex-center">
-        <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">&#65;&#73;&#25442;&#33080;</span>
-      </div>
-      <a href="/category/{$channel}.html?category_id=6">
-        <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
-      </a>
-    </div>
-
-    <div class="ran-box">
-      {volist name="ailist" id="ai"}
-      <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
-        <div class="rank-a relative" data-vid="{$ai['id']}" data-sl="{$ai['video']}"
-          data-href="/videoplay/{$channel}.html?category_id={$ai['category_id']}&category_child_id={$ai['category_child_id']}&vid={$ai['id']}">
-          <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-            data-src="{$ai['enpic']}" />
-          <div class="mask_info">
-            <div class="flex-space-between">
-              <div class="pre-eye">
-                <i class="bi bi-eye"></i>
-                <span>{$ai['eye']|qqw}</span>
-              </div>
-              <div class="pre-time">
-                <i class="bi bi-clock"></i>
-                <span>{$ai['time']}</span>
+  
+      <div class="ran-box">
+        {volist name="ailist" id="ai"}
+        <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
+          <div class="rank-a relative" data-vid="{$ai['id']}" data-sl="{$ai['video']}"
+            data-href="/videoplay/{$channel}.html?category_id={$ai['category_id']}&category_child_id={$ai['category_child_id']}&vid={$ai['id']}">
+            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+              data-src="{$ai['enpic']}" />
+            <div class="mask_info">
+              <div class="flex-space-between">
+                <div class="pre-eye">
+                  <i class="bi bi-eye"></i>
+                  <span>{$ai['eye']|qqw}</span>
+                </div>
+                <div class="pre-time">
+                  <i class="bi bi-clock"></i>
+                  <span>{$ai['time']}</span>
+                </div>
               </div>
             </div>
           </div>
+          <a
+            href="/videoplay/{$channel}.html?category_id={$ai['category_id']}&category_child_id={$ai['category_child_id']}&vid={$ai['id']}">
+            <div class="rank-title">{$ai['title'] | raw}</div>
+          </a>
         </div>
-        <a
-          href="/videoplay/{$channel}.html?category_id={$ai['category_id']}&category_child_id={$ai['category_child_id']}&vid={$ai['id']}">
-          <div class="rank-title">{$ai['title'] | raw}</div>
+        {/volist}
+      </div>
+      <div class="flex-space-between vidoe-title-1">
+        <div class="flex-center">
+          <img src="__IMAGES__/video-icon.svg" alt="">
+          <span class="video-title-text">&#65;&#86;&#35299;&#35828;</span>
+        </div>
+        <a href="/category/{$channel}.html?category_id=8">
+          <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
         </a>
       </div>
-      {/volist}
-    </div>
-    <div class="flex-space-between vidoe-title-1">
-      <div class="flex-center">
-        <img src="__IMAGES__/video-icon.svg" alt="">
-        <span class="video-title-text">&#65;&#86;&#35299;&#35828;</span>
-      </div>
-      <a href="/category/{$channel}.html?category_id=8">
-        <div class="title-more">更多<i class="bi bi-chevron-right"></i></div>
-      </a>
-    </div>
-    <div class="ran-box">
-      {volist name="jieshuolist" id="jieshuo"}
-      <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
-        <div class="rank-a relative" data-vid="{$jieshuo['id']}" data-sl="{$jieshuo['video']}"
-          data-href="/videoplay/{$channel}.html?category_id={$jieshuo['category_id']}&category_child_id={$jieshuo['category_child_id']}&vid={$jieshuo['id']}">
-          <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-            data-src="{$jieshuo['enpic']}" />
-          <div class="mask_info">
-            <div class="flex-space-between">
-              <div class="pre-eye">
-                <i class="bi bi-eye"></i>
-                <span>{$jieshuo['eye']|qqw}</span>
-              </div>
-              <div class="pre-time">
-                <i class="bi bi-clock"></i>
-                <span>{$jieshuo['time']}</span>
+      <div class="ran-box">
+        {volist name="jieshuolist" id="jieshuo"}
+        <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
+          <div class="rank-a relative" data-vid="{$jieshuo['id']}" data-sl="{$jieshuo['video']}"
+            data-href="/videoplay/{$channel}.html?category_id={$jieshuo['category_id']}&category_child_id={$jieshuo['category_child_id']}&vid={$jieshuo['id']}">
+            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+              data-src="{$jieshuo['enpic']}" />
+            <div class="mask_info">
+              <div class="flex-space-between">
+                <div class="pre-eye">
+                  <i class="bi bi-eye"></i>
+                  <span>{$jieshuo['eye']|qqw}</span>
+                </div>
+                <div class="pre-time">
+                  <i class="bi bi-clock"></i>
+                  <span>{$jieshuo['time']}</span>
+                </div>
               </div>
             </div>
           </div>
+          <a
+            href="/videoplay/{$channel}.html?category_id={$jieshuo['category_id']}&category_child_id={$jieshuo['category_child_id']}&vid={$jieshuo['id']}">
+            <div class="rank-title">{$jieshuo['title'] | raw}</div>
+          </a>
         </div>
-        <a
-          href="/videoplay/{$channel}.html?category_id={$jieshuo['category_id']}&category_child_id={$jieshuo['category_child_id']}&vid={$jieshuo['id']}">
-          <div class="rank-title">{$jieshuo['title'] | raw}</div>
-        </a>
+        {/volist}
       </div>
-      {/volist}
     </div>
-  </div>
-
   </div>
   <script>
     createdS('#swiper-jx', {
