@@ -25,7 +25,7 @@
             <!-- 标题栏bp -->
             <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
                 <a href="/{$channel}.html">
-                    <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item nav-menu-selected">
+                    <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">
                         &#23548;&#33322;</div>
                 </a>
                 <a href="/featured/{$channel}.html">
@@ -35,6 +35,10 @@
                 <a href="/category/{$channel}.html?category_id={$menu['id']}">
                     <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">{$menu['title'] | raw}
                     </div>
+
+                    <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item {if condition='$category_id eq $menu.id'}nav-menu-selected{/if}">
+                        {$menu['title'] | raw}</div>
+
                 </a>
                 {/volist}
             </div>
