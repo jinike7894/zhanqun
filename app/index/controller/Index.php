@@ -12,11 +12,13 @@ class Index extends BaseController
 		$this->Menu = new \app\admin\model\MallCate();
 		$this->MallVideos = new \app\admin\model\MallVideos();
         $this->Products = new \app\common\model\Products();
-        $this->Channel = new \app\common\model\Channels();
+        $this->Channelcode = new \app\common\model\Channelcode();
 
 
         $channel = $this->request->param('channel',0);
-
+        $channelInfo = $this->Channelcode->getChannelInfo($channel);
+        $statistics_code = $channelInfo['statistics_code'] ?? null;
+        View::assign('tongjiCode',$statistics_code);
 
         $action = $this->request->action();
 
