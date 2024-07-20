@@ -12,6 +12,11 @@ class Index extends BaseController
 		$this->Menu = new \app\admin\model\MallCate();
 		$this->MallVideos = new \app\admin\model\MallVideos();
         $this->Products = new \app\common\model\Products();
+        $this->Channel = new \app\common\model\Channels();
+
+
+        $channel = $this->request->param('channel',0);
+
 
         $action = $this->request->action();
 

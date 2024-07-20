@@ -34,6 +34,15 @@ class Channels extends \think\Model
 	    }
 	    return $list;
 	}
+
+    function getChannelInfo($channel,$field = 'statistics_code')
+    {
+        $channel = $this->where(['channelCode' => $channel])->find();
+        if(!$channel){
+            return null;
+        }
+        return $channel[$field];
+    }
 }
 
 ?>
