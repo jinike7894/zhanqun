@@ -68,7 +68,7 @@ class MallVideos extends TimeModel
 	public function getsearch($keyword)
 	{
 		$map[] = ['title','like',"%{$keyword}%"];
-		$list=$this->where($map)->order('sort desc,id desc')->paginate(['list_rows'=>30,'query' => request()->param()]);
+		$list=$this->where($map)->order('sort desc,id desc')->paginate(['list_rows'=>31,'query' => request()->param()]);
 		$mallcate = new MallCate();
 		for($i=0;$i<count($list);$i++)
 		{
