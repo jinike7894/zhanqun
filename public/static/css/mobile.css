@@ -172,6 +172,7 @@ a:hover {
 #swiper-banner {
     box-sizing: content-box;
     position: relative;
+    padding-bottom: .1rem;
 }
 
 
