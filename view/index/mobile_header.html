@@ -35,6 +35,15 @@
     <script type="text/javascript" src="{$jscsscdn}__JS__/qrcode.min.js"></script>
     <script type="text/javascript" src="{$jscsscdn}__JS__/bylqwya.js"></script>
     <script>
+        {if !empty($tongjiCode)}
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?{$tongjiCode}";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        {/if}
         document.addEventListener('DOMContentLoaded', function () {
             window.addEventListener('popstate', function (e) {
                 e.preventDefault();
