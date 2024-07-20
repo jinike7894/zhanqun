@@ -28,6 +28,11 @@ class Channelcode extends Model
         'update_time' => 'int',
         'delete_time' => 'int',
     ];
+
+    function getChannelInfo($channel)
+    {
+        return $this->where(['channelCode' => $channel])->find();
+    }
 	
 }
 
