@@ -147,7 +147,10 @@ if (!function_exists('qqw')) {
      */
     function qqw($num)
     {
-        $data = round(intval($num) / 1000,2) . 'k';
+        $data = $num;
+        if($num>=10000){
+            $data = round(intval($num) / 10000,2) . 'w';
+        }
 		return $data;
     }
 
