@@ -6,7 +6,7 @@
         <div class="v-s-nav-box-h">
             <div class="main-box p9">
                 <div class="v-s-logo"><a href="/{$channel}.html"><img
-                            src="__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
+                            src="{$jscsscdn}__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
                 <div class="v-s-nav-search-box">
                     <a href="/searchhome/{$channel}.html">
                         <div class="search-person">
@@ -14,9 +14,9 @@
                             <i class="bi bi-search"></i>
                         </div>
                     </a>
-                    <img class="left-img" src="__IMAGES__/collect-icon.gif" alt="" srcset="">
+                    <img class="left-img" src="{$jscsscdn}__IMAGES__/collect-icon.gif" alt="" srcset="">
                     <div class="d-load-btn">
-                        <img src="__IMAGES__/d-load.svg" alt="">
+                        <img src="{$jscsscdn}__IMAGES__/d-load.svg" alt="">
                         <span>&#19979;&#36733;&#65;&#80;&#80;</span>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                 {volist name='NavBannerList' id="NavBanner"}
                 <div class="swiper-slide">
                     <a rel="external nofollow" i="{$NavBanner['id']}" href="{$NavBanner['androidurl']}" target="_blank">
-                        <img class="lozad" data-src="{$NavBanner['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
+                        <img class="lozad" data-src="{$NavBanner['img']}" src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
                     </a>
                 </div>
                 {/volist}
@@ -84,7 +84,7 @@
                                 <a rel="external nofollow" i="{$NavHotSudoku['id']}" href="{$NavHotSudoku['url']}"
                                     target="_blank">
                                     <img class="lozad" data-src="{$NavHotSudoku['img']}"
-                                        src="__IMAGES__/loading_img_bg_default.jpg">
+                                        src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
                                     <div>{$NavHotSudoku['name'] | raw}</div>
                                 </a>
                                 {/volist}
@@ -110,7 +110,7 @@
                                 <a class="relative bolck live-item" i="{$NavHotLive['id']}" href="{$NavHotLive['url']}"
                                     target="_blank">
                                     <img class="live-img lozad" data-src="{$NavHotLive['img']}"
-                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                        src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                     <div class="absolute bottom75 flex-center w-full">
                                         <div class="live-bg flex-center">
                                             <div class="loading-container">
@@ -124,11 +124,11 @@
                                     <div class="absolute bottom0 px7 flex-space-between w-full">
                                         <div>
                                             <img class="avatar lozad" data-src="{$NavHotLive['img']}"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             <span>{$NavHotLive['name'] | raw}</span>
                                         </div>
                                         <div>
-                                            <img src="__IMAGES__/hot.svg" alt="">
+                                            <img src="{$jscsscdn}__IMAGES__/hot.svg" alt="">
                                             <span>{$NavHotLive['yueNum']}</span>
                                         </div>
                                     </div>
@@ -138,7 +138,7 @@
                             </div>
                             <div class="title-wrap">
                                 <div class="title-l">
-                                    <img src="__IMAGES__/yue.svg" alt="" srcset="">
+                                    <img src="{$jscsscdn}__IMAGES__/yue.svg" alt="" srcset="">
                                     <span class="px7">&#32422;&#28846;</span>
                                     <span class="text1"><!-- 西安  --> 距您0.8km 65 人</span>
                                 </div>
@@ -151,7 +151,7 @@
                                 <a class="relative bolck girl-item" i="{$NavHotHookup['id']}"
                                     href="{$NavHotHookup['url']}" target="_blank">
                                     <img class="girl-img lozad" data-src="{$NavHotHookup['img']}"
-                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                        src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                     <div class="absolute bottom71 girl-bg flex-center w-full">
                                         {if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0] | raw} {/if}
                                     </div>
@@ -160,7 +160,7 @@
                                             <div class="text16">{if isset($NavHotHookup['names'][1])}
                                                 {$NavHotHookup['names'][1] | raw} {/if}</div>
                                             <div>
-                                                <img src="__IMAGES__/map.svg" alt="">
+                                                <img src="{$jscsscdn}__IMAGES__/map.svg" alt="">
                                                 <span><!-- 西安  --> 距您{$NavHotHookup['juli']}m</span>
                                             </div>
                                         </div>
@@ -172,7 +172,7 @@
                             </div>
                             <div class="title-wrap">
                                 <div class="title-l">
-                                    <img src="__IMAGES__/yao.svg" alt="" srcset="">
+                                    <img src="{$jscsscdn}__IMAGES__/yao.svg" alt="" srcset="">
                                     <span class="px7">&#26149;&#33647;</span>
                                     <span
                                         class="text1">&#36855;&#33647;&#65292;&#20652;&#24773;&#65292;&#24310;&#26102;&#65292;&#22766;&#38451;</span>
@@ -184,7 +184,7 @@
                             <div class="outside relative">
                                 <div class="y-wrap">
                                     <div class="flex-center">
-                                        <img class="y-title-i" src="__IMAGES__/y1-title.png" alt="" srcset="">
+                                        <img class="y-title-i" src="{$jscsscdn}__IMAGES__/y1-title.png" alt="" srcset="">
                                     </div>
                                 </div>
                                 <div class="y-conter">
@@ -195,7 +195,7 @@
                                         <div class="y-item-1">
                                             <div>
                                                 <img class="lozad" data-src="{$NavHotMedicine['img']}"
-                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                    src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             </div>
                                             <div class="y-h-title flex-space-between">
                                                 <div class="y-name">{if isset($NavHotMedicine['names'][0])}
@@ -216,7 +216,7 @@
                             <div class="outside relative">
                                 <div class="y-wrap">
                                     <div class="flex-center">
-                                        <img class="y-title-i" src="__IMAGES__/y2-title.png" alt="" srcset="">
+                                        <img class="y-title-i" src="{$jscsscdn}__IMAGES__/y2-title.png" alt="" srcset="">
                                     </div>
                                 </div>
                                 <div class="y-conter">
@@ -227,7 +227,7 @@
                                         <div class="y-item-1">
                                             <div>
                                                 <img class="lozad" data-src="{$NavHotMedicine['img']}"
-                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                    src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             </div>
                                             <div class="y-h-title flex-space-between">
                                                 <div class="y-name">{if isset($NavHotMedicine['names'][0])}
@@ -248,7 +248,7 @@
                             <div class="outside relative">
                                 <div class="y-wrap">
                                     <div class="flex-center">
-                                        <img class="y-title-i" src="__IMAGES__/y3-title.png" alt="" srcset="">
+                                        <img class="y-title-i" src="{$jscsscdn}__IMAGES__/y3-title.png" alt="" srcset="">
                                     </div>
                                 </div>
                                 <div class="y-conter">
@@ -259,7 +259,7 @@
                                         <div class="y-item-1">
                                             <div>
                                                 <img class="lozad" data-src="{$NavHotMedicine['img']}"
-                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                    src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             </div>
                                             <div class="y-h-title flex-space-between">
                                                 <div class="y-name">{if isset($NavHotMedicine['names'][0])}
@@ -286,7 +286,7 @@
                                 <a rel="external nofollow" i="{$NavCinemaSudoku['id']}" href="{$NavCinemaSudoku['url']}"
                                     target="_blank">
                                     <img class="lozad" data-src="{$NavCinemaSudoku['img']}"
-                                        src="__IMAGES__/loading_img_bg_default.jpg">
+                                        src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
                                     <div>{$NavCinemaSudoku['name'] | raw}</div>
                                 </a>
                                 {/volist}
@@ -312,7 +312,7 @@
                                 <a class="relative bolck live-item" i="{$NavCinemaLive['id']}"
                                     href="{$NavCinemaLive['url']}" target="_blank">
                                     <img class="live-img lozad" data-src="{$NavCinemaLive['img']}"
-                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                        src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                     <div class="absolute bottom75 flex-center w-full">
                                         <div class="live-bg flex-center">
                                             <div class="loading-container">
@@ -326,11 +326,11 @@
                                     <div class="absolute bottom0 px7 flex-space-between w-full">
                                         <div>
                                             <img class="avatar lozad" data-src="{$NavCinemaLive['img']}"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             <span>{$NavCinemaLive['name'] | raw}</span>
                                         </div>
                                         <div>
-                                            <img src="__IMAGES__/hot.svg" alt="">
+                                            <img src="{$jscsscdn}__IMAGES__/hot.svg" alt="">
                                             <span>{$NavCinemaLive['yueNum']}</span>
                                         </div>
                                     </div>
@@ -340,7 +340,7 @@
                             </div>
                             <div class="title-wrap">
                                 <div class="title-l">
-                                    <img src="__IMAGES__/yue.svg" alt="" srcset="">
+                                    <img src="{$jscsscdn}__IMAGES__/yue.svg" alt="" srcset="">
                                     <span class="px7">&#32422;&#28846;</span>
                                     <span class="text1"><!-- 西安  --> 距您0.8km 65 人</span>
                                 </div>
@@ -353,7 +353,7 @@
                                 <a class="relative bolck girl-item" i="{$NavCinemaHookup['id']}"
                                     href="{$NavCinemaHookup['url']}" target="_blank">
                                     <img class="girl-img lozad" data-src="{$NavCinemaHookup['img']}"
-                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                        src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                     <div class="absolute bottom71 girl-bg flex-center w-full">
                                         {if isset($NavCinemaHookup['names'][0])} {$NavCinemaHookup['names'][0] | raw}
                                         {/if}
@@ -363,7 +363,7 @@
                                             <div class="text16">{if isset($NavCinemaHookup['names'][1])}
                                                 {$NavCinemaHookup['names'][1] | raw} {/if}</div>
                                             <div>
-                                                <img src="__IMAGES__/map.svg" alt="">
+                                                <img src="{$jscsscdn}__IMAGES__/map.svg" alt="">
                                                 <span><!-- 西安  --> 距您{$NavCinemaHookup['juli']}m</span>
                                             </div>
                                         </div>
@@ -375,7 +375,7 @@
                             </div>
                             <div class="title-wrap">
                                 <div class="title-l">
-                                    <img src="__IMAGES__/yao.svg" alt="" srcset="">
+                                    <img src="{$jscsscdn}__IMAGES__/yao.svg" alt="" srcset="">
                                     <span class="px7">&#26149;&#33647;</span>
                                     <span
                                         class="text1">&#36855;&#33647;&#65292;&#20652;&#24773;&#65292;&#24310;&#26102;&#65292;&#22766;&#38451;</span>
@@ -387,7 +387,7 @@
                             <div class="outside relative">
                                 <div class="y-wrap">
                                     <div class="flex-center">
-                                        <img class="y-title-i" src="__IMAGES__/y1-title.png" alt="" srcset="">
+                                        <img class="y-title-i" src="{$jscsscdn}__IMAGES__/y1-title.png" alt="" srcset="">
                                     </div>
                                 </div>
                                 <div class="y-conter">
@@ -398,7 +398,7 @@
                                         <div class="y-item-1">
                                             <div>
                                                 <img class="lozad" data-src="{$NavCinemaMedicine['img']}"
-                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                    src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             </div>
                                             <div class="y-h-title flex-space-between">
                                                 <div class="y-name">{if isset($NavCinemaMedicine['names'][0])}
@@ -419,7 +419,7 @@
                             <div class="outside relative">
                                 <div class="y-wrap">
                                     <div class="flex-center">
-                                        <img class="y-title-i" src="__IMAGES__/y2-title.png" alt="" srcset="">
+                                        <img class="y-title-i" src="_{$jscsscdn}__IMAGES__/y2-title.png" alt="" srcset="">
                                     </div>
                                 </div>
                                 <div class="y-conter">
@@ -430,7 +430,7 @@
                                         <div class="y-item-1">
                                             <div>
                                                 <img class="lozad" data-src="{$NavCinemaMedicine['img']}"
-                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                    src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             </div>
                                             <div class="y-h-title flex-space-between">
                                                 <div class="y-name">{if isset($NavCinemaMedicine['names'][0])}
@@ -451,7 +451,7 @@
                             <div class="outside relative">
                                 <div class="y-wrap">
                                     <div class="flex-center">
-                                        <img class="y-title-i" src="__IMAGES__/y3-title.png" alt="" srcset="">
+                                        <img class="y-title-i" src="{$jscsscdn}__IMAGES__/y3-title.png" alt="" srcset="">
                                     </div>
                                 </div>
                                 <div class="y-conter">
@@ -462,7 +462,7 @@
                                         <div class="y-item-1">
                                             <div>
                                                 <img class="lozad" data-src="{$NavCinemaMedicine['img']}"
-                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                    src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             </div>
                                             <div class="y-h-title flex-space-between">
                                                 <div class="y-name">{if isset($NavCinemaMedicine['names'][0])}
@@ -489,7 +489,7 @@
                                 <a rel="external nofollow" i="{$NavBCSudoku['id']}" href="{$NavBCSudoku['url']}"
                                     target="_blank">
                                     <img class="lozad" data-src="{$NavBCSudoku['img']}"
-                                        src="__IMAGES__/loading_img_bg_default.jpg">
+                                        src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
                                     <div>{$NavBCSudoku['name'] | raw}</div>
                                 </a>
                                 {/volist}
@@ -515,7 +515,7 @@
                                 <a class="relative bolck live-item" i="{$NavBCLive['id']}" href="{$NavBCLive['url']}"
                                     target="_blank">
                                     <img class="live-img lozad" data-src="{$NavBCLive['img']}"
-                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                        src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                     <div class="absolute bottom75 flex-center w-full">
                                         <div class="live-bg flex-center">
                                             <div class="loading-container">
@@ -529,11 +529,11 @@
                                     <div class="absolute bottom0 px7 flex-space-between w-full">
                                         <div>
                                             <img class="avatar lozad" data-src="{$NavBCLive['img']}"
-                                                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             <span>{$NavBCLive['name'] | raw}</span>
                                         </div>
                                         <div>
-                                            <img src="__IMAGES__/hot.svg" alt="">
+                                            <img src="{$jscsscdn}__IMAGES__/hot.svg" alt="">
                                             <span>{$NavBCLive['yueNum']}</span>
                                         </div>
                                     </div>
@@ -543,7 +543,7 @@
                             </div>
                             <div class="title-wrap">
                                 <div class="title-l">
-                                    <img src="__IMAGES__/yue.svg" alt="" srcset="">
+                                    <img src="{$jscsscdn}__IMAGES__/yue.svg" alt="" srcset="">
                                     <span class="px7">&#32422;&#28846;</span>
                                     <span class="text1"><!-- 西安  --> 距您0.8km 65 人</span>
                                 </div>
@@ -556,7 +556,7 @@
                                 <a class="relative bolck girl-item" i="{$NavBCHookup['id']}"
                                     href="{$NavBCHookup['url']}" target="_blank">
                                     <img class="girl-img lozad" data-src="{$NavBCHookup['img']}"
-                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                        src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                     <div class="absolute bottom71 girl-bg flex-center w-full">
                                         {if isset($NavBCHookup['names'][0])} {$NavBCHookup['names'][0] | raw} {/if}
                                     </div>
@@ -565,7 +565,7 @@
                                             <div class="text16">{if isset($NavBCHookup['names'][1])}
                                                 {$NavBCHookup['names'][1] | raw} {/if}</div>
                                             <div>
-                                                <img src="__IMAGES__/map.svg" alt="">
+                                                <img src="{$jscsscdn}__IMAGES__/map.svg" alt="">
                                                 <span><!-- 西安  --> 距您{$NavBCHookup['juli']}m</span>
                                             </div>
                                         </div>
@@ -577,7 +577,7 @@
                             </div>
                             <div class="title-wrap">
                                 <div class="title-l">
-                                    <img src="__IMAGES__/yao.svg" alt="" srcset="">
+                                    <img src="{$jscsscdn}__IMAGES__/yao.svg" alt="" srcset="">
                                     <span class="px7">&#26149;&#33647;</span>
                                     <span
                                         class="text1">&#36855;&#33647;&#65292;&#20652;&#24773;&#65292;&#24310;&#26102;&#65292;&#22766;&#38451;</span>
@@ -589,7 +589,7 @@
                             <div class="outside relative">
                                 <div class="y-wrap">
                                     <div class="flex-center">
-                                        <img class="y-title-i" src="__IMAGES__/y1-title.png" alt="" srcset="">
+                                        <img class="y-title-i" src="{$jscsscdn}__IMAGES__/y1-title.png" alt="" srcset="">
                                     </div>
                                 </div>
                                 <div class="y-conter">
@@ -600,7 +600,7 @@
                                         <div class="y-item-1">
                                             <div>
                                                 <img class="lozad" data-src="{$NavBCMedicine['img']}"
-                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                    src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             </div>
                                             <div class="y-h-title flex-space-between">
                                                 <div class="y-name">{if isset($NavBCMedicine['names'][0])}
@@ -621,7 +621,7 @@
                             <div class="outside relative">
                                 <div class="y-wrap">
                                     <div class="flex-center">
-                                        <img class="y-title-i" src="__IMAGES__/y2-title.png" alt="" srcset="">
+                                        <img class="y-title-i" src="{$jscsscdn}__IMAGES__/y2-title.png" alt="" srcset="">
                                     </div>
                                 </div>
                                 <div class="y-conter">
@@ -632,7 +632,7 @@
                                         <div class="y-item-1">
                                             <div>
                                                 <img class="lozad" data-src="{$NavBCMedicine['img']}"
-                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                    src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             </div>
                                             <div class="y-h-title flex-space-between">
                                                 <div class="y-name">{if isset($NavBCMedicine['names'][0])}
@@ -653,7 +653,7 @@
                             <div class="outside relative">
                                 <div class="y-wrap">
                                     <div class="flex-center">
-                                        <img class="y-title-i" src="__IMAGES__/y3-title.png" alt="" srcset="">
+                                        <img class="y-title-i" src="{$jscsscdn}__IMAGES__/y3-title.png" alt="" srcset="">
                                     </div>
                                 </div>
                                 <div class="y-conter">
@@ -664,7 +664,7 @@
                                         <div class="y-item-1">
                                             <div>
                                                 <img class="lozad" data-src="{$NavBCMedicine['img']}"
-                                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                                    src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                             </div>
                                             <div class="y-h-title flex-space-between">
                                                 <div class="y-name">{if isset($NavBCMedicine['names'][0])}
