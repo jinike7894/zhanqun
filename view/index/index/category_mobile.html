@@ -82,7 +82,7 @@
             <div class="tj-flex vidoe-title-1">
                 <div class="flex-center">
                     <img src="__IMAGES__/video-icon.svg" alt="">
-                    <span class="video-title-text">今日推荐</span>
+                    <span class="video-title-text">{$category_name}</span>
                 </div>
                 {volist name='XRecommendTextList' id="XRecommendText"}
                 <a class="p-card-txt" href="{$XRecommendText['url']}" i="{$XRecommendText['id']}" target="_blank">{$XRecommendText['name'] | raw}</a>
