@@ -62,8 +62,8 @@ class Index extends BaseController
                     $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['name'] = mbConvert($item['name']);
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+                $item['yueNum'] = mt_rand(403,4000);
+                $item['juli'] = mt_rand(65,8665);
             }
             View::assign('NavCinemaLiveList',$NavCinemaLiveList);
 
@@ -77,8 +77,8 @@ class Index extends BaseController
                     $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+                $item['yueNum'] = mt_rand(403,4000);
+                $item['juli'] = mt_rand(65,8665);
             }
             View::assign('NavCinemaHookupList',$NavCinemaHookupList);
 
@@ -92,8 +92,8 @@ class Index extends BaseController
                     $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+                $item['yueNum'] = mt_rand(403,4000);
+                $item['juli'] = mt_rand(65,8665);
             }
             View::assign('NavCinemaMedicineList',$NavCinemaMedicineList);
 
@@ -122,8 +122,8 @@ class Index extends BaseController
                     $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['name'] = mbConvert($item['name']);
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+                $item['yueNum'] = mt_rand(403,4000);
+                $item['juli'] = mt_rand(65,8665);
             }
             View::assign('NavBCLiveList',$NavBCLiveList);
 
@@ -138,8 +138,8 @@ class Index extends BaseController
                     $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+                $item['yueNum'] = mt_rand(403,4000);
+                $item['juli'] = mt_rand(65,8665);
             }
             View::assign('NavBCHookupList',$NavBCHookupList);
 
@@ -154,8 +154,8 @@ class Index extends BaseController
                     $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+                $item['yueNum'] = mt_rand(403,4000);
+                $item['juli'] = mt_rand(65,8665);
             }
             View::assign('NavBCMedicineList',$NavBCMedicineList);
 
@@ -184,8 +184,8 @@ class Index extends BaseController
                     $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['name'] = mbConvert($item['name']);
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+                $item['yueNum'] = mt_rand(403,4000);
+                $item['juli'] = mt_rand(65,8665);
             }
             View::assign('NavHotLiveList',$NavHotLiveList);
 
@@ -200,8 +200,8 @@ class Index extends BaseController
                     $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+                $item['yueNum'] = mt_rand(403,4000);
+                $item['juli'] = mt_rand(65,8665);
             }
             View::assign('NavHotHookupList',$NavHotHookupList);
 
@@ -216,8 +216,8 @@ class Index extends BaseController
                     $item['img'] = replaceAdCdn($item['img']);
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
-                $item['yueNum'] = ["58","129","118","278","197","499","158","142","795","168"][$key];
-                $item['juli'] = ["65","2378","1389","6543","327","118","6968","8745","569","1126"][$key];
+                $item['yueNum'] = mt_rand(403,4000);
+                $item['juli'] = mt_rand(65,8665);
             }
             View::assign('NavHotMedicineList',$NavHotMedicineList);
         }else{
