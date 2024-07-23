@@ -99,12 +99,13 @@
         </div>
 
         <div class="layui-form-item">
-            <label class="layui-form-label">选择浏览器</label>
+            <label class="layui-form-label">轮播图跳转路径</label>
             <div class="layui-input-block">
                 <select name="is_browser" id="is_browser">
-                    <option value="0" {if $row.is_browser eq 0}selected{/if}>内部浏览器</option>
-                    <option value="1" {if $row.is_browser eq 1}selected{/if}>外部浏览器</option>
-                    <option value="2" {if $row.is_browser eq 2}selected{/if}>打开播放器</option>
+                    <option value="0" {if $row.is_browser eq 0}selected{/if}>跳转广告</option>
+                    <option value="1" {if $row.is_browser eq 1}selected{/if}>直播内页</option>
+                    <option value="2" {if $row.is_browser eq 2}selected{/if}>约炮内页</option>
+                    <option value="3" {if $row.is_browser eq 0}selected{/if}>春药内页</option>
                 </select>
             </div>
         </div>
