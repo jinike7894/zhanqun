@@ -1,6 +1,7 @@
 <?php
 namespace app\admin\controller\mall;
 
+use app\common\model\Dhclick;
 use app\common\model\Qdtongji;
 use app\common\model\Channelcode;
 use app\common\model\Tongji;
@@ -92,6 +93,7 @@ class Channel extends AdminController
             $list = $this->model->where($where)->cache(600)->page($page, $limit)->order($this->sort)->select()->toArray();
             $this->Channelcode = new Channelcode();
             $this->Tongji = new Tongji();
+            $this->Dhclick = new Dhclick();
             $channelCodes = array_column($list, 'channelCode');
             $channels = $this->Channelcode->whereIn('channelCode', $channelCodes)->select()->toArray();
             $channels = array_column($channels, null, 'channelCode');
@@ -132,6 +134,13 @@ class Channel extends AdminController
                 $bc_tongjis = Tongji::field('sum(clicks) as bc_clicks')
                     ->where([['channelCode', '=', $channelCode],['date', '=', $item['date']],['pid', 'in', $bc_pids]])
                     ->group('channelCode,date')->find();
+
+                $list[$i]['dh_clicks'] = 0;
+                $beizhu = $channels[$channelCode]['remark']??'';
+                if($beizhu == '北方导航点击数据' || $beizhu == '南方导航点击数据' || $beizhu == '东方导航点击数据' || $beizhu == '妖姬导航点击数据' || $beizhu == '高德导航点击数据' || $beizhu == '八万导航点击数据' || $beizhu == '一同导航点击数据' || $beizhu == '夜行者导航点击数据' || $beizhu == '夜生活导航点击数据' || $beizhu == '金手指导航点击数据' || $beizhu == '百合导航点击数据'){
+                    $dhClick = $this->Dhclick->getNumByName($beizhu);
+                    $list[$i]['dh_clicks'] = $dhClick['num']??0;
+                }
                     
                 $list[$i]['bofangqi_clicks'] = $bofangqi_tongjis['bofangqi_clicks']??0;
                 $list[$i]['zhibo_clicks'] = $zhibo_tongjis['zhibo_clicks']??0;

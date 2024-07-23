@@ -50,6 +50,7 @@ define(["jquery", "easy-admin", "treetable", "iconPickerFa", "autocomplete"], fu
                     {field: 'channelCode', minWidth: 110, title: '渠道id',searchOp: '=',sort:true,totalRowText: '总计:', fixed:'left'},
                     {field: 'remark', minWidth: 80, title: '渠道名称',search:false,sort:true},
                     {field: 'trcb', minWidth: 120, title: '投入成本(元)',searchOp: '=',sort:true},
+                    {field: 'dh_clicks', minWidth: 120, title: '导航点击数', search: false,sort:true},
                     {field: 'sj_num', minWidth: 120, title: '进站IP数', search: false,sort:true, totalRow: '{{ parseInt(d.TOTAL_NUMS*10)/10 || 0 }}',},	
                     // {field: 'sum', minWidth: 120, title: '安装量(扣量后)', search: false,sort:true},
                     {field: 'price', minWidth: 100, title: '单价(元)', search: false,sort:true},
