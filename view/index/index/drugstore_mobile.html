@@ -66,31 +66,25 @@
 <body>
     <div id="app">
         <div class="nav-title px10">
-            <a href="">
+            <a href="/{$channel}.html">
                 <i class="bi bi-chevron-left back-btn"></i>
             </a>
             <div>&#26149;&#33647;&#21830;&#22478;</div>
             <div></div>
         </div>
-        <div id="swiper-y" class="swiper">
+        {notempty name="$NavBannerList"}
+        <div id="swiper-banner" class="swiper">
             <div class="swiper-wrapper">
+                {volist name='NavBannerList' id="NavBanner"}
                 <div class="swiper-slide">
-                    <img class="lozad w-full"
-                        data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                        src="__IMAGES__/loading_img_bg_default.jpg">
+                    <a rel="external nofollow" i="{$NavBanner['id']}" href="{$NavBanner['url']}">
+                        <img class="lozad" data-src="{$NavBanner['img']}" src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
+                    </a>
                 </div>
-                <div class="swiper-slide">
-                    <img class="lozad w-full"
-                        data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                        src="__IMAGES__/loading_img_bg_default.jpg">
-                </div>
-                <div class="swiper-slide">
-                    <img class="lozad w-full girl-"
-                        data-src="https://axkr2tx.xn--vhqqb9tu5puzbh4d4wb1yo982d2jdfq3e.com/upload/20240207/b40d7c66e47a54f0a72eb748310f7ac1_file.gif"
-                        src="__IMAGES__/loading_img_bg_default.jpg">
-                </div>
+                {/volist}
             </div>
         </div>
+        {/notempty}
         <div class="marquee-wrap">
             <div class="marquee-box">
                 <div class="icon-speaker">
@@ -118,32 +112,28 @@
                         </div>
                     </div>
                     <div class="y-conter">
-                        <a class="y-item"  href="/drug/1.html">
+                        {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
+                        {if condition="$index == 1 or $index == 2"}
+                        <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url']}"
+                           target="_blank">
                             <div class="y-item-1">
                                 <div>
-                                    <img class="lozad" data-src="" src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                    <img class="lozad" data-src="{$NavHotMedicine['img']}"
+                                         src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 </div>
                                 <div class="y-h-title flex-space-between">
-                                    <div class="y-name">11111</div>
-                                    <div class="y-no">编号：22222</div>
+                                    <div class="y-name">{if isset($NavHotMedicine['names'][0])}
+                                        {$NavHotMedicine['names'][0] | raw} {/if}</div>
+                                    <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])}
+                                        {$NavHotMedicine['names'][1] | raw} {/if}</div>
                                 </div>
-                                <div class="y-text">3333</div>
+                                <div class="y-text">{if isset($NavHotMedicine['names'][2])}
+                                    {$NavHotMedicine['names'][2] | raw} {/if}</div>
                             </div>
                             <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                         </a>
-                        <a class="y-item" href="/drug/1.html">
-                            <div class="y-item-1">
-                                <div>
-                                    <img class="lozad" data-src="" src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-                                </div>
-                                <div class="y-h-title flex-space-between">
-                                    <div class="y-name">11111</div>
-                                    <div class="y-no">编号：22222</div>
-                                </div>
-                                <div class="y-text">3333</div>
-                            </div>
-                            <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
-                        </a>
+                        {/if}
+                        {/volist}
                     </div>
                 </div>
                 
@@ -154,19 +144,28 @@
                         </div>
                     </div>
                     <div class="y-conter">
-                        <a class="y-item" href="/drug/1.html">
+                        {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
+                        {if condition="$index == 3 or $index == 4"}
+                        <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url']}"
+                           target="_blank">
                             <div class="y-item-1">
                                 <div>
-                                    <img class="lozad" data-src="" src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                    <img class="lozad" data-src="{$NavHotMedicine['img']}"
+                                         src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 </div>
                                 <div class="y-h-title flex-space-between">
-                                    <div class="y-name">11111</div>
-                                    <div class="y-no">编号：22222</div>
+                                    <div class="y-name">{if isset($NavHotMedicine['names'][0])}
+                                        {$NavHotMedicine['names'][0] | raw} {/if}</div>
+                                    <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])}
+                                        {$NavHotMedicine['names'][1] | raw} {/if}</div>
                                 </div>
-                                <div class="y-text">3333</div>
+                                <div class="y-text">{if isset($NavHotMedicine['names'][2])}
+                                    {$NavHotMedicine['names'][2] | raw} {/if}</div>
                             </div>
                             <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                         </a>
+                        {/if}
+                        {/volist}
                     </div>
                 </div>
                
@@ -177,19 +176,28 @@
                         </div>
                     </div>
                     <div class="y-conter">
-                        <a class="y-item" href="/drug/1.html">
+                        {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
+                        {if condition="$index == 5 or $index == 6"}
+                        <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url']}"
+                           target="_blank">
                             <div class="y-item-1">
                                 <div>
-                                    <img class="lozad" data-src="" src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                                    <img class="lozad" data-src="{$NavHotMedicine['img']}"
+                                         src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 </div>
                                 <div class="y-h-title flex-space-between">
-                                    <div class="y-name">11111</div>
-                                    <div class="y-no">编号：22222</div>
+                                    <div class="y-name">{if isset($NavHotMedicine['names'][0])}
+                                        {$NavHotMedicine['names'][0] | raw} {/if}</div>
+                                    <div class="y-no">编号：{if isset($NavHotMedicine['names'][1])}
+                                        {$NavHotMedicine['names'][1] | raw} {/if}</div>
                                 </div>
-                                <div class="y-text">3333</div>
+                                <div class="y-text">{if isset($NavHotMedicine['names'][2])}
+                                    {$NavHotMedicine['names'][2] | raw} {/if}</div>
                             </div>
                             <div class="y-info-btn" href="">&#26597;&#30475;&#35814;&#24773;</div>
                         </a>
+                        {/if}
+                        {/volist}
                     </div>
                 </div>
             </div>
