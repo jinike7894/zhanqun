@@ -37,6 +37,7 @@
                 {/volist}
             </div>
         </div>
+        {notempty name="$XBannerList"}
         <div id="swiper-banner" class="swiper">
             <div class="swiper-wrapper">
                 {volist name='XBannerList' id="XBanner"}
@@ -50,6 +51,7 @@
                 {/volist}
             </div>
         </div>
+        {/notempty}
         <div class="marquee-wrap">
             <div class="marquee-box">
                 <div class="icon-speaker">
