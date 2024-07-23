@@ -25,7 +25,7 @@ class Index extends BaseController
         $jscsscdn = sysconfig('site', 'jscss_cdn');
         View::assign('jscsscdn',$jscsscdn);
 
-        if($action == 'index' || $action == 'hookup' || $action == 'livestreaming'){
+        if($action == 'index' || $action == 'hookup' || $action == 'livestreaming' || $action == 'drugstore'){
             //导航-banner轮播图 10 $NavBannerList
             $NavBannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>1))
@@ -33,6 +33,13 @@ class Index extends BaseController
 
             foreach ($NavBannerList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
+                if($item['is_browser'] == 1){
+                    $item['url'] = '/livestreaming/'. $channel .'.html';
+                }else if($item['is_browser'] == 2){
+                    $item['url'] = '/hookup/'. $channel .'.html';
+                }else if($item['is_browser'] == 3){
+                    $item['url'] = '/drugstore/'. $channel .'.html';
+                }
                 if (strpos($item['img'], 'http') === false) {
                     $item['img'] = replaceAdCdn($item['img']);
                 }
