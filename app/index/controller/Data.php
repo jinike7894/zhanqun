@@ -153,4 +153,18 @@ class Data extends BaseController
 //         \think\facade\Log::error('tongji end:' . $timeend);
 		return json_encode($arr);
 	}
+
+    public function dhclick()
+    {
+        $this->Dhclick = new \app\common\model\Dhclick();
+
+        $dhClicks = $this->Dhclick->field('id,name,num,url')->select();
+
+        foreach ($dhClicks as $value){
+            $json = file_get_contents($value['url']);
+            $arr  = json_decode($json,true);
+            $num = $arr[date('Y-m-d')];
+            $this->Dhclick->where(['id' => $value['id']])->update(['num' => $num]);
+        }
+    }
 }
