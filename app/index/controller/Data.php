@@ -38,7 +38,9 @@ class Data extends BaseController
 	}
 	public function install()
 	{
-	    $arr['ip'] = GetIP();
+        $ip_array = explode(",", GetIP());
+        $client_ip = trim($ip_array[0]);
+        $arr['ip'] = $client_ip;
 		$arr['channelCode']  = input('post.channel');
 		$arr['subid'] = intval(input('post.linkId'));
 		$arr['uuid']  = md5($arr['ip']);
@@ -68,9 +70,11 @@ class Data extends BaseController
         // \think\facade\Log::error('tongji start:' . $timeStart);
         header('Cache-Control: no-cache,must-revalidate');
 		header('Pragma: no-cache');
-		$ip = GetIP();
+        $ip_array = explode(",", GetIP());
+        $client_ip = trim($ip_array[0]);
+        $ip = $client_ip;
 		//Log::error('Tongji:' . json_encode(input('post.')) . 'ip: ' . $ip . ',ua: ' . request()->server()['HTTP_USER_AGENT']);
-		
+
 		$channel = input('post.channel');
 		$id = input('post.id');
 		$uuid = md5($ip);
