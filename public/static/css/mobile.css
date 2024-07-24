@@ -503,10 +503,10 @@ a:hover {
 
 .textad a {
     text-align: center;
-    background-color: #D4E9FB;
+    background-color: #F5E5FF;
     padding: .1rem .2rem;
-    border-radius: .08remx;
-    color: #074995;
+    border-radius: .04rem;
+    color: #000;
     font-size: .22rem;
     /* text-overflow: ellipsis; */
     overflow: hidden;
@@ -748,7 +748,7 @@ a:hover {
     height: .56rem;
     line-height: .46rem;
     text-align: center;
-    background: linear-gradient(269.73deg, #2D70DD -60.33%, #C95DBC 99.76%);
+    background: linear-gradient(90deg, #ED1B88 0%, #FF70BA 100%);
     margin-top: .08rem;
     border-radius: .28rem;
     padding: .02rem .6rem;
