@@ -161,7 +161,7 @@ class Data extends BaseController
         $dhClicks = $this->Dhclick->field('id,name,num,url')->select();
 
         foreach ($dhClicks as $value){
-            $json = file_get_contents($value['url']);
+            $json = file_get_contents(trim($value['url']));
             $arr  = json_decode($json,true);
             $num = $arr[date('Y-m-d')];
             $this->Dhclick->where(['id' => $value['id']])->update(['num' => $num]);
