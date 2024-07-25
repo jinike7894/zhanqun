@@ -76,7 +76,9 @@
             </div>
             <div class="textad px10">
                 {volist name='XSudokuTextList' id="XSudokuText"}
-                <a rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
+                <a class="h n" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
+                    <img src="__IMAGES__/h-icon.svg" alt="" srcset="">
+                    <img src="__IMAGES__/n-icon.svg" alt="" srcset="">
                     {$XSudokuText['name'] | raw}
                 </a>
                 {/volist}
