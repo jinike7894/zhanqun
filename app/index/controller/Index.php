@@ -227,6 +227,30 @@ class Index extends BaseController
                 $item['juli'] = mt_rand(65,8665);
             }
             View::assign('NavHotMedicineList',$NavHotMedicineList);
+
+            //导航-九宫格中部文字广告 60   $NavSudokuMiddleTextList
+            $NavSudokuMiddleTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '60'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($NavSudokuMiddleTextList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                $item['name'] = mbConvert($item['name']);
+                $item['icon'] = ["h","n","h","n"][mt_rand(0,3)];
+            }
+            View::assign('NavSudokuMiddleTextList',$NavSudokuMiddleTextList);
+
+            //导航-九宫格底部文字广告 61   $NavSudokuBottomTextList
+            $NavSudokuBottomTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '61'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+            foreach ($NavSudokuBottomTextList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                $item['name'] = mbConvert($item['name']);
+                $item['icon'] = ["h","n","h","n"][mt_rand(0,3)];
+            }
+            View::assign('NavSudokuBottomTextList',$NavSudokuBottomTextList);
         }else{
             //X站banner轮播图 1        $XBannerList
             $XBannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
@@ -264,6 +288,7 @@ class Index extends BaseController
             foreach ($XSudokuTextList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 $item['name'] = mbConvert($item['name']);
+                $item['icon'] = ["h","n","h","n"][mt_rand(0,3)];
             }
             View::assign('XSudokuTextList',$XSudokuTextList);
 
