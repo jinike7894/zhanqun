@@ -22,9 +22,10 @@
 }
 .v-s-nav-box-h {
     width: 100%;
-    background: linear-gradient(0deg, #1F1F2B, #1F1F2B),
-    linear-gradient(307.6deg, #007BFF -15.11%, rgba(0, 0, 0, 0) 36.95%),
-    linear-gradient(139.94deg, #FF00DD -51.75%, rgba(0, 0, 0, 0) 56.98%);
+    background-image: url('/static/images/hader-bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -497,7 +498,7 @@ a:hover {
 
 .textad {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: .1rem;
 }
 
@@ -505,12 +506,22 @@ a:hover {
     text-align: center;
     background-color: #F5E5FF;
     padding: .1rem .2rem;
-    border-radius: .04rem;
+    height: .64rem;
+    line-height: .4rem;
+    border-radius: .08rem;
     color: #000;
-    font-size: .22rem;
+    font-size: .24rem;
     /* text-overflow: ellipsis; */
     overflow: hidden;
     white-space: nowrap;
+}
+.textad a.h{
+    color: #FF4366;
+    font-weight: 600;
+} 
+.textad a.n{
+    color: #0679E3;
+    font-weight: 600;
 }
 .swiper-slide{
     overflow: hidden;
@@ -918,10 +929,10 @@ a:hover {
 .nav-title {
     height: 1.04rem;
     width: 100%;
-    background: linear-gradient(0deg, #1F1F2B, #1F1F2B),
-linear-gradient(319.37deg, #007BFF -19.3%, rgba(0, 0, 0, 0) 42.96%),
-linear-gradient(125.21deg, #FF00DD -44.52%, rgba(0, 0, 0, 0) 48.42%);
-
+    background-image: url('/static/images/hader-bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: space-between;
     align-items: center;
