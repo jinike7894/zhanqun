@@ -92,11 +92,21 @@
                                 {/volist}
                             </div>
                             <div class="textad mx7 my12">
-                                <a class="h n" rel="external nofollow" i="1205" href="https://yj7ky.zrcai.cn/40.html" target="_blank">
-                                    <img src="/static/images/h-icon.svg" alt="" srcset="">
-                                    <img src="/static/images/n-icon.svg" alt="" srcset="">
-                                    &#25784;&#25784;&#88;&#31449; 
+                                {volist name='NavSudokuMiddleTextList' id="NavSudokuMiddleText"}
+                                <a class="{$NavSudokuMiddleText['icon']}" rel="external nofollow" i="{$NavSudokuMiddleText['id']}" href="{$NavSudokuMiddleText['url']}" target="_blank">
+                                    <img src="/static/images/{$NavSudokuMiddleText['icon']}-icon.svg" alt="" srcset="">
+                                    {$NavSudokuMiddleText['name'] | raw}
                                 </a>
+                                {/volist}
+                            </div>
+
+                            <div class="textad mx7 my12">
+                                {volist name='NavSudokuBottomTextList' id="NavSudokuBottomText"}
+                                <a class="{$NavSudokuBottomText['icon']}" rel="external nofollow" i="{$NavSudokuBottomText['id']}" href="{$NavSudokuBottomText['url']}" target="_blank">
+                                    <img src="/static/images/{$NavSudokuBottomText['icon']}-icon.svg" alt="" srcset="">
+                                    {$NavSudokuBottomText['name'] | raw}
+                                </a>
+                                {/volist}
                             </div>
                             <div class="title-wrap">
                                 <div class="title-l">
