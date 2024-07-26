@@ -42,11 +42,19 @@
         <div id="swiper-banner" class="swiper">
             <div class="swiper-wrapper">
                 {volist name='NavBannerList' id="NavBanner"}
+                {if ($NavBanner['is_browser'] == 0) }
                 <div class="swiper-slide">
-                    <a rel="external nofollow" i="{$NavBanner['id']}" href="{$NavBanner['url']}">
+                    <a rel="external nofollow" i="{$NavBanner['id']}" href="{$NavBanner['url']}" target="_blank">
                         <img class="lozad" data-src="{$NavBanner['img']}" src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
                     </a>
                 </div>
+                {else /}
+                <div class="swiper-slide">
+                    <a rel="external nofollow"  href="{$NavBanner['url']}">
+                        <img class="lozad" data-src="{$NavBanner['img']}" src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
+                    </a>
+                </div>
+                {/if}
                 {/volist}
             </div>
         </div>
