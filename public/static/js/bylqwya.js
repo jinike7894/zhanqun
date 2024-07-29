@@ -154,7 +154,14 @@ function Dialog (list =[]){
         return image;
     }
     function  getImg() {
+        let time = +window.localStorage.getItem('d_time')
+        let n_time = Date.now()
+        if(time && (n_time- +time ) < 30*60*1000) return
         if(!list.length) return
+        console.log(list.length);
+        if(list.length == 1) {
+            window.localStorage.setItem('d_time',String(n_time))
+        }
         let { url, id, herf } = list.shift()
         let xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
