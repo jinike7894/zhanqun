@@ -24,6 +24,7 @@ class Index extends BaseController
 
         $jscsscdn = sysconfig('site', 'jscss_cdn');
         View::assign('jscsscdn',$jscsscdn);
+        View::assign('action',$action);
 
         if($action == 'index' || $action == 'hookup' || $action == 'livestreaming' || $action == 'drugstore'){
             //导航-banner轮播图 10 $NavBannerList
