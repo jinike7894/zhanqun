@@ -65,10 +65,10 @@ define(["jquery", "easy-admin"], function ($, ea) {
                 totalRow: true,
                 cols: [[
 
-                    {field: 'cate_title', minWidth: 120, title: '类别',search:'select',selectList:{'name':'/gladmin/data.category/getpcate'},fieldAlias:'cid',dong:true, sort: true},
+                    {field: 'cate_title', minWidth: 120, title: '类别',search:'select',selectList:{'name':'/gladmin/mall.category/getpcate'},fieldAlias:'cid',dong:true, sort: true},
                     {field: 'k_name', minWidth: 100, title: '客户名称',sort:true},
                     {field: 'date', minWidth: 0, title: '查询时间',hide:true,search: 'range',delete:true},
-                    {field: 'channelCode', minWidth: 0, title: '推广渠道',hide:true,search:'select',selectList:{'name':'/gladmin/data.data/getchannelCode1'},dong:true},
+                    {field: 'channelCode', minWidth: 0, title: '推广渠道',hide:true,search:'select',selectList:{'name':'/gladmin/mall.data/getchannelCode1'},dong:true},
                     // {field: 'shows', Width: 80, title: '展示次数', search: false,sort:true},
                     {field: 'clicks', Width: 80, title: '点击次数', search: false,sort:true},
 
