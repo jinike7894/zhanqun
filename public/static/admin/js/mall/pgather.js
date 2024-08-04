@@ -53,6 +53,47 @@ define(["jquery", "easy-admin"], function ($, ea) {
             });
             ea.listen();
         },
+        all: function () {
+            var init = {
+                table_elem: '#currentTable',
+                table_render_id: 'currentTableRenderId',
+                index_url: 'mall.pgather/all',
+            };
+            ea.table.render({
+                init: init,
+                toolbar: ['refresh'],
+                totalRow: true,
+                cols: [[
+
+                    {field: 'cate_title', minWidth: 120, title: '类别',search:'select',selectList:{'name':'/gladmin/data.category/getpcate'},fieldAlias:'cid',dong:true, sort: true},
+                    {field: 'k_name', minWidth: 100, title: '客户名称',sort:true},
+                    {field: 'date', minWidth: 0, title: '查询时间',hide:true,search: 'range',delete:true},
+                    {field: 'channelCode', minWidth: 0, title: '推广渠道',hide:true,search:'select',selectList:{'name':'/gladmin/data.data/getchannelCode1'},dong:true},
+                    // {field: 'shows', Width: 80, title: '展示次数', search: false,sort:true},
+                    {field: 'clicks', Width: 80, title: '点击次数', search: false,sort:true},
+
+                    // {field: 'downfinish', Width: 80, title: '下载次数', search: false,sort:true},
+                    // {field: 'ratio1', Width: 80, title: '点击/展示', search: false,sort:true,templet:function(d) {return d.ratio1 + '%'}},
+                    // {field: 'ratio', Width: 80, title: '下载/点击', search: false,sort:true,templet:function(d) {return d.ratio + '%'}},
+                    {
+                        minWidth: 80,
+                        title: '操作',
+                        templet: ea.table.tool,
+                        operat: [
+                            [{
+                                text: '查看',
+                                url: init.show_url,
+                                method: 'open',
+                                auth: 'show',
+                                class: 'layui-btn layui-btn-normal layui-btn-xs',
+                                extend: 'data-full="true"',
+                            }],
+                        ]
+                    }
+                ]],
+            });
+            ea.listen();
+        },
     };
     return Controller;
 });

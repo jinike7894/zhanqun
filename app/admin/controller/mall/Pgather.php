@@ -65,4 +65,68 @@ class Pgather extends AdminController
         return $this->fetch();
     }
 
+
+    /**
+     * @NodeAnotation(title="列表")
+     */
+    public function all()
+    {
+        if ($this->request->isAjax()) {
+            if (input('selectFields')) {
+                return $this->selectList();
+            }
+            list($page, $limit, $where, $cxdate,$channelCode) = $this->buildTableParames1();
+            //$count = Products::where($where)->count();
+            if(empty($cxdate)){
+                $cxdate[] = ['date','=',date('Y-m-d')];
+            }
+            $list = $this->model->getlist($where,$cxdate,$channelCode);
+
+            $totalShows = 0;
+            $totalClicks = 0;
+            $totalDownfinish = 0;
+
+
+            // 根据 cate_title 排序
+            usort($list, function($a, $b) {
+                return strcmp($a['cate_title'], $b['cate_title']);
+            });
+
+            // 合并同一 k_name 的 clicks
+            $result = array();
+            foreach ($list as $product) {
+                $key = $product['cate_title'] . ',' . $product['k_name'];
+                if (!isset($result[$key])) {
+                    $result[$key] = array(
+                        'id' => $product['id'],
+                        'cate_title' => $product['cate_title'],
+                        'k_name' => $product['k_name'],
+                        'name' => $product['name'],
+                        'clicks' => 0
+                    );
+                }
+                $result[$key]['clicks'] += $product['clicks'];
+                $totalClicks += $product['clicks'];
+            }
+
+
+            $result = array_combine(range(0, count($result) - 1), array_values($result));
+
+            $data = [
+                'code'  => 0,
+                'msg'   => '',
+                'count' => count($result),
+                'data'  => $result,
+                'totalRow' => [
+                    'shows' => $totalShows,
+                    'clicks' => $totalClicks,
+                    'downfinish' => $totalDownfinish,
+                ],
+            ];
+            return json($data);
+        }
+        return $this->fetch();
+    }
+
+
 }
