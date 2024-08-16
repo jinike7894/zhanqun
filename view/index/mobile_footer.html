@@ -1,27 +1,68 @@
+<div class="footer-info">
+  <div class="footer-connect">
+    <div>
+      在线客服
+      <span class="e-mail">x@gmail.com</span>
+    </div>
+    <div>
+      邮件获取最新地址
+      <span class="e-mail">x@gmail.com</span>
+    </div>
+  </div>
+  <div>
+    &#35686;&#21578;&#65306;&#22914;&#26524;&#24744;&#26410;&#28415;&#49;&#56;&#27506;&#25110;&#24744;&#30070;&#22320;&#27861;&#24459;&#35377;&#21487;&#20043;&#27861;&#23450;&#24180;&#40801;&#12289;&#25110;&#26159;&#23565;&#24773;&#33394;&#21453;&#24863;&#25110;&#26159;&#34907;&#36947;&#20154;&#22763;&#24314;&#35696;&#24744;&#38626;&#38283;&#26412;&#31449;&#65281;&#26412;&#31449;&#27512;&#39006;&#28858;&#38480;&#21046;&#32026;&#12289;&#38480;&#23450;&#28858;&#25104;&#24180;&#32773;&#24050;&#20855;&#26377;&#23436;&#25972;&#34892;&#28858;&#33021;&#21147;&#19988;&#39000;&#25509;&#21463;&#26412;&#31449;&#20839;&#24433;&#38899;&#20839;&#23481;&#12289;&#21450;&#21508;&#38917;&#26781;&#27454;&#20043;&#32178;&#21451;&#25165;&#21487;&#28687;&#35261;&#65292;&#26410;&#28415;&#49;&#56;&#27506;&#35613;&#32085;&#36914;&#20837;&#12290;
+  </div>
+  <div class="permanent">
+    永久域名：x51.tv
+  </div>
+</div>
+<div class="dialog2-wrap hidden">
+  <div class="dialog2-conter">
+    <img class="announcement" src="__IMAGES__/announcement.png" alt="" srcset="">
+    <div class="dialog2-main">
+      <div class="dialog2-url-wrap">
+        <div class="dialog2-url">
+          <div class="url-text">本站永久域名</div>
+          <div class="url-ele">xxx.com</div>
+          <div class="url-ele">xxx.com</div>
+          <div class="url-ele">xxx.com</div>
+        </div>
+        <div class="dialog2-qr"></div>
+      </div>
+      <div>
+        <div class="dialog2-tips">最近屏蔽厉害，发送邮件获取新地址，永不失联发送任意内容至邮箱 <span class="dialog2-email">abcd888@gmail.com</span>
+        </div>
+        <a class="send-e"  href="">点击这里快捷发送邮件</a>
+        <div class="dialog2-tips2">获取新地址（任意邮件自动秒回复）</div>
+        <div class="dialog2-save">保存二维码</div>
+      </div>
+    </div>
+  </div>
+</div>
 <script type="text/javascript">
-  if (!/Android|iOS|iPhone|iPad/i.test(navigator.userAgent)) {
-    document.body.innerHTML = `<div class="s-window-tips">
-                                        <div>
-                                            <h1>&#28201;&#39336;&#25552;&#31034;</h1>
-                                            <p>&#26412;&#31449;&#20165;&#25903;&#25345;&#31227;&#21160;&#35774;&#22791;&#35775;&#38382;&#65292;&#35831;&#20351;&#29992;&#31227;&#21160;&#35774;&#22791;&#25195;&#25551;&#19979;&#26041;&#30340;&#20108;&#32500;&#30721;&#25110;&#36755;&#20837;&#32593;&#22336;&#35775;&#38382;&#33;</p>
-                                            <p>Reminder: This website only supports mobile device access, please use your mobile device to scan the QR Code below or enter the URL to access!</p>
-                                            <div class="qr-box"></div>
-                                        </div>
-                                    </div> `;
-    let qrEl = document.body.querySelector(".s-window-tips .qr-box");
-    try {
-      new QRCode(qrEl, {
-        text: location.origin + '/{$channel}.html',
-        width: 128,
-        height: 128,
-        colorDark: "#000000",
-        colorLight: "#ffffff",
-        correctLevel: QRCode.CorrectLevel.H
-      });
-    } catch (err) {
-      qrEl.innerHTML = '<img src="/static/images/qr.png" alt="">'
-    }
-  }
+  // if (!/Android|iOS|iPhone|iPad/i.test(navigator.userAgent)) {
+  //   document.body.innerHTML = `<div class="s-window-tips">
+  //                                       <div>
+  //                                           <h1>&#28201;&#39336;&#25552;&#31034;</h1>
+  //                                           <p>&#26412;&#31449;&#20165;&#25903;&#25345;&#31227;&#21160;&#35774;&#22791;&#35775;&#38382;&#65292;&#35831;&#20351;&#29992;&#31227;&#21160;&#35774;&#22791;&#25195;&#25551;&#19979;&#26041;&#30340;&#20108;&#32500;&#30721;&#25110;&#36755;&#20837;&#32593;&#22336;&#35775;&#38382;&#33;</p>
+  //                                           <p>Reminder: This website only supports mobile device access, please use your mobile device to scan the QR Code below or enter the URL to access!</p>
+  //                                           <div class="qr-box"></div>
+  //                                       </div>
+  //                                   </div> `;
+  //   let qrEl = document.body.querySelector(".s-window-tips .qr-box");
+  //   try {
+  //     new QRCode(qrEl, {
+  //       text: location.origin + '/{$channel}.html',
+  //       width: 128,
+  //       height: 128,
+  //       colorDark: "#000000",
+  //       colorLight: "#ffffff",
+  //       correctLevel: QRCode.CorrectLevel.H
+  //     });
+  //   } catch (err) {
+  //     qrEl.innerHTML = '<img src="/static/images/qr.png" alt="">'
+  //   }
+  // }
   function ypshare() {
     clipboard = new ClipboardJS('.content-box')
     $('#copyUrlx').val('永久回家地址8888.COM 保存永不迷路')
@@ -33,13 +74,157 @@
       clipboard.destroy();
     });
   }
-  if(!(/iOS|iPhone|iPad/i.test(navigator.userAgent))){
-    if($('meta[name="c"]').attr("c") != 100){
+  if (!(/iOS|iPhone|iPad/i.test(navigator.userAgent))) {
+    if ($('meta[name="c"]').attr("c") != 100) {
       $('body').addClass('is-load')
     }
   }
+  (function () {
+    let time = +window.localStorage.getItem('d2_time')
+    let n_time = Date.now()
+    let dialog2 = $('.dialog2-wrap')
+    $('.left-img').click(function(){
+      dialog2.removeClass('hidden')
+    })
+    if(!time || !((n_time- +time ) < 30*60*1000)){
+      dialog2.removeClass('hidden')
+      window.localStorage.setItem('d2_time',String(n_time))
+    }
+    let qrEl = document.body.querySelector(".dialog2-wrap .dialog2-qr");
+    try {
+      new QRCode(qrEl, {
+        text: location.origin + '/{$channel}.html',
+        width: 82,
+        height: 82,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+      });
+    } catch (err) {
+      qrEl.innerHTML = '<img src="/static/images/qr.png" alt="">'
+    }
+    function closeDialog2() {
+      dialog2.addClass('hidden')
+    }
+    dialog2.click(closeDialog2)
+    $('.send-e').click(function(e){
+      e.stopPropagation()
+    })
+    $('.dialog2-save').click(function(e){
+      e.stopPropagation()
+      let url = $('.dialog2-qr img').attr('src')
+      downloadImg(url,'永不丢失二维码.png')
+    })
+  })()
+
 </script>
 <style>
+  .dialog2-wrap {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dialog2-conter {
+    width: 5.8rem;
+    border-radius: .4rem;
+    background-color: #fff;
+    max-width: 80vw;
+    color: #333;
+  }
+
+  .announcement {
+    width: 100%;
+    height: 1.2rem;
+    position: relative;
+    top: -.2rem;
+  }
+
+  .dialog2-main {
+    padding: .32rem;
+    padding-bottom: .4rem;
+  }
+
+  .dialog2-url-wrap {
+    background: linear-gradient(270deg, #FAF1D3 0%, #FFE4DF 100%);
+    border-radius: .2rem;
+    width: 4..94rem;
+    padding: .24rem;
+    padding-bottom: .2rem;
+    display: flex;
+  }
+
+  .dialog2-url {
+    padding-right: .96rem;
+  }
+
+  .url-text {
+    font-size: .24rem;
+  }
+
+  .url-ele {
+    color: #CB0808;
+    font-size: .28rem;
+    margin-top: .06rem;
+  }
+
+  .dialog2-qr {
+    width: 94px;
+    height: 94px;
+    background-color: #fff;
+    padding: 6px;
+    border-radius: 10px;
+  }
+
+  .dialog2-tips {
+    font-size: .24rem;
+    padding-top: .32rem;
+  }
+
+  .dialog2-email {
+    font-weight: 600;
+  }
+
+  .send-e {
+    display: block;
+    width: 100%;
+    height: .8rem;
+    line-height: .8rem;
+    background: linear-gradient(229.21deg, #FD5B25 15.85%, #F3257E 86.08%);
+    border-radius: .2rem;
+    text-align: center;
+    color: #fff;
+    font-size: .28rem;
+    font-weight: 600;
+    margin: .24rem 0;
+  }
+
+  .dialog2-tips2 {
+    color: #999;
+    font-size: .24rem;
+    text-align: center;
+    margin-top: .08rem;
+  }
+
+  .dialog2-save {
+    margin-top: .32rem;
+    width: 100%;
+    border-radius: .2rem;
+    height: .8rem;
+    line-height: .8rem;
+    text-align: center;
+    border: 2px solid #D9CFC8;
+    color: #7F756E;
+  }
+
+
   .x_tap_top {
     display: block;
     position: fixed;
@@ -78,7 +263,7 @@
 <script type="text/javascript" src="{$jscsscdn}__JS__/utils_mobile.js"></script>
 <!-- 底飘广告 -->
 {if $action == 'featured' || $action == 'category' || $action == 'videoplay'}
-<script type="text/javascript" src="{$jscsscdn}__JS__/js-code1.txt"></script>
+<!-- <script type="text/javascript" src="{$jscsscdn}__JS__/js-code1.txt"></script> -->
 {/if}
 <script>
   $(document).ready(function () {
@@ -95,21 +280,9 @@
     cancelButtonText: '取消',
     reverseButtons: true,
   })
-  //弹窗
-  Dialog(
-      [
-          {if $action == 'featured' || $action == 'category' || $action == 'videoplay'}
-          {volist name='XPopUpList' id="XPopUp" key="index"}
-          {
-              url: '{$XPopUp['img']}',
-              id: {$XPopUp['id']},
-              herf: '{$XPopUp['url']}'
-          },
-          {/volist}
-          {/if}
-      ]
-  )
-</script><!-- 禁开发者工具调试 -->
+ 
+</script>
+<!-- 禁开发者工具调试 -->
 <script>
   //如果用户在工具栏调起开发者工具，那么判断浏览器的可视高度和可视宽度是否有改变，如有改变则关闭本页面 
   // var debuggerH = window.innerHeight, debuggerW = window.innerWidth;
@@ -121,39 +294,21 @@
   // }
 
   // 无限的 debugger 兼容性好
-  setInterval(function() {
-      debuggerCheck();
-    }, 1000);
-    var debuggerCheck = function() {
-      function doCheck(a) {
-        if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
-          (function() {}['constructor']('debugger')());
-        } else {
-          (function() {}['constructor']('debugger')());
-        }
-        doCheck(++a);
-      }
-      try {
-        doCheck(0);
-      } catch (err) {}
-    };
-    debuggerCheck();
+  // setInterval(function() {
+  //     debuggerCheck();
+  //   }, 1000);
+  //   var debuggerCheck = function() {
+  //     function doCheck(a) {
+  //       if (('' + a / a)['length'] !== 1 || a % 20 === 0) {
+  //         (function() {}['constructor']('debugger')());
+  //       } else {
+  //         (function() {}['constructor']('debugger')());
+  //       }
+  //       doCheck(++a);
+  //     }
+  //     try {
+  //       doCheck(0);
+  //     } catch (err) {}
+  //   };
+  //   debuggerCheck();
 </script>
-<!--<style>-->
-<!--.footet-conter{-->
-<!--  position: fixed;-->
-<!--  bottom: 0;-->
-<!--  left: 0;-->
-<!--  max-width: 750px;-->
-<!--  z-index: 10;-->
-<!--}-->
-<!--.footet-conter img {-->
-<!--  width: 100%;-->
-<!--  height: auto;-->
-<!--}-->
-<!--</style>-->
-<!-- <div class="footet-conter">-->
-<!--  <a href="" i >-->
-<!--    <img class="lozad" data-src="https://static.77zy.com/upload/20240716/1519e2e2920faee0e4b2a7b036c5c431_file.gif" src="__IMAGES__/loading_img_bg_default.jpg">-->
-<!--  </a>-->
-<!-- </div>-->

@@ -1,9 +1,12 @@
 .video-title{
   width: 100%;
-  font-size:17px;
+  font-size:.4rem;
   text-align: left;
-  color: #000;
-  margin-top: 5px;
+  color: #d0d0d0;
+  margin-bottom: 8px;
+}
+#copyUrl1{
+  display: none;
 }
 .video-play-box{
   /* float: left; */

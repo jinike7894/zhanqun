@@ -5,176 +5,196 @@
 <body>
   <div id="app">
     <div class="v-s-nav-box-h">
-      <div class="main-box p9">
-        <div class="v-s-logo"><a href="/{$channel}.html"><img
-              src="__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
+      <div class="logo-box p9">
+        <div class="v-s-logo">
+          <a href="/{$channel}.html">
+            <img src="__IMAGES__/logo.png">
+          </a>
+        </div>
         <div class="v-s-nav-search-box">
           <a href="/searchhome/{$channel}.html">
             <div class="search-person">
-              <div class="s-text">&#30334;&#19975;&#29255;&#24211;</div>
+              <div class="s-text">&#20154;&#22971;</div>
               <i class="bi bi-search"></i>
             </div>
           </a>
-          <img class="left-img" src="__IMAGES__/collect-icon.gif" alt="" srcset="">
-          <div class="d-load-btn">
-            <img src="__IMAGES__/d-load.svg" alt="">
-            <span>&#19979;&#36733;&#65;&#80;&#80;</span>
+          <img class="left-img" src="__IMAGES__/collect-btn.png" alt="" srcset="">
+        </div>
+      </div>
+      <div class="h-textad">
+        <a class="text-c-1" rel="external nofollow" i="" href="" target="_blank">
+          开元棋牌
+        </a>
+        <a class="text-c-2" rel="external nofollow" i="" href="" target="_blank">
+          开元棋牌
+        </a>
+      </div>
+    </div>
+    <!-- 标题栏bp -->
+    <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
+      <a href="/featured/{$channel}.html">
+        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item nav-menu-selected">
+          &#39318;&#39029;
+        </div>
+      </a>
+      <a href="/{$channel}.html">
+        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
+      </a>
+      {volist name='menulist' id="menu"}
+      <a href="/category/{$channel}.html?category_id={$menu['id']}">
+        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">{$menu['title'] | raw}</div>
+      </a>
+      {/volist}
+    </div>
+    <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
+      <img class="hf-ad-img lozad"
+        data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+    </a>
+    <div class="ad-conter ">
+      <a rel="external nofollow" i="" href="" target="_blank">
+        <img class="lozad"
+          data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+          src="__IMAGES__/loading_img_bg_default.jpg">
+        <div>22222</div>
+      </a>
+    </div>
+    <div class="textad">
+      <a class="" rel="external nofollow" i="" href="" target="_blank">
+        棋牌游戏
+      </a>
+      <a class="text-c-3" rel="external nofollow" i="" href="" target="_blank">
+        棋牌游戏
+      </a>
+      <a class="text-c-4" rel="external nofollow" i="" href="" target="_blank">
+        棋牌游戏
+      </a>
+    </div>
+    <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
+      <img class="hf-ad-img lozad"
+        data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+        src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+    </a>
+    <div class="search-home">
+      <div class="search-form"><!-- 启用搜索记录 --><!-- <div class="search-content search-content-history"> -->
+        <div class="search-content">
+          <div class="input"><input type="text" name="keyword" placeholder="" id="search_input" type="search"
+              onfocus="onfocusSearch()" oninput="oninputSearch()" onchange="onchangeSearch()">
+            <div class="input-border">
+              <div role="separator" class="van-divider van-divider--hairline"></div>
+            </div>
+          </div>
+          <div class="button" onclick="search()">搜索</div>
+        </div>
+        <div class="search-history-content" style="display: none">
+          <div class="title">
+            <div class="title-text">搜索历史</div>
+            <div class="delete-all-history" @click="handleDelAll">删除历史记录</div>
+          </div>
+          <div class="text">
+            <div class="history-text">搜索记录</div><i class="bi bi-trash3"></i>
+          </div>
+          <div class="text">
+            <div class="history-text">搜索记录</div><i class="bi bi-trash3"></i>
           </div>
         </div>
       </div>
-      <!-- 标题栏bp -->
-      <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
-        <a href="/{$channel}.html">
-          <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item nav-menu-selected">&#23548;&#33322;
-          </div>
-        </a>
-        <a href="/featured/{$channel}.html">
-          <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#31934;&#36873;</div>
-        </a>
-        {volist name='menulist' id="menu"}
-        <a href="/category/{$channel}.html?category_id={$menu['id']}">
-          <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">{$menu['title'] | raw}</div>
-        </a>
-        {/volist}
-      </div>
-    </div>
-  </div><!-- 子分类 $Request.param.category_child_id -->
-  <div class="v-s-ul-category-tag"></div>
-  </div>
-  <div class="content-box">
-    <div class="item-box">
-      <div class="main-box">
-        <div class="">
-          <div class="search-home">
-            <div class="search-form"><!-- 启用搜索记录 --><!-- <div class="search-content search-content-history"> -->
-              <div class="search-content">
-                <div class="input"><input type="text" name="keyword" placeholder="" id="search_input" type="search"
-                    onfocus="onfocusSearch()" oninput="oninputSearch()" onchange="onchangeSearch()">
-                  <div class="input-border">
-                    <div role="separator" class="van-divider van-divider--hairline"></div>
-                  </div>
-                </div>
-                <div class="button" onclick="search()">搜索</div>
-              </div>
-              <div class="search-history-content" style="display: none">
-                <div class="title">
-                  <div class="title-text">搜索历史</div>
-                  <div class="delete-all-history" @click="handleDelAll">删除历史记录</div>
-                </div>
-                <div class="text">
-                  <div class="history-text">搜索记录</div><i class="bi bi-trash3"></i>
-                </div>
-                <div class="text">
-                  <div class="history-text">搜索记录</div><i class="bi bi-trash3"></i>
-                </div>
-              </div>
-            </div>
-            <div class="search-tag-content">
-              <div class="search-tags">
-                <div class="title"><i class="bi bi-fire"></i> 热搜排行榜 </div>
-                <div class="tags tags-rect"><span class="badge badge-light badge-light-click"
-                    data-keyword="乱伦">乱伦</span><span class="badge badge-light badge-light-click"
-                    data-keyword="学生">学生</span><span class="badge badge-light badge-light-click"
-                    data-keyword="内射">内射</span><span class="badge badge-light badge-light-click"
-                    data-keyword="强奸">强奸</span><span class="badge badge-light badge-light-click"
-                    data-keyword="人妻">人妻</span><span class="badge badge-light badge-light-click"
-                    data-keyword="巨乳">巨乳</span><span class="badge badge-light badge-light-click"
-                    data-keyword="自慰">自慰</span><span class="badge badge-light badge-light-click"
-                    data-keyword="老师">老师</span><span class="badge badge-light badge-light-click"
-                    data-keyword="偷情">偷情</span><span class="badge badge-light badge-light-click"
-                    data-keyword="萝莉">萝莉</span></div>
-              </div>
-              <div class="search-tags">
-                <div class="title"><i class="bi bi-heart-fill"></i> 动作 </div>
-                <div class="tags tags-rect"><span class="badge badge-light badge-light-click"
-                    data-keyword="口交">口交</span><span class="badge badge-light badge-light-click"
-                    data-keyword="肛交">肛交</span><span class="badge badge-light badge-light-click"
-                    data-keyword="器具">器具</span><span class="badge badge-light badge-light-click"
-                    data-keyword="口爆">口爆</span><span class="badge badge-light badge-light-click"
-                    data-keyword="颜射">颜射</span><span class="badge badge-light badge-light-click"
-                    data-keyword="吞精">吞精</span><span class="badge badge-light badge-light-click"
-                    data-keyword="双龙入洞">双龙入洞</span><span class="badge badge-light badge-light-click"
-                    data-keyword="尿尿">尿尿</span><span class="badge badge-light badge-light-click"
-                    data-keyword="捆绑">捆绑</span><span class="badge badge-light badge-light-click"
-                    data-keyword="性虐">性虐</span><span class="badge badge-light badge-light-click"
-                    data-keyword="内射">内射</span><span class="badge badge-light badge-light-click"
-                    data-keyword="潮吹">潮吹</span><span class="badge badge-light badge-light-click"
-                    data-keyword="深喉">深喉</span><span class="badge badge-light badge-light-click"
-                    data-keyword="拳交">拳交</span><span class="badge badge-light badge-light-click"
-                    data-keyword="偷窥">偷窥</span><span class="badge badge-light badge-light-click"
-                    data-keyword="自慰">自慰</span><span class="badge badge-light badge-light-click"
-                    data-keyword="强奸">强奸</span></div>
-              </div>
-              <div class="search-tags">
-                <div class="title"><i class="bi bi-heart-fill"></i> 场景 </div>
-                <div class="tags tags-rect"><span class="badge badge-light badge-light-click"
-                    data-keyword="车震">车震</span><span class="badge badge-light badge-light-click"
-                    data-keyword="教室">教室</span><span class="badge badge-light badge-light-click"
-                    data-keyword="大学">大学</span><span class="badge badge-light badge-light-click"
-                    data-keyword="part">part</span><span class="badge badge-light badge-light-click"
-                    data-keyword="厕所">厕所</span><span class="badge badge-light badge-light-click"
-                    data-keyword="酒店">酒店</span><span class="badge badge-light badge-light-click"
-                    data-keyword="游泳">游泳</span><span class="badge badge-light badge-light-click"
-                    data-keyword="野外">野外</span><span class="badge badge-light badge-light-click"
-                    data-keyword="海滩">海滩</span><span class="badge badge-light badge-light-click"
-                    data-keyword="club">club</span><span class="badge badge-light badge-light-click"
-                    data-keyword="商场">商场</span><span class="badge badge-light badge-light-click"
-                    data-keyword="试衣">试衣</span><span class="badge badge-light badge-light-click"
-                    data-keyword="地铁">地铁</span><span class="badge badge-light badge-light-click"
-                    data-keyword="飞机">飞机</span><span class="badge badge-light badge-light-click"
-                    data-keyword="火车">火车</span><span class="badge badge-light badge-light-click"
-                    data-keyword="游轮">游轮</span><span class="badge badge-light badge-light-click"
-                    data-keyword="浴室">浴室</span><span class="badge badge-light badge-light-click"
-                    data-keyword="按摩">按摩</span></div>
-              </div>
-              <div class="search-tags">
-                <div class="title"><i class="bi bi-heart-fill"></i> 角色 </div>
-                <div class="tags tags-rect"><span class="badge badge-light badge-light-click"
-                    data-keyword="二次元">二次元</span><span class="badge badge-light badge-light-click"
-                    data-keyword="护士">护士</span><span class="badge badge-light badge-light-click"
-                    data-keyword="学生">学生</span><span class="badge badge-light badge-light-click"
-                    data-keyword="老师">老师</span><span class="badge badge-light badge-light-click"
-                    data-keyword="继母">继母</span><span class="badge badge-light badge-light-click"
-                    data-keyword="姐弟">姐弟</span><span class="badge badge-light badge-light-click"
-                    data-keyword="父女">父女</span><span class="badge badge-light badge-light-click"
-                    data-keyword="情侣">情侣</span><span class="badge badge-light badge-light-click"
-                    data-keyword="军人">军人</span><span class="badge badge-light badge-light-click"
-                    data-keyword="警察">警察</span><span class="badge badge-light badge-light-click"
-                    data-keyword="犯人">犯人</span><span class="badge badge-light badge-light-click"
-                    data-keyword="房东">房东</span><span class="badge badge-light badge-light-click"
-                    data-keyword="儿媳">儿媳</span><span class="badge badge-light badge-light-click"
-                    data-keyword="丈母娘">丈母娘</span><span class="badge badge-light badge-light-click"
-                    data-keyword="邻居">邻居</span><span class="badge badge-light badge-light-click"
-                    data-keyword="明星">明星</span></div>
-              </div>
-              <div class="search-tags">
-                <div class="title"><i class="bi bi-heart-fill"></i> 国产厂商 </div>
-                <div class="tags tags-rect"><span class="badge badge-light badge-light-click"
-                    data-keyword="麻豆">麻豆</span><span class="badge badge-light badge-light-click"
-                    data-keyword="SWAG">SWAG</span><span class="badge badge-light badge-light-click"
-                    data-keyword="扣扣">扣扣</span><span class="badge badge-light badge-light-click"
-                    data-keyword="溏心Vlog">溏心Vlog</span><span class="badge badge-light badge-light-click"
-                    data-keyword="萝莉社">萝莉社</span><span class="badge badge-light badge-light-click"
-                    data-keyword="JVID">JVID</span><span class="badge badge-light badge-light-click"
-                    data-keyword="乌托邦">乌托邦</span><span class="badge badge-light badge-light-click"
-                    data-keyword="皇家华人">皇家华人</span><span class="badge badge-light badge-light-click"
-                    data-keyword="星空">星空</span><span class="badge badge-light badge-light-click"
-                    data-keyword="杏吧">杏吧</span><span class="badge badge-light badge-light-click"
-                    data-keyword="天美">天美</span></div>
-              </div>
-            </div>
-          </div>
+      <div class="search-tag-content">
+        <div class="search-tags">
+          <div class="title video-title-wrap"> 热搜排行榜 </div>
+          <div class="tags tags-rect"><span class="badge badge-light badge-light-click" data-keyword="乱伦">乱伦</span><span
+              class="badge badge-light badge-light-click" data-keyword="学生">学生</span><span
+              class="badge badge-light badge-light-click" data-keyword="内射">内射</span><span
+              class="badge badge-light badge-light-click" data-keyword="强奸">强奸</span><span
+              class="badge badge-light badge-light-click" data-keyword="人妻">人妻</span><span
+              class="badge badge-light badge-light-click" data-keyword="巨乳">巨乳</span><span
+              class="badge badge-light badge-light-click" data-keyword="自慰">自慰</span><span
+              class="badge badge-light badge-light-click" data-keyword="老师">老师</span><span
+              class="badge badge-light badge-light-click" data-keyword="偷情">偷情</span><span
+              class="badge badge-light badge-light-click" data-keyword="萝莉">萝莉</span></div>
+        </div>
+        <div class="search-tags">
+          <div class="title video-title-wrap"> 动作 </div>
+          <div class="tags tags-rect"><span class="badge badge-light badge-light-click" data-keyword="口交">口交</span><span
+              class="badge badge-light badge-light-click" data-keyword="肛交">肛交</span><span
+              class="badge badge-light badge-light-click" data-keyword="器具">器具</span><span
+              class="badge badge-light badge-light-click" data-keyword="口爆">口爆</span><span
+              class="badge badge-light badge-light-click" data-keyword="颜射">颜射</span><span
+              class="badge badge-light badge-light-click" data-keyword="吞精">吞精</span><span
+              class="badge badge-light badge-light-click" data-keyword="双龙入洞">双龙入洞</span><span
+              class="badge badge-light badge-light-click" data-keyword="尿尿">尿尿</span><span
+              class="badge badge-light badge-light-click" data-keyword="捆绑">捆绑</span><span
+              class="badge badge-light badge-light-click" data-keyword="性虐">性虐</span><span
+              class="badge badge-light badge-light-click" data-keyword="内射">内射</span><span
+              class="badge badge-light badge-light-click" data-keyword="潮吹">潮吹</span><span
+              class="badge badge-light badge-light-click" data-keyword="深喉">深喉</span><span
+              class="badge badge-light badge-light-click" data-keyword="拳交">拳交</span><span
+              class="badge badge-light badge-light-click" data-keyword="偷窥">偷窥</span><span
+              class="badge badge-light badge-light-click" data-keyword="自慰">自慰</span><span
+              class="badge badge-light badge-light-click" data-keyword="强奸">强奸</span></div>
+        </div>
+        <div class="search-tags">
+          <div class="title video-title-wrap"> 场景 </div>
+          <div class="tags tags-rect"><span class="badge badge-light badge-light-click" data-keyword="车震">车震</span><span
+              class="badge badge-light badge-light-click" data-keyword="教室">教室</span><span
+              class="badge badge-light badge-light-click" data-keyword="大学">大学</span><span
+              class="badge badge-light badge-light-click" data-keyword="part">part</span><span
+              class="badge badge-light badge-light-click" data-keyword="厕所">厕所</span><span
+              class="badge badge-light badge-light-click" data-keyword="酒店">酒店</span><span
+              class="badge badge-light badge-light-click" data-keyword="游泳">游泳</span><span
+              class="badge badge-light badge-light-click" data-keyword="野外">野外</span><span
+              class="badge badge-light badge-light-click" data-keyword="海滩">海滩</span><span
+              class="badge badge-light badge-light-click" data-keyword="club">club</span><span
+              class="badge badge-light badge-light-click" data-keyword="商场">商场</span><span
+              class="badge badge-light badge-light-click" data-keyword="试衣">试衣</span><span
+              class="badge badge-light badge-light-click" data-keyword="地铁">地铁</span><span
+              class="badge badge-light badge-light-click" data-keyword="飞机">飞机</span><span
+              class="badge badge-light badge-light-click" data-keyword="火车">火车</span><span
+              class="badge badge-light badge-light-click" data-keyword="游轮">游轮</span><span
+              class="badge badge-light badge-light-click" data-keyword="浴室">浴室</span><span
+              class="badge badge-light badge-light-click" data-keyword="按摩">按摩</span></div>
+        </div>
+        <div class="search-tags">
+          <div class="title video-title-wrap"> 角色 </div>
+          <div class="tags tags-rect"><span class="badge badge-light badge-light-click" data-keyword="二次元">二次元</span><span
+              class="badge badge-light badge-light-click" data-keyword="护士">护士</span><span
+              class="badge badge-light badge-light-click" data-keyword="学生">学生</span><span
+              class="badge badge-light badge-light-click" data-keyword="老师">老师</span><span
+              class="badge badge-light badge-light-click" data-keyword="继母">继母</span><span
+              class="badge badge-light badge-light-click" data-keyword="姐弟">姐弟</span><span
+              class="badge badge-light badge-light-click" data-keyword="父女">父女</span><span
+              class="badge badge-light badge-light-click" data-keyword="情侣">情侣</span><span
+              class="badge badge-light badge-light-click" data-keyword="军人">军人</span><span
+              class="badge badge-light badge-light-click" data-keyword="警察">警察</span><span
+              class="badge badge-light badge-light-click" data-keyword="犯人">犯人</span><span
+              class="badge badge-light badge-light-click" data-keyword="房东">房东</span><span
+              class="badge badge-light badge-light-click" data-keyword="儿媳">儿媳</span><span
+              class="badge badge-light badge-light-click" data-keyword="丈母娘">丈母娘</span><span
+              class="badge badge-light badge-light-click" data-keyword="邻居">邻居</span><span
+              class="badge badge-light badge-light-click" data-keyword="明星">明星</span></div>
+        </div>
+        <div class="search-tags">
+          <div class="title video-title-wrap"> 国产厂商 </div>
+          <div class="tags tags-rect"><span class="badge badge-light badge-light-click" data-keyword="麻豆">麻豆</span><span
+              class="badge badge-light badge-light-click" data-keyword="SWAG">SWAG</span><span
+              class="badge badge-light badge-light-click" data-keyword="扣扣">扣扣</span><span
+              class="badge badge-light badge-light-click" data-keyword="溏心Vlog">溏心Vlog</span><span
+              class="badge badge-light badge-light-click" data-keyword="萝莉社">萝莉社</span><span
+              class="badge badge-light badge-light-click" data-keyword="JVID">JVID</span><span
+              class="badge badge-light badge-light-click" data-keyword="乌托邦">乌托邦</span><span
+              class="badge badge-light badge-light-click" data-keyword="皇家华人">皇家华人</span><span
+              class="badge badge-light badge-light-click" data-keyword="星空">星空</span><span
+              class="badge badge-light badge-light-click" data-keyword="杏吧">杏吧</span><span
+              class="badge badge-light badge-light-click" data-keyword="天美">天美</span></div>
         </div>
       </div>
     </div>
   </div>
-  <style type="text/css">
-    body {
-      background: #111
-    }
+  
 
+  <style type="text/css">
     .search-home {
-      padding: 10px 32px 32px;
+      padding: .08rem .24rem .24rem .24rem;
       color: #fff;
     }
 
@@ -188,8 +208,8 @@
       width: 100%;
       height: 40px;
       display: flex;
-      background-color: #2e1c56;
-      border-radius: 24px;
+      background-color: #ffffff;
+      border-radius: .48rem;
       overflow: hidden;
     }
 
@@ -242,6 +262,7 @@
       background-color: #ff4f6b;
       cursor: pointer;
       user-select: none;
+      border-radius: .48rem;
     }
 
     .search-content .button:active {
@@ -267,7 +288,6 @@
       justify-content: space-between;
       font-size: 12px;
       margin-bottom: 12px;
-      color: #b3a5a5;
 
     }
 
@@ -326,6 +346,9 @@
 
     .search-tag-content .search-tags .tags.tags-rect {
       margin-left: 0px;
+      display: flex;
+      justify-content: flex-start;
+      flex-flow: wrap;
     }
 
     .search-tag-content .search-tags .tags.tags-circle {
@@ -368,13 +391,16 @@
     }
 
     .tags-rect .badge-light {
-      background: rgba(255, 255, 255, 0.2);
+      background: #2d2d2d;
       color: #fff;
-      font-size: 13px;
-      margin-right: 3px;
-      padding: 5px 10px;
+      font-size: .24rem;
+      margin-right: .16rem;
       margin-bottom: 10px;
+      padding: .15rem .2rem;
+      border-radius: .1rem;
       user-select: none;
+      display: block;
+      line-height: 1.5;
     }
 
     .tags-rect .badge-light:active {

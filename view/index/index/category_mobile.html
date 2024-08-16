@@ -5,92 +5,83 @@
 <body>
     <div id="app">
         <div class="v-s-nav-box-h">
-            <div class="main-box p9">
-                <div class="v-s-logo"><a href="/{$channel}.html"><img
-                            src="__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
-                <div class="v-s-nav-search-box">
-                    <a href="/searchhome/{$channel}.html">
-                        <div class="search-person">
-                            <div class="s-text">&#30334;&#19975;&#29255;&#24211;</div>
-                            <i class="bi bi-search"></i>
-                        </div>
-                    </a>
-                    <img class="left-img" src="__IMAGES__/collect-icon.gif" alt="" srcset="">
-                    <div class="d-load-btn">
-                        <img src="__IMAGES__/d-load.svg" alt="">
-                        <span>&#19979;&#36733;&#65;&#80;&#80;</span>
-                    </div>
-                </div>
-            </div>
-            <!-- 标题栏bp -->
-            <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
+            <div class="logo-box p9">
+              <div class="v-s-logo">
                 <a href="/{$channel}.html">
-                    <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
-                </a>
-                <a href="/featured/{$channel}.html">
-                    <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#31934;&#36873;</div>
-                </a>
-                {volist name='menulist' id="menu"}
-                <a href="/category/{$channel}.html?category_id={$menu['id']}">
-                    <div
-                        class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item {if condition='$category_id eq $menu.id'}nav-menu-selected{/if}">
-                        {$menu['title'] | raw}</div>
-                </a>
-                {/volist}
-            </div>
-        </div>
-        {notempty name="$XBannerList"}
-        <div id="swiper-jx" class="swiper">
-            <div class="swiper-wrapper">
-              {volist name='XBannerList' id="XBanner"}
-              <div class="swiper-slide">
-                <a rel="external nofollow" i="{$XBanner['id']}" href="{$XBanner['url']}" target="_blank">
-                  <div title="{$XBanner['name'] | raw}">
-                    <img class="jx-img lozad" data-src="{$XBanner['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
-                  </div>
+                  <img src="__IMAGES__/logo.png">
                 </a>
               </div>
-              {/volist}
+              <div class="v-s-nav-search-box">
+                <a href="/searchhome/{$channel}.html">
+                  <div class="search-person">
+                    <div class="s-text">&#20154;&#22971;</div>
+                    <i class="bi bi-search"></i>
+                  </div>
+                </a>
+                <img class="left-img" src="__IMAGES__/collect-btn.png" alt="" srcset="">
+              </div>
+            </div>
+            <div class="h-textad">
+              <a class="text-c-1" rel="external nofollow" i="" href="" target="_blank">
+                开元棋牌
+              </a>
+              <a class="text-c-2" rel="external nofollow" i="" href="" target="_blank">
+                开元棋牌
+              </a>
             </div>
           </div>
-          {/notempty}
-        <div class="marquee-wrap">
-            <div class="marquee-box">
-                <div class="icon-speaker">
-                    <img src="__IMAGES__/fill-icon.svg" alt="" srcset="">
+          <!-- 标题栏bp -->
+          <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
+            <a href="/featured/{$channel}.html">
+                <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">
+                    &#39318;&#39029;
                 </div>
-                <div class="container-main">
-                    <p>&#26816;&#27979;&#21040;&#24403;&#21069;&#27983;&#35272;&#22120;&#24050;&#25318;&#25130;&#26412;&#31449;&#37096;&#20998;&#33394;&#24773;APP&#65292;&#22914;APP&#22270;&#26631;&#26080;&#27861;&#28857;&#20987;&#65292;&#35831;&#22797;&#21046;&#32593;&#22336;&#23581;&#35797;&#19981;&#21516;&#27983;&#35272;&#22120;
-                    </p>
-                </div>
-            </div>
-        </div>
+            </a>
+            <a href="/{$channel}.html">
+              <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
+            </a>
+            {volist name='menulist' id="menu"}
+            <a href="/category/{$channel}.html?category_id={$menu['id']}">
+              <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item {if condition='$category_id eq $menu.id'}nav-menu-selected{/if}">{$menu['title'] | raw}</div>
+            </a>
+            {/volist}
+          </div>
+          <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
+            <img class="hf-ad-img lozad"
+              data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+          </a>
+          <div class="ad-conter ">
+            <a rel="external nofollow" i="" href="" target="_blank">
+              <img class="lozad"
+                data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+                src="__IMAGES__/loading_img_bg_default.jpg">
+              <div>22222</div>
+            </a>
+          </div>
+          <div class="textad">
+            <a class="" rel="external nofollow" i="" href="" target="_blank">
+              棋牌游戏
+            </a>
+            <a class="text-c-3" rel="external nofollow" i="" href="" target="_blank">
+              棋牌游戏
+            </a>
+            <a class="text-c-4" rel="external nofollow" i="" href="" target="_blank">
+              棋牌游戏
+            </a>
+          </div>
+          <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
+            <img class="hf-ad-img lozad"
+              data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+          </a>
         <div class="conter-wrap">
-            <div class="ad-conter px10">
-                {volist name='XSudokuList' id="XSudoku"}
-                <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url']}" target="_blank">
-                    <img class="lozad" data-src="{$XSudoku['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
-                    <div>{$XSudoku['name'] | raw}</div>
-                </a>
-                {/volist}
+          <div class="vidoe-title-1 pt0">
+            <div class="flex-center video-title-wrap">
+              <span class="video-title-text">{$category_name}</span>
             </div>
-            <div class="textad px10">
-                {volist name='XSudokuTextList' id="XSudokuText"}
-                <a class="{$XSudokuText['icon']}" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
-                    <img src="__IMAGES__/{$XSudokuText['icon']}-icon.svg" alt="" srcset="">
-                    {$XSudokuText['name'] | raw}
-                </a>
-                {/volist}
-            </div>
-            <div class="tj-flex vidoe-title-1 px10">
-                <div class="flex-center">
-                    <img src="__IMAGES__/video-icon.svg" alt="">
-                    <span class="video-title-text">{$category_name}</span>
-                </div>
-                {volist name='XRecommendTextList' id="XRecommendText"}
-                <a class="p-card-txt" href="{$XRecommendText['url']}" i="{$XRecommendText['id']}" target="_blank">{$XRecommendText['name'] | raw}</a>
-                {/volist}
-            </div>
+            <div class="video-fun"> </div>
+          </div>
             <div class="ran-box px10">
                 {volist name="videolist" id="video"}
                 <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
@@ -118,6 +109,11 @@
                 </div>
                 {/volist}
             </div>
+            <a class="hf-ad video-hf" rel="external nofollow" i="" href="" target="_blank">
+              <img class="hf-ad-img lozad"
+                data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+            </a>
             <div class="pagination-box">{$page|raw}
             </div>
         </div>

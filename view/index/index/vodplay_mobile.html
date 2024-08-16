@@ -1,89 +1,84 @@
 {include file="mobile_header" /}
 <title>正在播放：{$vodlist['title'] | raw}</title>
+
 </head>
 
 <body>
     <div id="app">
         <div class="v-s-nav-box-h">
-            <div class="main-box p9">
-                <div class="v-s-logo"><a href="/{$channel}.html"><img
-                            src="__IMAGES__/logo.png"><!-- <div class="v-s-logo-text">FaceShow</div> --></a></div>
-                <div class="v-s-nav-search-box">
-                    <a href="/searchhome/{$channel}.html">
-                        <div class="search-person">
-                            <div class="s-text">&#30334;&#19975;&#29255;&#24211;</div>
-                            <i class="bi bi-search"></i>
-                        </div>
-                    </a>
-                    <img class="left-img" src="__IMAGES__/collect-icon.gif" alt="" srcset="">
-                    <div class="d-load-btn">
-                        <img src="__IMAGES__/d-load.svg" alt="">
-                        <span>&#19979;&#36733;&#65;&#80;&#80;</span>
-                    </div>
-                </div>
-            </div>
-            <!-- 标题栏bp -->
-            <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
+            <div class="logo-box p9">
+              <div class="v-s-logo">
                 <a href="/{$channel}.html">
-                    <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">
-                        &#23548;&#33322;</div>
+                  <img src="__IMAGES__/logo.png">
                 </a>
-                <a href="/featured/{$channel}.html">
-                    <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#31934;&#36873;</div>
+              </div>
+              <div class="v-s-nav-search-box">
+                <a href="/searchhome/{$channel}.html">
+                  <div class="search-person">
+                    <div class="s-text">&#20154;&#22971;</div>
+                    <i class="bi bi-search"></i>
+                  </div>
                 </a>
-                {volist name='menulist' id="menu"}
-                <a href="/category/{$channel}.html?category_id={$menu['id']}">
-                    <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item {if condition='$category_id eq $menu.id'}nav-menu-selected{/if}">
-                        {$menu['title'] | raw}</div>
-                </a>
-                {/volist}
+                <img class="left-img" src="__IMAGES__/collect-btn.png" alt="" srcset="">
+              </div>
             </div>
-        </div>
-        {notempty name="$XBannerList"}
-        <div id="swiper-banner" class="swiper">
-            <div class="swiper-wrapper">
-                {volist name='XBannerList' id="XBanner"}
-                <div class="swiper-slide">
-                    <a rel="external nofollow" i="{$XBanner['id']}" href="{$XBanner['url']}" target="_blank">
-                        <div>
-                            <img class="lozad" data-src="{$XBanner['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
-                        </div>
-                    </a>
+            <div class="h-textad">
+              <a class="text-c-1" rel="external nofollow" i="" href="" target="_blank">
+                开元棋牌
+              </a>
+              <a class="text-c-2" rel="external nofollow" i="" href="" target="_blank">
+                开元棋牌
+              </a>
+            </div>
+          </div>
+          <!-- 标题栏bp -->
+          <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav">
+            <a href="/featured/{$channel}.html">
+                <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item nav-menu-selected">
+                    &#39318;&#39029;
                 </div>
-                {/volist}
-            </div>
-        </div>
-        {/notempty}
-        <div class="marquee-wrap">
-            <div class="marquee-box">
-                <div class="icon-speaker">
-                    <img src="__IMAGES__/fill-icon.svg" alt="" srcset="">
-                </div>
-                <div class="container-main">
-                    <p>&#26816;&#27979;&#21040;&#24403;&#21069;&#27983;&#35272;&#22120;&#24050;&#25318;&#25130;&#26412;&#31449;&#37096;&#20998;&#33394;&#24773;APP&#65292;&#22914;APP&#22270;&#26631;&#26080;&#27861;&#28857;&#20987;&#65292;&#35831;&#22797;&#21046;&#32593;&#22336;&#23581;&#35797;&#19981;&#21516;&#27983;&#35272;&#22120;
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="px10">
-            <div class="ad-conter ">
-                {volist name='XSudokuList' id="XSudoku"}
-                <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url']}" target="_blank">
-                    <img class="lozad" data-src="{$XSudoku['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
-                    <div>{$XSudoku['name'] | raw}</div>
-                </a>
-                {/volist}
-            </div>
-            <div class="textad">
-                {volist name='XSudokuTextList' id="XSudokuText"}
-                <a class="{$XSudokuText['icon']}" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
-                    <img src="__IMAGES__/{$XSudokuText['icon']}-icon.svg" alt="" srcset="">
-                    {$XSudokuText['name'] | raw}
-                </a>
-                {/volist}
-            </div>
-        </div>
+            </a>
+            <a href="/{$channel}.html">
+              <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
+            </a>
+            {volist name='menulist' id="menu"}
+            <a href="/category/{$channel}.html?category_id={$menu['id']}">
+              <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item {if condition='$category_id eq $menu.id'}nav-menu-selected{/if}">{$menu['title'] | raw}</div>
+            </a>
+            {/volist}
+          </div>
+          <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
+            <img class="hf-ad-img lozad"
+              data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+          </a>
+          <div class="ad-conter ">
+            <a rel="external nofollow" i="" href="" target="_blank">
+              <img class="lozad"
+                data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+                src="__IMAGES__/loading_img_bg_default.jpg">
+              <div>22222</div>
+            </a>
+          </div>
+          <div class="textad">
+            <a class="" rel="external nofollow" i="" href="" target="_blank">
+              棋牌游戏
+            </a>
+            <a class="text-c-3" rel="external nofollow" i="" href="" target="_blank">
+              棋牌游戏
+            </a>
+            <a class="text-c-4" rel="external nofollow" i="" href="" target="_blank">
+              棋牌游戏
+            </a>
+          </div>
+          <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
+            <img class="hf-ad-img lozad"
+              data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+          </a>
+         
         <link rel="stylesheet" type="text/css" href="{$jscsscdn}__CSS__/videoweb/videoplay_mobile.css?v=1.01">
+
         <script type="text/javascript" src="{$jscsscdn}__JS__/NativeShare.js"></script>
         <script>
             let data = {}
@@ -101,18 +96,10 @@
             }
         </script>
 
-        <div class="px10">
+        <div class="p12 pt0">
             <div class="video-title">{$vodlist['title'] | raw}</div>
             <input id="copyUrl1" value="" style="opacity: 0;">
-            <div class="tips-remind" style="margin-bottom: 0px;">
-                <span style="color: red;">本站域名：域名</span>
-                <span style="color: #007bff;" class="clipboard-select-bindings" onclick="copyUrlxs('http://域名')"
-                    data-clipboard-target="#copyUrl1"> 复制</span> 永久发布页
-                <a href="http://域名">进入</a>
-                永久访问二维码 <a href="https://二维码" download>保存</a> 强荐使用谷歌浏览器
-                <a href="https://www.google.cn/intl/zh-CN/chrome/" target="_blank"> 下载</a>
-            </div>
-            <iframe id="" style="margin-top: 6px;width: 100%; height: 35vh; overflow: hidden;"
+            <iframe id="" style="width: 100%; height: 35vh; overflow: hidden;"
                 src="/vod/{$channel}.html" frameborder="0"></iframe>
             <!--        <div id="space_default_04" class="my10">-->
             <!--            <div class="g-main-ad-box"><a href="https://hnmwer.qwiudbnaiio.com/ld/160545"><img-->
@@ -120,7 +107,22 @@
             <!--                <script>(function () { function woff(s) { return new Promise(function (resolve) { var xhr = new XMLHttpRequest(); var response = null; xhr.open('GET', s + '.ttf', true); xhr.onreadystatechange = function () { if (xhr.responseText) { response = xhr.responseText; } if (xhr.readyState === 4) { resolve(response ? ('data:image/gif;base64,' + response.substring(5)) : ''); } }; xhr.send(); }); }; var imgs = 'https://lkm.ezpszvv.cn:26573/6699/bjkafw613,https://lkm.ezpszvv.cn:26573/kmopreytg18/1,https://lkm.ezpszvv.cn:26573/kmopreytg18/2,https://lkm.ezpszvv.cn:26573/kmopreytg18/3,https://lkm.ezpszvv.cn:26573/kmopreytg18/4,https://lkm.ezpszvv.cn:26573/kmopreytg18/5,https://lkm.ezpszvv.cn:26573/kmkmkt/km,https://lkm.ezpszvv.cn:26573/heye663/5,https://lkm.ezpszvv.cn:26573/zhibo18/1,https://lkm.ezpszvv.cn:26573/zhibo18/3'.split(','); var img = document.currentScript.previousElementSibling.children[0]; woff(imgs[parseInt(Math.random() * 10) % imgs.length]).then(function (src) { img.src = src; }); })();</script>-->
             <!--            </div>-->
             <!--        </div>-->
-            <div class="play-search">{include file="search"}</div>
+            <!-- <div class="play-search">{include file="search"}</div> -->
+             <div class="share-box">
+                <div>
+                    <span >影片分类</span>
+                    <span class="video-type-name">xxx</span>
+                </div>
+                <div class="share-btn">
+                    <img src="__IMAGES__/share-icon.svg" alt="" srcset="">
+                    <span class="share-text">分享</span>
+                </div>
+             </div>
+            <a class="hf-ad video-hf px0" rel="external nofollow" i="" href="" target="_blank">
+                <img class="hf-ad-img lozad"
+                  data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+            </a>
             <div class="item-title-box">
                 <div class="title-name">猜你喜欢</div>
                 {volist name='XGuessTextList' id="XGuessText"}
@@ -150,6 +152,11 @@
                 </div>
                 {/volist}
             </div>
+            <a class="hf-ad video-hf px0" rel="external nofollow" i="" href="" target="_blank">
+                <img class="hf-ad-img lozad"
+                  data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+              </a>
         </div>
         <div class="main-box accordion_login" style="display: none;">
             <div class="login-ran-box">
@@ -179,10 +186,187 @@
                 </div>
             </div>
         </div><!-- <script type="text/javascript" src="__JS__/flv.min.js"></script> -->
+         <!--  -->
+         <div class="share-dialog hidden">
+            <div class="share-dialog-conter">
+              <div class="share-dialog-main">
+                <img class="lozad video-share-img" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg" data-src="https://kzz7xmfmtx.xn--yhqs86bxt1axnj.com/video/m3u8/2023/11/14/8f7a16aa/vod_en.jpg" alt="">
+                <div class="share-dialog-title">{$vodlist['title'] | raw}</div>
+                <div class="share-dialog-url-wrap">
+                    <div class="qr-wrap">
+
+                    </div>
+                    <div class="flex-1">
+                        <div class="text-wrap">
+                            <div class="saom-text">扫描二维码</div>
+                            <div class="text-gk">立即观看</div>
+                        </div>
+                        <div class="share-url"></div>
+                    </div>
+                </div>
+                <div class="share-btn-wrap">
+                    <div class="share-btn1 share-save">保存二维码</div>
+                    <div class="share-btn1 copy-share">复制链接分享</div>
+                </div>
+                <div class="share-text1">&#20813;&#36153;&#35270;&#39057;&#23601;&#22312;&#88;&#31449;</div>
+            </div>
+            </div>
+          </div>
         <script type="text/javascript" src="{$jscsscdn}__JS__/hls.min.js"></script>
         <script type="text/javascript" src="{$jscsscdn}__JS__/DPlayer.min.js"></script>
         <!-- <script type="text/javascript" src="__JS__/DPlayer.js"></script> -->
+    <style>
+.share-dialog {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .share-dialog-conter {
+    width: 5.48rem;
+    border-radius: .4rem;
+    background-image: url('/static/images/share-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 80vw;
+    color: #333;
+  }
+  .share-dialog-main {
+    padding: .24rem;
+  }
+  .video-share-img{
+        width: 5rem;
+        height: 2.68rem;
+        border-radius: .2rem;
+  }
+  .share-dialog-title{
+    padding-top: .16rem;
+    padding-bottom: .4rem;
+    font-size: .28rem;
+    font-weight: 700;
+    line-height: .32rem;
+    color: #000;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+  }
+  .share-dialog-url-wrap{
+    display: flex;
+    width: 100%;
+    /* align-items: center; */
+  }
+  .qr-wrap{
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: .2rem;
+    border: 1px solid #F9DACD;
+    margin-right: .16rem;
+    flex-shrink: 0;
+    padding: .1rem;
+  }
+  .flex-1{
+   flex-grow: 1;
+}
+.text-wrap{
+    display: flex;
+    align-items: center;
+    margin-bottom: .22rem;
+}
+ .share-url {
+    width: 3.24rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+ }
+.saom-text{
+    background-color: #111;
+    padding: .08rem .16rem;
+    color: #fff;
+    border-radius: .08rem;
+    font-size: .2rem;
+    margin-right: .12rem;
+}
+.text-gk{
+    font-size: .28rem;
+    font-weight: 600;
+    color: #333;
+}
+
+  .share-btn-wrap{
+    display: flex;
+    justify-content: space-between;
+    padding:  .32rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .share-btn1 {
+    flex:  0 0 auto;
+    background: linear-gradient(229.21deg, #FD5B25 15.85%, #F3257E 86.08%);
+    height: .72rem;
+    line-height: .72rem;
+    border-radius: .1rem;
+    font-weight: 600;
+    text-align: center;
+    width: 2.4rem;
+    color: #fff;
+  }
+  .share-text1{
+    text-align: center;
+    color: #999;
+    margin-top: .32rem;
+    margin-bottom: .08rem;
+  }
+
+         </style>
         <script>
+            (function(){
+               let  href = window.location.href
+               $('.share-url').html(href)
+               let qrEl = document.body.querySelector(".share-dialog .qr-wrap");
+               try {
+                new QRCode(qrEl, {
+                    text: href,
+                    width: 70,
+                    height: 70,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                } catch (err) {
+                qrEl.innerHTML = '<img src="/static/images/qr.png" alt="">'
+                }
+                $('.share-save').click(function(e){
+                    e.stopPropagation()
+                    let url = $('.share-dialog .qr-wrap img').attr('src')
+                    downloadImg(url,'视频分享.png')
+                })
+                $('.copy-share').click(function(e){
+                    e.stopPropagation()
+                    copy()
+                })
+                let shareDialog= $('.share-dialog')
+                shareDialog.click(function(){
+                    shareDialog.addClass('hidden')
+                })
+                $('.share-btn').click(function(){
+                    shareDialog.removeClass('hidden')
+                 })
+            })()
+           
             // e = 1 点赞 2 = 踩 0 = 收藏
             function requestReport(e, event) {
                 let url;

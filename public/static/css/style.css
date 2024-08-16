@@ -8,13 +8,7 @@ input{
   outline:0;
 }
 
-body {
-  background: #fff;
-  color: #222;
-  max-width: 500px;
-  margin: 0 auto;
-  overflow-x: hidden
-}
+
 
 .swal2-styled.swal2-cancel{
   font-size: 16px !important;

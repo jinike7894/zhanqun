@@ -1,3 +1,12 @@
+function downloadImg(url ,name) {
+    if(!url) return
+    let a = document.createElement('a')
+    a.href =  url
+    a.download = name
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+}
 
 function mySetRem() {
     // rem-demo/util/rem.js
@@ -266,7 +275,9 @@ $(document).ready(
             $('.nav-menu-selected').removeClass('nav-menu-selected')
             $(this).addClass('nav-menu-selected')
         })
-        
+        $('.change-video').click(function(){
+          $('.'+$(this).attr('data-class')+'.hidden').removeClass('hidden').siblings().addClass('hidden')
+        })
     }
 
 )
