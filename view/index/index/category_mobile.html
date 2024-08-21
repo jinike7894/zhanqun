@@ -22,12 +22,11 @@
               </div>
             </div>
             <div class="h-textad">
-              <a class="text-c-1" rel="external nofollow" i="" href="" target="_blank">
-                开元棋牌
+             {volist name='XSudokuTextList' id="XSudokuText"}
+              <a class="text-c-1" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
+                  {$XSudokuText['name'] | raw}
               </a>
-              <a class="text-c-2" rel="external nofollow" i="" href="" target="_blank">
-                开元棋牌
-              </a>
+             {/volist}
             </div>
           </div>
           <!-- 标题栏bp -->
@@ -52,23 +51,21 @@
               src="__IMAGES__/loading_img_bg_default.jpg" alt="">
           </a>
           <div class="ad-conter ">
-            <a rel="external nofollow" i="" href="" target="_blank">
+            {volist name='XSudokuList' id="XSudoku"}
+            <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url']}" target="_blank">
               <img class="lozad"
-                data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+                data-src="{$XSudoku['img']}"
                 src="__IMAGES__/loading_img_bg_default.jpg">
-              <div>22222</div>
+              <div>{$XSudoku['name'] | raw}</div>
             </a>
+            {/volist}
           </div>
           <div class="textad">
-            <a class="" rel="external nofollow" i="" href="" target="_blank">
-              棋牌游戏
-            </a>
-            <a class="text-c-3" rel="external nofollow" i="" href="" target="_blank">
-              棋牌游戏
-            </a>
-            <a class="text-c-4" rel="external nofollow" i="" href="" target="_blank">
-              棋牌游戏
-            </a>
+              {volist name='XSudokuTextList' id="XSudokuText"}
+              <a class="text-c-4" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
+                  {$XSudokuText['name'] | raw}
+              </a>
+              {/volist}
           </div>
           <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
             <img class="hf-ad-img lozad"

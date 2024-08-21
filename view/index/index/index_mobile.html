@@ -21,12 +21,11 @@
                 </div>
             </div>
             <div class="h-textad">
-                <a class="text-c-1" rel="external nofollow" i="" href="" target="_blank">
-                    开元棋牌
+                {volist name='NavSudokuMiddleTextList' id="NavSudokuMiddleText"}
+                <a class="text-c-1" rel="external nofollow" i="{$NavSudokuMiddleText['id']}" href="{$NavSudokuMiddleText['url']}" target="_blank">
+                    {$NavSudokuMiddleText['name'] | raw}
                 </a>
-                <a class="text-c-2" rel="external nofollow" i="" href="" target="_blank">
-                    开元棋牌
-                </a>
+                {/volist}
             </div>
         </div>
         <!-- 标题栏bp -->
@@ -45,30 +44,7 @@
             </a>
             {/volist}
         </div>
-        <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
-            <img class="hf-ad-img lozad"
-                data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
-                src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-        </a>
-        <div class="ad-conter ">
-            <a rel="external nofollow" i="" href="" target="_blank">
-                <img class="lozad"
-                    data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
-                    src="__IMAGES__/loading_img_bg_default.jpg">
-                <div>22222</div>
-            </a>
-        </div>
-        <div class="textad">
-            <a class="" rel="external nofollow" i="" href="" target="_blank">
-                棋牌游戏
-            </a>
-            <a class="text-c-3" rel="external nofollow" i="" href="" target="_blank">
-                棋牌游戏
-            </a>
-            <a class="text-c-4" rel="external nofollow" i="" href="" target="_blank">
-                棋牌游戏
-            </a>
-        </div>
+
         <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
             <img class="hf-ad-img lozad"
                 data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
@@ -110,21 +86,21 @@
                                 </div>
                             </div>
                             <div class="live-g-1 live-wrap">
-                                <a i="2600"
-                                    href="http://alb-udnek0qqf2lgbeqjnc.cn-hongkong.alb.aliyuncs.com:54621/?channelCode=wxgg87"
+                                {volist name='NavHotLiveList' id="NavHotLive" key="index"}
+                                <a i="{$NavHotLive['id']}" href="{$NavHotLive['url']}"
                                     target="_blank" class="live-item relative">
-                                    <img class="hot-icon" src="{$jscsscdn}__IMAGES__/hot-icon.svg" alt="" srcset="">
+                                    <img class="hot-icon" src="__IMAGES__/hot-icon.svg" alt="" srcset="">
                                     <div class="center-icon">
-                                        <img class="play-icon" src="{$jscsscdn}__IMAGES__/play-icon.svg" alt=""
+                                        <img class="play-icon" src="__IMAGES__/play-icon.svg" alt=""
                                             srcset="">
                                     </div>
                                     <img class="live-item-img lozad"
-                                        data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+                                        data-src="{$NavHotLive['img']}"
                                         src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
                                     <div class="bt-info">
                                         <div class="bt-info-left">
                                             <div class="dian"></div>
-                                            <div class="online-num">51145</div>
+                                            <div class="online-num">{$NavHotLive['yueNum']}</div>
                                             <div class="inner">&#20154;&#22312;&#32447;</div>
                                         </div>
                                         <div>
@@ -133,6 +109,7 @@
                                         </div>
                                     </div>
                                 </a>
+                                {/volist}
                             </div>
                             <div class="friends-title-1 pt0">
                                 <div class="flex-center friends-title-wrap">
@@ -143,12 +120,11 @@
                                 </div>
                             </div>
                             <div class="friends-g-1 friends-wrap">
-                                <a i="2600"
-                                href="http://alb-udnek0qqf2lgbeqjnc.cn-hongkong.alb.aliyuncs.com:54621/?channelCode=wxgg87"
-                                target="_blank" class="friends-item ">
+                                {volist name='NavHotHookupList' id="NavHotHookup" key="index"}
+                                <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url']}" target="_blank" class="friends-item ">
                                 <div class="friends-item-left">
                                     <img class="friends-item-img lozad"
-                                    data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+                                    data-src="{$NavHotHookup['img']}"
                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
                                     <div class="friends-status">
                                         <div class="dian"></div>
@@ -157,21 +133,22 @@
                                 </div>
                                 <div class="friends-item-right">
                                     <img class="yh-icon" src="__IMAGES__/yh-icon.svg" alt="" srcset="">
-                                   <div class="friends-info"><span class="subtitle">小A</span> <span class="measurements">173/55kg/F</span></div>
+                                   <div class="friends-info"><span class="subtitle">{if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0] | raw} {/if}</span> <span class="measurements">{if isset($NavHotHookup['names'][1])} {$NavHotHookup['names'][1] | raw} {/if}</span></div>
                                    <div class="friends-info1">
                                     <div class="like1-wrap">
                                         <img class="like1-icon" src="__IMAGES__/like1-icon.svg" alt="" srcset="">
-                                        <span>1240人喜欢</span>
+                                        <span>{$NavHotHookup['yueNum']}人喜欢</span>
                                     </div>
                                     <div class="adss-wrap">
                                         <img class="adss-icon" src="__IMAGES__/adss-icon.svg" alt="" srcset="">
-                                        <span>附近2.3KM</span>
+                                        <span>附近{$NavHotHookup['juli']}M</span>
                                     </div>
                                    </div>
-                                   <div><span class="subtitle">价格</span> <span>900/次 1500/夜</span></div>
-                                   <div><span class="subtitle">服务</span> <span>馒头逼粉嫩 敏感体质 女友感</span></div>
+                                   <div><span class="subtitle">价格</span> <span>{if isset($NavHotHookup['names'][2])} {$NavHotHookup['names'][2] | raw} {/if}</span></div>
+                                   <div><span class="subtitle">服务</span> <span>{if isset($NavHotHookup['names'][3])} {$NavHotHookup['names'][3] | raw} {/if}</span></div>
                                 </div>
                                </a>
+                                {/volist}
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -194,30 +171,30 @@
                                 </div>
                             </div>
                             <div class="live-g-2 live-wrap">
-
-                                <a i="2600"
-                                    href="http://alb-udnek0qqf2lgbeqjnc.cn-hongkong.alb.aliyuncs.com:54621/?channelCode=wxgg87"
-                                    target="_blank" class="live-item relative">
-                                    <img class="hot-icon" src="{$jscsscdn}__IMAGES__/hot-icon.svg" alt="" srcset="">
+                                {volist name='NavCinemaLiveList' id="NavHotLive" key="index"}
+                                <a i="{$NavHotLive['id']}" href="{$NavHotLive['url']}"
+                                   target="_blank" class="live-item relative">
+                                    <img class="hot-icon" src="__IMAGES__/hot-icon.svg" alt="" srcset="">
                                     <div class="center-icon">
-                                        <img class="play-icon" src="{$jscsscdn}__IMAGES__/play-icon.svg" alt=""
-                                            srcset="">
+                                        <img class="play-icon" src="__IMAGES__/play-icon.svg" alt=""
+                                             srcset="">
                                     </div>
                                     <img class="live-item-img lozad"
-                                        data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
-                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
+                                         data-src="{$NavHotLive['img']}"
+                                         src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
                                     <div class="bt-info">
                                         <div class="bt-info-left">
                                             <div class="dian"></div>
-                                            <div class="online-num">51145</div>
+                                            <div class="online-num">{$NavHotLive['yueNum']}</div>
                                             <div class="inner">&#20154;&#22312;&#32447;</div>
                                         </div>
                                         <div>
                                             <img src="{$jscsscdn}__IMAGES__/gifzhibo.gif" alt=""
-                                                srcset="">&#30452;&#25773;&#20013;
+                                                 srcset="">&#30452;&#25773;&#20013;
                                         </div>
                                     </div>
                                 </a>
+                                {/volist}
                             </div>
                             <div class="friends-title-1 pt0">
                                 <div class="flex-center friends-title-wrap">
@@ -227,35 +204,35 @@
                                 </div>
                             </div>
                             <div class="friends-g-2 friends-wrap">
-                                <a i="2600"
-                                href="http://alb-udnek0qqf2lgbeqjnc.cn-hongkong.alb.aliyuncs.com:54621/?channelCode=wxgg87"
-                                target="_blank" class="friends-item ">
-                                <div class="friends-item-left">
-                                    <img class="friends-item-img lozad"
-                                    data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
-                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
-                                    <div class="friends-status">
-                                        <div class="dian"></div>
-                                        <span>空闲</span>
+                                {volist name='NavCinemaHookupList' id="NavHotHookup" key="index"}
+                                <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url']}" target="_blank" class="friends-item ">
+                                    <div class="friends-item-left">
+                                        <img class="friends-item-img lozad"
+                                             data-src="{$NavHotHookup['img']}"
+                                             src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
+                                        <div class="friends-status">
+                                            <div class="dian"></div>
+                                            <span>空闲</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="friends-item-right">
-                                    <img class="yh-icon" src="__IMAGES__/yh-icon.svg" alt="" srcset="">
-                                   <div class="friends-info"><span class="subtitle">小A</span> <span class="measurements">173/55kg/F</span></div>
-                                   <div class="friends-info1">
-                                    <div class="like1-wrap">
-                                        <img class="like1-icon" src="__IMAGES__/like1-icon.svg" alt="" srcset="">
-                                        <span>1240人喜欢</span>
+                                    <div class="friends-item-right">
+                                        <img class="yh-icon" src="__IMAGES__/yh-icon.svg" alt="" srcset="">
+                                        <div class="friends-info"><span class="subtitle">{if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0] | raw} {/if}</span> <span class="measurements">{if isset($NavHotHookup['names'][1])} {$NavHotHookup['names'][1] | raw} {/if}</span></div>
+                                        <div class="friends-info1">
+                                            <div class="like1-wrap">
+                                                <img class="like1-icon" src="__IMAGES__/like1-icon.svg" alt="" srcset="">
+                                                <span>{$NavHotHookup['yueNum']}人喜欢</span>
+                                            </div>
+                                            <div class="adss-wrap">
+                                                <img class="adss-icon" src="__IMAGES__/adss-icon.svg" alt="" srcset="">
+                                                <span>附近{$NavHotHookup['juli']}M</span>
+                                            </div>
+                                        </div>
+                                        <div><span class="subtitle">价格</span> <span>{if isset($NavHotHookup['names'][2])} {$NavHotHookup['names'][2] | raw} {/if}</span></div>
+                                        <div><span class="subtitle">服务</span> <span>{if isset($NavHotHookup['names'][3])} {$NavHotHookup['names'][3] | raw} {/if}</span></div>
                                     </div>
-                                    <div class="adss-wrap">
-                                        <img class="adss-icon" src="__IMAGES__/adss-icon.svg" alt="" srcset="">
-                                        <span>附近2.3KM</span>
-                                    </div>
-                                   </div>
-                                   <div><span class="subtitle">价格</span> <span>900/次 1500/夜</span></div>
-                                   <div><span class="subtitle">服务</span> <span>馒头逼粉嫩 敏感体质 女友感</span></div>
-                                </div>
-                               </a>
+                                </a>
+                                {/volist}
                             </div>
                         </div>
                         <div class="swiper-slide">
@@ -277,29 +254,30 @@
                                 </div>
                             </div>
                             <div class="live-g-3 live-wrap">
-                                <a i="2600"
-                                    href="http://alb-udnek0qqf2lgbeqjnc.cn-hongkong.alb.aliyuncs.com:54621/?channelCode=wxgg87"
-                                    target="_blank" class="live-item relative">
-                                    <img class="hot-icon" src="{$jscsscdn}__IMAGES__/hot-icon.svg" alt="" srcset="">
+                                {volist name='NavBCLiveList' id="NavHotLive" key="index"}
+                                <a i="{$NavHotLive['id']}" href="{$NavHotLive['url']}"
+                                   target="_blank" class="live-item relative">
+                                    <img class="hot-icon" src="__IMAGES__/hot-icon.svg" alt="" srcset="">
                                     <div class="center-icon">
-                                        <img class="play-icon" src="{$jscsscdn}__IMAGES__/play-icon.svg" alt=""
-                                            srcset="">
+                                        <img class="play-icon" src="__IMAGES__/play-icon.svg" alt=""
+                                             srcset="">
                                     </div>
                                     <img class="live-item-img lozad"
-                                        data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
-                                        src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
+                                         data-src="{$NavHotLive['img']}"
+                                         src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
                                     <div class="bt-info">
                                         <div class="bt-info-left">
                                             <div class="dian"></div>
-                                            <div class="online-num">51145</div>
+                                            <div class="online-num">{$NavHotLive['yueNum']}</div>
                                             <div class="inner">&#20154;&#22312;&#32447;</div>
                                         </div>
                                         <div>
                                             <img src="{$jscsscdn}__IMAGES__/gifzhibo.gif" alt=""
-                                                srcset="">&#30452;&#25773;&#20013;
+                                                 srcset="">&#30452;&#25773;&#20013;
                                         </div>
                                     </div>
                                 </a>
+                                {/volist}
                             </div>
                             <div class="friends-title-1 pt0">
                                 <div class="flex-center friends-title-wrap">
@@ -310,64 +288,35 @@
                                 </div>
                             </div>
                             <div class="friends-g-3 friends-wrap">
-                                <a i="2600"
-                                href="http://alb-udnek0qqf2lgbeqjnc.cn-hongkong.alb.aliyuncs.com:54621/?channelCode=wxgg87"
-                                target="_blank" class="friends-item ">
-                                <div class="friends-item-left">
-                                    <img class="friends-item-img lozad"
-                                    data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
-                                    src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
-                                    <div class="friends-status">
-                                        <div class="dian"></div>
-                                        <span>空闲</span>
+                                {volist name='NavBCHookupList' id="NavHotHookup" key="index"}
+                                <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url']}" target="_blank" class="friends-item ">
+                                    <div class="friends-item-left">
+                                        <img class="friends-item-img lozad"
+                                             data-src="{$NavHotHookup['img']}"
+                                             src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
+                                        <div class="friends-status">
+                                            <div class="dian"></div>
+                                            <span>空闲</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="friends-item-right">
-                                    <img class="yh-icon" src="__IMAGES__/yh-icon.svg" alt="" srcset="">
-                                   <div class="friends-info"><span class="subtitle">小A</span> <span class="measurements">173/55kg/F</span></div>
-                                   <div class="friends-info1">
-                                    <div class="like1-wrap">
-                                        <img class="like1-icon" src="__IMAGES__/like1-icon.svg" alt="" srcset="">
-                                        <span>1240人喜欢</span>
+                                    <div class="friends-item-right">
+                                        <img class="yh-icon" src="__IMAGES__/yh-icon.svg" alt="" srcset="">
+                                        <div class="friends-info"><span class="subtitle">{if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0] | raw} {/if}</span> <span class="measurements">{if isset($NavHotHookup['names'][1])} {$NavHotHookup['names'][1] | raw} {/if}</span></div>
+                                        <div class="friends-info1">
+                                            <div class="like1-wrap">
+                                                <img class="like1-icon" src="__IMAGES__/like1-icon.svg" alt="" srcset="">
+                                                <span>{$NavHotHookup['yueNum']}人喜欢</span>
+                                            </div>
+                                            <div class="adss-wrap">
+                                                <img class="adss-icon" src="__IMAGES__/adss-icon.svg" alt="" srcset="">
+                                                <span>附近{$NavHotHookup['juli']}M</span>
+                                            </div>
+                                        </div>
+                                        <div><span class="subtitle">价格</span> <span>{if isset($NavHotHookup['names'][2])} {$NavHotHookup['names'][2] | raw} {/if}</span></div>
+                                        <div><span class="subtitle">服务</span> <span>{if isset($NavHotHookup['names'][3])} {$NavHotHookup['names'][3] | raw} {/if}</span></div>
                                     </div>
-                                    <div class="adss-wrap">
-                                        <img class="adss-icon" src="__IMAGES__/adss-icon.svg" alt="" srcset="">
-                                        <span>附近2.3KM</span>
-                                    </div>
-                                   </div>
-                                   <div><span class="subtitle">价格</span> <span>900/次 1500/夜</span></div>
-                                   <div><span class="subtitle">服务</span> <span>馒头逼粉嫩 敏感体质 女友感</span></div>
-                                </div>
-                               </a>
-                               <a i="2600"
-                               href="http://alb-udnek0qqf2lgbeqjnc.cn-hongkong.alb.aliyuncs.com:54621/?channelCode=wxgg87"
-                               target="_blank" class="friends-item ">
-                               <div class="friends-item-left">
-                                   <img class="friends-item-img lozad"
-                                   data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
-                                   src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
-                                   <div class="friends-status">
-                                       <div class="dian"></div>
-                                       <span>空闲</span>
-                                   </div>
-                               </div>
-                               <div class="friends-item-right">
-                                   <img class="yh-icon" src="__IMAGES__/yh-icon.svg" alt="" srcset="">
-                                  <div class="friends-info"><span class="subtitle">小A</span> <span class="measurements">173/55kg/F</span></div>
-                                  <div class="friends-info1">
-                                   <div class="like1-wrap">
-                                       <img class="like1-icon" src="__IMAGES__/like1-icon.svg" alt="" srcset="">
-                                       <span>1240人喜欢</span>
-                                   </div>
-                                   <div class="adss-wrap">
-                                       <img class="adss-icon" src="__IMAGES__/adss-icon.svg" alt="" srcset="">
-                                       <span>附近2.3KM</span>
-                                   </div>
-                                  </div>
-                                  <div><span class="subtitle">价格</span> <span>900/次 1500/夜</span></div>
-                                  <div><span class="subtitle">服务</span> <span>馒头逼粉嫩 敏感体质 女友感</span></div>
-                               </div>
-                              </a>
+                                </a>
+                                {/volist}
                             </div>
                         </div>
 
