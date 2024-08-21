@@ -46,11 +46,13 @@
             </a>
             {/volist}
           </div>
-          <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
+        {volist name='XTopHFList' id="XTopHF"}
+        <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url']}" target="_blank">
             <img class="hf-ad-img lozad"
-              data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
-              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-          </a>
+                 data-src="{$XTopHF['img']}"
+                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+        </a>
+        {/volist}
           <div class="ad-conter ">
           {volist name='XSudokuList' id="XSudoku"}
             <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url']}" target="_blank">
@@ -68,11 +70,13 @@
               </a>
               {/volist}
           </div>
-          <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
+        {volist name='XMiddleHFList' id="XTopHF"}
+        <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url']}" target="_blank">
             <img class="hf-ad-img lozad"
-              data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
-              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-          </a>
+                 data-src="{$XTopHF['img']}"
+                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+        </a>
+        {/volist}
          
         <link rel="stylesheet" type="text/css" href="{$jscsscdn}__CSS__/videoweb/videoplay_mobile.css?v=1.01">
 
@@ -108,18 +112,20 @@
              <div class="share-box">
                 <div>
                     <span >影片分类</span>
-                    <span class="video-type-name">xxx</span>
+                    <span class="video-type-name">{$category['title']}</span>
                 </div>
                 <div class="share-btn">
                     <img src="__IMAGES__/share-icon.svg" alt="" srcset="">
                     <span class="share-text">分享</span>
                 </div>
              </div>
-            <a class="hf-ad video-hf px0" rel="external nofollow" i="" href="" target="_blank">
+            {volist name='XBottomHFList' id="XTopHF"}
+            <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url']}" target="_blank">
                 <img class="hf-ad-img lozad"
-                  data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
-                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                     data-src="{$XTopHF['img']}"
+                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
             </a>
+            {/volist}
             <div class="item-title-box">
                 <div class="title-name">猜你喜欢</div>
                 {volist name='XGuessTextList' id="XGuessText"}
@@ -149,11 +155,13 @@
                 </div>
                 {/volist}
             </div>
-            <a class="hf-ad video-hf px0" rel="external nofollow" i="" href="" target="_blank">
+            {volist name='XBottomHFList' id="XTopHF"}
+            <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url']}" target="_blank">
                 <img class="hf-ad-img lozad"
-                  data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
-                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-              </a>
+                     data-src="{$XTopHF['img']}"
+                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+            </a>
+            {/volist}
         </div>
         <div class="main-box accordion_login" style="display: none;">
             <div class="login-ran-box">

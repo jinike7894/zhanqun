@@ -73,4 +73,10 @@ class MallCate extends TimeModel
         return $newList;
     }
 
+    public function getCateInfo($id = 0)
+    {
+        $list = $this->field('id,pid,title')->where(array('id'=>$id))->cache(600)->find();
+        return $list;
+    }
+
 }

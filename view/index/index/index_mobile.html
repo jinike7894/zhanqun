@@ -44,12 +44,13 @@
             </a>
             {/volist}
         </div>
-
-        <a class="hf-ad" rel="external nofollow" i="" href="" target="_blank">
+        {volist name='$NavTopHFList' id="NavTopHF"}
+        <a class="hf-ad" rel="external nofollow" i="{$NavTopHF['id']}" href="{$NavTopHF['url']}" target="_blank">
             <img class="hf-ad-img lozad"
-                data-src="https://imagic.xn--dlq26iqoq70dsk9d.com/upload/20240715/94b37b0d022a664b3df68463b99ddee7_file.gif"
+                data-src="{$NavTopHF['img']}"
                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
         </a>
+        {/volist}
         <div>
             <div class="ad-menu-wrap">
                 <div class="ad-menu-item active">
