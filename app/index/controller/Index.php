@@ -612,6 +612,30 @@ class Index extends BaseController
 		}
 	}
 
+    public function getfeatured()
+    {
+        $category_id = input('param.category_id/d',0);
+        $page = input('param.page/d',1);
+        $pageSize = input('param.size/d',6);
+        $list = $this->MallVideos->getlist($category_id,0,$page,$pageSize);
+        $res = [];
+        foreach ($list['list'] as $val){
+            $res[] = array(
+                'id' => $val['id'],
+                'enpic' => $val['enpic'],
+                'eye' => qqw($val['eye']),
+                'time' => $val['time'],
+                'title' => $val['title'],
+                'category_id' => $val['cate_id'],
+                'category_child_id' => 0,
+            );
+
+
+        }
+        header('Content-type: application/json');
+        return json_encode($res);
+    }
+
     public function livestreaming($channel = 0)
     {
         View::assign('channel',$channel);

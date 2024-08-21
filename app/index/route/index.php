@@ -53,6 +53,8 @@ Route::post('/install','data/install');
 
 
 Route::get('/dhclick','data/dhclick');
+
+Route::get('/getfeatured','index/getfeatured');
 //Route::get('index/epass','index/epass');
 //Route::get('/:channel','H5/index')->pattern(['channel' => '\d+(_\d+)?$']);
 //Route::get('/abc/:channel','H5/index1')->pattern(['channel' => '\d+(_\d+)?$']);
