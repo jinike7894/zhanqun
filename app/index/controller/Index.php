@@ -23,7 +23,13 @@ class Index extends BaseController
         $action = $this->request->action();
 
         $jscsscdn = sysconfig('site', 'jscss_cdn');
+        $onlinekf = sysconfig('site', 'onlinekf');
+        $onlineemail = sysconfig('site', 'onlineemail');
+        $foreverurl = sysconfig('site', 'foreverurl');
         View::assign('jscsscdn',$jscsscdn);
+        View::assign('onlinekf',$onlinekf);
+        View::assign('onlineemail',$onlineemail);
+        View::assign('foreverurl',$foreverurl);
         View::assign('action',$action);
 
         if($action == 'index' || $action == 'hookup' || $action == 'livestreaming' || $action == 'drugstore'){
