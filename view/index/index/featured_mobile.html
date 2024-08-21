@@ -93,37 +93,40 @@
         <span class="video-title-text">&#20170;&#26085;&#25512;&#33616;</span>
       </div>
       <div class="video-fun">
-        <div class="change-video" data-class="video-g-1">
+        <div class="change-video" data-class="videoWrap1" data-id="40">
           <i class="bi bi-arrow-clockwise"></i>
           <span>换一批</span>
         </div>
-        <a class="video-more" href="/category/{$channel}.html?category_id=40">
+        <a class="video-more" href="">
           <span>更多</span>
           <i class="bi bi-chevron-right"></i>
         </a>
       </div>
     </div>
     <div>
-      <div class="video-g-wrap video-g-1">
-        <a class="first-video" href="/videoplay/{$channel}.html?category_id={$yuanclist[0]['category_id']}&category_child_id={$yuanclist[0]['category_child_id']}&vid={$yuanclist[0]['id']}">
-          <div class="video-cover-wrap">
-            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-              data-src="{$yuanclist[0]['enpic']}" />
-            <div class="mask_info">
-              <div class="flex-space-between">
-                <div class="pre-eye">
-                  <i class="bi bi-eye"></i>
-                  <span>{$yuanclist[0]['eye']|qqw}</span>
-                </div>
-                <div class="pre-time">
-                  <i class="bi bi-clock"></i>
-                  <span>{$yuanclist[0]['time']}</span>
+      <div class="video-g-wrap videoWrap1">
+        <div class="first-video-wrap">
+          <a class="first-video" href="/videoplay/{$channel}.html?category_id={$yuanclist[0]['category_id']}&category_child_id={$yuanclist[0]['category_child_id']}&vid={$yuanclist[0]['id']}">
+            <div class="video-cover-wrap">
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+                data-src="{$yuanclist[0]['enpic']}" />
+              <div class="mask_info">
+                <div class="flex-space-between">
+                  <div class="pre-eye">
+                    <i class="bi bi-eye"></i>
+                    <span>{$yuanclist[0]['eye']|qqw}</span>
+                  </div>
+                  <div class="pre-time">
+                    <i class="bi bi-clock"></i>
+                    <span>{$yuanclist[0]['time']}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="rank-title">{$yuanclist[0]['title'] | raw}</div>
-        </a>
+            <div class="rank-title">{$yuanclist[0]['title'] | raw}</div>
+          </a>
+        </div>
+        
         <div class="textad">
           {volist name='XSudokuTextList' id="XSudokuText"}
           <a class="text-c-3" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
@@ -136,7 +139,7 @@
           {if condition="$index > 1 && $index <=3"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                 data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -167,12 +170,12 @@
           {/volist}
         </div>
 
-        <div class="video-g-list">
+        <div class="video-g-list1">
           {volist name="yuanclist" id="yc" key="index"}
           {if condition="$index > 3 && $index <=5"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -202,44 +205,47 @@
              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
       </a>
       {/volist}
-      <a class="more-video-btn" href="/category/{$channel}.html?category_id=40"><div>加载更多</div></a>
+      <a class="more-video-btn" href=""><div>加载更多</div></a>
     </div>
     <div class="vidoe-title-1 pt0">
       <div class="flex-center video-title-wrap">
         <span class="video-title-text">&#20599;&#25293;&#33258;&#25293;</span>
       </div>
       <div class="video-fun">
-        <div class="change-video" data-class="video-g-2">
+        <div class="change-video" data-class="videoWrap2"  data-id="40">
           <i class="bi bi-arrow-clockwise"></i>
           <span>换一批</span>
         </div>
-        <a class="video-more" href="/category/{$channel}.html?category_id=12">
+        <a class="video-more" href="">
           <span>更多</span>
           <i class="bi bi-chevron-right"></i>
         </a>
       </div>
     </div>
     <div>
-      <div class="video-g-wrap video-g-2">
-        <a class="first-video" href="/videoplay/{$channel}.html?category_id={$pxlist[0]['category_id']}&category_child_id={$pxlist[0]['category_child_id']}&vid={$pxlist[0]['id']}">
-          <div class="video-cover-wrap">
-            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-                 data-src="{$pxlist[0]['enpic']}" />
-            <div class="mask_info">
-              <div class="flex-space-between">
-                <div class="pre-eye">
-                  <i class="bi bi-eye"></i>
-                  <span>{$pxlist[0]['eye']|qqw}</span>
-                </div>
-                <div class="pre-time">
-                  <i class="bi bi-clock"></i>
-                  <span>{$pxlist[0]['time']}</span>
+      <div class="video-g-wrap videoWrap2">
+        <div class="first-video-wrap">
+          <a class="first-video" href="/videoplay/{$channel}.html?category_id={$pxlist[0]['category_id']}&category_child_id={$pxlist[0]['category_child_id']}&vid={$pxlist[0]['id']}">
+            <div class="video-cover-wrap">
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+                   data-src="{$pxlist[0]['enpic']}" />
+              <div class="mask_info">
+                <div class="flex-space-between">
+                  <div class="pre-eye">
+                    <i class="bi bi-eye"></i>
+                    <span>{$pxlist[0]['eye']|qqw}</span>
+                  </div>
+                  <div class="pre-time">
+                    <i class="bi bi-clock"></i>
+                    <span>{$pxlist[0]['time']}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="rank-title">{$pxlist[0]['title'] | raw}</div>
-        </a>
+            <div class="rank-title">{$pxlist[0]['title'] | raw}</div>
+          </a>
+        </div>
+       
         <div class="textad">
           {volist name='XSudokuTextList' id="XSudokuText"}
           <a class="" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
@@ -252,7 +258,7 @@
           {if condition="$index > 1 && $index <=3"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -282,12 +288,12 @@
           </a>
           {/volist}
         </div>
-        <div class="video-g-list">
+        <div class="video-g-list1">
           {volist name="pxlist" id="yc" key="index"}
           {if condition="$index > 3 && $index <=5"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -316,7 +322,7 @@
              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
       </a>
       {/volist}
-      <a class="more-video-btn" href="/category/{$channel}.html?category_id=12"><div>加载更多</div></a>
+      <a class="more-video-btn" href=""><div>加载更多</div></a>
     </div>
 
 
@@ -325,37 +331,40 @@
         <span class="video-title-text">&#21507;&#29916;</span>
       </div>
       <div class="video-fun">
-        <div class="change-video" data-class="video-g-2">
+        <div class="change-video" data-class="videoWrap3"  data-id="40">
           <i class="bi bi-arrow-clockwise"></i>
           <span>换一批</span>
         </div>
-        <a class="video-more" href="/category/{$channel}.html?category_id=1">
+        <a class="video-more" href="">
           <span>更多</span>
           <i class="bi bi-chevron-right"></i>
         </a>
       </div>
     </div>
     <div>
-      <div class="video-g-wrap video-g-2">
-        <a class="first-video" href="/videoplay/{$channel}.html?category_id={$chigualist[0]['category_id']}&category_child_id={$chigualist[0]['category_child_id']}&vid={$chigualist[0]['id']}">
-          <div class="video-cover-wrap">
-            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-                 data-src="{$chigualist[0]['enpic']}" />
-            <div class="mask_info">
-              <div class="flex-space-between">
-                <div class="pre-eye">
-                  <i class="bi bi-eye"></i>
-                  <span>{$chigualist[0]['eye']|qqw}</span>
-                </div>
-                <div class="pre-time">
-                  <i class="bi bi-clock"></i>
-                  <span>{$chigualist[0]['time']}</span>
+      <div class="video-g-wrap videoWrap3">
+        <div class="first-video-wrap">
+          <a class="first-video" href="/videoplay/{$channel}.html?category_id={$chigualist[0]['category_id']}&category_child_id={$chigualist[0]['category_child_id']}&vid={$chigualist[0]['id']}">
+            <div class="video-cover-wrap">
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+                   data-src="{$chigualist[0]['enpic']}" />
+              <div class="mask_info">
+                <div class="flex-space-between">
+                  <div class="pre-eye">
+                    <i class="bi bi-eye"></i>
+                    <span>{$chigualist[0]['eye']|qqw}</span>
+                  </div>
+                  <div class="pre-time">
+                    <i class="bi bi-clock"></i>
+                    <span>{$chigualist[0]['time']}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="rank-title">{$chigualist[0]['title'] | raw}</div>
-        </a>
+            <div class="rank-title">{$chigualist[0]['title'] | raw}</div>
+          </a>
+        </div>
+        
         <div class="textad">
           {volist name='XSudokuTextList' id="XSudokuText"}
           <a class="" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
@@ -368,7 +377,7 @@
           {if condition="$index > 1 && $index <=3"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -398,12 +407,12 @@
           </a>
           {/volist}
         </div>
-        <div class="video-g-list">
-          {volist name="chigualist" id="yc" key="index"}
+        <div class="video-g-list1">
+          {volist name="$chigualist" id="yc" key="index"}
           {if condition="$index > 3 && $index <=5"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -432,7 +441,7 @@
              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
       </a>
       {/volist}
-      <a class="more-video-btn" href="/category/{$channel}.html?category_id=1"><div>加载更多</div></a>
+      <a class="more-video-btn" href=""><div>加载更多</div></a>
     </div>
 
     <div class="vidoe-title-1 pt0">
@@ -440,37 +449,39 @@
         <span class="video-title-text">&#22269;&#20135;</span>
       </div>
       <div class="video-fun">
-        <div class="change-video" data-class="video-g-2">
+        <div class="change-video" data-class="videoWrap4"  data-id="40">
           <i class="bi bi-arrow-clockwise"></i>
           <span>换一批</span>
         </div>
-        <a class="video-more" href="/category/{$channel}.html?category_id=2">
+        <a class="video-more" href="">
           <span>更多</span>
           <i class="bi bi-chevron-right"></i>
         </a>
       </div>
     </div>
     <div>
-      <div class="video-g-wrap video-g-2">
-        <a class="first-video" href="/videoplay/{$channel}.html?category_id={$guochanlist[0]['category_id']}&category_child_id={$guochanlist[0]['category_child_id']}&vid={$guochanlist[0]['id']}">
-          <div class="video-cover-wrap">
-            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-                 data-src="{$guochanlist[0]['enpic']}" />
-            <div class="mask_info">
-              <div class="flex-space-between">
-                <div class="pre-eye">
-                  <i class="bi bi-eye"></i>
-                  <span>{$guochanlist[0]['eye']|qqw}</span>
-                </div>
-                <div class="pre-time">
-                  <i class="bi bi-clock"></i>
-                  <span>{$guochanlist[0]['time']}</span>
+      <div class="video-g-wrap videoWrap4">
+        <div class="first-video-wrap">
+          <a class="first-video" href="/videoplay/{$channel}.html?category_id={$guochanlist[0]['category_id']}&category_child_id={$guochanlist[0]['category_child_id']}&vid={$guochanlist[0]['id']}">
+            <div class="video-cover-wrap">
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+                   data-src="{$guochanlist[0]['enpic']}" />
+              <div class="mask_info">
+                <div class="flex-space-between">
+                  <div class="pre-eye">
+                    <i class="bi bi-eye"></i>
+                    <span>{$guochanlist[0]['eye']|qqw}</span>
+                  </div>
+                  <div class="pre-time">
+                    <i class="bi bi-clock"></i>
+                    <span>{$guochanlist[0]['time']}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="rank-title">{$guochanlist[0]['title'] | raw}</div>
-        </a>
+            <div class="rank-title">{$guochanlist[0]['title'] | raw}</div>
+          </a>
+        </div>
         <div class="textad">
           {volist name='XSudokuTextList' id="XSudokuText"}
           <a class="" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
@@ -483,7 +494,7 @@
           {if condition="$index > 1 && $index <=3"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -518,7 +529,7 @@
           {if condition="$index > 3 && $index <=5"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -547,7 +558,7 @@
              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
       </a>
       {/volist}
-      <a class="more-video-btn" href="/category/{$channel}.html?category_id=2"><div>加载更多</div></a>
+      <a class="more-video-btn" href=""><div>加载更多</div></a>
     </div>
 
     <div class="vidoe-title-1 pt0">
@@ -555,37 +566,40 @@
         <span class="video-title-text">&#26085;&#38889;</span>
       </div>
       <div class="video-fun">
-        <div class="change-video" data-class="video-g-2">
+        <div class="change-video" data-class="videoWrap5"  data-id="40">
           <i class="bi bi-arrow-clockwise"></i>
           <span>换一批</span>
         </div>
-        <a class="video-more" href="/category/{$channel}.html?category_id=3">
+        <a class="video-more" href="">
           <span>更多</span>
           <i class="bi bi-chevron-right"></i>
         </a>
       </div>
     </div>
     <div>
-      <div class="video-g-wrap video-g-2">
-        <a class="first-video" href="/videoplay/{$channel}.html?category_id={$rihanlist[0]['category_id']}&category_child_id={$rihanlist[0]['category_child_id']}&vid={$rihanlist[0]['id']}">
-          <div class="video-cover-wrap">
-            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-                 data-src="{$rihanlist[0]['enpic']}" />
-            <div class="mask_info">
-              <div class="flex-space-between">
-                <div class="pre-eye">
-                  <i class="bi bi-eye"></i>
-                  <span>{$rihanlist[0]['eye']|qqw}</span>
-                </div>
-                <div class="pre-time">
-                  <i class="bi bi-clock"></i>
-                  <span>{$rihanlist[0]['time']}</span>
+      <div class="video-g-wrap videoWrap5">
+        <div class="first-video-wrap">
+          <a class="first-video" href="/videoplay/{$channel}.html?category_id={$rihanlist[0]['category_id']}&category_child_id={$rihanlist[0]['category_child_id']}&vid={$rihanlist[0]['id']}">
+            <div class="video-cover-wrap">
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+                   data-src="{$rihanlist[0]['enpic']}" />
+              <div class="mask_info">
+                <div class="flex-space-between">
+                  <div class="pre-eye">
+                    <i class="bi bi-eye"></i>
+                    <span>{$rihanlist[0]['eye']|qqw}</span>
+                  </div>
+                  <div class="pre-time">
+                    <i class="bi bi-clock"></i>
+                    <span>{$rihanlist[0]['time']}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="rank-title">{$rihanlist[0]['title'] | raw}</div>
-        </a>
+            <div class="rank-title">{$rihanlist[0]['title'] | raw}</div>
+          </a>
+        </div>
+       
         <div class="textad">
           {volist name='XSudokuTextList' id="XSudokuText"}
           <a class="" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
@@ -593,12 +607,12 @@
           </a>
           {/volist}
         </div>
-        <div class="video-g-list">
+        <div class="video-g-list1">
           {volist name="rihanlist" id="yc" key="index"}
           {if condition="$index > 1 && $index <=3"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -633,7 +647,7 @@
           {if condition="$index > 3 && $index <=5"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -662,7 +676,7 @@
              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
       </a>
       {/volist}
-      <a class="more-video-btn" href="/category/{$channel}.html?category_id=3"><div>加载更多</div></a>
+      <a class="more-video-btn" href=""><div>加载更多</div></a>
     </div>
 
 
@@ -671,37 +685,40 @@
         <span class="video-title-text">&#27431;&#32654;</span>
       </div>
       <div class="video-fun">
-        <div class="change-video" data-class="video-g-2">
+        <div class="change-video" data-class="videoWrap6"  data-id="40">
           <i class="bi bi-arrow-clockwise"></i>
           <span>换一批</span>
         </div>
-        <a class="video-more" href="/category/{$channel}.html?category_id=4">
+        <a class="video-more" href="">
           <span>更多</span>
           <i class="bi bi-chevron-right"></i>
         </a>
       </div>
     </div>
     <div>
-      <div class="video-g-wrap video-g-2">
-        <a class="first-video" href="/videoplay/{$channel}.html?category_id={$oumeilist[0]['category_id']}&category_child_id={$oumeilist[0]['category_child_id']}&vid={$oumeilist[0]['id']}">
-          <div class="video-cover-wrap">
-            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-                 data-src="{$oumeilist[0]['enpic']}" />
-            <div class="mask_info">
-              <div class="flex-space-between">
-                <div class="pre-eye">
-                  <i class="bi bi-eye"></i>
-                  <span>{$oumeilist[0]['eye']|qqw}</span>
-                </div>
-                <div class="pre-time">
-                  <i class="bi bi-clock"></i>
-                  <span>{$oumeilist[0]['time']}</span>
+      <div class="video-g-wrap videoWrap6">
+        <div class="first-video-wrap">
+          <a class="first-video" href="/videoplay/{$channel}.html?category_id={$oumeilist[0]['category_id']}&category_child_id={$oumeilist[0]['category_child_id']}&vid={$oumeilist[0]['id']}">
+            <div class="video-cover-wrap">
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+                   data-src="{$oumeilist[0]['enpic']}" />
+              <div class="mask_info">
+                <div class="flex-space-between">
+                  <div class="pre-eye">
+                    <i class="bi bi-eye"></i>
+                    <span>{$oumeilist[0]['eye']|qqw}</span>
+                  </div>
+                  <div class="pre-time">
+                    <i class="bi bi-clock"></i>
+                    <span>{$oumeilist[0]['time']}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="rank-title">{$oumeilist[0]['title'] | raw}</div>
-        </a>
+            <div class="rank-title">{$oumeilist[0]['title'] | raw}</div>
+          </a>
+        </div>
+       
         <div class="textad">
           {volist name='XSudokuTextList' id="XSudokuText"}
           <a class="" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
@@ -709,12 +726,12 @@
           </a>
           {/volist}
         </div>
-        <div class="video-g-list">
+        <div class="video-g-list1">
           {volist name="oumeilist" id="yc" key="index"}
           {if condition="$index > 1 && $index <=3"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -749,7 +766,7 @@
           {if condition="$index > 3 && $index <=5"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -778,7 +795,7 @@
              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
       </a>
       {/volist}
-      <a class="more-video-btn" href="/category/{$channel}.html?category_id=4"><div>加载更多</div></a>
+      <a class="more-video-btn" href=""><div>加载更多</div></a>
     </div>
 
 
@@ -787,37 +804,40 @@
         <span class="video-title-text">&#21160;&#28459;</span>
       </div>
       <div class="video-fun">
-        <div class="change-video" data-class="video-g-2">
+        <div class="change-video" data-class="videoWrap7"  data-id="40">
           <i class="bi bi-arrow-clockwise"></i>
           <span>换一批</span>
         </div>
-        <a class="video-more" href="/category/{$channel}.html?category_id=5">
+        <a class="video-more" href="">
           <span>更多</span>
           <i class="bi bi-chevron-right"></i>
         </a>
       </div>
     </div>
     <div>
-      <div class="video-g-wrap video-g-2">
-        <a class="first-video" href="/videoplay/{$channel}.html?category_id={$dongmanlist[0]['category_id']}&category_child_id={$dongmanlist[0]['category_child_id']}&vid={$dongmanlist[0]['id']}">
-          <div class="video-cover-wrap">
-            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-                 data-src="{$dongmanlist[0]['enpic']}" />
-            <div class="mask_info">
-              <div class="flex-space-between">
-                <div class="pre-eye">
-                  <i class="bi bi-eye"></i>
-                  <span>{$dongmanlist[0]['eye']|qqw}</span>
-                </div>
-                <div class="pre-time">
-                  <i class="bi bi-clock"></i>
-                  <span>{$dongmanlist[0]['time']}</span>
+      <div class="video-g-wrap videoWrap7">
+        <div class="first-video-wrap">
+          <a class="first-video" href="/videoplay/{$channel}.html?category_id={$dongmanlist[0]['category_id']}&category_child_id={$dongmanlist[0]['category_child_id']}&vid={$dongmanlist[0]['id']}">
+            <div class="video-cover-wrap">
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+                   data-src="{$dongmanlist[0]['enpic']}" />
+              <div class="mask_info">
+                <div class="flex-space-between">
+                  <div class="pre-eye">
+                    <i class="bi bi-eye"></i>
+                    <span>{$dongmanlist[0]['eye']|qqw}</span>
+                  </div>
+                  <div class="pre-time">
+                    <i class="bi bi-clock"></i>
+                    <span>{$dongmanlist[0]['time']}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="rank-title">{$dongmanlist[0]['title'] | raw}</div>
-        </a>
+            <div class="rank-title">{$dongmanlist[0]['title'] | raw}</div>
+          </a>
+        </div>
+       
         <div class="textad">
           {volist name='XSudokuTextList' id="XSudokuText"}
           <a class="" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
@@ -825,12 +845,12 @@
           </a>
           {/volist}
         </div>
-        <div class="video-g-list">
+        <div class="video-g-list1">
           {volist name="dongmanlist" id="yc" key="index"}
           {if condition="$index > 1 && $index <=3"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -860,12 +880,12 @@
           </a>
           {/volist}
         </div>
-        <div class="video-g-list">
+        <div class="video-g-list1">
           {volist name="dongmanlist" id="yc" key="index"}
           {if condition="$index > 3 && $index <=5"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -894,7 +914,7 @@
              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
       </a>
       {/volist}
-      <a class="more-video-btn" href="/category/{$channel}.html?category_id=5"><div>加载更多</div></a>
+      <a class="more-video-btn" href=""><div>加载更多</div></a>
     </div>
 
 
@@ -903,37 +923,40 @@
         <span class="video-title-text">&#65;&#73;&#25442;&#33080;</span>
       </div>
       <div class="video-fun">
-        <div class="change-video" data-class="video-g-2">
+        <div class="change-video" data-class="videoWrap8"  data-id="40">
           <i class="bi bi-arrow-clockwise"></i>
           <span>换一批</span>
         </div>
-        <a class="video-more" href="/category/{$channel}.html?category_id=6">
+        <a class="video-more" href="">
           <span>更多</span>
           <i class="bi bi-chevron-right"></i>
         </a>
       </div>
     </div>
     <div>
-      <div class="video-g-wrap video-g-2">
-        <a class="first-video" href="/videoplay/{$channel}.html?category_id={$ailist[0]['category_id']}&category_child_id={$ailist[0]['category_child_id']}&vid={$ailist[0]['id']}">
-          <div class="video-cover-wrap">
-            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-                 data-src="{$ailist[0]['enpic']}" />
-            <div class="mask_info">
-              <div class="flex-space-between">
-                <div class="pre-eye">
-                  <i class="bi bi-eye"></i>
-                  <span>{$ailist[0]['eye']|qqw}</span>
-                </div>
-                <div class="pre-time">
-                  <i class="bi bi-clock"></i>
-                  <span>{$ailist[0]['time']}</span>
+      <div class="video-g-wrap videoWrap8">
+        <div class="first-video-wrap">
+          <a class="first-video" href="/videoplay/{$channel}.html?category_id={$ailist[0]['category_id']}&category_child_id={$ailist[0]['category_child_id']}&vid={$ailist[0]['id']}">
+            <div class="video-cover-wrap">
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+                   data-src="{$ailist[0]['enpic']}" />
+              <div class="mask_info">
+                <div class="flex-space-between">
+                  <div class="pre-eye">
+                    <i class="bi bi-eye"></i>
+                    <span>{$ailist[0]['eye']|qqw}</span>
+                  </div>
+                  <div class="pre-time">
+                    <i class="bi bi-clock"></i>
+                    <span>{$ailist[0]['time']}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="rank-title">{$ailist[0]['title'] | raw}</div>
-        </a>
+            <div class="rank-title">{$ailist[0]['title'] | raw}</div>
+          </a>
+        </div>
+       
         <div class="textad">
           {volist name='XSudokuTextList' id="XSudokuText"}
           <a class="" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
@@ -946,7 +969,7 @@
           {if condition="$index > 1 && $index <=3"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -976,12 +999,12 @@
           </a>
           {/volist}
         </div>
-        <div class="video-g-list">
+        <div class="video-g-list1">
           {volist name="ailist" id="yc" key="index"}
           {if condition="$index > 3 && $index <=5"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -1010,7 +1033,7 @@
              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
       </a>
       {/volist}
-      <a class="more-video-btn" href="/category/{$channel}.html?category_id=6"><div>加载更多</div></a>
+      <a class="more-video-btn" href=""><div>加载更多</div></a>
     </div>
 
 
@@ -1019,37 +1042,39 @@
         <span class="video-title-text">&#65;&#86;&#35299;&#35828;</span>
       </div>
       <div class="video-fun">
-        <div class="change-video" data-class="video-g-2">
+        <div class="change-video" data-class="videoWrap9"  data-id="40">
           <i class="bi bi-arrow-clockwise"></i>
           <span>换一批</span>
         </div>
-        <a class="video-more" href="/category/{$channel}.html?category_id=8">
+        <a class="video-more" href="">
           <span>更多</span>
           <i class="bi bi-chevron-right"></i>
         </a>
       </div>
     </div>
     <div>
-      <div class="video-g-wrap video-g-2">
-        <a class="first-video" href="/videoplay/{$channel}.html?category_id={$jieshuolist[0]['category_id']}&category_child_id={$jieshuolist[0]['category_child_id']}&vid={$jieshuolist[0]['id']}">
-          <div class="video-cover-wrap">
-            <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-                 data-src="{$jieshuolist[0]['enpic']}" />
-            <div class="mask_info">
-              <div class="flex-space-between">
-                <div class="pre-eye">
-                  <i class="bi bi-eye"></i>
-                  <span>{$jieshuolist[0]['eye']|qqw}</span>
-                </div>
-                <div class="pre-time">
-                  <i class="bi bi-clock"></i>
-                  <span>{$jieshuolist[0]['time']}</span>
+      <div class="video-g-wrap videoWrap9">
+        <div class="first-video-wrap">
+          <a class="first-video" href="/videoplay/{$channel}.html?category_id={$jieshuolist[0]['category_id']}&category_child_id={$jieshuolist[0]['category_child_id']}&vid={$jieshuolist[0]['id']}">
+            <div class="video-cover-wrap">
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
+                   data-src="{$jieshuolist[0]['enpic']}" />
+              <div class="mask_info">
+                <div class="flex-space-between">
+                  <div class="pre-eye">
+                    <i class="bi bi-eye"></i>
+                    <span>{$jieshuolist[0]['eye']|qqw}</span>
+                  </div>
+                  <div class="pre-time">
+                    <i class="bi bi-clock"></i>
+                    <span>{$jieshuolist[0]['time']}</span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="rank-title">{$jieshuolist[0]['title'] | raw}</div>
-        </a>
+            <div class="rank-title">{$jieshuolist[0]['title'] | raw}</div>
+          </a>
+        </div>
         <div class="textad">
           {volist name='XSudokuTextList' id="XSudokuText"}
           <a class="" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
@@ -1062,7 +1087,7 @@
           {if condition="$index > 1 && $index <=3"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -1092,12 +1117,12 @@
           </a>
           {/volist}
         </div>
-        <div class="video-g-list">
+        <div class="video-g-list1">
           {volist name="jieshuolist" id="yc" key="index"}
           {if condition="$index > 3 && $index <=5"}
           <a class="other-video" href="/videoplay/{$channel}.html?category_id={$yc['category_id']}&category_child_id={$yc['category_child_id']}&vid={$yc['id']}">
             <div class="video-cover-wrap">
-              <img class="pre-img lozad" loading="lazy" src="/static/images/loading_img_bg_default.jpg"
+              <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
                    data-src="{$yc['enpic']}" />
               <div class="mask_info">
                 <div class="flex-space-between">
@@ -1126,7 +1151,7 @@
              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
       </a>
       {/volist}
-      <a class="more-video-btn" href="/category/{$channel}.html?category_id=8"><div>加载更多</div></a>
+      <a class="more-video-btn" href=""><div>加载更多</div></a>
     </div>
 
 
