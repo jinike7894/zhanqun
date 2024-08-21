@@ -534,13 +534,13 @@ class Index extends BaseController
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
-        $category = $this->Menu->getCateInfo($category_id);
 		$child_menu = $this->Menu->getmenu($category_id);
 		$vodlist = $this->MallVideos->getById($vid);
         $vodlist['enpic'] = replaceVideoCdn($vodlist['enpic'], 'video_img_cdn');
         $vodlist['video'] = replaceVideoCdn($vodlist['video'], 'video_cdn');
         $vodlist['title'] = mbConvert($vodlist['title']);
 		$guesslist = $this->MallVideos->getmorelist($vodlist['cate_id'],25);
+        $category = $this->Menu->getCateInfo($vodlist['cate_id']);
 		$arr['id'] = $vodlist['id'];
 		$arr['url'] = $vodlist['pic'];
 		$arr['encryptUrl'] = $vodlist['pic'];
