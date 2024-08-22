@@ -1400,13 +1400,14 @@ a:hover {
 }
 .friends-info {
     font-size: .36rem;
-    margin-bottom: .24rem;
+    margin-bottom: .08rem;
 }
 .friends-info .subtitle {
     color: #FBB369;
 }
 .friends-info .measurements {
     color: #FFFFFFCC;
+    font-size: .24rem;
 }
 .friends-info1{
     display: flex;
@@ -1414,7 +1415,7 @@ a:hover {
     background: linear-gradient(90deg, rgba(251, 179, 105, 0.2) 0%, rgba(251, 179, 105, 0) 100%);
     border-radius: .16rem;
     align-items: center;
-    margin-bottom: .32rem;
+    margin-bottom: .16rem;
 }
 .adss-wrap{
     margin-left: .34rem;
@@ -1430,7 +1431,7 @@ a:hover {
    display: flex;
    align-items: center;
    position: absolute;
-   bottom: .08rem;
+   top: 1.92rem;
    right: .32rem;
    color: #fff;
 }
