@@ -356,8 +356,9 @@
                 }
                 $('.share-save').click(function(e){
                     e.stopPropagation()
-                    let url = $('.share-dialog .qr-wrap img').attr('src')
-                    downloadImg(url,'视频分享.png')
+                    toast("您需要手动截图才能保存凭证哦");
+                    // let url = $('.share-dialog .qr-wrap img').attr('src')
+                    // downloadImg(url,'视频分享.png')
                 })
                 $('.copy-share').click(function(e){
                     e.stopPropagation()

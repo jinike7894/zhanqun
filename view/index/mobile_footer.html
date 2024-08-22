@@ -110,8 +110,9 @@
     })
     $('.dialog2-save').click(function(e){
       e.stopPropagation()
-      let url = $('.dialog2-qr img').attr('src')
-      downloadImg(url,'永不丢失二维码.png')
+      toast("您需要手动截图才能保存凭证哦");
+      // let url = $('.dialog2-qr img').attr('src')
+      // downloadImg(url,'永不丢失二维码.png')
     })
   })()
 

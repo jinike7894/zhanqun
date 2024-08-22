@@ -48,6 +48,15 @@ function addFavorite() {
                 alert('您的浏览器不支持,请手动收藏!');
             } 
        }
+function toast(mess){
+var str='<div class="mess"><span></span></div>';
+$("body").append(str);
+$(".mess").fadeIn().find("span").html(mess);
+setTimeout(function(){
+    $(".mess").fadeOut().remove();
+},2000)
+}
+
 // // console.log($('.rank-a')[0]);
 
 // var p_arr = [1, 99];

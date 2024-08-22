@@ -40,6 +40,9 @@ body {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
+.pb10 {
+    padding-bottom: .2rem !important;
+}
 .hidden {
     display: none !important;
 }
@@ -1460,4 +1463,21 @@ a:hover {
 .share-text{
     color: #FBB369;
     font-weight: 600;
+}
+
+.mess{
+    position: fixed;
+    margin: 0 auto;
+    z-index: 10001;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 1.32rem;
+    white-space:nowrap;
+    height: .74rem;
+    line-height: .74rem;
+    padding: 0 .4rem;
+    font-size: .24rem;
 }
