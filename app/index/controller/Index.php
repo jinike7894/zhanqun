@@ -53,6 +53,9 @@ class Index extends BaseController
             ->where(['pid' => '63'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
         foreach ($XTopHFList as $key => &$item) {
             $item['url'] = $item['androidurl'];
+            if (strpos($item['img'], 'http') === false) {
+                $item['img'] = replaceAdCdn($item['img']);
+            }
         }
         View::assign('XTopHFList',$XTopHFList);
         //全站广告结束
@@ -424,6 +427,9 @@ class Index extends BaseController
                 ->where(['pid' => '64'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XMiddleHFList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $item['img'] = replaceAdCdn($item['img']);
+                }
             }
             View::assign('XMiddleHFList',$XMiddleHFList);
 
@@ -433,8 +439,89 @@ class Index extends BaseController
                 ->where(['pid' => '65'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XBottomHFList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $item['img'] = replaceAdCdn($item['img']);
+                }
             }
             View::assign('XBottomHFList',$XBottomHFList);
+
+
+
+            //X站-分类视频精选-顶部-文字九宫格 66 $XTopVideoTextList
+            $XTopVideoTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '66'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+            foreach ($XTopVideoTextList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                $item['name'] = mbConvert($item['name']);
+            }
+            View::assign('XTopVideoTextList',$XTopVideoTextList);
+
+
+
+            //X站-顶部-banner轮播图 67 $XTopBannerHFList
+            $XTopBannerHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '67'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+            foreach ($XTopBannerHFList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $item['img'] = replaceAdCdn($item['img']);
+                }
+            }
+            View::assign('XTopBannerHFList',$XTopBannerHFList);
+
+
+
+            //X站-分类视频精选-底部-banner轮播图 68 $XCateVideoBottomHFList
+            $XCateVideoBottomHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '68'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+            foreach ($XCateVideoBottomHFList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $item['img'] = replaceAdCdn($item['img']);
+                }
+            }
+            View::assign('XCateVideoBottomHFList',$XCateVideoBottomHFList);
+
+
+
+            //X站-分类视频精选-底部-文字九宫格 69 $XCateVideoBottomTextList
+            $XCateVideoBottomTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '69'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+            foreach ($XCateVideoBottomTextList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                $item['name'] = mbConvert($item['name']);
+            }
+            View::assign('XCateVideoBottomTextList',$XCateVideoBottomTextList);
+
+
+            //X站-分类视频精选-底部-图片九宫格 70 $XCateVideoBottomSudokuList
+            $XCateVideoBottomSudokuList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '70'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+            foreach ($XCateVideoBottomSudokuList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $item['img'] = replaceAdCdn($item['img']);
+                }
+            }
+            View::assign('XCateVideoBottomSudokuList',$XCateVideoBottomSudokuList);
+
+
+            //X站-播放器底部-banner轮播图 71 $XVideoBottomHFList
+            $XVideoBottomHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '71'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+            foreach ($XVideoBottomHFList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $item['img'] = replaceAdCdn($item['img']);
+                }
+            }
+            View::assign('XVideoBottomHFList',$XVideoBottomHFList);
         }
     }
 	public function index($channel = 0)
