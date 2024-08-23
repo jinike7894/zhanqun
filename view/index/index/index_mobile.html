@@ -21,8 +21,8 @@
                 </div>
             </div>
             <div class="h-textad">
-                {volist name='NavSudokuMiddleTextList' id="NavSudokuMiddleText"}
-                <a class="text-c-1" rel="external nofollow" i="{$NavSudokuMiddleText['id']}" href="{$NavSudokuMiddleText['url']}" target="_blank">
+                {volist name='XSudokuTextList' id="NavSudokuMiddleText"}
+                <a class="text-c-2" rel="external nofollow" i="{$NavSudokuMiddleText['id']}" href="{$NavSudokuMiddleText['url']}" target="_blank">
                     {$NavSudokuMiddleText['name'] | raw}
                 </a>
                 {/volist}
@@ -44,7 +44,7 @@
             </a>
             {/volist}
         </div>
-        {volist name='$NavTopHFList' id="NavTopHF"}
+        {volist name='XTopHFList' id="NavTopHF"}
         <a class="hf-ad" rel="external nofollow" i="{$NavTopHF['id']}" href="{$NavTopHF['url']}" target="_blank">
             <img class="hf-ad-img lozad"
                 data-src="{$NavTopHF['img']}"

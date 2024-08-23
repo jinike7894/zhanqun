@@ -32,6 +32,30 @@ class Index extends BaseController
         View::assign('foreverurl',$foreverurl);
         View::assign('action',$action);
 
+
+        //全站广告开始
+        //全站-顶部-文字广告 3       $XSudokuTextList
+        $XSudokuTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            ->where(array('status'=>1,'is_banner'=>0))
+            ->where(['pid' => '3'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+        foreach ($XSudokuTextList as $key => &$item) {
+            $item['url'] = $item['androidurl'];
+            $item['name'] = mbConvert($item['name']);
+            $item['icon'] = ["h","n","h","n"][mt_rand(0,3)];
+        }
+        View::assign('XSudokuTextList',$XSudokuTextList);
+
+
+        //全站-顶部横幅-单个广告 63 $XTopHFList
+        $XTopHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            ->where(array('status'=>1,'is_banner'=>0))
+            ->where(['pid' => '63'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+        foreach ($XTopHFList as $key => &$item) {
+            $item['url'] = $item['androidurl'];
+        }
+        View::assign('XTopHFList',$XTopHFList);
+        //全站广告结束
         if($action == 'index' || $action == 'hookup' || $action == 'livestreaming' || $action == 'drugstore'){
             //导航-banner轮播图 10 $NavBannerList
             $NavBannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
@@ -259,16 +283,6 @@ class Index extends BaseController
             }
             View::assign('NavSudokuBottomTextList',$NavSudokuBottomTextList);
 
-            //新-导航-横幅-单个广告 62 $NavTopHFList
-            $NavTopHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
-                ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '61'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
-
-            foreach ($NavTopHFList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
-            }
-            View::assign('NavTopHFList',$NavTopHFList);
-
         }else{
             //X站banner轮播图 1        $XBannerList
             $XBannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
@@ -378,17 +392,7 @@ class Index extends BaseController
             }
             View::assign('XPopUpList',$XPopUpList);
 
-            //X站-顶部-文字九宫格 3            $XSudokuTextList
-            $XSudokuTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
-                ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '3'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
-            foreach ($XSudokuTextList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
-                $item['name'] = mbConvert($item['name']);
-                $item['icon'] = ["h","n","h","n"][mt_rand(0,3)];
-            }
-            View::assign('XSudokuTextList',$XSudokuTextList);
 
             //X站-中部-文字九宫格 58            $XRecommendTextList
             $XRecommendTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
@@ -414,28 +418,19 @@ class Index extends BaseController
             View::assign('XGuessTextList',$XGuessTextList);
 
 
-            //新-X站-顶部横幅-单个广告 63 $XTopHFList
-            $XTopHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
-                ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '61'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
-            foreach ($XTopHFList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
-            }
-            View::assign('XTopHFList',$XTopHFList);
-
-            //新-X站-中部横幅-单个广告 64 $NavTopHFList
+            //新-X站-中部横幅-单个广告 64 $XMiddleHFList
             $XMiddleHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '61'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+                ->where(['pid' => '64'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XMiddleHFList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
             }
             View::assign('XMiddleHFList',$XMiddleHFList);
 
-            //新-X站-底部横幅-单个广告 65 $NavTopHFList
+            //新-X站-底部横幅-单个广告 65 $XBottomHFList
             $XBottomHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '61'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+                ->where(['pid' => '65'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XBottomHFList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
             }
