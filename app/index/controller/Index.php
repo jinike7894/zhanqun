@@ -510,6 +510,18 @@ class Index extends BaseController
                 }
             }
             View::assign('XVideoBottomHFList',$XVideoBottomHFList);
+
+
+            //X站-顶部-文字九宫格 72 $XTopTextList
+            $XTopTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '72'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+            foreach ($XTopTextList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                $item['name'] = mbConvert($item['name']);
+            }
+            View::assign('XTopTextList',$XTopTextList);
+
         }
     }
 	public function nav($channel = 0)
