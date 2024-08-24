@@ -59,7 +59,7 @@ class Index extends BaseController
         }
         View::assign('XTopHFList',$XTopHFList);
         //全站广告结束
-        if($action == 'index' || $action == 'hookup' || $action == 'livestreaming' || $action == 'drugstore'){
+        if($action == 'nav'){
             //导航-banner轮播图 10 $NavBannerList
             $NavBannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>1))
@@ -512,17 +512,14 @@ class Index extends BaseController
             View::assign('XVideoBottomHFList',$XVideoBottomHFList);
         }
     }
-	public function index($channel = 0)
+	public function nav($channel = 0)
 	{
 		$menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
-        $ip = GetIP();
-//        $location = get_location($ip);
 		View::assign('menulist',$menulist);
         View::assign('channel',$channel);
-//        View::assign('location',$location);
 		if(ismobile())
 		{
 			return View::fetch('index_mobile');
@@ -531,7 +528,7 @@ class Index extends BaseController
 		}
 	}
 
-    public function featured($channel = 0)
+    public function index($channel = 0)
     {
         $menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item){
@@ -705,55 +702,8 @@ class Index extends BaseController
         header('Content-type: application/json');
         return json_encode($res);
     }
-
-    public function livestreaming($channel = 0)
-    {
-        View::assign('channel',$channel);
-        return View::fetch('livestreaming_mobile');
-    }
-
-    public function hookup($channel = 0)
-    {
-        View::assign('channel',$channel);
-        return View::fetch('hookup_mobile');
-    }
-
-    public function girl($channel = 0)
-    {
-        View::assign('channel',$channel);
-        return View::fetch('girl_mobile');
-    }
-
-    public function drugstore($channel = 0)
-    {
-        View::assign('channel',$channel);
-        return View::fetch('drugstore_mobile');
-    }
-
-
-    public function drug($channel = 0)
-    {
-        View::assign('channel',$channel);
-        return View::fetch('drug_mobile');
-    }
-
     public function test()
     {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
         /*$data = file_get_contents('./upload/20230724/44a47c7f8ad1e6783708f42132f1a4b6.gif');

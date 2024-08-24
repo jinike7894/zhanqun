@@ -28,20 +28,7 @@ Route::get('/search/:channel','index/search')->pattern(['channel' => '\d+(_\d+)?
 
 Route::get('/vod/:channel','index/vod')->pattern(['channel' => '\d+(_\d+)?$']);
 
-
-Route::get('/livestreaming/:channel','index/livestreaming')->pattern(['channel' => '\d+(_\d+)?$']);
-
-
-Route::get('/hookup/:channel','index/hookup')->pattern(['channel' => '\d+(_\d+)?$']);
-
-Route::get('/girl/:channel','index/girl')->pattern(['channel' => '\d+(_\d+)?$']);
-
-
-Route::get('/drugstore/:channel','index/drugstore')->pattern(['channel' => '\d+(_\d+)?$']);
-
-
-Route::get('/drug/:channel','index/drug')->pattern(['channel' => '\d+(_\d+)?$']);
-
+Route::get('/nav/:channel','index/nav')->pattern(['channel' => '\d+(_\d+)?$']);
 
 Route::get('/featured/:channel','index/featured')->pattern(['channel' => '\d+(_\d+)?$']);
 
