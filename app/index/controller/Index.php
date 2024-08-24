@@ -438,7 +438,7 @@ class Index extends BaseController
             //X站-分类视频精选-顶部-文字九宫格 66 $XTopVideoTextList
             $XTopVideoTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '66'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+                ->where(['pid' => '66'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XTopVideoTextList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 $item['name'] = mbConvert($item['name']);
@@ -478,7 +478,7 @@ class Index extends BaseController
             //X站-分类视频精选-底部-文字九宫格 69 $XCateVideoBottomTextList
             $XCateVideoBottomTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '69'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+                ->where(['pid' => '69'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XCateVideoBottomTextList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 $item['name'] = mbConvert($item['name']);
@@ -489,7 +489,7 @@ class Index extends BaseController
             //X站-分类视频精选-底部-图片九宫格 70 $XCateVideoBottomSudokuList
             $XCateVideoBottomSudokuList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '70'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+                ->where(['pid' => '70'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XCateVideoBottomSudokuList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 if (strpos($item['img'], 'http') === false) {
@@ -515,7 +515,7 @@ class Index extends BaseController
             //X站-顶部-文字九宫格 72 $XTopTextList
             $XTopTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '72'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+                ->where(['pid' => '72'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XTopTextList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 $item['name'] = mbConvert($item['name']);
