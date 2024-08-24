@@ -421,18 +421,6 @@ class Index extends BaseController
             View::assign('XGuessTextList',$XGuessTextList);
 
 
-            //新-X站-中部横幅-单个广告 64 $XMiddleHFList
-            $XMiddleHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
-                ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '64'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
-            foreach ($XMiddleHFList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
-                if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
-                }
-            }
-            View::assign('XMiddleHFList',$XMiddleHFList);
-
             //新-X站-底部横幅-单个广告 65 $XBottomHFList
             $XBottomHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
