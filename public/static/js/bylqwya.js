@@ -311,7 +311,7 @@ $(document).ready(
             })
         }
         let videoPages = {}
-        $('.change-video').click(function (res) {
+        function changeVideo() {
             let eleClass = `.${$(this).attr('data-class')}`
             let category_id = $(this).attr('data-id')
             let page = videoPages[eleClass] || 2
@@ -340,7 +340,9 @@ $(document).ready(
             },
             )
             
-        })
+        }
+        $('.more-video-btn').click(changeVideo)
+        $('.change-video').click(changeVideo)
     }
 
 )

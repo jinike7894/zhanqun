@@ -120,7 +120,7 @@
                 </div>
              </div>
             {volist name='XVideoBottomHFList' id="XTopHF"}
-            <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url']}" target="_blank">
+            <a class="hf-ad px0" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url']}" target="_blank">
                 <img class="hf-ad-img lozad"
                      data-src="{$XTopHF['img']}"
                      src="__IMAGES__/loading_img_bg_default.jpg" alt="">
@@ -128,10 +128,10 @@
             {/volist}
             <div class="item-title-box">
                 <div class="title-name">猜你喜欢</div>
-                {volist name='XGuessTextList' id="XGuessText"}
-                <a class="p-card-txt" href="{$XGuessText['url']}" i="{$XGuessText['id']}"
-                    target="_blank">{$XGuessText['name'] | raw}</a>
-                {/volist}
+                <div class="title-ad-wrap"> 
+                    <a href=""  i="" href="" target="_blank">1111</a>
+                    <a href=""  i="" href="" target="_blank">222</a>
+                </div>
             </div>
             <div class="ran-box pb10" style="padding: 10px 0px !important">
                 {volist name="guesslist" id="guess"}
@@ -154,9 +154,15 @@
                     </a>
                 </div>
                 {/volist}
+                <a rel="external nofollow" i="" href="" target="_blank">
+                    <img class="lozad pre-img"
+                         data-src=""
+                         src="__IMAGES__/loading_img_bg_default.jpg">
+                    <div class="rank-title">222222</div>
+                  </a>
             </div>
             {volist name='XBottomHFList' id="XTopHF"}
-            <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url']}" target="_blank">
+            <a class="hf-ad px0" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url']}" target="_blank">
                 <img class="hf-ad-img lozad"
                      data-src="{$XTopHF['img']}"
                      src="__IMAGES__/loading_img_bg_default.jpg" alt="">

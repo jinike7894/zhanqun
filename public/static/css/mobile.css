@@ -61,7 +61,8 @@ body {
     top: 0;
     z-index: 10;
     background-color: #1f1f1f;
-    padding-bottom: .1rem;
+    margin-bottom: .1rem;
+    padding-bottom: 5px;
 }
 
 .logo-box {
@@ -137,7 +138,7 @@ body {
 .top-nav {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: .08rem;
+    gap: 4px;
     padding: 0 .24rem;
 }
 
@@ -492,6 +493,9 @@ a:hover {
 
 .v-s-ul-category-tag {
     font-size: .32rem !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .rank-a {
@@ -754,6 +758,28 @@ a:hover {
     padding: 0.24rem;
 
 }
+.fic{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.video-title-wrap {
+    flex: 1;
+}
+.title-ad-wrap{
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+.title-ad-wrap a{
+    border-radius: 44px;
+    color:  #F52E70;
+    border: 1px solid #F52E70;
+    padding: 0 10px;
+    margin-right: 5px;
+    height: .44rem;
+    line-height: .36rem;
+}
 
 .video-title-wrap,
 .live-title-wrap,
@@ -842,7 +868,7 @@ a:hover {
 }
 
 .ad-g-list {
-    padding: .24rem 0;
+    padding-bottom: 10px;
 }
 
 .video-g-wrap .hf-ad {
@@ -857,7 +883,7 @@ a:hover {
 .more-video-btn {
     padding: .24rem;
     padding-top: .04rem;
-    display: block;
+    padding-bottom: 0;
 }
 
 .more-video-btn div {
@@ -866,7 +892,6 @@ a:hover {
     border-radius: 1.04rem;
     height: .56rem;
     line-height: .56rem;
-    display: block;
     text-align: center;
     color: #FFFFFF80;
 
@@ -1200,11 +1225,13 @@ a:hover {
     /* margin-top: .1rem; */
     display: flex;
     align-items: center;
+    justify-content: space-between;
+
     font-size: .32rem;
     /* padding-top: .2rem; */
 }
 .title-name{
-
+    flex: 1;
 }
 
 .p-screen-dialog {
