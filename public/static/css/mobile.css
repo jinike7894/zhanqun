@@ -515,7 +515,7 @@ a:hover {
     left: 0;
     color: #fff;
     font-size: .24rem;
-    background-color: rgba(27, 28, 32, .4);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
     padding: 0 .32rem;
 }
 
@@ -880,9 +880,12 @@ a:hover {
     padding-left: 0;
     padding-right: 0;
 }
-
+.first-video-wrap {
+    padding-bottom: .24rem;
+}
 .video-g-wrap .textad {
-    padding: .24rem 0;
+    padding-bottom: .24rem;
+    padding-top: 0;
 }
 
 .more-video-btn {
