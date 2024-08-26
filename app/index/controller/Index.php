@@ -315,34 +315,6 @@ class Index extends BaseController
             }
             View::assign('XSudokuList',$XSudokuList);
 
-            //X站-列表页-插入广告 4 $XVideoListInsertList
-            $XVideoListInsertList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
-                ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '4'])->order('sort asc,id asc')->page(1, 2)->cache(1200)->select();
-
-            foreach ($XVideoListInsertList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
-                if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
-                }
-                $item['name'] = mbConvert($item['name']);
-            }
-            View::assign('XVideoListInsertList',$XVideoListInsertList);
-
-            //X站-猜你喜欢列表页-插入广告 5 $XGuessVideoInsertList
-            $XGuessVideoInsertList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
-                ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '5'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
-
-            foreach ($XGuessVideoInsertList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
-                if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
-                }
-                $item['name'] = mbConvert($item['name']);
-            }
-            View::assign('XGuessVideoInsertList',$XGuessVideoInsertList);
-
             //X站-播放页-贴片 6      $XPlayVideoPatch
             $XPlayVideoPatch = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
@@ -521,6 +493,30 @@ class Index extends BaseController
                 $item['name'] = mbConvert($item['name']);
             }
             View::assign('XTopTextList',$XTopTextList);
+
+            //X站-分类/搜索/猜你喜欢-标题右侧-文字广告  73 $XCategoryTitleTextList
+            $XCategoryTitleTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '72'])->order('sort asc,id asc')->page(1, 3)->cache(1200)->select();
+            foreach ($XCategoryTitleTextList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                $item['name'] = mbConvert($item['name']);
+            }
+            View::assign('XCategoryTitleTextList',$XCategoryTitleTextList);
+
+            //X站-分类/搜索/猜你喜欢-视频列表-封面广告 74 $XCategoryVideoListInsertList
+            $XCategoryVideoListInsertList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '4'])->order('sort asc,id asc')->page(1, 2)->cache(1200)->select();
+
+            foreach ($XCategoryVideoListInsertList as $key => &$item) {
+                $item['url'] = $item['androidurl'];
+                if (strpos($item['img'], 'http') === false) {
+                    $item['img'] = replaceAdCdn($item['img']);
+                }
+                $item['name'] = mbConvert($item['name']);
+            }
+            View::assign('XCategoryVideoListInsertList',$XCategoryVideoListInsertList);
 
         }
     }

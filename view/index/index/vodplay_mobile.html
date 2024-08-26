@@ -128,13 +128,24 @@
             {/volist}
             <div class="item-title-box">
                 <div class="title-name">猜你喜欢</div>
-                <div class="title-ad-wrap"> 
-                    <a href=""  i="" href="" target="_blank">1111</a>
-                    <a href=""  i="" href="" target="_blank">222</a>
+                <div class="title-ad-wrap">
+                    {volist name='XCategoryTitleTextList' id="XSudokuText"}
+                    <a i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">{$XSudokuText['name'] | raw}</a>
+                    {/volist}
                 </div>
             </div>
             <div class="ran-box pb10" style="padding: 10px 0px !important">
                 {volist name="guesslist" id="guess"}
+                    {eq name="($key+1)%6" value="0"}
+                        {volist name="XCategoryVideoListInsertList" id="XCategoryVideoListInsert"}
+                        <a rel="external nofollow" i="{$XCategoryVideoListInsert['id']}" href="{$XCategoryVideoListInsert['href']}" target="_blank">
+                            <img class="lozad pre-img"
+                                 data-src="{$XCategoryVideoListInsert['img']}"
+                                 src="__IMAGES__/loading_img_bg_default.jpg">
+                            <div class="rank-title">{$XCategoryVideoListInsert['name'] | raw}</div>
+                        </a>
+                        {/volist}
+                    {/eq}
                 <div class="vs_62ca87c33e224e7846e26d5c7a641599-item-vide-n">
                     <div class="rank-a relative" data-vid="{$guess['id']}" data-sl="{$guess['video']}"
                         data-href="/videoplay/{$channel}.html?category_id={$category_id}&category_child_id={$category_child_id}&vid={$guess['id']}">
@@ -154,12 +165,6 @@
                     </a>
                 </div>
                 {/volist}
-                <a rel="external nofollow" i="" href="" target="_blank">
-                    <img class="lozad pre-img"
-                         data-src=""
-                         src="__IMAGES__/loading_img_bg_default.jpg">
-                    <div class="rank-title">222222</div>
-                  </a>
             </div>
             {volist name='XBottomHFList' id="XTopHF"}
             <a class="hf-ad px0" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url']}" target="_blank">
