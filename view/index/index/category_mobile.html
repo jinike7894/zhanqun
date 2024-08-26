@@ -82,7 +82,7 @@
               <span class="video-title-text">{$category_name}</span>
             </div>
             <div class="title-ad-wrap">
-                {volist name='XTopTextList' id="XSudokuText"}
+                {volist name='XCategoryTitleTextList' id="XSudokuText"}
                 <a i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">{$XSudokuText['name'] | raw}</a>
                 {/volist}
             </div>

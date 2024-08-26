@@ -497,7 +497,7 @@ class Index extends BaseController
             //X站-分类/搜索/猜你喜欢-标题右侧-文字广告  73 $XCategoryTitleTextList
             $XCategoryTitleTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '72'])->order('sort asc,id asc')->page(1, 3)->cache(1200)->select();
+                ->where(['pid' => '73'])->order('sort asc,id asc')->page(1, 3)->cache(1200)->select();
             foreach ($XCategoryTitleTextList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
                 $item['name'] = mbConvert($item['name']);
@@ -507,7 +507,7 @@ class Index extends BaseController
             //X站-分类/搜索/猜你喜欢-视频列表-封面广告 74 $XCategoryVideoListInsertList
             $XCategoryVideoListInsertList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
                 ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '4'])->order('sort asc,id asc')->page(1, 2)->cache(1200)->select();
+                ->where(['pid' => '74'])->order('sort asc,id asc')->page(1, 2)->cache(1200)->select();
 
             foreach ($XCategoryVideoListInsertList as $key => &$item) {
                 $item['url'] = $item['androidurl'];
