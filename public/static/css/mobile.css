@@ -771,6 +771,7 @@ a:hover {
     flex: 0 1 auto;
     align-items: center;
     width: 3.8rem;
+    justify-content: flex-end;
 }
 .title-ad-wrap a{
     border-radius: 44px;
