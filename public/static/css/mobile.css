@@ -85,7 +85,7 @@ body {
 }
 
 .v-s-logo img {
-    max-width: 1.96rem;
+    max-width: 2.24rem;
     height: .6rem;
 }
 
@@ -784,6 +784,7 @@ a:hover {
      text-overflow: ellipsis;
      overflow: hidden;
      white-space: nowrap;
+     justify-content: flex-end;
 }
 
 .video-title-wrap,

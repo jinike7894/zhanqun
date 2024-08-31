@@ -47,7 +47,7 @@
     let qrEl = document.body.querySelector(".s-window-tips .qr-box");
     try {
       new QRCode(qrEl, {
-        text: location.origin + '/{$channel}.html',
+        text: $('.url-ele').text(),
         width: 128,
         height: 128,
         colorDark: "#000000",
@@ -88,7 +88,7 @@
     let qrEl = document.body.querySelector(".dialog2-wrap .dialog2-qr");
     try {
       new QRCode(qrEl, {
-        text: location.origin + '/{$channel}.html',
+        text: $('.url-ele').text(),
         width: 82,
         height: 82,
         colorDark: "#000000",
@@ -155,10 +155,12 @@
     padding: .24rem;
     padding-bottom: .2rem;
     display: flex;
+    justify-content: space-between;
   }
 
   .dialog2-url {
-    padding-right: .96rem;
+    /* padding-right: .96rem; */
+    max-width: 2.4rem;
   }
 
   .url-text {
@@ -169,6 +171,7 @@
     color: #CB0808;
     font-size: .28rem;
     margin-top: .06rem;
+    word-break:break-all; 
   }
 
   .dialog2-qr {
