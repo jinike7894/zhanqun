@@ -58,6 +58,21 @@ class Index extends BaseController
             }
         }
         View::assign('XTopHFList',$XTopHFList);
+
+
+        //X站弹窗位 9                 $XPopUpList
+        $XPopUpList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            ->where(array('status'=>1,'is_banner'=>0))
+            ->where(['pid' => '9'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
+
+        foreach ($XPopUpList as $key => &$item) {
+            $item['url'] = $item['androidurl'];
+            if (strpos($item['img'], 'http') === false) {
+                $item['img'] = replaceAdCdn($item['img']);
+            }
+        }
+        View::assign('XPopUpList',$XPopUpList);
+
         //全站广告结束
         if($action == 'nav'){
             //导航-banner轮播图 10 $NavBannerList
@@ -367,20 +382,6 @@ class Index extends BaseController
                 }
             }
             View::assign('XFloating',$XFloating);
-
-            //X站弹窗位 9                 $XPopUpList
-            $XPopUpList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
-                ->where(array('status'=>1,'is_banner'=>0))
-                ->where(['pid' => '9'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
-
-            foreach ($XPopUpList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
-                if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
-                }
-            }
-            View::assign('XPopUpList',$XPopUpList);
-
 
 
             //X站-中部-文字九宫格 58            $XRecommendTextList

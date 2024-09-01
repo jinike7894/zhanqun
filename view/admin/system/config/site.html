@@ -79,6 +79,25 @@
         </div>
     </div>
 
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">推荐网址</label>
+        <div class="layui-input-block">
+            <input type="text" name="tuijianurl" class="layui-input" placeholder="请填写推荐网址" value="{:sysconfig('site','tuijianurl')}">
+            <tip>填写推荐网址。</tip>
+        </div>
+    </div>
+
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">备用网址</label>
+        <div class="layui-input-block">
+            <input type="text" name="beiyongurl" class="layui-input" placeholder="请填写备用网址" value="{:sysconfig('site','beiyongurl')}">
+            <tip>填写备用网址。</tip>
+        </div>
+    </div>
+
     <div class="hr-line"></div>
     <div class="layui-form-item text-center">
         <button type="submit" class="layui-btn layui-btn-normal layui-btn-sm" lay-submit="system.config/save" data-refresh="false">确认</button>
