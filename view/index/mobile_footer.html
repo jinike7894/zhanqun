@@ -285,7 +285,6 @@
   */
   myDialog(
       [
-          {if $action != 'index'}
           {volist name='XPopUpList' id="XPopUp" key="index"}
           {
               url: '{$XPopUp['img']}',
@@ -293,7 +292,6 @@
               herf: '{$XPopUp['url']}'
           },
           {/volist}
-          {/if}
       ]
   )
  
