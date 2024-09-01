@@ -149,7 +149,7 @@ function downloadApp() {
     }
 
 }
-function Dialog(list = []) {
+function myDialog(list = []) {
 
     function decode(data, key = '0x88') {
         let buffer = data;

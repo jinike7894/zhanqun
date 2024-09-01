@@ -265,20 +265,20 @@
 <!-- <script type="text/javascript" src="{$jscsscdn}__JS__/js-code1.txt"></script> -->
 {/if}
 <script>
-  $(document).ready(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-    $('[data-toggle="popover"]').popover();
-    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
-    observer.observe();
-  });
-  // sweetalert2弹窗配置
-  const SSwal = Swal.mixin({
-    confirmButtonColor: '#007bff',
-    cancelButtonColor: '#6c757d',
-    confirmButtonText: '确定',
-    cancelButtonText: '取消',
-    reverseButtons: true,
-  })
+  //弹窗
+  myDialog(
+      [
+          {if $action != 'index'}
+          {volist name='XPopUpList' id="XPopUp" key="index"}
+          {
+              url: '{$XPopUp['img']}',
+              id: {$XPopUp['id']},
+              herf: '{$XPopUp['url']}'
+          },
+          {/volist}
+          {/if}
+      ]
+  )
  
 </script>
 <!-- 禁开发者工具调试 -->
