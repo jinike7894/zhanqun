@@ -75,6 +75,7 @@
     }
   }
   (function () {
+    if (!/Android|iOS|iPhone|iPad/i.test(navigator.userAgent)) return
     let time = +window.localStorage.getItem('d2_time')
     let n_time = Date.now()
     let dialog2 = $('.dialog2-wrap')
@@ -244,6 +245,9 @@
 </style>
 <div class="x_tap_top" id="x_tap_top"><i class="bi bi-arrow-up"></i></div>
 <script>
+   if (!/Android|iOS|iPhone|iPad/i.test(navigator.userAgent)){
+     $('#x_tap_top').hide()
+   }
   $('#x_tap_top').on('click', function () {
     $('body, html').animate({
       scrollTop: 0,

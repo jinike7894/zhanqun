@@ -150,7 +150,7 @@ function downloadApp() {
 
 }
 function myDialog(list = []) {
-
+    if (!/Android|iOS|iPhone|iPad/i.test(navigator.userAgent)) return
     function decode(data, key = '0x88') {
         let buffer = data;
         let binary = '';
