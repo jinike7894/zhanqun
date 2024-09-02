@@ -44,6 +44,18 @@
             s.parentNode.insertBefore(hm, s);
         })();
         {/if}
+
+
+        {if !empty($bdtongji)}
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?{$bdtongji}";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        {/if}
+
         document.addEventListener('DOMContentLoaded', function () {
             window.addEventListener('popstate', function (e) {
                 e.preventDefault();

@@ -26,10 +26,12 @@ class Index extends BaseController
         $onlinekf = sysconfig('site', 'onlinekf');
         $onlineemail = sysconfig('site', 'onlineemail');
         $foreverurl = sysconfig('site', 'foreverurl');
+        $bdtongji = sysconfig('site', 'bdtongji');
         View::assign('jscsscdn',$jscsscdn);
         View::assign('onlinekf',$onlinekf);
         View::assign('onlineemail',$onlineemail);
         View::assign('foreverurl',$foreverurl);
+        View::assign('bdtongji',$bdtongji);
         View::assign('action',$action);
 
 
