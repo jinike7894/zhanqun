@@ -22,7 +22,7 @@
             </div>
             <div class="h-textad">
                 {volist name='XSudokuTextList' id="NavSudokuMiddleText"}
-                <a class="text-c-2" rel="external nofollow" i="{$NavSudokuMiddleText['id']}" href="{$NavSudokuMiddleText['url']}" target="_blank">
+                <a class="text-c-2" rel="external nofollow" i="{$NavSudokuMiddleText['id']}" href="{$NavSudokuMiddleText['url'] | raw}" target="_blank">
                     {$NavSudokuMiddleText['name'] | raw}
                 </a>
                 {/volist}
@@ -38,14 +38,16 @@
             <a href="/nav/{$channel}.html">
                 <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
             </a>
-            {volist name='menulist' id="menu"}
+            {volist name='menulist' id="menu" key="index"}
+            {if condition="$index > 1 && $index <=4"}
             <a href="/category/{$channel}.html?category_id={$menu['id']}">
                 <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item ">{$menu['title'] | raw}</div>
             </a>
+            {/if}
             {/volist}
         </div>
         {volist name='XTopHFList' id="NavTopHF"}
-        <a class="hf-ad" rel="external nofollow" i="{$NavTopHF['id']}" href="{$NavTopHF['url']}" target="_blank">
+        <a class="hf-ad" rel="external nofollow" i="{$NavTopHF['id']}" href="{$NavTopHF['url'] | raw}" target="_blank">
             <img class="hf-ad-img lozad"
                 data-src="{$NavTopHF['img']}"
                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
@@ -70,7 +72,7 @@
                         <div class="swiper-slide">
                             <div class="ad-conter">
                                 {volist name='NavHotSudokuList' id="NavHotSudoku"}
-                                <a rel="external nofollow" i="{$NavHotSudoku['id']}" href="{$NavHotSudoku['url']}"
+                                <a rel="external nofollow" i="{$NavHotSudoku['id']}" href="{$NavHotSudoku['url'] | raw}"
                                     target="_blank">
                                     <img class="lozad" data-src="{$NavHotSudoku['img']}"
                                         src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
@@ -88,7 +90,7 @@
                             </div>
                             <div class="live-g-1 live-wrap">
                                 {volist name='NavHotLiveList' id="NavHotLive" key="index"}
-                                <a i="{$NavHotLive['id']}" href="{$NavHotLive['url']}"
+                                <a i="{$NavHotLive['id']}" href="{$NavHotLive['url'] | raw}"
                                     target="_blank" class="live-item relative">
                                     <img class="hot-icon" src="__IMAGES__/hot-icon.svg" alt="" srcset="">
                                     <div class="center-icon">
@@ -122,7 +124,7 @@
                             </div>
                             <div class="friends-g-1 friends-wrap">
                                 {volist name='NavHotHookupList' id="NavHotHookup" key="index"}
-                                <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url']}" target="_blank" class="friends-item ">
+                                <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url'] | raw}" target="_blank" class="friends-item ">
                                 <div class="friends-item-left">
                                     <img class="friends-item-img lozad"
                                     data-src="{$NavHotHookup['img']}"
@@ -158,7 +160,7 @@
                         <div class="swiper-slide">
                             <div class="ad-conter">
                                 {volist name='NavCinemaSudokuList' id="NavCinemaSudoku"}
-                                <a rel="external nofollow" i="{$NavCinemaSudoku['id']}" href="{$NavCinemaSudoku['url']}"
+                                <a rel="external nofollow" i="{$NavCinemaSudoku['id']}" href="{$NavCinemaSudoku['url'] | raw}"
                                     target="_blank">
                                     <img class="lozad" data-src="{$NavCinemaSudoku['img']}"
                                         src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
@@ -176,7 +178,7 @@
                             </div>
                             <div class="live-g-2 live-wrap">
                                 {volist name='NavCinemaLiveList' id="NavHotLive" key="index"}
-                                <a i="{$NavHotLive['id']}" href="{$NavHotLive['url']}"
+                                <a i="{$NavHotLive['id']}" href="{$NavHotLive['url'] | raw}"
                                    target="_blank" class="live-item relative">
                                     <img class="hot-icon" src="__IMAGES__/hot-icon.svg" alt="" srcset="">
                                     <div class="center-icon">
@@ -209,7 +211,7 @@
                             </div>
                             <div class="friends-g-2 friends-wrap">
                                 {volist name='NavCinemaHookupList' id="NavHotHookup" key="index"}
-                                <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url']}" target="_blank" class="friends-item ">
+                                <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url'] | raw}" target="_blank" class="friends-item ">
                                     <div class="friends-item-left">
                                         <img class="friends-item-img lozad"
                                              data-src="{$NavHotHookup['img']}"
@@ -245,7 +247,7 @@
                         <div class="swiper-slide">
                             <div class="ad-conter">
                                 {volist name='NavBCSudokuList' id="NavBCSudoku"}
-                                <a rel="external nofollow" i="{$NavBCSudoku['id']}" href="{$NavBCSudoku['url']}"
+                                <a rel="external nofollow" i="{$NavBCSudoku['id']}" href="{$NavBCSudoku['url'] | raw}"
                                     target="_blank">
                                     <img class="lozad" data-src="{$NavBCSudoku['img']}"
                                         src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
@@ -262,7 +264,7 @@
                             </div>
                             <div class="live-g-3 live-wrap">
                                 {volist name='NavBCLiveList' id="NavHotLive" key="index"}
-                                <a i="{$NavHotLive['id']}" href="{$NavHotLive['url']}"
+                                <a i="{$NavHotLive['id']}" href="{$NavHotLive['url'] | raw}"
                                    target="_blank" class="live-item relative">
                                     <img class="hot-icon" src="__IMAGES__/hot-icon.svg" alt="" srcset="">
                                     <div class="center-icon">
@@ -296,7 +298,7 @@
                             </div>
                             <div class="friends-g-3 friends-wrap">
                                 {volist name='NavBCHookupList' id="NavHotHookup" key="index"}
-                                <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url']}" target="_blank" class="friends-item ">
+                                <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url'] | raw}" target="_blank" class="friends-item ">
                                     <div class="friends-item-left">
                                         <img class="friends-item-img lozad"
                                              data-src="{$NavHotHookup['img']}"

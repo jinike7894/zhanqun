@@ -23,7 +23,7 @@
       </div>
       <div class="h-textad">
         {volist name='XSudokuTextList' id="XSudokuText"}
-        <a class="text-c-2" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}"
+        <a class="text-c-2" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}"
           target="_blank">
           {$XSudokuText['name'] | raw}
         </a>
@@ -47,13 +47,13 @@
       {/volist}
     </div>
     {volist name='XTopHFList' id="XTopHF"}
-    <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url']}" target="_blank">
+    <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
       <img class="hf-ad-img lozad" data-src="{$XTopHF['img']}" src="__IMAGES__/loading_img_bg_default.jpg" alt="">
     </a>
     {/volist}
     <div class="ad-conter ">
       {volist name='XSudokuList' id="XSudoku"}
-      <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url']}" target="_blank">
+      <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url'] | raw}" target="_blank">
         <img class="lozad" data-src="{$XSudoku['img']}" src="__IMAGES__/loading_img_bg_default.jpg">
         <div>{$XSudoku['name'] | raw}</div>
       </a>
@@ -61,13 +61,13 @@
     </div>
     <div class="textad pb10">
       {volist name='XTopTextList' id="XSudokuText"}
-      <a class="text-c-2" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url']}" target="_blank">
+      <a class="text-c-2" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">
         {$XSudokuText['name'] | raw}
       </a>
       {/volist}
     </div>
     {volist name='XTopBannerHFList' id="XTopHF"}
-    <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url']}" target="_blank">
+    <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
       <img class="hf-ad-img lozad" data-src="{$XTopHF['img']}" src="__IMAGES__/loading_img_bg_default.jpg" alt="">
     </a>
     {/volist}
