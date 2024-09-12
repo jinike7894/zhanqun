@@ -226,7 +226,7 @@
 
 
   .x_tap_top {
-    display: block;
+    display: none;
     position: fixed;
     right: 10px;
     bottom: 200px;
@@ -245,9 +245,14 @@
 </style>
 <div class="x_tap_top" id="x_tap_top"><i class="bi bi-arrow-up"></i></div>
 <script>
-   if (!/Android|iOS|iPhone|iPad/i.test(navigator.userAgent)){
-     $('#x_tap_top').hide()
-   }
+  let wh = $(window).height()*0.7
+  $(document).scroll(function(e){
+    if($(this).scrollTop() > wh) {
+      $('#x_tap_top').show()
+    }else{
+      $('#x_tap_top').hide()
+    }
+   })
   $('#x_tap_top').on('click', function () {
     $('body, html').animate({
       scrollTop: 0,

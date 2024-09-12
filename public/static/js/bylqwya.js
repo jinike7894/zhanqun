@@ -166,7 +166,7 @@ function myDialog(list = []) {
     function getImg() {
         let time = +window.localStorage.getItem('d_time')
         let n_time = Date.now()
-        if (time && (n_time - +time) < 30 * 60 * 1000) return
+        if (time && (n_time - +time) < 10 * 60 * 1000) return
         if (!list.length) return
         if (list.length == 1) {
             window.localStorage.setItem('d_time', String(n_time))
@@ -191,7 +191,7 @@ function myDialog(list = []) {
         <a class="dialog-img" href="${herf}" i='${id}' target='_blank'>
             <img src="${_src}" alt="">
         </a>
-        <div class="s-loading-circular "><i class="bi bi-x-lg"></i></div>
+        <div class="s-loading-circular"><i class="bi bi-x-lg"></i></div>
     </div>
 </div>`
         $('body').append(temp)
