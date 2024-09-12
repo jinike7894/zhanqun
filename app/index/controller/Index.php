@@ -559,19 +559,19 @@ class Index extends BaseController
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
-        $newlist = $this->MallVideos->getorderlist('sort desc,create_time desc,id desc',6);
-        $pxlist = $this->MallVideos->getorderlist('eye desc,id desc',6);
-        $yuanclist = $this->MallVideos->getlist(40,0,1,6);
+        $newlist = $this->MallVideos->getlist(40,0,1,6);
+        $pxlist = $this->MallVideos->getlist(12,0,1,6);
+        $yuanclist = $this->MallVideos->getlist(11,0,1,6);
         $chigualist = $this->MallVideos->getlist(1,0,1,6);
-        $guochanlist = $this->MallVideos->getlist(2,0,1,6);
+        $guochanlist = $this->MallVideos->getlist(14,0,1,6);
         $rihanlist = $this->MallVideos->getlist(3,0,1,6);
         $oumeilist = $this->MallVideos->getlist(4,0,1,6);
         $dongmanlist = $this->MallVideos->getlist(5,0,1,6);
         $ailist = $this->MallVideos->getlist(6,0,1,6);
         $jieshuolist = $this->MallVideos->getlist(8,0,1,6);
         View::assign('menulist',$menulist);
-        View::assign('newlist',$newlist);
-        View::assign('pxlist',$pxlist);
+        View::assign('newlist',$newlist['list']);
+        View::assign('pxlist',$pxlist['list']);
         View::assign('yuanclist',$yuanclist['list']);
         View::assign('chigualist',$chigualist['list']);
         View::assign('guochanlist',$guochanlist['list']);

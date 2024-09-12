@@ -32,7 +32,7 @@ class MallVideos extends TimeModel
 		{
 			$map[] = ['cate_id','=',$category_child_id];
 			$map[] = ['status', '=', 1];
-			$list=$this->where($map)->order('sort desc,id desc')->cache(600)->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
+			$list=$this->where($map)->order('sort desc')->cache(600)->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
 		}else{
 			$map[] = ['pid','=',$category_id];
 			$map[] = ['status', '=', 1];
@@ -43,7 +43,7 @@ class MallVideos extends TimeModel
 			$ids = implode(',',$ids);
 			$map1[] = ['cate_id','in',$ids];
 			$map1[] = ['status', '=', 1];
-			$list=$this->where($map1)->order('sort desc,id desc')->cache(600)->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
+			$list=$this->where($map1)->order('sort desc')->cache(600)->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
 		}		
 		$page = $list->render();
         foreach ($list as &$item){

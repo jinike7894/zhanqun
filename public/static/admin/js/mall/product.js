@@ -33,16 +33,13 @@ define(["jquery", "easy-admin", "vue"], function ($, ea,Vue) {
                 cols: [[
                     {type: "checkbox"},
                     {field: 'id', width: 80, title: 'ID'},
-                    {field: 'title', minWidth: 110, title: '分类',search:'select',selectList:{'name':'/gladmin/mall.type/getptype'},fieldAlias:'pid',dong:true},
-                    {field: 'cate_title', minWidth: 110, title: '类别',search:'select',selectList:{'name':'/gladmin/mall.category/getpcate'},fieldAlias:'cid',dong:true, sort: true},
-                    {field: 'sort', minWidth: 155, title: '排序(越小越靠前)', edit: 'int',search: false,sort:true},
-                    {field: 'name', minWidth: 120, title: '外显名称', edit: 'textarea',sort:true},
-                    {field: 'k_name', minWidth: 120, title: '客户名称', edit: 'text',sort:true},
-                    {field: 'due_date', minWidth: 120, title: '到期日期', search: false},
-                    {field: 'img', minWidth: 100, title: '产品图片', search: false, templet: ea.table.image},
-                    {field: 'androidurl', minWidth: 150, title: '产品链接', edit: 'text',sort:true},
-                    {field: 'downnum', minWidth: 150, title: '下载次数', edit: 'int', search: false},
-                    {field: 'slogan', minWidth: 150, title: '简介', edit: 'text'},
+                    {field: 'title', width: 180, title: '分类',search:'select',selectList:{'name':'/gladmin/mall.type/getptype'},fieldAlias:'pid',dong:true},
+                    {field: 'cate_title', width: 80, title: '类别',search:'select',selectList:{'name':'/gladmin/mall.category/getpcate'},fieldAlias:'cid',dong:true, sort: true},
+                    {field: 'sort', width: 80, title: '排序(小靠前)', edit: 'int',search: false,sort:true},
+                    {field: 'name', width: 120, title: '外显名称', edit: 'textarea',sort:true},
+                    {field: 'k_name', width: 120, title: '客户名称', edit: 'text',sort:true},
+                    {field: 'img', width: 180, title: '产品图片', search: false, templet: ea.table.image},
+                    {field: 'androidurl', width: 180, title: '产品链接', edit: 'text',sort:true},
                     {field: 'status', filter:'status1', title: '暂停', width: 85, search: false, templet: ea.table.switch,
                         switchfunc: function(res) {
                             var data = {
@@ -67,7 +64,7 @@ define(["jquery", "easy-admin", "vue"], function ($, ea,Vue) {
                     },
                     {field: 'status', title: '状态', width: 85, search: 'select', selectList: {0: '禁用', 1: '启用',2: '暂停'}, templet: ea.table.switch},
                     {
-                        width: 190,
+                        width: 170,
                         title: '操作',
                         templet: ea.table.tool,
                         fixed: 'right',
