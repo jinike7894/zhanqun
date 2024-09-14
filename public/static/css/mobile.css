@@ -770,21 +770,22 @@ a:hover {
     flex: 0 1 auto;
     align-items: center;
     width: 3.8rem;
-    justify-content: flex-end;
+    justify-content: space-between;
 }
 .title-ad-wrap a{
-    border-radius: 44px;
+    border-radius: .44rem;
     color:  #F52E70;
     border: 1px solid #F52E70;
     padding: 0 4px;
-    margin-right: 5px;
     height: .44rem;
     line-height: .36rem;
-    font-size: 10px;
+    font-size: .24rem;
+    font-weight: 600;
+    max-width: 1.2rem;
      text-overflow: ellipsis;
      overflow: hidden;
      white-space: nowrap;
-     justify-content: flex-end;
+     flex: 0 0 auto;
 }
 
 .video-title-wrap,
