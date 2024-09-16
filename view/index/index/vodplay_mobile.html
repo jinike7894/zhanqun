@@ -99,6 +99,11 @@
 
         <div class="p12 pt0">
             <div class="video-title">{$vodlist['title'] | raw}</div>
+            <div class="d-collect-wrap">
+                本站永久域名<span class="d-url">mf969.com</span> <span class="copy-btn d-btn">复制</span>保存官方邮箱随时获取最新备用地址 永不失联
+             <span class="d-emall">yuanfang52013@gmail.com</span>
+             <span class="d-collect  d-btn">点击收藏</span>
+            </div>
             <input id="copyUrl1" value="" style="opacity: 0;">
             <iframe id="" style="width: 100%; height: 35vh; overflow: hidden;"
                 src="/vod/{$channel}.html" frameborder="0"></iframe>
@@ -343,6 +348,9 @@
          </style>
         <script>
             (function(){
+                $('.copy-btn').click(function(){
+                      copy($('.d-url').text())
+                })
                let  href = window.location.href
                $('.share-url').html(href)
                let qrEl = document.body.querySelector(".share-dialog .qr-wrap");

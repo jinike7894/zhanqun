@@ -1520,3 +1520,23 @@ a:hover {
     padding: 0 .4rem;
     font-size: .24rem;
 }
+.d-collect-wrap{
+    background-color: #392B2B;
+    border-radius: 8px;
+    padding: 8px;
+    line-height: 17px;
+    font-weight: 400;
+    font-size: .24rem;
+}
+.d-url,.d-emall {
+    color: #FF3773;
+    font-weight: 600;
+    padding: 0 4px;
+}
+.d-btn {
+    color: #FFCA94;
+    text-decoration: underline;
+}
+.copy-btn {
+    padding-right: 4px;
+}

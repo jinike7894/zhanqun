@@ -82,6 +82,9 @@
     $('.left-img').click(function(){
       dialog2.removeClass('hidden')
     })
+    $('.d-collect').click(function(){
+      dialog2.removeClass('hidden')
+    })
     if(!time || !((n_time- +time ) < 30*60*1000)){
       dialog2.removeClass('hidden')
       window.localStorage.setItem('d2_time',String(n_time))
