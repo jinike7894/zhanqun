@@ -555,6 +555,9 @@ class Index extends BaseController
 
     public function index($channel = 0)
     {
+        if(empty($channel)){
+            return response('403 access forbidden!', 403);
+        }
         $menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);

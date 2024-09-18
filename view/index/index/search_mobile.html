@@ -90,7 +90,7 @@
             {volist name="videolist" id="video"}
                 {eq name="($key+1)%6" value="0"}
                     {volist name="XCategoryVideoListInsertList" id="XCategoryVideoListInsert"}
-                    <a rel="external nofollow" i="{$XCategoryVideoListInsert['id']}" href="{$XCategoryVideoListInsert['href']}" target="_blank">
+                    <a rel="external nofollow" i="{$XCategoryVideoListInsert['id']}" href="{$XCategoryVideoListInsert['url']}" target="_blank">
                         <img class="lozad pre-img"
                              data-src="{$XCategoryVideoListInsert['img']}"
                              src="__IMAGES__/loading_img_bg_default.jpg">
