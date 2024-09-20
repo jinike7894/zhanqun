@@ -412,15 +412,15 @@ a:hover {
 
 .ad-conter {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     row-gap: .1rem;
     column-gap: .36rem;
     padding: 0 .24rem .24rem;
 }
 
 .ad-conter img {
-    width: 1.14rem;
-    height: 1.14rem;
+    width: 1.04rem;
+    height: 1.04rem;
     border-radius: .08rem;
 }
 
