@@ -50,7 +50,9 @@ body {
 .is-load .d-load-btn {
     display: block;
 }
-
+img {
+    object-fit: cover;
+}
 .v-s-nav-box-h {
     width: 100%;
     /* background-image: url('/static/images/hader-bg1.svg'); */
