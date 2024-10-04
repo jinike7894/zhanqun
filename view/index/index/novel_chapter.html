@@ -1,0 +1,142 @@
+{include file="mobile_header" /}
+<title>人气榜</title>
+<link rel="stylesheet" type="text/css" href="__CSS__/styles.css" />
+</head>
+
+<body>
+    <!-- 人气榜 -->
+    <div id="page">
+        <div style="width: 100%;position: fixed;background: #000;top: 0;">
+            <!-- 返回栏 -->
+            <div class="nav">
+                <div class="left">
+                    <img class="leftBtn" src="__IMAGES__/btn_left.svg" />
+                    <div class="leftName">小说阅读</div>
+                </div>
+                <div class="right">
+                    <a href="http://google.com" class="rightBtn">棋牌游戏</a>
+                    <a href="http://google.com" class="rightBtn">强奸迷奸</a>
+                    <a href="http://google.com" class="rightBtn">偷拍自拍</a>
+                </div>
+            </div>
+
+        </div>
+        <a href="http://google.com"><img style="margin-top:50px ;" class="banner" src="__IMAGES__/banner.png" /></a>
+
+        <div class="contentBox">
+
+
+            <!-- 小说标题 -->
+            <div>
+                <!-- 标题 -->
+                <div class="readTitle">{$chapter['name'] | raw}</div>
+
+                    {$chapter['content'] | raw}
+            </div>
+            <a href="http://google.com"><img class="banner" src="__IMAGES__/banner.png" /></a>
+
+
+
+            <!-- 分页 -->
+
+
+
+        </div>
+
+        <!-- 导航栏 -->
+        <div class="lableList paddingRead" style="margin: 10px;">
+            <a href="#" class="lable flex">
+                <img src="__IMAGES__/return.svg" style="margin-top: 3px;" /><span style="margin-left: 5px;">返回</span>
+            </a>
+            <div class="lable flex" id="mulvBtn"><img src="__IMAGES__/mulv.svg" /><span
+                    style="margin-left: 5px;">目录</span></div>
+            <a href="/novel/chapter/{$channel}.html?chapter_id={$pre['id']}" class="lable flex"><img src="__IMAGES__/chevron_Left.svg" /><span style="margin-left: 5px;">上一章</span>
+            </a>
+            <a href="/novel/chapter/{$channel}.html?chapter_id={$next['id']}" class="lable flex"><span>下一章</span><img src="__IMAGES__/right.svg"
+                    style="margin-left: 5px;margin-top: 1px;" /></a>
+        </div>
+    </div>
+
+    <!-- 弹窗 -->
+    <div class="popupRead">
+        <!-- 目录 -->
+        <div class="mulv">
+            <div class="mulvName">{$novel['title'] | raw}</div>
+            <div class="mulvTop">
+
+                <div class="mulvtext">目录—更新至1338章</div>
+                <div class="mulvRight">
+                    <img class="zhengxu" id="imgToChange" src="__IMAGES__/zhengxu.svg" />
+                    <div class="mulvRightText" id="textToChange">正序</div>
+                </div>
+            </div>
+            <div class="chooseMl">
+                <a href="#"><div class="choosePage">0-100</div></a>
+                <a href="#"><div class="choosePage">101-200</div></a>
+                <a href="#"><div class="choosePage">201-300</div></a>
+            </div>
+            <div class="mulvPz">
+                {volist name="cataloglist" id="index"}
+                <a  href="/novel/chapter/{$channel}.html?chapter_id={$index['id']}" class="pzList">
+                    <div {if condition='$chapter.id eq $index.id'} style="color:red"  {/if} class="pzLeft">{$index['name'] | raw}</div>
+                    <div class="pzRight">第<span style="color: #FFFFFF99;">{$index['id']}</span>{$index['chapter']}</div>
+                </a>
+                {/volist}
+            </div>
+
+        </div>
+
+
+    </div>
+    <div class="popupBack"></div>
+
+    <script>
+        $(document).on('click', 'selector', function (event) {
+            event.preventDefault();
+        });
+
+        $(document).ready(function () {
+            $('#mulvBtn').click(function () {
+                $('.popupRead').show();
+                $('.popupBack').show();
+            });
+        });
+        $(document).ready(function () {
+            $('.popupBack').click(function () {
+                $('.popupRead').hide();
+                $('.popupBack').hide();
+            });
+        });
+        $(document).ready(function () {
+            $('#mulvBtn').click(function () {
+                    
+            });
+        });
+        $(document).ready(function(){
+        //目录点击变亮
+        $(".choosePage").click(function(){
+            $(".choosePage").removeClass("choosePage_active");
+            $(this).addClass("choosePage_active");
+            var moveX = $(this).position().left+$(this).parent().scrollLeft();
+            var pageX = document.documentElement.clientWidth;
+            var blockWidth = $(this).width();
+            var left = moveX-(pageX/2)+(blockWidth/2);
+            $(".chooseMl").scrollLeft(left);
+        });
+          //点击正倒序
+        $('.mulvTop').click(function() {
+                var currentText = $('#textToChange').text();
+                if (currentText === "正序") {
+                    $('#textToChange').text("倒序");
+                    $('#imgToChange').attr('src', '__IMAGES__/daoxu.svg');
+                    
+                } else {
+                    $('#textToChange').text("正序");
+                    $('#imgToChange').attr('src', '__IMAGES__/zhengxu.svg');
+                }
+            });
+    });
+    </script>
+</body>
+
+</html>

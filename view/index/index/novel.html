@@ -1,0 +1,267 @@
+{include file="mobile_header" /}
+<title>人气榜</title>
+<link rel="stylesheet" type="text/css" href="__CSS__/styles.css" />
+</head>
+
+<body>
+    <div class="v-s-nav-box-h">
+        <div class="logo-box p9">
+            <div class="v-s-logo">
+                <a href="/{$channel}.html">
+                    <img src="__IMAGES__/logo.png">
+                </a>
+            </div>
+            <div class="v-s-nav-search-box">
+                <a href="/searchhome/{$channel}.html">
+                    <div class="search-person">
+                        <div class="s-text">&#20154;&#22971;</div>
+                        <i class="bi bi-search"></i>
+                    </div>
+                </a>
+                <img class="left-img" src="__IMAGES__/collect-btn.png" alt="" srcset="">
+            </div>
+        </div>
+        <div class="h-textad">
+            {volist name='XSudokuTextList' id="XSudokuText"}
+            <a class="text-c-1" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">
+                {$XSudokuText['name'] | raw}
+            </a>
+            {/volist}
+        </div>
+    </div>
+    <!-- 标题栏bp -->
+    <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav pb10">
+        <a href="/{$channel}.html">
+            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">
+                &#39318;&#39029;
+            </div>
+        </a>
+        <a href="/nav/{$channel}.html">
+            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
+        </a>
+        {volist name='menulist' id="menu"}
+        <a href="/category/{$channel}.html?category_id={$menu['id']}">
+            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item ">{$menu['title'] | raw}</div>
+        </a>
+        {/volist}
+    </div>
+    {volist name='XTopHFList' id="XTopHF"}
+    <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+        <img class="hf-ad-img lozad"
+             data-src="{$XTopHF['img']}"
+             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+    </a>
+    {/volist}
+    <div class="ad-conter ">
+        {volist name='XSudokuList' id="XSudoku"}
+        <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url'] | raw}" target="_blank">
+            <img class="lozad"
+                 data-src="{$XSudoku['img']}"
+                 src="__IMAGES__/loading_img_bg_default.jpg">
+            <div>{$XSudoku['name'] | raw}</div>
+        </a>
+        {/volist}
+    </div>
+    <div class="textad pb10">
+        {volist name='XTopTextList' id="XSudokuText"}
+        <a class="text-c-4" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">
+            {$XSudokuText['name'] | raw}
+        </a>
+        {/volist}
+    </div>
+    {volist name='XTopBannerHFList' id="XTopHF"}
+    <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+        <img class="hf-ad-img lozad"
+             data-src="{$XTopHF['img']}"
+             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+    </a>
+    {/volist}
+
+    <!-- 人气榜 -->
+    <div id="page">
+        <!-- 热门推荐 -->
+        <div class="nav">
+            <div class="left">
+                <img class="leftBtn" style="margin-right: 5px;" src="__IMAGES__/rectangle.svg" />
+                <div class="leftName">小说</div>
+            </div>
+            <div class="right">
+                <a class="rightBtn" href="http://google.com">棋牌游戏</a>
+                <a class="rightBtn" href="http://google.com">强奸迷奸</a>
+                <a class="rightBtn" href="http://google.com">偷拍自拍</a>
+
+            </div>
+        </div>
+
+        <div class="contentBox">
+            <div class="contentBoxName">
+                <div class="contentTxt">主编力荐</div>
+                <div class="dotBox">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dotChoose"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+
+
+            <div class="hotList">
+                {volist name="tjlist" id="index"}
+                <a href="/novel/detail/{$channel}.html?novel_id={$index['id']}" class="book">
+                    <div class="bookImg">
+                        <img style="width: 100%;height: 100%;" src="{$index['pic']}" />
+                        <img style="position: absolute;
+                        top: 0;
+                        left: 0;width: 26px;height: 16px;" src="__IMAGES__/wanjie.png" />
+                        <div class="bookReadNum">
+                            <div class="bookReadNumLeft">
+                                <img src="__IMAGES__/book_Open-W.svg" />
+                                <span>{$index['eye'] |qqw}</span>
+                            </div>
+                            <div class="bookReadNumLeft">
+                                <img src="__IMAGES__/star-w.svg" />
+                                <span>{$index['shoucang'] |qqw}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 5px;">
+                        <div class="bookName">{$index['title'] | raw}</div>
+                        <div class="bookNav">
+                            <span>#人妻</span>
+                            <span>#乱伦</span>
+                        </div>
+                    </div>
+                </a>
+                {/volist}
+            </div>
+
+            <!-- 导航栏 -->
+            <div class="lableList">
+                <a href="/novel/{$channel}.html?sort=1" class="lable">人气榜</a>
+                <a href="/novel/{$channel}.html?sort=2" class="lable">推荐榜</a>
+                <a href="/novel/{$channel}.html?sort=3" class="lable">收藏榜</a>
+                <a href="/novel/{$channel}.html?sort=4" class="lable">热搜榜</a>
+            </div>
+
+            <div class="homeBookBox">
+                {volist name="bdlist" id="index"}
+                <a  href="/novel/detail/{$channel}.html?novel_id={$index['id']}" class="homeBook">
+                    <div class="homeBookLeft">
+                        <img class="homeBookLeftCover" src="{$index['pic']}" />
+                        <img class="homeBookLeftWj" src="__IMAGES__/wanjie.png">
+                    </div>
+                    <div class="homeBookright">
+                        <div class="homeBookrightTitle" style="color: #FF3172;">{$index['title'] | raw}</div>
+                        <div class="homeBookrightNum" style="color: #FF3172;">
+                            <div class="homeBookrightNumDot" style="background: #FF1962;
+">1</div> 玄幻
+                        </div>
+                        <div class="homeBookreadNum">
+                            <div>{$index['eye'] |qqw}阅读</div>
+                            <div style="display: flex;align-items: center;">
+                                <div class="dotred"></div>2小时前
+                            </div>
+                        </div>
+
+                    </div>
+
+                </a>
+                {/volist}
+
+            </div>
+            <a href="/novel/rank/{$channel}.html"><div class="homeBookBtn">
+                点击查看 <span style="color: #F83E57;
+">人气榜</span> 全部内容
+            </div></a>
+            <div class="chooseMl" style="margin-top: 10px;">
+                {volist name="novelmenulist" id="index"}
+                <a href="/novel/{$channel}.html?cid={$index['id']}" class="choosePage">{$index['title'] | raw}</a>
+                {/volist}
+            </div>
+
+            <div class="hotList">
+                {volist name="fllist" id="index"}
+                <a  href="/novel/detail/{$channel}.html?novel_id={$index['id']}" class="book">
+                    <div class="bookImg">
+                        <img style="width: 100%;height: 100%;" src="{$index['pic']}" />
+                        <img style="position: absolute;
+                        top: 0;
+                        left: 0;width: 26px;height: 16px;" src="__IMAGES__/lianzai.png" />
+                        <div class="bookReadNum">
+                            <div class="bookReadNumLeft">
+                                <img src="__IMAGES__/book_Open-W.svg" />
+                                <span>{$index['eye'] |qqw}</span>
+                            </div>
+                            <div class="bookReadNumLeft">
+                                <img src="__IMAGES__/star-w.svg" />
+                                <span>{$index['shoucang'] |qqw}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 5px;">
+                        <div class="bookName">{$index['title'] | raw}</div>
+                        <div class="bookNav">
+                            <span>#人妻</span>
+                            <span>#乱伦</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;margin-top: 5px;">
+                            <div class="bookNum">共1566章</div>
+                            <div class="bookTime">
+                                <div class="dot"></div>2小时前
+                            </div>
+                        </div>
+                    </div>
+
+                </a>
+                {/volist}
+            </div>
+
+            <a href="/novel/category/{$channel}.html"><div class="homeBookBtn">
+            点击查看 <span style="color: #F83E57;
+">全部题材</span> 全部内容
+        </div></a>
+
+
+    </div>
+
+
+    </div>
+
+
+    </div>
+
+    <script>
+
+    </script>
+    {include file="mobile_footer"}
+</body>
+<script>
+
+    $(document).ready(function () {
+         //小说分类点击变亮
+         $(".lable").click(function () {
+            $(".lable").removeClass("lable_active");
+            $(this).addClass("lable_active");
+        });
+        //漫画分类点击变亮
+        $(".choosePage").click(function () {
+            $(".choosePage").removeClass("choosePage_active");
+            $(this).addClass("choosePage_active");
+        });
+        //点击正倒序
+        $('.mulvTop').click(function () {
+            var currentText = $('#textToChange').text();
+            if (currentText === "正序") {
+                $('#textToChange').text("倒序");
+                $('#imgToChange').attr('src', '__IMAGES__/daoxu.svg');
+
+            } else {
+                $('#textToChange').text("正序");
+                $('#imgToChange').attr('src', '__IMAGES__/zhengxu.svg');
+            }
+        });
+    });
+</script>
+
+</html>

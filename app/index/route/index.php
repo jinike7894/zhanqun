@@ -32,6 +32,26 @@ Route::get('/nav/:channel','index/nav')->pattern(['channel' => '\d+(_\d+)?$']);
 
 Route::get('/featured/:channel','index/featured')->pattern(['channel' => '\d+(_\d+)?$']);
 
+Route::get('/novel/:channel','index/novel')->pattern(['channel' => '\d+(_\d+)?$']);
+
+Route::get('/novel/rank/:channel','index/novel_rank')->pattern(['channel' => '\d+(_\d+)?$']);
+
+Route::get('/novel/category/:channel','index/novel_category')->pattern(['channel' => '\d+(_\d+)?$']);
+
+Route::get('/novel/detail/:channel','index/novel_detail')->pattern(['channel' => '\d+(_\d+)?$']);
+
+Route::get('/novel/chapter/:channel','index/novel_chapter')->pattern(['channel' => '\d+(_\d+)?$']);
+
+Route::get('/comic/:channel','index/comic')->pattern(['channel' => '\d+(_\d+)?$']);
+
+Route::get('/comic/rank/:channel','index/comic_rank')->pattern(['channel' => '\d+(_\d+)?$']);
+
+Route::get('/comic/category/:channel','index/comic_category')->pattern(['channel' => '\d+(_\d+)?$']);
+
+Route::get('/comic/detail/:channel','index/comic_detail')->pattern(['channel' => '\d+(_\d+)?$']);
+
+Route::get('/comic/reader/:channel','index/comic_reader')->pattern(['channel' => '\d+(_\d+)?$']);
+
 Route::get('/test/:channel','index/test')->pattern(['channel' => '\d+(_\d+)?$']);
 
 Route::post('/tongji','data/tongji');
