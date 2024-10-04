@@ -1,7 +1,12 @@
 {include file="mobile_header" /}
-<title>人气榜</title>
+<title>全部题材</title>
 <link rel="stylesheet" type="text/css" href="__CSS__/styles.css" />
 </head>
+<style>
+    body{
+       font-size:12px!important;
+    }
+</style>
 <body>
 
     <div class="v-s-nav-box-h">
@@ -82,10 +87,10 @@
     <div id="page">
         <!-- 返回栏 -->
         <div class="nav">
-            <div class="left">
+            <a href="/novel/{$channel}.html" class="left">
                 <img class="leftBtn" src="__IMAGES__/btn_left.svg" />
-                <div class="leftName">人气榜</div>
-            </div>
+                <div class="leftName">全部题材</div>
+            </a>
             <div class="right" >
                 <a href="http://google.com" class="rightBtn">棋牌游戏</a>
                 <a href="http://google.com" class="rightBtn">强奸迷奸</a>
@@ -196,7 +201,7 @@
                <div class="popupTxt">分类</div>
                <div class="popupLableBox">
                    {volist name="novelmenulist" id="index"}
-                   <div class="popupLable-author-text {if condition='$cid eq $index.id'} popupLable-author-text-active  {/if}">{$index['title'] | raw}</div>
+                   <a  href="/novel/category/1.html?cid={$index['id']}" class="popupLable-author-text {if condition='$cid eq $index.id'} popupLable-author-text-active  {/if}">{$index['title'] | raw}</a>
                    {/volist}
                </div>
            </div>

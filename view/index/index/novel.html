@@ -1,10 +1,10 @@
 {include file="mobile_header" /}
-<title>人气榜</title>
+<title>小说首页</title>
 <link rel="stylesheet" type="text/css" href="__CSS__/styles.css" />
 </head>
 
-<body>
-    <div class="v-s-nav-box-h">
+<body >
+    <div class="v-s-nav-box-h" style="font-size:12px!important;">
         <div class="logo-box p9">
             <div class="v-s-logo">
                 <a href="/{$channel}.html">
@@ -52,7 +52,7 @@
              src="__IMAGES__/loading_img_bg_default.jpg" alt="">
     </a>
     {/volist}
-    <div class="ad-conter ">
+    <div class="ad-conter " style="font-size:12px!important;">
         {volist name='XSudokuList' id="XSudoku"}
         <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url'] | raw}" target="_blank">
             <img class="lozad"

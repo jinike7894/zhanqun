@@ -1,7 +1,12 @@
 {include file="mobile_header" /}
-<title>人气榜</title>
+<title>排行榜</title>
 <link rel="stylesheet" type="text/css" href="__CSS__/styles.css" />
 </head>
+<style>
+    body{
+       font-size:12px!important;
+    }
+</style>
 <body>
 
     <div class="v-s-nav-box-h">
@@ -81,10 +86,10 @@
     <div id="page">
         <!-- 返回栏 -->
         <div class="nav">
-            <div class="left">
+            <a href="/novel/{$channel}.html" class="left">
                 <img class="leftBtn" src="__IMAGES__/btn_left.svg" />
-                <div class="leftName">人气榜</div>
-            </div>
+                <div class="leftName">排行榜</div>
+            </a>
             <div class="right">
                 <div class="rightBtn">棋牌游戏</div>
                 <div class="rightBtn">强奸迷奸</div>
@@ -96,10 +101,10 @@
         <div class="contentBox">
             <!-- 导航栏 -->
             <div class="lableList">
-                <a href="/novel/{$channel}.html?sort=1" class="lable {if condition='$sort eq 1'} lable_active  {/if}">人气榜</a>
-                <a href="/novel/{$channel}.html?sort=2" class="lable {if condition='$sort eq 2'} lable_active  {/if}">推荐榜</a>
-                <a href="/novel/{$channel}.html?sort=3" class="lable {if condition='$sort eq 3'} lable_active  {/if}">收藏榜</a>
-                <a href="/novel/{$channel}.html?sort=4" class="lable {if condition='$sort eq 4'} lable_active  {/if}">热搜榜</a>
+                <a href="/novel/rank/{$channel}.html?sort=1" class="lable {if condition='$sort eq 1'} lable_active  {/if}">人气榜</a>
+                <a href="/novel/rank/{$channel}.html?sort=2" class="lable {if condition='$sort eq 2'} lable_active  {/if}">推荐榜</a>
+                <a href="/novel/rank/{$channel}.html?sort=3" class="lable {if condition='$sort eq 3'} lable_active  {/if}">收藏榜</a>
+                <a href="/novel/rank/{$channel}.html?sort=4" class="lable {if condition='$sort eq 4'} lable_active  {/if}">热搜榜</a>
             </div>
             {volist name="bdlist" id="index"}
             <div class="xsBox">

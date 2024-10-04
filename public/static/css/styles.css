@@ -1,6 +1,7 @@
 /* @media (max-width: 750px) { */
 body {
     margin: 0;
+    font-size: 12px !important;
 }
 
 #page {
@@ -84,11 +85,10 @@ body {
     /* padding: 10px; */
     border-radius: 5px;
     border: 2px solid #FFFFFF99;
-    line-height: 30px;
     font-family: SF Pro;
     font-size: 12px;
     font-weight: 700;
-    line-height: 30px;
+    line-height: 28px;
     text-align: center;
     color: #FFFFFF99;
     text-decoration: none;
@@ -96,14 +96,13 @@ body {
 
 .lable_active {
     width: 23%;
-    height: 30px;
+    height: 28px;
     /* padding: 10px; */
     border-radius: 5px;
-    line-height: 30px;
     font-family: SF Pro;
     font-size: 12px;
     font-weight: 700;
-    line-height: 30px;
+    line-height: 28px;
     text-align: center;
     background: linear-gradient(229.21deg, #FD5B25 15.85%, #F3257E 86.08%);
 }
@@ -371,14 +370,14 @@ body {
 .popupLable-author-text {
     margin: 5px;
     /* width: 71px; */
-    padding: 5px 20px;
-    height: 30px;
+    padding: 0px 20px;
+    height: 28px;
     border-radius: 6px;
     border: 1px solid #FFFFFF1A;
     font-family: PingFang SC;
     font-size: 12px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 28px;
     text-align: center;
     color: #FFFFFF99;
 }
@@ -386,14 +385,14 @@ body {
 .popupLable-author-text-active {
     margin: 5px;
     /* width: 71px; */
-    padding: 5px 20px;
-    height: 30px;
+    padding: 0px 20px;
+    height: 28px;
     border-radius: 6px;
 
     font-family: PingFang SC;
     font-size: 12px;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 28px;
     text-align: center;
     border: 2px solid #907152;
     color: #FBB068;
@@ -860,16 +859,18 @@ p {
     line-height: 19.6px;
     text-align: left;
     color: #FFFFFF99;
-
+    
+    white-space: pre-wrap;
 }
 
 .pzRight {
+    width: 100px;
     text-decoration: none;
     font-family: PingFang SC;
     font-size: 14px;
     font-weight: 400;
     line-height: 19.6px;
-    text-align: left;
+    text-align: right;
     color: #FFFFFF66;
 
 }
