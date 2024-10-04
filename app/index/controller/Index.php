@@ -600,7 +600,22 @@ class Index extends BaseController
 
     public function novel($channel = 0)
     {
-
+        $sort = input('param.sort/d',1);
+        $cid = input('param.cid/d',1);
+        $bang = 'renqi';
+        switch ($sort){
+            case 1:
+                $bang = 'renqi';
+                break;
+            case 2:
+                $bang = 'tuijian';
+                break;
+            case 3:
+                $bang = 'shoucang';
+                break;
+            case 4:
+                $bang = 'eye';
+        }
         $novelmenulist = $this->NovelMenu->getmenu(0);
         foreach ($novelmenulist as &$item){
             $item['title'] = mbConvert($item['title']);
@@ -608,14 +623,16 @@ class Index extends BaseController
         //主编力荐
         $tjlist = $this->Novel->getlist(1,1,6);
         //榜单
-        $bdlist = $this->Novel->getorderlist('renqi',6);
+        $bdlist = $this->Novel->getorderlist($bang,6);
         //分类
-        $fllist = $this->Novel->getlist(1,1,6);
+        $fllist = $this->Novel->getlist($cid,1,6);
 
         $menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
+        View::assign('sort',$sort);
+        View::assign('cid',$cid);
         View::assign('tjlist',$tjlist['list']);
         View::assign('bdlist',$bdlist);
         View::assign('fllist',$fllist['list']);
@@ -663,7 +680,7 @@ class Index extends BaseController
         $sort = input('param.sort/d',0);
         $page = input('param.page',1);
         $limit = input('param.limit',31);
-        $novellist = $this->Novel->getlist($cid,$page,$limit);
+        $novellist = $this->Novel->getlist($cid,$page,2);
 
         $novelmenulist = $this->NovelMenu->getmenu(0);
         foreach ($novelmenulist as &$item){
@@ -677,6 +694,7 @@ class Index extends BaseController
         View::assign('cid',$cid);
         View::assign('sort',$sort);
         View::assign('novellist',$novellist['list']);
+        View::assign('page',$novellist['page']);
         View::assign('novelmenulist',$novelmenulist);
         View::assign('menulist',$menulist);
         View::assign('channel',$channel);
@@ -685,16 +703,33 @@ class Index extends BaseController
 
     public function novel_rank($channel = 0)
     {
-        $cid = input('param.cid/d',0);
+        $sort = input('param.sort/d',1);
+        $bang = 'renqi';
+        switch ($sort){
+            case 1:
+                $bang = 'renqi';
+                break;
+            case 2:
+                $bang = 'tuijian';
+                break;
+            case 3:
+                $bang = 'shoucang';
+                break;
+            case 4:
+                $bang = 'eye';
+        }
         $page = input('param.page',1);
         $limit = input('param.limit',31);
-        $novellist = $this->Novel->getlist($cid,$page,$limit);
+        //榜单
+        $bdlist = $this->Novel->getlist(0,$page,2,$bang);
 
         $menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
-        View::assign('novellist',$novellist['list']);
+        View::assign('sort',$sort);
+        View::assign('bdlist',$bdlist['list']);
+        View::assign('page',$bdlist['page']);
         View::assign('menulist',$menulist);
         View::assign('channel',$channel);
         return View::fetch();
@@ -759,14 +794,17 @@ class Index extends BaseController
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
+        $page = input('param.page',1);
+        $limit = input('param.limit',31);
         //榜单
-        $tjlist = $this->Novel->getorderlist('tuijian',6);
+        $tjlist = $this->Novel->getmorelist($novel['cate_id'],$page,2);
 
         //章节列表
         $cataloglist = $this->NovelCatalogs->getlist($novelId);
 
         View::assign('cataloglist',$cataloglist);
-        View::assign('tjlist',$tjlist);
+        View::assign('tjlist',$tjlist['list']);
+        View::assign('page',$tjlist['page']);
         View::assign('novel',$novel);
         View::assign('menulist',$menulist);
         View::assign('channel',$channel);

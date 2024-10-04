@@ -26,7 +26,7 @@ class MallNovels extends TimeModel
     {
         return $this->belongsTo('app\admin\model\MallNovelcate', 'cate_id', 'id');
     }
-	public function getlist($category_id,$page,$pagesize)
+	public function getlist($category_id,$page,$pagesize,$order = null)
 	{
         $map[] = ['pid','=',$category_id];
         $map[] = ['status', '=', 1];
@@ -37,7 +37,7 @@ class MallNovels extends TimeModel
         $ids = implode(',',$ids);
         $map1[] = ['cate_id','in',$ids];
         $map1[] = ['status', '=', 1];
-        $list=$this->where($map1)->order('sort desc')->cache(600)->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
+        $list=$this->where($map1)->order($order)->cache(600)->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
 		$page = $list->render();
         foreach ($list as &$item){
             $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
@@ -46,16 +46,17 @@ class MallNovels extends TimeModel
 		$data=array("list"=>$list,"page"=>$page);
         return $data;
 	}
-	public function getmorelist($cate_id,$num)
+	public function getmorelist($cate_id,$page,$pagesize)
 	{
 		$map[] = ['cate_id','=',$cate_id];
-		$list = $this->where($map)->cache(600)->limit(24)->orderRaw("rand()")->select();
+		$list = $this->where($map)->cache(600)->limit(24)->orderRaw("rand()")->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
+        $page = $list->render();
         foreach ($list as &$item){
             $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
-            $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
             $item['title'] = mbConvert($item['title']);
         }
-		return $list;
+        $data=array("list"=>$list,"page"=>$page);
+        return $data;
 	}
 	public function getsearch($keyword)
 	{

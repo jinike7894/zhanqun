@@ -110,8 +110,14 @@
                         </div>
                         <div class="contentAuthor">
                             <span class="contentNav">状态</span>
-                            <span class="contentLz" style="background: linear-gradient(282.53deg, #1D4AFF 64.29%, #00EAFF 95.78%);
+                            {if condition='$novel.is_finish == 0'}
+                                <span class="contentLz" style="background: linear-gradient(282.53deg, #1D4AFF 64.29%, #00EAFF 95.78%);
 ">连载</span>
+                            {else}
+                                <span class="contentLz" style="background: linear-gradient(285.38deg, #00A814 61.2%, #B6FE00 97.69%);
+;
+">完结</span>
+                            {/if}
                         </div>
                         <div class="contentAuthor">
                             <span class="contentNav">最新</span>
@@ -141,10 +147,10 @@
 
                 </div>
                 <!-- 下面分类 -->
-                <div class="bottomClass">
-                    <a href="#" class="bct"><span style="color: #FFFFFF66;"># </span>母女花</a>
-                    <a href="#" class="bct"><span style="color: #FFFFFF66;"># </span>校花</a>
-                </div>
+<!--                <div class="bottomClass">-->
+<!--                    <a href="#" class="bct"><span style="color: #FFFFFF66;"># </span>母女花</a>-->
+<!--                    <a href="#" class="bct"><span style="color: #FFFFFF66;"># </span>校花</a>-->
+<!--                </div>-->
                 <a href="/novel/chapter/{$channel}.html?chapter_id={$cataloglist[0]['id']}" class="openRead"><div class="openRead">开始阅读</div></a>
 
             </div>
@@ -229,7 +235,8 @@
             </div>
 
             <!-- 分页 -->
-
+            <div class="pagination-box">{$page|raw}
+            </div>
 
         </div>
 
