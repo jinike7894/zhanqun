@@ -50,7 +50,7 @@ Route::get('/comic/category/:channel','index/comic_category')->pattern(['channel
 
 Route::get('/comic/detail/:channel','index/comic_detail')->pattern(['channel' => '\d+(_\d+)?$']);
 
-Route::get('/comic/reader/:channel','index/comic_reader')->pattern(['channel' => '\d+(_\d+)?$']);
+Route::get('/comic/chapter/:channel','index/comic_chapter')->pattern(['channel' => '\d+(_\d+)?$']);
 
 Route::get('/test/:channel','index/test')->pattern(['channel' => '\d+(_\d+)?$']);
 
