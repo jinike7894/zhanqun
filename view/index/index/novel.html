@@ -97,11 +97,11 @@
             <div class="contentBoxName">
                 <div class="contentTxt">主编力荐</div>
                 <div class="dotBox">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
+                    <div class="dot dotColor"></div>
+                    <div class="dot dotColor"></div>
                     <div class="dotChoose"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
+                    <div class="dot dotColor"></div>
+                    <div class="dot dotColor"></div>
                 </div>
             </div>
 
@@ -121,22 +121,22 @@
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="__IMAGES__/wanjie.png" />
                         {/if}
-                        <div class="bookReadNum">
-                            <div class="bookReadNumLeft">
-                                <img src="__IMAGES__/book_Open-W.svg" />
-                                <span>{$index['eye'] |qqw}</span>
-                            </div>
-                            <div class="bookReadNumLeft">
-                                <img src="__IMAGES__/star-w.svg" />
-                                <span>{$index['shoucang'] |qqw}</span>
-                            </div>
-                        </div>
+                        <!--<div class="bookReadNum">-->
+                        <!--    <div class="bookReadNumLeft ">-->
+                        <!--        <img style="width:14px;height:14px;margin-right:2px;" src="__IMAGES__/book_Open-W.svg" />-->
+                        <!--        <span class="view_number_xs"  >{$index['eye'] |qqw}</span>-->
+                        <!--    </div>-->
+                        <!--    <div class="bookReadNumLeft ">-->
+                        <!--        <img style="width:12px;height:12px;margin-right:2px;" src="__IMAGES__/star-w.svg" />-->
+                        <!--        <span class="collect_number_xs" >{$index['shoucang'] |qqw}</span>-->
+                        <!--    </div>-->
+                        <!--</div>-->
                     </div>
                     <div style="padding: 5px;">
                         <div class="bookName">{$index['title'] | raw}</div>
                         <div class="bookNav">
-<!--                            <span>#人妻</span>-->
-<!--                            <span>#乱伦</span>-->
+                            <span style="margin-right:10px;">#人妻</span>
+                            <span>#乱伦</span>
                         </div>
                     </div>
                 </a>
@@ -144,11 +144,11 @@
             </div>
 
             <!-- 导航栏 -->
-            <div class="lableList">
-                <a href="/novel/{$channel}.html?sort=1" class="lable {if condition='$sort eq 1'} lable_active  {/if}">人气榜</a>
-                <a href="/novel/{$channel}.html?sort=2" class="lable {if condition='$sort eq 2'} lable_active  {/if}">推荐榜</a>
-                <a href="/novel/{$channel}.html?sort=3" class="lable {if condition='$sort eq 3'} lable_active  {/if}">收藏榜</a>
-                <a href="/novel/{$channel}.html?sort=4" class="lable {if condition='$sort eq 4'} lable_active  {/if}">热搜榜</a>
+            <div class="lableList" >
+                <a  href="/novel/{$channel}.html?sort=1" class="lable flex aColor {if condition='$sort eq 1'} lable_active  {/if}" >人气榜</a>
+                <a  href="/novel/{$channel}.html?sort=2" class="lable flex aColor {if condition='$sort eq 2'} lable_active  {/if}">推荐榜</a>
+                <a href="/novel/{$channel}.html?sort=3" class="lable flex  aColor {if condition='$sort eq 3'} lable_active  {/if}">收藏榜</a>
+                <a  href="/novel/{$channel}.html?sort=4" class="lable flex aColor {if condition='$sort eq 4'} lable_active  {/if}">热搜榜</a>
             </div>
 
             <div class="homeBookBox">
@@ -206,24 +206,24 @@
                         <div class="bookReadNum">
                             <div class="bookReadNumLeft">
                                 <img src="__IMAGES__/book_Open-W.svg" />
-                                <span>{$index['eye'] |qqw}</span>
+                                <span class="view_number">{$index['eye'] |qqw}</span>
                             </div>
                             <div class="bookReadNumLeft">
                                 <img src="__IMAGES__/star-w.svg" />
-                                <span>{$index['shoucang'] |qqw}</span>
+                                <span class="collect_number" >{$index['shoucang'] |qqw}</span>
                             </div>
                         </div>
                     </div>
                     <div style="padding: 5px;">
                         <div class="bookName">{$index['title'] | raw}</div>
                         <div class="bookNav">
-<!--                            <span>#人妻</span>-->
-<!--                            <span>#乱伦</span>-->
+                            <span style="margin-right:10px;">#人妻</span>
+                            <span>#乱伦</span>
                         </div>
                         <div style="display: flex; justify-content: space-between;margin-top: 5px;">
                             <div class="bookNum">共1566章</div>
                             <div class="bookTime">
-                                <div class="dot"></div>2小时前
+                                <div class="dot" style="opacity:1;"></div>2小时前
                             </div>
                         </div>
                     </div>
@@ -276,7 +276,47 @@
                 $('#imgToChange').attr('src', '__IMAGES__/zhengxu.svg');
             }
         });
+         
+         
+         
+        // var view_number_xs = $(".view_number_xs").text();
+        // var view_number_xs = formatNumber(view_number_xs);
+        // $('.view_number_xs').text(view_number_xs);
+        
+        // var collect_number_xs = $(".collect_number_xs").text();
+        // var collect_number_xs = formatNumber(collect_number_xs);
+        // $('.collect_number_xs').text(collect_number_xs);
+        //观看数变k
+        var view_number = $(".view_number").text();
+        var view_number = formatNumber(view_number);
+        $('.view_number').text(view_number);
+        //收藏数变k
+        var collect_number = $(".collect_number").text();
+        var collect_number = formatNumber(collect_number);
+        $('.collect_number').text(collect_number);
+    
+        
+        
+        
+        $('.homeBookrightTitle').each(function() {
+            // 获取当前元素的文本
+            var text = $(this).text();
+            // 检查文本长度
+            if (text.length > 7) {
+            // 截取前 7 个字符并添加省略号
+            var truncatedText = text.substring(0, 7) + '...';
+            // 更新元素的文本
+            $(this).text(truncatedText);
+            }
+        });
     });
+     function formatNumber(num) {
+            if (num >= 1000) {
+                // 使用 Math.round() 确保不会有小数部分
+                return Math.round(num / 1000) + 'k';
+            }
+            return num.toString();
+        }
 </script>
 
 </html>

@@ -21,7 +21,7 @@
             </div>
 
         </div>
-        <a href="http://google.com"><img style="margin-top:50px ;" class="banner" src="__IMAGES__/banner.png" /></a>
+        <a href="http://google.com" style="background: #000;"><img style="margin-top:50px; margin-bottom:10px;padding:0 12px;" class="banner" src="__IMAGES__/banner.png" /></a>
 
         <div class="contentBox">
 
@@ -45,14 +45,14 @@
 
         <!-- 导航栏 -->
         <div class="lableList paddingRead" style="margin: 10px;">
-            <a href="#" class="lable flex">
+            <a href="#" class="lable flex" style="height:36px;">
                 <img src="__IMAGES__/return.svg" style="margin-top: 3px;" /><span style="margin-left: 5px;">返回</span>
             </a>
-            <div class="lable flex" id="mulvBtn"><img src="__IMAGES__/mulv.svg" /><span
+            <div class="lable flex" id="mulvBtn" style="height:36px;"><img src="__IMAGES__/mulv.svg" /><span
                     style="margin-left: 5px;">目录</span></div>
-            <a href="/novel/chapter/{$channel}.html?chapter_id={$pre['id']}" class="lable flex"><img src="__IMAGES__/chevron_Left.svg" /><span style="margin-left: 5px;">上一章</span>
+            <a href="/novel/chapter/{$channel}.html?chapter_id={$pre['id']}" class="lable flex" style="height:36px;"><img src="__IMAGES__/chevron_Left.svg" /><span style="margin-left: 5px;">上一章</span>
             </a>
-            <a href="/novel/chapter/{$channel}.html?chapter_id={$next['id']}" class="lable flex"><span>下一章</span><img src="__IMAGES__/right.svg"
+            <a href="/novel/chapter/{$channel}.html?chapter_id={$next['id']}" style="height:36px;" class="lable flex"><span>下一章</span><img src="__IMAGES__/right.svg"
                     style="margin-left: 5px;margin-top: 1px;" /></a>
         </div>
     </div>
@@ -70,7 +70,7 @@
                     <div class="mulvRightText" id="textToChange">正序</div>
                 </div>
             </div>
-            <div class="chooseMl">
+            <div class="chooseMl" style="margin-bottom: 15px;">
                 <a href="#"><div class="choosePage">0-100</div></a>
                 <a href="#"><div class="choosePage">101-200</div></a>
                 <a href="#"><div class="choosePage">201-300</div></a>
@@ -78,8 +78,8 @@
             <div class="mulvPz">
                 {volist name="cataloglist" id="index"}
                 <a  href="/novel/chapter/{$channel}.html?chapter_id={$index['id']}" class="pzList">
-                    <div {if condition='$chapter.id eq $index.id'} style="color:red"  {/if} class="pzLeft">{$index['name'] | raw}</div>
-                    <div class="pzRight">第<span style="color: #FFFFFF99;">{$index['id']}</span>{$index['chapter']}</div>
+                    <div {if condition='$chapter.id eq $index.id'} style="color: #FDA765;"  {/if} class="pzLeft">{$index['name'] | raw}</div>
+                    <!--<div class="pzRight">第<span style="color: #FFFFFF99;">{$index['id']}</span>{$index['chapter']}</div>-->
                 </a>
                 {/volist}
             </div>
@@ -124,15 +124,30 @@
             $(".chooseMl").scrollLeft(left);
         });
           //点击正倒序
+        var $link = $('.pzList');
         $('.mulvTop').click(function() {
+              
                 var currentText = $('#textToChange').text();
                 if (currentText === "正序") {
                     $('#textToChange').text("倒序");
                     $('#imgToChange').attr('src', '__IMAGES__/daoxu.svg');
-                    
+                     var container = $('.mulvPz');
+                     var items = container.find('.pzList');
+                    items = items.toArray().reverse();
+                    container.empty();
+                    $.each(items, function(index, item) {
+                         container.append(item);
+                    });
                 } else {
                     $('#textToChange').text("正序");
                     $('#imgToChange').attr('src', '__IMAGES__/zhengxu.svg');
+                    var container = $('.mulvPz');
+                     var items = container.find('.pzList');
+                    items = items.toArray().reverse();
+                    container.empty();
+                    $.each(items, function(index, item) {
+                         container.append(item);
+                    });
                 }
             });
     });

@@ -107,7 +107,7 @@
                     <div class="contentListLeft">
                         <img class="contentCover" src="{$novel['pic']}" />
                     </div>
-                    <div class="contentRight">
+                    <div class="contentRight" style="display: flex;flex-direction: column;justify-content: space-between;">
                         <div class="contentName" style="color: #FF3172;">{$novel['title'] | raw}</div>
                         <div class="contentAuthor">
                             <span class="contentNav">作者</span>
@@ -131,24 +131,24 @@
                         </div>
                         <div class="contentAuthor">
                             <span class="contentNav">题材</span>
-                            <a href="#"  class="theme"><span class="contentA fontColor theme">玄幻</span></a>
-                            <a href="#"  class="theme"><span class="contentA fontColor theme">乱伦</span></a>
+                            <a href="#"  class="theme"><span class="contentA fontColor">玄幻</span></a>
+                            <a href="#"  class="theme"><span class="contentA fontColor">乱伦</span></a>
                         </div>
                         <div class="contentRead">
                             <div class="contentReadBox">
-                                <img src="__IMAGES__/book_Open.svg" />
-                                阅读 <span class="contentK">{$novel['eye'] |qqw}</span>
+                                <img src="__IMAGES__/book_Open.svg" style="width:15px;height:15px;margin-right:3px;" />
+                                阅读 <span style="margin-left:2px;" class="contentK view_number_yd">{$novel['eye'] |qqw}</span>
                             </div>
                             <div class="contentReadBox">
-                                <img src="__IMAGES__/star.svg" />
-                                收藏<span>{$novel['shoucang'] |qqw}</span>
+                                <img src="__IMAGES__/star.svg"style="width:12px;height:12px;margin-right:3px;" />
+                                收藏<span style="margin-left:2px;" class="collect_number_yd">{$novel['shoucang'] |qqw}</span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- 小说简介 -->
                 <div>
-                    <p><span style="color: #FFFFFF66;">小说简介：</span>{$novel['description']}</p>
+                    <p style="font-size:12px;line-height:20px;margin-bottom:0;"><span style="color: #FFFFFF66;">小说简介：</span>{$novel['description']}</p>
 
                 </div>
                 <!-- 下面分类 -->
@@ -156,7 +156,8 @@
 <!--                    <a href="#" class="bct"><span style="color: #FFFFFF66;"># </span>母女花</a>-->
 <!--                    <a href="#" class="bct"><span style="color: #FFFFFF66;"># </span>校花</a>-->
 <!--                </div>-->
-                <a href="/novel/chapter/{$channel}.html?chapter_id={$cataloglist[0]['id']}" class="openRead"><div class="openRead">开始阅读</div></a>
+                <a href="/novel/chapter/{$channel}.html?chapter_id={$cataloglist[0]['id']}" 
+                class="openRead" ><div class="openRead">开始阅读</div></a>
 
             </div>
 
@@ -181,7 +182,7 @@
                     {volist name="cataloglist" id="index"}
                     <a href="/novel/chapter/{$channel}.html?chapter_id={$index['id']}" class="pzList">
                         <div class="pzLeft">{$index['name'] | raw}</div>
-                        <div class="pzRight">第<span style="color: #FFFFFF99;">{$index['chapter']}</span>章</div>
+                        <!--<div class="pzRight">第<span style="color: #FFFFFF99;">{$index['chapter']}</span>章</div>-->
                     </a>
                     {/volist}
 
@@ -214,11 +215,11 @@
                         <div class="bookReadNum">
                             <div class="bookReadNumLeft">
                                 <img src="__IMAGES__/book_Open-W.svg" />
-                                <span>12.2K</span>
+                                <span class="view_number" >12.2K</span>
                             </div>
                             <div class="bookReadNumLeft">
                                 <img src="__IMAGES__/star-w.svg" />
-                                <span>12.2K</span>
+                                <span class="collect_number" >12.2K</span>
                             </div>
                         </div>
                     </div>
@@ -231,7 +232,7 @@
                         <div style="display: flex; justify-content: space-between;margin-top: 5px;">
                             <div class="bookNum">共1566章</div>
                             <div class="bookTime">
-                                <div class="dot"></div>2小时前
+                                <div class="dot" style="opacity: 1;"></div>2小时前
                             </div>
                         </div>
                     </div>
@@ -254,8 +255,24 @@
     {include file="mobile_footer"}
 </body>
 <script>
-    
+     
     $(document).ready(function(){
+        var view_number_yd = $(".view_number_yd").text();
+        var view_number_yd = formatNumber(view_number_yd);
+        $('.view_number_yd').text(view_number_yd);
+        //收藏数变k
+        var collect_number_yd = $(".collect_number_yd").text();
+        var collect_number_yd = formatNumber(collect_number_yd);
+        $('.collect_number_yd').text(collect_number_yd);
+        
+
+        var view_number = $(".view_number").text();
+        var view_number = formatNumber(view_number);
+        $('.view_number').text(view_number);
+        //收藏数变k
+        var collect_number = $(".collect_number").text();
+        var collect_number = formatNumber(collect_number);
+        $('.collect_number').text(collect_number);
         //目录点击变亮
         $(".choosePage").click(function(){
             $(".choosePage").removeClass("choosePage_active");
@@ -279,5 +296,12 @@
                 }
             });
     });
+      function formatNumber(num) {
+            if (num >= 1000) {
+                // 使用 Math.round() 确保不会有小数部分
+                return Math.round(num / 1000) + 'k';
+            }
+            return num.toString();
+        }
     </script>
 </html>

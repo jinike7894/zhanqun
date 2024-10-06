@@ -101,10 +101,10 @@
         <div class="contentBox">
             <!-- 导航栏 -->
             <div class="lableList">
-                <a href="/novel/rank/{$channel}.html?sort=1" class="lable {if condition='$sort eq 1'} lable_active  {/if}">人气榜</a>
-                <a href="/novel/rank/{$channel}.html?sort=2" class="lable {if condition='$sort eq 2'} lable_active  {/if}">推荐榜</a>
-                <a href="/novel/rank/{$channel}.html?sort=3" class="lable {if condition='$sort eq 3'} lable_active  {/if}">收藏榜</a>
-                <a href="/novel/rank/{$channel}.html?sort=4" class="lable {if condition='$sort eq 4'} lable_active  {/if}">热搜榜</a>
+                <a href="/novel/rank/{$channel}.html?sort=1" class="lable flex {if condition='$sort eq 1'} lable_active  {/if}">人气榜</a>
+                <a href="/novel/rank/{$channel}.html?sort=2" class="lable flex {if condition='$sort eq 2'} lable_active  {/if}">推荐榜</a>
+                <a href="/novel/rank/{$channel}.html?sort=3" class="lable flex {if condition='$sort eq 3'} lable_active  {/if}">收藏榜</a>
+                <a href="/novel/rank/{$channel}.html?sort=4" class="lable flex {if condition='$sort eq 4'} lable_active  {/if}">热搜榜</a>
             </div>
             {volist name="bdlist" id="index"}
             <div class="xsBox">
@@ -144,11 +144,11 @@
                         <div class="contentRead">
                             <div class="contentReadBox">
                                 <img src="__IMAGES__/book_Open.svg" />
-                                阅读 <span class="contentK">{$index['eye'] |qqw}</span>
+                                阅读 <span class="contentK view_number">{$index['eye'] |qqw}</span>
                             </div>
                             <div class="contentReadBox">
                                 <img src="__IMAGES__/star.svg" />
-                                收藏<span>{$index['shoucang'] |qqw}</span>
+                                收藏<span class="collect_number" >{$index['shoucang'] |qqw}</span>
                             </div>
                         </div>
                     </div>
@@ -179,12 +179,27 @@
     {include file="mobile_footer"}
 </body>
 <script>
+
 $(document).ready(function(){
     $(".lable").click(function(){
         $(".lable").removeClass("lable_active");
         $(this).addClass("lable_active");
     });
+      var view_number = $(".view_number").text();
+        var view_number = formatNumber(view_number);
+        $('.view_number').text(view_number);
+        //收藏数变k
+        var collect_number = $(".collect_number").text();
+        var collect_number = formatNumber(collect_number);
+        $('.collect_number').text(collect_number);
 });
+ function formatNumber(num) {
+            if (num >= 1000) {
+                // 使用 Math.round() 确保不会有小数部分
+                return Math.round(num / 1000) + 'k';
+            }
+            return num.toString();
+        }
 </script>
 
 </script>
