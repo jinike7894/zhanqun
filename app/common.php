@@ -233,3 +233,16 @@ if (!function_exists('mbConvert')) {
         return $str;
     }
 }
+
+
+if (!function_exists('qsj')) {
+    function qsj($num){
+        $sjs = mt_rand(0,99) + 1;
+        if(($num>=1 && $num <=99 && $sjs >=1 && $sjs <= $num) || $num >=100)
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }
+}

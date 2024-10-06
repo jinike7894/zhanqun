@@ -299,9 +299,9 @@
       [
           {volist name='XPopUpList' id="XPopUp" key="index"}
           {
-              url: '{$XPopUp['img']}',
+              url: '{$XPopUp['img'] | raw}',
               id: {$XPopUp['id']},
-              herf: '{$XPopUp['url']}'
+              herf: '{$XPopUp['url'] | raw}'
           },
           {/volist}
       ]

@@ -14,9 +14,9 @@
         <div class="px10 py11">
             <div class="grid-cols-2 gap7">
                 {volist name='NavHotHookupList' id="NavHotHookup" key="index"}
-                <a class="relative bolck girl-item"  i="{$NavHotHookup['id']}"  href="{$NavHotHookup['url']}" target="_blank">
+                <a class="relative bolck girl-item"  i="{$NavHotHookup['id']}"  href="{$NavHotHookup['url'] | raw}" target="_blank">
                     <img class="girl-img lozad"
-                         data-src="{$NavHotHookup['img']}"
+                         data-src="{$NavHotHookup['img'] | raw}"
                          src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                     <div class="absolute bottom71 girl-bg flex-center w-full">
                         {if isset($NavHotHookup['names'][0])} {$NavHotHookup['names'][0] | raw} {/if}
@@ -36,9 +36,9 @@
     
     
                 {volist name='NavCinemaHookupList' id="NavCinemaHookup" key="index"}
-                <a class="relative bolck girl-item"  i="{$NavCinemaHookup['id']}"  href="{$NavCinemaHookup['url']}" target="_blank">
+                <a class="relative bolck girl-item"  i="{$NavCinemaHookup['id']}"  href="{$NavCinemaHookup['url'] | raw}" target="_blank">
                     <img class="girl-img lozad"
-                         data-src="{$NavCinemaHookup['img']}"
+                         data-src="{$NavCinemaHookup['img'] | raw}"
                          src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                     <div class="absolute bottom71 girl-bg flex-center w-full">
                         {if isset($NavCinemaHookup['names'][0])} {$NavCinemaHookup['names'][0] | raw} {/if}
@@ -58,9 +58,9 @@
     
     
                 {volist name='NavBCHookupList' id="NavBCHookup" key="index"}
-                <a class="relative bolck girl-item"  i="{$NavBCHookup['id']}"  href="{$NavBCHookup['url']}" target="_blank">
+                <a class="relative bolck girl-item"  i="{$NavBCHookup['id']}"  href="{$NavBCHookup['url'] | raw}" target="_blank">
                     <img class="girl-img lozad"
-                         data-src="{$NavBCHookup['img']}"
+                         data-src="{$NavBCHookup['img'] | raw}"
                          src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                     <div class="absolute bottom71 girl-bg flex-center w-full">
                         {if isset($NavBCHookup['names'][0])} {$NavBCHookup['names'][0] | raw} {/if}

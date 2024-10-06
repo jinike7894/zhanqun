@@ -48,7 +48,7 @@ class Index extends BaseController
             ->where(['pid' => '3'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
         foreach ($XSudokuTextList as $key => &$item) {
-            $item['url'] = $item['androidurl'];
+            $item['url'] = mbConvert($item['androidurl']);
             $item['name'] = mbConvert($item['name']);
             $item['icon'] = ["h","n","h","n"][mt_rand(0,3)];
         }
@@ -60,9 +60,9 @@ class Index extends BaseController
             ->where(array('status'=>1,'is_banner'=>0))
             ->where(['pid' => '63'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
         foreach ($XTopHFList as $key => &$item) {
-            $item['url'] = $item['androidurl'];
+            $item['url'] = mbConvert($item['androidurl']);
             if (strpos($item['img'], 'http') === false) {
-                $item['img'] = replaceAdCdn($item['img']);
+                $item['img'] = mbConvert(replaceAdCdn($item['img']));
             }
         }
         View::assign('XTopHFList',$XTopHFList);
@@ -74,9 +74,9 @@ class Index extends BaseController
             ->where(['pid' => '9'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
         foreach ($XPopUpList as $key => &$item) {
-            $item['url'] = $item['androidurl'];
+            $item['url'] = mbConvert($item['androidurl']);
             if (strpos($item['img'], 'http') === false) {
-                $item['img'] = replaceAdCdn($item['img']);
+                $item['img'] = mbConvert(replaceAdCdn($item['img']));
             }
         }
         View::assign('XPopUpList',$XPopUpList);
@@ -89,16 +89,9 @@ class Index extends BaseController
                 ->where(['pid' => '10'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($NavBannerList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
-                if($item['is_browser'] == 1){
-                    $item['url'] = '/livestreaming/'. $channel .'.html';
-                }else if($item['is_browser'] == 2){
-                    $item['url'] = '/hookup/'. $channel .'.html';
-                }else if($item['is_browser'] == 3){
-                    $item['url'] = '/drugstore/'. $channel .'.html';
-                }
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
             }
             View::assign('NavBannerList',$NavBannerList);
@@ -108,9 +101,9 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '11'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($NavCinemaSudokuList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['name'] = mbConvert($item['name']);
             }
@@ -121,9 +114,9 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '12'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($NavCinemaLiveList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['name'] = mbConvert($item['name']);
                 $item['yueNum'] = mt_rand(403,4000);
@@ -136,9 +129,9 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '13'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($NavCinemaHookupList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = mt_rand(403,4000);
@@ -151,9 +144,9 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '14'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($NavCinemaMedicineList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = mt_rand(403,4000);
@@ -167,9 +160,9 @@ class Index extends BaseController
                 ->where(['pid' => '17'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($NavBCSudokuList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['name'] = mbConvert($item['name']);
             }
@@ -181,9 +174,9 @@ class Index extends BaseController
                 ->where(['pid' => '18'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($NavBCLiveList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['name'] = mbConvert($item['name']);
                 $item['yueNum'] = mt_rand(403,4000);
@@ -197,9 +190,9 @@ class Index extends BaseController
                 ->where(['pid' => '19'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($NavBCHookupList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = mt_rand(403,4000);
@@ -213,9 +206,9 @@ class Index extends BaseController
                 ->where(['pid' => '20'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($NavBCMedicineList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = mt_rand(403,4000);
@@ -229,9 +222,9 @@ class Index extends BaseController
                 ->where(['pid' => '21'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($NavHotSudokuList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['name'] = mbConvert($item['name']);
             }
@@ -243,9 +236,9 @@ class Index extends BaseController
                 ->where(['pid' => '22'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($NavHotLiveList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['name'] = mbConvert($item['name']);
                 $item['yueNum'] = mt_rand(403,4000);
@@ -259,9 +252,9 @@ class Index extends BaseController
                 ->where(['pid' => '23'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($NavHotHookupList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = mt_rand(403,4000);
@@ -275,9 +268,9 @@ class Index extends BaseController
                 ->where(['pid' => '24'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($NavHotMedicineList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['names'] = mbConvert(explode('<br />', nl2br($item['name'])));
                 $item['yueNum'] = mt_rand(403,4000);
@@ -291,7 +284,7 @@ class Index extends BaseController
                 ->where(['pid' => '60'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($NavSudokuMiddleTextList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 $item['name'] = mbConvert($item['name']);
                 $item['icon'] = ["h","n","h","n"][mt_rand(0,3)];
             }
@@ -303,7 +296,7 @@ class Index extends BaseController
                 ->where(['pid' => '61'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($NavSudokuBottomTextList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 $item['name'] = mbConvert($item['name']);
                 $item['icon'] = ["h","n","h","n"][mt_rand(0,3)];
             }
@@ -316,9 +309,9 @@ class Index extends BaseController
                 ->where(['pid' => '1'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($XBannerList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['name'] = mbConvert($item['name']);
             }
@@ -330,9 +323,9 @@ class Index extends BaseController
                 ->where(['pid' => '2'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($XSudokuList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['name'] = mbConvert($item['name']);
             }
@@ -344,9 +337,9 @@ class Index extends BaseController
                 ->where(['pid' => '4'])->order('sort asc,id asc')->page(1, 2)->cache(1200)->select();
 
             foreach ($XVideoListInsertList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['name'] = mbConvert($item['name']);
             }
@@ -358,9 +351,9 @@ class Index extends BaseController
                 ->where(['pid' => '6'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
 
             foreach ($XPlayVideoPatch as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
             }
             View::assign('XPlayVideoPatch',$XPlayVideoPatch);
@@ -371,9 +364,9 @@ class Index extends BaseController
                 ->where(['pid' => '7'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
 
             foreach ($XBottomFloat as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
             }
             View::assign('XBottomFloat',$XBottomFloat);
@@ -384,9 +377,9 @@ class Index extends BaseController
                 ->where(['pid' => '8'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
 
             foreach ($XFloating as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
             }
             View::assign('XFloating',$XFloating);
@@ -398,7 +391,7 @@ class Index extends BaseController
                 ->where(['pid' => '58'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($XRecommendTextList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 $item['name'] = mbConvert($item['name']);
             }
             View::assign('XRecommendTextList',$XRecommendTextList);
@@ -410,7 +403,7 @@ class Index extends BaseController
                 ->where(['pid' => '59'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
             foreach ($XGuessTextList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 $item['name'] = mbConvert($item['name']);
             }
             View::assign('XGuessTextList',$XGuessTextList);
@@ -421,9 +414,9 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '65'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XBottomHFList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
             }
             View::assign('XBottomHFList',$XBottomHFList);
@@ -435,7 +428,7 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '66'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XTopVideoTextList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 $item['name'] = mbConvert($item['name']);
             }
             View::assign('XTopVideoTextList',$XTopVideoTextList);
@@ -447,9 +440,9 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '67'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XTopBannerHFList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
             }
             View::assign('XTopBannerHFList',$XTopBannerHFList);
@@ -461,9 +454,9 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '68'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XCateVideoBottomHFList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
             }
             View::assign('XCateVideoBottomHFList',$XCateVideoBottomHFList);
@@ -475,7 +468,7 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '69'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XCateVideoBottomTextList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 $item['name'] = mbConvert($item['name']);
             }
             View::assign('XCateVideoBottomTextList',$XCateVideoBottomTextList);
@@ -486,9 +479,9 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '70'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XCateVideoBottomSudokuList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
             }
             View::assign('XCateVideoBottomSudokuList',$XCateVideoBottomSudokuList);
@@ -499,9 +492,9 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '71'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XVideoBottomHFList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
             }
             View::assign('XVideoBottomHFList',$XVideoBottomHFList);
@@ -512,7 +505,7 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '72'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XTopTextList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 $item['name'] = mbConvert($item['name']);
             }
             View::assign('XTopTextList',$XTopTextList);
@@ -522,7 +515,7 @@ class Index extends BaseController
                 ->where(array('status'=>1,'is_banner'=>0))
                 ->where(['pid' => '73'])->order('sort asc,id asc')->page(1, 3)->cache(1200)->select();
             foreach ($XCategoryTitleTextList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 $item['name'] = mbConvert($item['name']);
             }
             View::assign('XCategoryTitleTextList',$XCategoryTitleTextList);
@@ -533,9 +526,9 @@ class Index extends BaseController
                 ->where(['pid' => '74'])->order('sort asc,id asc')->page(1, 2)->cache(1200)->select();
 
             foreach ($XCategoryVideoListInsertList as $key => &$item) {
-                $item['url'] = $item['androidurl'];
+                $item['url'] = mbConvert($item['androidurl']);
                 if (strpos($item['img'], 'http') === false) {
-                    $item['img'] = replaceAdCdn($item['img']);
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
                 }
                 $item['name'] = mbConvert($item['name']);
             }

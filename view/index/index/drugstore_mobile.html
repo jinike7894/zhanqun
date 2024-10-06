@@ -77,8 +77,8 @@
             <div class="swiper-wrapper">
                 {volist name='NavBannerList' id="NavBanner"}
                 <div class="swiper-slide">
-                    <a rel="external nofollow" i="{$NavBanner['id']}" href="{$NavBanner['url']}">
-                        <img class="lozad" data-src="{$NavBanner['img']}" src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
+                    <a rel="external nofollow" i="{$NavBanner['id']}" href="{$NavBanner['url'] | raw}">
+                        <img class="lozad" data-src="{$NavBanner['img'] | raw}" src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
                     </a>
                 </div>
                 {/volist}
@@ -114,11 +114,11 @@
                     <div class="y-conter">
                         {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
                         {if condition="$index == 1 or $index == 2"}
-                        <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url']}"
+                        <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url'] | raw}"
                            target="_blank">
                             <div class="y-item-1">
                                 <div>
-                                    <img class="lozad" data-src="{$NavHotMedicine['img']}"
+                                    <img class="lozad" data-src="{$NavHotMedicine['img'] | raw}"
                                          src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 </div>
                                 <div class="y-h-title flex-space-between">
@@ -146,11 +146,11 @@
                     <div class="y-conter">
                         {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
                         {if condition="$index == 3 or $index == 4"}
-                        <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url']}"
+                        <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url'] | raw}"
                            target="_blank">
                             <div class="y-item-1">
                                 <div>
-                                    <img class="lozad" data-src="{$NavHotMedicine['img']}"
+                                    <img class="lozad" data-src="{$NavHotMedicine['img'] | raw}"
                                          src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 </div>
                                 <div class="y-h-title flex-space-between">
@@ -178,11 +178,11 @@
                     <div class="y-conter">
                         {volist name='NavHotMedicineList' id="NavHotMedicine" key="index"}
                         {if condition="$index == 5 or $index == 6"}
-                        <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url']}"
+                        <a class="y-item" i="{$NavHotMedicine['id']}" href="{$NavHotMedicine['url'] | raw}"
                            target="_blank">
                             <div class="y-item-1">
                                 <div>
-                                    <img class="lozad" data-src="{$NavHotMedicine['img']}"
+                                    <img class="lozad" data-src="{$NavHotMedicine['img'] | raw}"
                                          src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg" alt="">
                                 </div>
                                 <div class="y-h-title flex-space-between">

@@ -14,9 +14,9 @@
         <div class="px10 py11">
             <div class="pb23 grid-cols-2 gap7">
                 {volist name='NavHotLiveList' id="NavHotLive" key="index"}
-                <a class="relative bolck live-item" i="{$NavHotLive['id']}" href="{$NavHotLive['url']}" target="_blank">
+                <a class="relative bolck live-item" i="{$NavHotLive['id']}" href="{$NavHotLive['url'] | raw}" target="_blank">
                     <img class="live-img lozad"
-                        data-src="{$NavHotLive['img']}"
+                        data-src="{$NavHotLive['img'] | raw}"
                         src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                     <div class="absolute bottom75 flex-center w-full">
                         <div class="live-bg flex-center">
@@ -31,7 +31,7 @@
                     <div class="absolute bottom0 px7 flex-space-between w-full py5">
                         <div>
                             <img class="avatar lozad"
-                                data-src="{$NavHotLive['img']}"
+                                data-src="{$NavHotLive['img'] | raw}"
                                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                             <span>{$NavHotLive['name'] | raw}</span>
                         </div>
@@ -44,9 +44,9 @@
                 {/volist}
     
                 {volist name='NavCinemaLiveList' id="NavCinemaLive" key="index"}
-                <a class="relative bolck live-item" i="{$NavCinemaLive['id']}" href="{$NavCinemaLive['url']}" target="_blank">
+                <a class="relative bolck live-item" i="{$NavCinemaLive['id']}" href="{$NavCinemaLive['url'] | raw}" target="_blank">
                     <img class="live-img lozad"
-                         data-src="{$NavCinemaLive['img']}"
+                         data-src="{$NavCinemaLive['img'] | raw}"
                          src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                     <div class="absolute bottom75 flex-center w-full">
                         <div class="live-bg flex-center">
@@ -61,7 +61,7 @@
                     <div class="absolute bottom0 px7 flex-space-between w-full py5">
                         <div>
                             <img class="avatar lozad"
-                                 data-src="{$NavCinemaLive['img']}"
+                                 data-src="{$NavCinemaLive['img'] | raw}"
                                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                             <span>{$NavCinemaLive['name'] | raw}</span>
                         </div>
@@ -74,9 +74,9 @@
                 {/volist}
     
                 {volist name='NavBCLiveList' id="NavBCLive" key="index"}
-                <a class="relative bolck live-item" i="{$NavBCLive['id']}" href="{$NavBCLive['url']}" target="_blank">
+                <a class="relative bolck live-item" i="{$NavBCLive['id']}" href="{$NavBCLive['url'] | raw}" target="_blank">
                     <img class="live-img lozad"
-                         data-src="{$NavBCLive['img']}"
+                         data-src="{$NavBCLive['img'] | raw}"
                          src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                     <div class="absolute bottom75 flex-center w-full">
                         <div class="live-bg flex-center">
@@ -91,7 +91,7 @@
                     <div class="absolute bottom0 px7 flex-space-between w-full py5">
                         <div>
                             <img class="avatar lozad"
-                                 data-src="{$NavBCLive['img']}"
+                                 data-src="{$NavBCLive['img'] | raw}"
                                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
                             <span>{$NavBCLive['name'] | raw}</span>
                         </div>

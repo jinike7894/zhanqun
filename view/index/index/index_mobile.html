@@ -46,7 +46,7 @@
         {volist name='XTopHFList' id="NavTopHF"}
         <a class="hf-ad" rel="external nofollow" i="{$NavTopHF['id']}" href="{$NavTopHF['url'] | raw}" target="_blank">
             <img class="hf-ad-img lozad"
-                data-src="{$NavTopHF['img']}"
+                data-src="{$NavTopHF['img'] | raw}"
                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
         </a>
         {/volist}
@@ -71,7 +71,7 @@
                                 {volist name='NavHotSudokuList' id="NavHotSudoku"}
                                 <a rel="external nofollow" i="{$NavHotSudoku['id']}" href="{$NavHotSudoku['url'] | raw}"
                                     target="_blank">
-                                    <img class="lozad" data-src="{$NavHotSudoku['img']}"
+                                    <img class="lozad" data-src="{$NavHotSudoku['img'] | raw}"
                                         src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
                                     <div>{$NavHotSudoku['name'] | raw}</div>
                                 </a>
@@ -95,7 +95,7 @@
                                             srcset="">
                                     </div>
                                     <img class="live-item-img lozad"
-                                        data-src="{$NavHotLive['img']}"
+                                        data-src="{$NavHotLive['img'] | raw}"
                                         src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
                                     <div class="bt-info">
                                         <div class="bt-info-left">
@@ -124,7 +124,7 @@
                                 <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url'] | raw}" target="_blank" class="friends-item ">
                                 <div class="friends-item-left">
                                     <img class="friends-item-img lozad"
-                                    data-src="{$NavHotHookup['img']}"
+                                    data-src="{$NavHotHookup['img'] | raw}"
                                     src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
                                     <div class="friends-status">
                                         <div class="dian"></div>
@@ -159,7 +159,7 @@
                                 {volist name='NavCinemaSudokuList' id="NavCinemaSudoku"}
                                 <a rel="external nofollow" i="{$NavCinemaSudoku['id']}" href="{$NavCinemaSudoku['url'] | raw}"
                                     target="_blank">
-                                    <img class="lozad" data-src="{$NavCinemaSudoku['img']}"
+                                    <img class="lozad" data-src="{$NavCinemaSudoku['img'] | raw}"
                                         src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
                                     <div>{$NavCinemaSudoku['name'] | raw}</div>
                                 </a>
@@ -183,7 +183,7 @@
                                              srcset="">
                                     </div>
                                     <img class="live-item-img lozad"
-                                         data-src="{$NavHotLive['img']}"
+                                         data-src="{$NavHotLive['img'] | raw}"
                                          src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
                                     <div class="bt-info">
                                         <div class="bt-info-left">
@@ -211,7 +211,7 @@
                                 <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url'] | raw}" target="_blank" class="friends-item ">
                                     <div class="friends-item-left">
                                         <img class="friends-item-img lozad"
-                                             data-src="{$NavHotHookup['img']}"
+                                             data-src="{$NavHotHookup['img'] | raw}"
                                              src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
                                         <div class="friends-status">
                                             <div class="dian"></div>
@@ -246,7 +246,7 @@
                                 {volist name='NavBCSudokuList' id="NavBCSudoku"}
                                 <a rel="external nofollow" i="{$NavBCSudoku['id']}" href="{$NavBCSudoku['url'] | raw}"
                                     target="_blank">
-                                    <img class="lozad" data-src="{$NavBCSudoku['img']}"
+                                    <img class="lozad" data-src="{$NavBCSudoku['img'] | raw}"
                                         src="{$jscsscdn}__IMAGES__/loading_img_bg_default.jpg">
                                     <div>{$NavBCSudoku['name'] | raw}</div>
                                 </a>
@@ -269,7 +269,7 @@
                                              srcset="">
                                     </div>
                                     <img class="live-item-img lozad"
-                                         data-src="{$NavHotLive['img']}"
+                                         data-src="{$NavHotLive['img'] | raw}"
                                          src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
                                     <div class="bt-info">
                                         <div class="bt-info-left">
@@ -298,7 +298,7 @@
                                 <a i="{$NavHotHookup['id']}" href="{$NavHotHookup['url'] | raw}" target="_blank" class="friends-item ">
                                     <div class="friends-item-left">
                                         <img class="friends-item-img lozad"
-                                             data-src="{$NavHotHookup['img']}"
+                                             data-src="{$NavHotHookup['img'] | raw}"
                                              src="__IMAGES__/loading_img_bg_default.jpg" alt="" srcset="">
                                         <div class="friends-status">
                                             <div class="dian"></div>
