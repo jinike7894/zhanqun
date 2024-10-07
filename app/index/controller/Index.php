@@ -630,12 +630,14 @@ class Index extends BaseController
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
+        $page = input('param.page',1);
+        $limit = input('param.limit',21);
 		$child_menu = $this->Menu->getmenu($category_id);
 		$vodlist = $this->MallVideos->getById($vid);
         $vodlist['enpic'] = replaceVideoCdn($vodlist['enpic'], 'video_img_cdn');
         $vodlist['video'] = replaceVideoCdn($vodlist['video'], 'video_cdn');
         $vodlist['title'] = mbConvert($vodlist['title']);
-		$guesslist = $this->MallVideos->getmorelist($vodlist['cate_id'],25);
+		$guesslist = $this->MallVideos->getmorelist($vodlist['cate_id'],$page,$limit);
         $category = $this->Menu->getCateInfo($vodlist['cate_id']);
 		$arr['id'] = $vodlist['id'];
 		$arr['url'] = $vodlist['pic'];
@@ -657,7 +659,8 @@ class Index extends BaseController
 		View::assign('child_menu',$child_menu);
 		View::assign('vodlist',$vodlist);
 		View::assign('data',$data);
-		View::assign('guesslist',$guesslist);
+		View::assign('guesslist',$guesslist['list']);
+        View::assign('page',$guesslist['page']);
         View::assign('channel',$channel);
         View::assign('category',$category);
 		if(ismobile())

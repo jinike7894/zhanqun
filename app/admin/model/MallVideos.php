@@ -54,21 +54,23 @@ class MallVideos extends TimeModel
 		$data=array("list"=>$list,"page"=>$page);
         return $data;
 	}
-	public function getmorelist($cate_id,$num)
+	public function getmorelist($cate_id,$page,$pagesize)
 	{
-		$map[] = ['cate_id','=',$cate_id];
-		$list = $this->where($map)->cache(600)->limit(24)->orderRaw("rand()")->select();
+        $map[] = ['cate_id','=',$cate_id];
+        $list = $this->where($map)->cache(600)->orderRaw("rand()")->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
+        $page = $list->render();
         foreach ($list as &$item){
             $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
             $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
             $item['title'] = mbConvert($item['title']);
         }
-		return $list;
+        $data=array("list"=>$list,"page"=>$page);
+        return $data;
 	}
 	public function getsearch($keyword)
 	{
 		$map[] = ['title','like',"%{$keyword}%"];
-		$list=$this->where($map)->order('sort desc,id desc')->paginate(['list_rows'=>31,'query' => request()->param()]);
+		$list=$this->where($map)->order('sort desc,id desc')->paginate(['list_rows'=>32,'query' => request()->param()]);
 		$mallcate = new MallCate();
 		for($i=0;$i<count($list);$i++)
 		{

@@ -48,8 +48,8 @@ class MallNovels extends TimeModel
 	}
 	public function getmorelist($cate_id,$page,$pagesize)
 	{
-		$map[] = ['cate_id','=',$cate_id];
-		$list = $this->where($map)->cache(600)->limit(24)->orderRaw("rand()")->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
+        $map[] = ['cate_id','=',$cate_id];
+        $list = $this->where($map)->cache(600)->orderRaw("rand()")->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
         $page = $list->render();
         foreach ($list as &$item){
             $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');

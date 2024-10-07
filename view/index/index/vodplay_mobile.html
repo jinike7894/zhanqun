@@ -168,6 +168,8 @@
                 </div>
                 {/volist}
             </div>
+            <div class="pagination-box">{$page|raw}
+            </div>
             {volist name='XBottomHFList' id="XTopHF"}
             <a class="hf-ad px0" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
                 <img class="hf-ad-img lozad"
