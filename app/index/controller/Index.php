@@ -603,7 +603,7 @@ class Index extends BaseController
 		$child_menu = $this->Menu->getmenu($category_id);
 		$category_name = $this->Menu->getById($category_id);
 		$page = input('param.page',1);
-		$limit = input('param.limit',31);
+		$limit = input('param.limit',32);
 		$videolist = $this->MallVideos->getlist($category_id,$category_child_id,$page,$limit);
 		View::assign('category_id',$category_id);
 		View::assign('category_child_id',$category_child_id);
