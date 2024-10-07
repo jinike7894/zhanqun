@@ -15,6 +15,27 @@
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta name="applicable-device" content="mobile">
+    <script>
+        {if !empty($tongjiCode)}
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?{$tongjiCode}";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        {/if}
+
+        {if !empty($bdtongji)}
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?{$bdtongji}";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+        {/if}
+    </script>
     <link rel="icon" href="static/app-icon.png">
     <link rel="apple-touch-icon" href="static/app-icon.png">
     <link rel="stylesheet" type="text/css" href="{$jscsscdn}__CSS__/bootstrap.min.css" />
@@ -35,27 +56,6 @@
     <script type="text/javascript" src="{$jscsscdn}__JS__/qrcode.min.js"></script>
     <script type="text/javascript" src="{$jscsscdn}__JS__/bylqwya.js"></script>
     <script>
-        {if !empty($tongjiCode)}
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?{$tongjiCode}";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-        {/if}
-
-
-        {if !empty($bdtongji)}
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?{$bdtongji}";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
-        {/if}
-
         document.addEventListener('DOMContentLoaded', function () {
             window.addEventListener('popstate', function (e) {
                 e.preventDefault();

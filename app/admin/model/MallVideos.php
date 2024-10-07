@@ -47,7 +47,7 @@ class MallVideos extends TimeModel
 		}		
 		$page = $list->render();
         foreach ($list as &$item){
-            $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
+            $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
             $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
             $item['title'] = mbConvert($item['title']);
         }
@@ -59,7 +59,7 @@ class MallVideos extends TimeModel
 		$map[] = ['cate_id','=',$cate_id];
 		$list = $this->where($map)->cache(600)->limit(24)->orderRaw("rand()")->select();
         foreach ($list as &$item){
-            $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
+            $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
             $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
             $item['title'] = mbConvert($item['title']);
         }
@@ -84,7 +84,7 @@ class MallVideos extends TimeModel
 		}
 		$page = $list->render();
         foreach ($list as &$item){
-            $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
+            $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
             $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
         }
 		$data=array("list"=>$list,"page"=>$page);
@@ -144,7 +144,7 @@ class MallVideos extends TimeModel
 			}
 		}
         foreach ($list as &$item){
-            $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
+            $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
             $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
             $item['title'] = mbConvert($item['title']);
         }

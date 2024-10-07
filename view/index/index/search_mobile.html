@@ -96,10 +96,10 @@
                     {/volist}
                 {/eq}
             <div class="vs_8e43cea1a3310b70a00fc627ef21be48-item-vide-n">
-                <div class="rank-a relative" data-vid="{$video['id']}" data-sl="{$video['video']}"
+                <div class="rank-a relative" data-vid="{$video['id']}"
                     data-href="/videoplay/{$channel}.html?category_id={$video['category_id']}&category_child_id={$video['category_child_id']}&vid={$video['id']}">
                     <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-                        data-src="{$video['enpic']}" />
+                        data-src="{$video['enpic'] | raw}" />
                     <div class="mask_info">
                         <div class="flex-space-between">
                             <div class="pre-eye">

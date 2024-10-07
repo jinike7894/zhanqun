@@ -149,10 +149,10 @@
                         {/volist}
                     {/eq}
                 <div class="vs_62ca87c33e224e7846e26d5c7a641599-item-vide-n">
-                    <div class="rank-a relative" data-vid="{$guess['id']}" data-sl="{$guess['video']}"
+                    <div class="rank-a relative" data-vid="{$guess['id']}"
                         data-href="/videoplay/{$channel}.html?category_id={$category_id}&category_child_id={$category_child_id}&vid={$guess['id']}">
                         <img class="pre-img lozad" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg"
-                            data-src="{$guess['enpic']}" />
+                            data-src="{$guess['enpic'] | raw}" />
                         <div class="motion-preview"></div>
                         <div class="mask_info">
                             <div class="flex-space-between">
@@ -208,7 +208,7 @@
          <div class="share-dialog hidden">
             <div class="share-dialog-conter">
               <div class="share-dialog-main">
-                <img class="lozad video-share-img" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg" data-src="{$vodlist['enpic']}" alt="">
+                <img class="lozad video-share-img" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg" data-src="{$vodlist['enpic'] | raw}" alt="">
                 <div class="share-dialog-title">{$vodlist['title'] | raw}</div>
                 <div class="share-dialog-url-wrap">
                     <div class="qr-wrap">
