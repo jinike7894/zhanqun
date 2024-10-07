@@ -74,9 +74,9 @@ class Index extends BaseController
             ->where(['pid' => '9'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
         foreach ($XPopUpList as $key => &$item) {
-            $item['url'] = mbConvert($item['androidurl']);
+            $item['url'] = $item['androidurl'];
             if (strpos($item['img'], 'http') === false) {
-                $item['img'] = mbConvert(replaceAdCdn($item['img']));
+                $item['img'] = replaceAdCdn($item['img']);
             }
         }
         View::assign('XPopUpList',$XPopUpList);
