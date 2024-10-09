@@ -772,7 +772,6 @@ a:hover {
     flex: 0 1 auto;
     align-items: center;
     width: 3.8rem;
-    justify-content: space-between;
 }
 .title-ad-wrap a{
     border-radius: .44rem;
@@ -788,8 +787,11 @@ a:hover {
      overflow: hidden;
      white-space: nowrap;
      flex: 0 0 auto;
+     margin-right: 0.08rem;
 }
-
+.title-ad-wrap a:last-child{
+    margin-right:0;
+}
 .video-title-wrap,
 .live-title-wrap,
 .friends-title-wrap {
