@@ -617,6 +617,22 @@ body {
 
 .dotBox {
     display: flex;
+    position: absolute;
+    right: 20px;
+}
+.swiper-pagination-bullet-active{
+    width: 8px;
+    height: 4px;
+    border-radius: 2px;
+    background: #FDA765;
+}
+.swiper-pagination-bullet{
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    opacity: 0.2px;
+    /*background: #fff;*/
+    margin: 0 3px;
 }
 
 .dot {
