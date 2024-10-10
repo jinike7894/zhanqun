@@ -2,7 +2,6 @@
 <title>小说首页</title>
 <link rel="stylesheet" type="text/css" href="__CSS__/styles.css" />
 </head>
-
 <body >
     <div class="v-s-nav-box-h" style="font-size:12px!important;">
         <div class="logo-box p9">
@@ -105,25 +104,28 @@
             </div>
         </div>
 
-        <div class="contentBox">
+        <div class="contentBox" >
             <div class="contentBoxName">
                 <div class="contentTxt">主编力荐</div>
-                <div class="dotBox">
-                    <div class="dot dotColor"></div>
-                    <div class="dot dotColor"></div>
-                    <div class="dotChoose"></div>
-                    <div class="dot dotColor"></div>
-                    <div class="dot dotColor"></div>
+                <div class="dotBox swiper-pagination">
+                    <!--<div class="dot dotColor"></div>-->
+                    <!--<div class="dot dotColor"></div>-->
+                    <!--<div class="dotChoose"></div>-->
+                    <!--<div class="dot dotColor"></div>-->
+                    <!--<div class="dot dotColor"></div>-->
                 </div>
             </div>
 
 
-            <div class="hotList">
-                {volist name="tjlist" id="index"}
+            <div class="hotList mySwiper" style="width: 100%; overflow: hidden;  ">
+                <div class="swiper-wrapper" >
+                 {volist name="tjlist" id="item"}  
+                <div class="swiper-slide" style="display: flex;flex-wrap: wrap;justify-content: space-between;width:100%">
+                {volist name="item" id="index"}
+             
                 <a href="/novel/detail/{$channel}.html?novel_id={$index['id']}" class="book">
                     <div class="bookImg">
                         <img style="width: 100%;height: 100%;" src="{$index['pic']}" />
-
                         {if condition='$index.is_finish == 0'}
                         <img style="position: absolute;
                         top: 0;
@@ -133,16 +135,6 @@
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="__IMAGES__/wanjie.png" />
                         {/if}
-                        <!--<div class="bookReadNum">-->
-                        <!--    <div class="bookReadNumLeft ">-->
-                        <!--        <img style="width:14px;height:14px;margin-right:2px;" src="__IMAGES__/book_Open-W.svg" />-->
-                        <!--        <span class="view_number_xs"  >{$index['eye'] |qqw}</span>-->
-                        <!--    </div>-->
-                        <!--    <div class="bookReadNumLeft ">-->
-                        <!--        <img style="width:12px;height:12px;margin-right:2px;" src="__IMAGES__/star-w.svg" />-->
-                        <!--        <span class="collect_number_xs" >{$index['shoucang'] |qqw}</span>-->
-                        <!--    </div>-->
-                        <!--</div>-->
                     </div>
                     <div style="padding: 5px;">
                         <div class="bookName">{$index['title'] | raw}</div>
@@ -152,7 +144,10 @@
                         </div>
                     </div>
                 </a>
-                {/volist}
+                 {/volist}
+                 </div>
+                  {/volist}
+                </div>
             </div>
 
             <!-- 导航栏 -->
@@ -263,6 +258,13 @@
     </script>
     {include file="mobile_footer"}
 </body>
+ <script>
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  </script>
 <script>
 
     $(document).ready(function () {

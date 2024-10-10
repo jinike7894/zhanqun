@@ -760,7 +760,7 @@ class Index extends BaseController
             $item['title'] = mbConvert($item['title']);
         }
         //主编力荐
-        $tjlist = $this->Novel->getlist(1,1,6);
+        $tjlist = $this->Novel->getlist(1,1,30);
         //榜单
         $bdlist = $this->Novel->getorderlist($bang,10);
         //分类
@@ -770,9 +770,13 @@ class Index extends BaseController
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
+        $tjlist_banner=[];
+        for($i=0;$i<ceil(count($tjlist["list"]->toArray()["data"])/6);$i++){
+            $tjlist_banner[]=array_slice($tjlist["list"]->toArray()["data"],$i*6,6);
+        }
         View::assign('sort',$sort);
         View::assign('cid',$cid);
-        View::assign('tjlist',$tjlist['list']);
+        View::assign('tjlist',$tjlist_banner);
         View::assign('bdlist',$bdlist);
         View::assign('fllist',$fllist['list']);
         View::assign('novelmenulist',$novelmenulist);
@@ -924,7 +928,7 @@ class Index extends BaseController
             $item['title'] = mbConvert($item['title']);
         }
         //主编力荐
-        $tjlist = $this->Novel->getlist(1,1,6);
+        $tjlist = $this->Novel->getlist(1,1,30);
         //榜单
         $bdlist = $this->Novel->getorderlist($bang,6);
         //分类
@@ -934,9 +938,13 @@ class Index extends BaseController
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
+        $tjlist_banner=[];
+        for($i=0;$i<ceil(count($tjlist["list"]->toArray()["data"])/6);$i++){
+            $tjlist_banner[]=array_slice($tjlist["list"]->toArray()["data"],$i*6,6);
+        }
         View::assign('sort',$sort);
         View::assign('cid',$cid);
-        View::assign('tjlist',$tjlist['list']);
+        View::assign('tjlist',$tjlist_banner);
         View::assign('bdlist',$bdlist);
         View::assign('fllist',$fllist['list']);
         View::assign('novelmenulist',$novelmenulist);
