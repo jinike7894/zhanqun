@@ -261,18 +261,18 @@
         var view_number_yd = formatNumber(view_number_yd);
         $('.view_number_yd').text(view_number_yd);
         //收藏数变k
-        var collect_number_yd = $(".collect_number_yd").text();
-        var collect_number_yd = formatNumber(collect_number_yd);
-        $('.collect_number_yd').text(collect_number_yd);
+        // var collect_number_yd = $(".collect_number_yd").text();
+        // var collect_number_yd = formatNumber(collect_number_yd);
+        // $('.collect_number_yd').text(collect_number_yd);
         
 
-        var view_number = $(".view_number").text();
-        var view_number = formatNumber(view_number);
-        $('.view_number').text(view_number);
-        //收藏数变k
-        var collect_number = $(".collect_number").text();
-        var collect_number = formatNumber(collect_number);
-        $('.collect_number').text(collect_number);
+        // var view_number = $(".view_number").text();
+        // var view_number = formatNumber(view_number);
+        // $('.view_number').text(view_number);
+        // //收藏数变k
+        // var collect_number = $(".collect_number").text();
+        // var collect_number = formatNumber(collect_number);
+        // $('.collect_number').text(collect_number);
         //目录点击变亮
         $(".choosePage").click(function(){
             $(".choosePage").removeClass("choosePage_active");
@@ -289,10 +289,23 @@
                 if (currentText === "正序") {
                     $('#textToChange').text("倒序");
                     $('#imgToChange').attr('src', '__IMAGES__/daoxu.svg');
-                    
+                       var container = $('.mulvPz');
+                     var items = container.find('.pzList');
+                    items = items.toArray().reverse();
+                    container.empty();
+                    $.each(items, function(index, item) {
+                         container.append(item);
+                    });
                 } else {
                     $('#textToChange').text("正序");
                     $('#imgToChange').attr('src', '__IMAGES__/zhengxu.svg');
+                       var container = $('.mulvPz');
+                     var items = container.find('.pzList');
+                    items = items.toArray().reverse();
+                    container.empty();
+                    $.each(items, function(index, item) {
+                         container.append(item);
+                    });
                 }
             });
     });

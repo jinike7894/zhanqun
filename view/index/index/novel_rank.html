@@ -112,7 +112,7 @@
                 <a href="/novel/detail/{$channel}.html?novel_id={$index['id']}" class="contentList">
                     <div class="contentListLeft">
                         <img class="contentCover" src="{$index['pic']}" />
-
+                        <div class="contentNum" style="background: #FF1962;">1</div>
                     </div>
                     <div class="contentRight">
                         <div class="contentName" style="color: #FF3172;">{$index['title'] | raw}</div>
@@ -185,13 +185,13 @@ $(document).ready(function(){
         $(".lable").removeClass("lable_active");
         $(this).addClass("lable_active");
     });
-      var view_number = $(".view_number").text();
-        var view_number = formatNumber(view_number);
-        $('.view_number').text(view_number);
-        //收藏数变k
-        var collect_number = $(".collect_number").text();
-        var collect_number = formatNumber(collect_number);
-        $('.collect_number').text(collect_number);
+    //   var view_number = $(".view_number").text();
+    //     var view_number = formatNumber(view_number);
+    //     $('.view_number').text(view_number);
+    //     //收藏数变k
+    //     var collect_number = $(".collect_number").text();
+    //     var collect_number = formatNumber(collect_number);
+    //     $('.collect_number').text(collect_number);
 });
  function formatNumber(num) {
             if (num >= 1000) {
