@@ -762,9 +762,9 @@ class Index extends BaseController
         //主编力荐
         $tjlist = $this->Novel->getlist(1,1,6);
         //榜单
-        $bdlist = $this->Novel->getorderlist($bang,6);
+        $bdlist = $this->Novel->getorderlist($bang,10);
         //分类
-        $fllist = $this->Novel->getlist($cid,1,6);
+        $fllist = $this->Novel->getlist($cid,1,12);
 
         $menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item){
@@ -787,8 +787,8 @@ class Index extends BaseController
 
         $sort = input('param.sort/d',0);
         $page = input('param.page',1);
-        $limit = input('param.limit',31);
-        $novellist = $this->Novel->getlist($cid,$page,2);
+        $limit = input('param.limit',10);
+        $novellist = $this->Novel->getlist($cid,$page,$limit);
 
         $novelmenulist = $this->NovelMenu->getmenu(0);
         foreach ($novelmenulist as &$item){
@@ -827,9 +827,9 @@ class Index extends BaseController
                 $bang = 'eye';
         }
         $page = input('param.page',1);
-        $limit = input('param.limit',31);
+        $limit = input('param.limit',10);
         //榜单
-        $bdlist = $this->Novel->getlist(0,$page,2,$bang);
+        $bdlist = $this->Novel->getlist(0,$page,$limit,$bang);
 
         $menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item){
@@ -856,9 +856,9 @@ class Index extends BaseController
             $item['title'] = mbConvert($item['title']);
         }
         $page = input('param.page',1);
-        $limit = input('param.limit',31);
+        $limit = input('param.limit',12);
         //榜单
-        $tjlist = $this->Novel->getmorelist($novel['cate_id'],$page,2);
+        $tjlist = $this->Novel->getmorelist($novel['cate_id'],$page,$limit);
 
         //章节列表
         $cataloglist = $this->NovelCatalogs->getlist($novelId);
