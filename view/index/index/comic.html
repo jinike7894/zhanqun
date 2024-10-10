@@ -2,7 +2,6 @@
 <title>小说首页</title>
 <link rel="stylesheet" type="text/css" href="__CSS__/styles.css" />
 </head>
-
 <body >
     <div class="v-s-nav-box-h" style="font-size:12px!important;">
         <div class="logo-box p9">
@@ -38,6 +37,18 @@
         </a>
         <a href="/nav/{$channel}.html">
             <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
+        </a>
+        <a href="/novel/{$channel}.html" >
+            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
+                小说 <img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/new.svg">
+            </div>
+           
+        </a>
+        <a href="/novel/{$channel}.html">
+            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
+                漫画<img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/hots.svg">
+                </div>
+            
         </a>
         {volist name='menulist' id="menu"}
         <a href="/category/{$channel}.html?category_id={$menu['id']}">
@@ -93,25 +104,28 @@
             </div>
         </div>
 
-        <div class="contentBox">
+        <div class="contentBox" >
             <div class="contentBoxName">
                 <div class="contentTxt">主编力荐</div>
-                <div class="dotBox">
-                    <div class="dot dotColor"></div>
-                    <div class="dot dotColor"></div>
-                    <div class="dotChoose"></div>
-                    <div class="dot dotColor"></div>
-                    <div class="dot dotColor"></div>
+                <div class="dotBox swiper-pagination">
+                    <!--<div class="dot dotColor"></div>-->
+                    <!--<div class="dot dotColor"></div>-->
+                    <!--<div class="dotChoose"></div>-->
+                    <!--<div class="dot dotColor"></div>-->
+                    <!--<div class="dot dotColor"></div>-->
                 </div>
             </div>
 
 
-            <div class="hotList">
-                {volist name="tjlist" id="index"}
+            <div class="hotList mySwiper" style="width: 100%; overflow: hidden;  ">
+                <div class="swiper-wrapper" >
+                 {volist name="tjlist" id="item"}  
+                <div class="swiper-slide" style="display: flex;flex-wrap: wrap;justify-content: space-between;width:100%">
+                {volist name="item" id="index"}
+             
                 <a href="/novel/detail/{$channel}.html?novel_id={$index['id']}" class="book">
                     <div class="bookImg">
                         <img style="width: 100%;height: 100%;" src="{$index['pic']}" />
-
                         {if condition='$index.is_finish == 0'}
                         <img style="position: absolute;
                         top: 0;
@@ -121,16 +135,6 @@
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="__IMAGES__/wanjie.png" />
                         {/if}
-                        <!--<div class="bookReadNum">-->
-                        <!--    <div class="bookReadNumLeft ">-->
-                        <!--        <img style="width:14px;height:14px;margin-right:2px;" src="__IMAGES__/book_Open-W.svg" />-->
-                        <!--        <span class="view_number_xs"  >{$index['eye'] |qqw}</span>-->
-                        <!--    </div>-->
-                        <!--    <div class="bookReadNumLeft ">-->
-                        <!--        <img style="width:12px;height:12px;margin-right:2px;" src="__IMAGES__/star-w.svg" />-->
-                        <!--        <span class="collect_number_xs" >{$index['shoucang'] |qqw}</span>-->
-                        <!--    </div>-->
-                        <!--</div>-->
                     </div>
                     <div style="padding: 5px;">
                         <div class="bookName">{$index['title'] | raw}</div>
@@ -140,7 +144,10 @@
                         </div>
                     </div>
                 </a>
-                {/volist}
+                 {/volist}
+                 </div>
+                  {/volist}
+                </div>
             </div>
 
             <!-- 导航栏 -->
@@ -251,6 +258,13 @@
     </script>
     {include file="mobile_footer"}
 </body>
+ <script>
+    var swiper = new Swiper(".mySwiper", {
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  </script>
 <script>
 
     $(document).ready(function () {
@@ -287,13 +301,13 @@
         // var collect_number_xs = formatNumber(collect_number_xs);
         // $('.collect_number_xs').text(collect_number_xs);
         //观看数变k
-        var view_number = $(".view_number").text();
-        var view_number = formatNumber(view_number);
-        $('.view_number').text(view_number);
-        //收藏数变k
-        var collect_number = $(".collect_number").text();
-        var collect_number = formatNumber(collect_number);
-        $('.collect_number').text(collect_number);
+        // var view_number = $(".view_number").text();
+        // var view_number = formatNumber(view_number);
+        // $('.view_number').text(view_number);
+        // //收藏数变k
+        // var collect_number = $(".collect_number").text();
+        // var collect_number = formatNumber(collect_number);
+        // $('.collect_number').text(collect_number);
     
         
         
@@ -310,13 +324,13 @@
             }
         });
     });
-     function formatNumber(num) {
-            if (num >= 1000) {
-                // 使用 Math.round() 确保不会有小数部分
-                return Math.round(num / 1000) + 'k';
-            }
-            return num.toString();
-        }
+    //  function formatNumber(num) {
+    //         if (num >= 1000) {
+    //             // 使用 Math.round() 确保不会有小数部分
+    //             return Math.round(num / 1000) + 'k';
+    //         }
+    //         return num.toString();
+    //     }
 </script>
 
 </html>
