@@ -901,18 +901,16 @@ p {
 
 .bookImg {
 
-    /* height: 149px; */
+     height: 149px; 
     position: relative;
 
 }
-
+   
 .book {
-    max-width: 30%;
-    min-width: 28%;
     border-radius: 6px;
-    overflow: hidden;
+    overflow: hidden; 
     background: #2A2928;
-    margin: 5px
+    margin: 5px;
 }
 
 .bookReadNum {
