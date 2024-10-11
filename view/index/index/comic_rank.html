@@ -4,214 +4,241 @@
 </head>
 <style>
     body{
-       font-size:12px!important;
+        font-size:12px!important;
     }
 </style>
 <body>
 
-    <div class="v-s-nav-box-h">
-        <div class="logo-box p9">
-            <div class="v-s-logo">
-                <a href="/{$channel}.html">
-                    <img src="__IMAGES__/logo.png">
-                </a>
-            </div>
-            <div class="v-s-nav-search-box">
-                <a href="/searchhome/{$channel}.html">
-                    <div class="search-person">
-                        <div class="s-text">&#20154;&#22971;</div>
-                        <i class="bi bi-search"></i>
-                    </div>
-                </a>
-                <img class="left-img" src="__IMAGES__/collect-btn.png" alt="" srcset="">
-            </div>
-        </div>
-        <div class="h-textad">
-            {volist name='XSudokuTextList' id="XSudokuText"}
-            <a class="text-c-1" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">
-                {$XSudokuText['name'] | raw}
+<div class="v-s-nav-box-h">
+    <div class="logo-box p9">
+        <div class="v-s-logo">
+            <a href="/{$channel}.html">
+                <img src="__IMAGES__/logo.png">
             </a>
-            {/volist}
+        </div>
+        <div class="v-s-nav-search-box">
+            <a href="/searchhome/{$channel}.html">
+                <div class="search-person">
+                    <div class="s-text">&#20154;&#22971;</div>
+                    <i class="bi bi-search"></i>
+                </div>
+            </a>
+            <img class="left-img" src="__IMAGES__/collect-btn.png" alt="" srcset="">
         </div>
     </div>
-    <!-- 标题栏bp -->
-    <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav pb10">
-        <a href="/{$channel}.html">
-            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">
-                &#39318;&#39029;
-            </div>
-        </a>
-        <a href="/nav/{$channel}.html">
-            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
-        </a>
-        <a href="/novel/{$channel}.html" >
-            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
-                小说 <img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/new.svg">
-            </div>
-           
-        </a>
-        <a href="/novel/{$channel}.html">
-            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
-                漫画<img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/hots.svg">
-                </div>
-            
-        </a>
-        {volist name='menulist' id="menu"}
-        <a href="/category/{$channel}.html?category_id={$menu['id']}">
-            <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item ">{$menu['title'] | raw}</div>
-        </a>
-        {/volist}
-    </div>
-    {volist name='XTopHFList' id="XTopHF"}
-    <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
-        <img class="hf-ad-img lozad"
-             data-src="{$XTopHF['img'] | raw}"
-             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-    </a>
-    {/volist}
-    <div class="ad-conter ">
-        {volist name='XSudokuList' id="XSudoku"}
-        <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url'] | raw}" target="_blank">
-            <img class="lozad"
-                 data-src="{$XSudoku['img'] | raw}"
-                 src="__IMAGES__/loading_img_bg_default.jpg">
-            <div>{$XSudoku['name'] | raw}</div>
-        </a>
-        {/volist}
-    </div>
-    <div class="textad pb10">
-        {volist name='XTopTextList' id="XSudokuText"}
-        <a class="text-c-4" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">
+    <div class="h-textad">
+        {volist name='XSudokuTextList' id="XSudokuText"}
+        <a class="text-c-1" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">
             {$XSudokuText['name'] | raw}
         </a>
         {/volist}
     </div>
-    {volist name='XTopBannerHFList' id="XTopHF"}
-    <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
-        <img class="hf-ad-img lozad"
-             data-src="{$XTopHF['img'] | raw}"
-             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+</div>
+<!-- 标题栏bp -->
+<div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav pb10">
+    <a href="/{$channel}.html">
+        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">
+            &#39318;&#39029;
+        </div>
+    </a>
+    <a href="/nav/{$channel}.html">
+        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
+    </a>
+    <a href="/comic/{$channel}.html" >
+        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
+            小说 <img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/new.svg">
+        </div>
+
+    </a>
+    <a href="/comic/{$channel}.html">
+        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
+            漫画<img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/hots.svg">
+        </div>
+
+    </a>
+    {volist name='menulist' id="menu"}
+    <a href="/category/{$channel}.html?category_id={$menu['id']}">
+        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item ">{$menu['title'] | raw}</div>
     </a>
     {/volist}
+</div>
+{volist name='XTopHFList' id="XTopHF"}
+<a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+    <img class="hf-ad-img lozad"
+         data-src="{$XTopHF['img'] | raw}"
+         src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+</a>
+{/volist}
+<div class="ad-conter ">
+    {volist name='XSudokuList' id="XSudoku"}
+    <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url'] | raw}" target="_blank">
+        <img class="lozad"
+             data-src="{$XSudoku['img'] | raw}"
+             src="__IMAGES__/loading_img_bg_default.jpg">
+        <div>{$XSudoku['name'] | raw}</div>
+    </a>
+    {/volist}
+</div>
+<div class="textad pb10">
+    {volist name='XTopTextList' id="XSudokuText"}
+    <a class="text-c-4" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">
+        {$XSudokuText['name'] | raw}
+    </a>
+    {/volist}
+</div>
+{volist name='XTopBannerHFList' id="XTopHF"}
+<a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+    <img class="hf-ad-img lozad"
+         data-src="{$XTopHF['img'] | raw}"
+         src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+</a>
+{/volist}
 
 <!-- 人气榜 -->
-    <div id="page">
-        <!-- 返回栏 -->
-        <div class="nav">
-            <a href="/novel/{$channel}.html" class="left">
-                <img class="leftBtn" src="__IMAGES__/btn_left.svg" />
-                <div class="leftName">排行榜</div>
-            </a>
-            <div class="right">
-                <div class="rightBtn">棋牌游戏</div>
-                <div class="rightBtn">强奸迷奸</div>
-                <div class="rightBtn">偷拍自拍</div>
+<div id="page">
+    <!-- 返回栏 -->
+    <div class="nav">
+        <a href="/comic/{$channel}.html" class="left">
+            <img class="leftBtn" src="__IMAGES__/btn_left.svg" />
+            <div class="leftName">{$bangtitle}</div>
+        </a>
+        <div class="right">
+            <div class="rightBtn">棋牌游戏</div>
+            <div class="rightBtn">强奸迷奸</div>
+            <div class="rightBtn">偷拍自拍</div>
 
-            </div>
         </div>
+    </div>
 
-        <div class="contentBox">
-            <!-- 导航栏 -->
-            <div class="lableList">
-                <a href="/novel/rank/{$channel}.html?sort=1" class="lable flex {if condition='$sort eq 1'} lable_active  {/if}">人气榜</a>
-                <a href="/novel/rank/{$channel}.html?sort=2" class="lable flex {if condition='$sort eq 2'} lable_active  {/if}">推荐榜</a>
-                <a href="/novel/rank/{$channel}.html?sort=3" class="lable flex {if condition='$sort eq 3'} lable_active  {/if}">收藏榜</a>
-                <a href="/novel/rank/{$channel}.html?sort=4" class="lable flex {if condition='$sort eq 4'} lable_active  {/if}">热搜榜</a>
-            </div>
-            {volist name="bdlist" id="index"}
-            <div class="xsBox">
-                <!-- 小说1 -->
-                <a href="/novel/detail/{$channel}.html?novel_id={$index['id']}" class="contentList">
-                    <div class="contentListLeft">
-                        <img class="contentCover" src="{$index['pic']}" />
-                        <div class="contentNum" style="background: #FF1962;">1</div>
-                    </div>
-                    <div class="contentRight">
-                        <div class="contentName" style="color: #FF3172;">{$index['title'] | raw}</div>
-                        <div class="contentAuthor">
-                            <span class="contentNav">作者</span>
-                            <span class="contentA">{$index['author']}</span>
-                        </div>
-                        <div class="contentAuthor">
-                            <span class="contentNav">状态</span>
-                            {if condition='$index.is_finish == 0'}
-                                <span class="contentLz" style="background: linear-gradient(282.53deg, #1D4AFF 64.29%, #00EAFF 95.78%);
-">连载</span>
+    <div class="contentBox">
+        <!-- 导航栏 -->
+        <div class="lableList">
+            <a href="/comic/rank/{$channel}.html?sort=1" class="lable flex {if condition='$sort eq 1'} lable_active  {/if}">人气榜</a>
+            <a href="/comic/rank/{$channel}.html?sort=2" class="lable flex {if condition='$sort eq 2'} lable_active  {/if}">推荐榜</a>
+            <a href="/comic/rank/{$channel}.html?sort=3" class="lable flex {if condition='$sort eq 3'} lable_active  {/if}">收藏榜</a>
+            <a href="/comic/rank/{$channel}.html?sort=4" class="lable flex {if condition='$sort eq 4'} lable_active  {/if}">热搜榜</a>
+        </div>
+        {volist name="bdlist" id="index"}
+        <div class="xsBox">
+            <!-- 小说1 -->
+            <a href="/comic/detail/{$channel}.html?novel_id={$index['id']}" class="contentList">
+                <div class="contentListLeft">
+                    <img class="contentCover" src="{$index['pic']}" />
+                    {if condition='$page2 eq 1'}
+                    <div class="contentNum" style="
+                            {if $i == 1}
+                            background: #FF1962;
+                            {elseif $i == 2}
+                            background: #FF5B25;
+                            {elseif $i == 3}
+                            background: #FFC53E;
+                            color:#00000099;
                             {else}
-                                <span class="contentLz" style="background: linear-gradient(285.38deg, #00A814 61.2%, #B6FE00 97.69%);
+                            background: #3B3A39;
+                            {/if}
+                        ">{$i}</div>
+                    {/if}
+                </div>
+                <div class="contentRight">
+                    <div class="contentName" style="
+                        {if condition='$page2 eq 1'}
+                            {if $i == 1}
+                                color: #FF3172;
+                                {elseif $i == 2}
+                                color: #FB5E2A;
+                                {elseif $i == 3}
+                                color: #CEA648;
+                                {else}
+                                color: #FFFFFF;
+                            {/if}
+                        {else}
+                        color: #FFFFFF;
+                        {/if}
+">{$index['title'] | raw}</div>
+                    <div class="contentAuthor">
+                        <span class="contentNav">作者</span>
+                        <span class="contentA">{$index['author']}</span>
+                    </div>
+                    <div class="contentAuthor">
+                        <span class="contentNav">状态</span>
+                        {if condition='$index.is_finish == 0'}
+                        <span class="contentLz" style="background: linear-gradient(282.53deg, #1D4AFF 64.29%, #00EAFF 95.78%);
+">连载</span>
+                        {else}
+                        <span class="contentLz" style="background: linear-gradient(285.38deg, #00A814 61.2%, #B6FE00 97.69%);
 ;
 ">完结</span>
-                            {/if}
+                        {/if}
+                    </div>
+                    <div class="contentAuthor">
+                        <span class="contentNav">最新</span>
+                        <span class="contentA fontWeight">更新至{$index['chaptercount']}章</span>
+                        <span class="contentA fontWeight">半年前</span>
+                    </div>
+                    <!--                        <div class="contentAuthor">-->
+                    <!--                            <span class="contentNav">题材</span>-->
+                    <!--                            <span class="contentA fontColor">玄幻</span>-->
+                    <!--                            <span class="contentA fontColor">乱伦</span>-->
+                    <!--                        </div>-->
+                    <div class="contentRead">
+                        <div class="contentReadBox">
+                            <img src="__IMAGES__/book_Open.svg" />
+                            阅读 <span class="contentK view_number">{$index['eye'] |qqw}</span>
                         </div>
-                        <div class="contentAuthor">
-                            <span class="contentNav">最新</span>
-                            <span class="contentA fontWeight">更新至1338章</span>
-                            <span class="contentA fontWeight">半年前</span>
-                        </div>
-<!--                        <div class="contentAuthor">-->
-<!--                            <span class="contentNav">题材</span>-->
-<!--                            <span class="contentA fontColor">玄幻</span>-->
-<!--                            <span class="contentA fontColor">乱伦</span>-->
-<!--                        </div>-->
-                        <div class="contentRead">
-                            <div class="contentReadBox">
-                                <img src="__IMAGES__/book_Open.svg" />
-                                阅读 <span class="contentK view_number">{$index['eye'] |qqw}</span>
-                            </div>
-                            <div class="contentReadBox">
-                                <img src="__IMAGES__/star.svg" />
-                                收藏<span class="collect_number" >{$index['shoucang'] |qqw}</span>
-                            </div>
+                        <div class="contentReadBox">
+                            <img src="__IMAGES__/star.svg" />
+                            收藏<span class="collect_number" >{$index['shoucang'] |qqw}</span>
                         </div>
                     </div>
-                </a>
-                <!-- 下面分类 -->
-<!--                <div class="bottomClass">-->
-<!--                    <a href="#"><div class="bct"><span style="color: #FFFFFF66;">#   </span>母女花</div></a>-->
-<!--                    <a href="#"><div class="bct"><span style="color: #FFFFFF66;">#   </span>校花</div></a>-->
-<!--                </div>-->
+                </div>
+            </a>
+            <!-- 下面分类 -->
+            <!--                <div class="bottomClass">-->
+            <!--                    <a href="#"><div class="bct"><span style="color: #FFFFFF66;">#   </span>母女花</div></a>-->
+            <!--                    <a href="#"><div class="bct"><span style="color: #FFFFFF66;">#   </span>校花</div></a>-->
+            <!--                </div>-->
 
-            </div>
-            {/volist}
-
-            
-                <img class="banner" src="__IMAGES__/banner.png"/>
-
-
-            <div class="pagination-box">{$page|raw}
-            </div>
         </div>
+        {/volist}
 
 
+        <img class="banner" src="__IMAGES__/banner.png"/>
+
+
+        <div class="pagination-box">{$page|raw}
+        </div>
     </div>
- 
-    <script>
 
-    </script>
-    {include file="mobile_footer"}
+
+</div>
+
+<script>
+
+</script>
+{include file="mobile_footer"}
 </body>
 <script>
 
-$(document).ready(function(){
-    $(".lable").click(function(){
-        $(".lable").removeClass("lable_active");
-        $(this).addClass("lable_active");
+    $(document).ready(function(){
+        $(".lable").click(function(){
+            $(".lable").removeClass("lable_active");
+            $(this).addClass("lable_active");
+        });
+        //   var view_number = $(".view_number").text();
+        //     var view_number = formatNumber(view_number);
+        //     $('.view_number').text(view_number);
+        //     //收藏数变k
+        //     var collect_number = $(".collect_number").text();
+        //     var collect_number = formatNumber(collect_number);
+        //     $('.collect_number').text(collect_number);
     });
-    //   var view_number = $(".view_number").text();
-    //     var view_number = formatNumber(view_number);
-    //     $('.view_number').text(view_number);
-    //     //收藏数变k
-    //     var collect_number = $(".collect_number").text();
-    //     var collect_number = formatNumber(collect_number);
-    //     $('.collect_number').text(collect_number);
-});
- function formatNumber(num) {
-            if (num >= 1000) {
-                // 使用 Math.round() 确保不会有小数部分
-                return Math.round(num / 1000) + 'k';
-            }
-            return num.toString();
+    function formatNumber(num) {
+        if (num >= 1000) {
+            // 使用 Math.round() 确保不会有小数部分
+            return Math.round(num / 1000) + 'k';
         }
+        return num.toString();
+    }
 </script>
 
 </script>

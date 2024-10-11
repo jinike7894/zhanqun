@@ -26,11 +26,12 @@ class MallComics extends TimeModel
     {
         return $this->belongsTo('app\admin\model\MallNovelcate', 'cate_id', 'id');
     }
-	public function getlist($category_id,$page,$pagesize,$order = null)
-	{
+    public function getlist($category_id,$page,$pagesize,$order = null)
+    {
         $map[] = ['pid','=',$category_id];
         $map[] = ['status', '=', 1];
         $mallcate = new MallNovelcate();
+        $novelcatalogs = new NovelCatalogs();
         $catelist = $mallcate::field('id')->where($map)->cache(600)->select()->toArray();
         $ids = array_column($catelist,'id');
         array_unshift($ids,$category_id);
@@ -38,54 +39,57 @@ class MallComics extends TimeModel
         $map1[] = ['cate_id','in',$ids];
         $map1[] = ['status', '=', 1];
         $list=$this->where($map1)->order($order)->cache(600)->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
-		$page = $list->render();
-        foreach ($list as &$item){
-            $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
-            $item['title'] = mbConvert($item['title']);
-        }
-		$data=array("list"=>$list,"page"=>$page);
-        return $data;
-	}
-	public function getmorelist($cate_id,$page,$pagesize)
-	{
-		$map[] = ['cate_id','=',$cate_id];
-		$list = $this->where($map)->cache(600)->limit(24)->orderRaw("rand()")->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
         $page = $list->render();
         foreach ($list as &$item){
             $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
             $item['title'] = mbConvert($item['title']);
+            $item['chaptercount'] = $novelcatalogs::where([['novel_id', '=', $item['id']]])->cache(6000)->count();
         }
         $data=array("list"=>$list,"page"=>$page);
         return $data;
-	}
-	public function getsearch($keyword)
-	{
-		$map[] = ['title','like',"%{$keyword}%"];
-		$list=$this->where($map)->order('sort desc,id desc')->paginate(['list_rows'=>31,'query' => request()->param()]);
-		$mallcate = new MallCate();
-		for($i=0;$i<count($list);$i++)
-		{
-			$pid = $mallcate::where(array('id'=>$list[$i]['cate_id']))->value('pid');
-			if($pid ==0)
-			{
-				$list[$i]['category_id'] = $list[$i]['cate_id'];
-				$list[$i]['category_child_id'] = 0;
-			}else{
-				$list[$i]['category_id'] = $pid;
-				$list[$i]['category_child_id'] = $list[$i]['cate_id'];
-			}
-		}
-		$page = $list->render();
+    }
+    public function getmorelist($cate_id,$page,$pagesize)
+    {
+        $map[] = ['cate_id','=',$cate_id];
+        $list = $this->where($map)->cache(600)->orderRaw("rand()")->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
+        $page = $list->render();
+        $novelcatalogs = new NovelCatalogs();
+        foreach ($list as &$item){
+            $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
+            $item['title'] = mbConvert($item['title']);
+            $item['chaptercount'] = $novelcatalogs::where([['novel_id', '=', $item['id']]])->cache(6000)->count();
+        }
+        $data=array("list"=>$list,"page"=>$page);
+        return $data;
+    }
+    public function getsearch($keyword)
+    {
+        $map[] = ['title','like',"%{$keyword}%"];
+        $list=$this->where($map)->order('sort desc,id desc')->paginate(['list_rows'=>31,'query' => request()->param()]);
+        $mallcate = new MallCate();
+        for($i=0;$i<count($list);$i++)
+        {
+            $pid = $mallcate::where(array('id'=>$list[$i]['cate_id']))->value('pid');
+            if($pid ==0)
+            {
+                $list[$i]['category_id'] = $list[$i]['cate_id'];
+                $list[$i]['category_child_id'] = 0;
+            }else{
+                $list[$i]['category_id'] = $pid;
+                $list[$i]['category_child_id'] = $list[$i]['cate_id'];
+            }
+        }
+        $page = $list->render();
         foreach ($list as &$item){
             $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
             $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
         }
-		$data=array("list"=>$list,"page"=>$page);
-		return $data;
-	}
-	public function getPidMenuList()
-	{
-		$mallcate = new MallCate();
+        $data=array("list"=>$list,"page"=>$page);
+        return $data;
+    }
+    public function getPidMenuList()
+    {
+        $mallcate = new MallCate();
         $list = $mallcate::field('id,pid,title')->where(array('status'=>1))->select()->toArray();
         $pidMenuList = $this->buildPidMenu(0, $list);
         return $pidMenuList;
@@ -117,30 +121,30 @@ class MallComics extends TimeModel
         }
         return $newList;
     }
-	/**
-	*根据顺序获取数据
-	*/
-	public function getorderlist($order,$num)
-	{
-		$list=$this->order($order)->limit($num)->cache(600)->select();
-		$mallcate = new MallNovelcate();
-		for($i=0;$i<count($list);$i++)
-		{
-			$pid = $mallcate::where(array('id'=>$list[$i]['cate_id']))->cache(600)->value('pid');
-			if($pid ==0)
-			{
-				$list[$i]['category_id'] = $list[$i]['cate_id'];
-				$list[$i]['category_child_id'] = 0;
-			}else{
-				$list[$i]['category_id'] = $pid;
-				$list[$i]['category_child_id'] = $list[$i]['cate_id'];
-			}
-		}
+    /**
+     *根据顺序获取数据
+     */
+    public function getorderlist($order,$num)
+    {
+        $list=$this->order($order)->limit($num)->cache(600)->select();
+        $mallcate = new MallNovelcate();
+        for($i=0;$i<count($list);$i++)
+        {
+            $pid = $mallcate::where(array('id'=>$list[$i]['cate_id']))->cache(600)->value('pid');
+            if($pid ==0)
+            {
+                $list[$i]['category_id'] = $list[$i]['cate_id'];
+                $list[$i]['category_child_id'] = 0;
+            }else{
+                $list[$i]['category_id'] = $pid;
+                $list[$i]['category_child_id'] = $list[$i]['cate_id'];
+            }
+        }
         foreach ($list as &$item){
             $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
             $item['title'] = mbConvert($item['title']);
         }
-		return $list;
-	}
+        return $list;
+    }
 
 }

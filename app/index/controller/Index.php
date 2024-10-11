@@ -19,6 +19,11 @@ class Index extends BaseController
         $this->Novel = new \app\admin\model\MallNovels();
         $this->NovelCatalogs = new \app\admin\model\NovelCatalogs();
 
+        //漫画model
+        $this->ComicMenu = new \app\admin\model\MallComiccate();
+        $this->Comic = new \app\admin\model\MallComics();
+        $this->ComicCatalogs = new \app\admin\model\ComicCatalogs();
+
 
 
         $channel = $this->request->param('channel',0);
@@ -961,31 +966,47 @@ class Index extends BaseController
     public function comic($channel = 0)
     {
         $sort = input('param.sort/d',1);
-        $cid = input('param.cid/d',1);
+        $cid = input('param.cid/d',0);
         $bang = 'renqi';
+        $bangtitle = '人气榜';
         switch ($sort){
             case 1:
                 $bang = 'renqi';
+                $bangtitle = '人气榜';
                 break;
             case 2:
                 $bang = 'tuijian';
+                $bangtitle = '推荐榜';
                 break;
             case 3:
                 $bang = 'shoucang';
+                $bangtitle = '收藏榜';
                 break;
             case 4:
                 $bang = 'eye';
+                $bangtitle = '热搜榜';
         }
-        $novelmenulist = $this->NovelMenu->getmenu(0);
+        $novelmenulist = $this->ComicMenu->getmenu(0);
+        $novelMenuArray = [];
         foreach ($novelmenulist as &$item){
             $item['title'] = mbConvert($item['title']);
+            $novelMenuArray[$item['id']] = $item['title'];
         }
         //主编力荐
-        $tjlist = $this->Novel->getlist(1,1,30);
+        $tjlist = $this->Comic->getlist(0,1,30,'tuijian');
+        foreach ($tjlist['list'] as $item){
+            $item['cate'] = $novelMenuArray[$item['cate_id']];
+        }
         //榜单
-        $bdlist = $this->Novel->getorderlist($bang,6);
+        $bdlist = $this->Comic->getorderlist($bang,10);
+        foreach ($bdlist as $item){
+            $item['cate'] = $novelMenuArray[$item['cate_id']];
+        }
         //分类
-        $fllist = $this->Novel->getlist($cid,1,6);
+        $fllist = $this->Comic->getlist($cid,1,12);
+        foreach ($fllist['list'] as $item){
+            $item['cate'] = $novelMenuArray[$item['cate_id']];
+        }
 
         $menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item){
@@ -995,8 +1016,11 @@ class Index extends BaseController
         for($i=0;$i<ceil(count($tjlist["list"]->toArray()["data"])/6);$i++){
             $tjlist_banner[]=array_slice($tjlist["list"]->toArray()["data"],$i*6,6);
         }
+        $novelMenuArray[0] = "全部题材";
         View::assign('sort',$sort);
         View::assign('cid',$cid);
+        View::assign('catetitle',$novelMenuArray[$cid]);
+        View::assign('bangtitle',$bangtitle);
         View::assign('tjlist',$tjlist_banner);
         View::assign('bdlist',$bdlist);
         View::assign('fllist',$fllist['list']);
@@ -1011,20 +1035,36 @@ class Index extends BaseController
         $cid = input('param.cid/d',0);
 
         $sort = input('param.sort/d',0);
+        $order = "create_time";
+        switch ($sort){
+            case 1:
+                $order = 'create_time';
+                break;
+            case 2:
+                $order = 'eye';
+                break;
+            case 3:
+                $order = 'shoucang';
+                break;
+        }
         $page = input('param.page',1);
-        $limit = input('param.limit',31);
-        $novellist = $this->Novel->getlist($cid,$page,2);
+        $limit = input('param.limit',10);
+        $novellist = $this->Comic->getlist($cid,$page,$limit,$order);
 
-        $novelmenulist = $this->NovelMenu->getmenu(0);
+        $novelmenulist = $this->ComicMenu->getmenu(0);
+        $novelMenuArray = [];
         foreach ($novelmenulist as &$item){
             $item['title'] = mbConvert($item['title']);
+            $novelMenuArray[$item['id']] = $item['title'];
         }
 
         $menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
+        $novelMenuArray[0] = "全部题材";
         View::assign('cid',$cid);
+        View::assign('catetitle',$novelMenuArray[$cid]);
         View::assign('sort',$sort);
         View::assign('novellist',$novellist['list']);
         View::assign('page',$novellist['page']);
@@ -1038,31 +1078,38 @@ class Index extends BaseController
     {
         $sort = input('param.sort/d',1);
         $bang = 'renqi';
+        $bangtitle = '人气榜';
         switch ($sort){
             case 1:
                 $bang = 'renqi';
+                $bangtitle = '人气榜';
                 break;
             case 2:
                 $bang = 'tuijian';
+                $bangtitle = '推荐榜';
                 break;
             case 3:
                 $bang = 'shoucang';
+                $bangtitle = '收藏榜';
                 break;
             case 4:
                 $bang = 'eye';
+                $bangtitle = '热搜榜';
         }
         $page = input('param.page',1);
-        $limit = input('param.limit',31);
+        $limit = input('param.limit',10);
         //榜单
-        $bdlist = $this->Novel->getlist(0,$page,2,$bang);
+        $bdlist = $this->Comic->getlist(0,$page,$limit,$bang);
 
         $menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
         View::assign('sort',$sort);
+        View::assign('bangtitle',$bangtitle);
         View::assign('bdlist',$bdlist['list']);
         View::assign('page',$bdlist['page']);
+        View::assign('page2',$page);
         View::assign('menulist',$menulist);
         View::assign('channel',$channel);
         return View::fetch();
@@ -1072,7 +1119,7 @@ class Index extends BaseController
     {
         $novelId = input('param.novel_id/d',0);
 
-        $novel = $this->Novel->getById($novelId);
+        $novel = $this->Comic->getById($novelId);
         $novel['enpic'] = replaceVideoCdn($novel['enpic'], 'video_img_cdn');
         $novel['title'] = mbConvert($novel['title']);
 
@@ -1081,14 +1128,24 @@ class Index extends BaseController
             $item['title'] = mbConvert($item['title']);
         }
         $page = input('param.page',1);
-        $limit = input('param.limit',31);
+        $limit = input('param.limit',12);
         //榜单
-        $tjlist = $this->Novel->getmorelist($novel['cate_id'],$page,2);
+        $tjlist = $this->Comic->getmorelist($novel['cate_id'],$page,$limit);
 
         //章节列表
-        $cataloglist = $this->NovelCatalogs->getlist($novelId);
+        $cataloglist = $this->ComicCatalogs->getlist($novelId);
+        $catalogcount = count($cataloglist);
+
+        $novelmenulist = $this->ComicMenu->getmenu(0);
+        $novelMenuArray = [];
+        foreach ($novelmenulist as &$item){
+            $item['title'] = mbConvert($item['title']);
+            $novelMenuArray[$item['id']] = $item['title'];
+        }
 
         View::assign('cataloglist',$cataloglist);
+        View::assign('catetitle',$novelMenuArray[$novel['cate_id']]);
+        View::assign('catalogcount',$catalogcount);
         View::assign('tjlist',$tjlist['list']);
         View::assign('page',$tjlist['page']);
         View::assign('novel',$novel);
@@ -1100,10 +1157,10 @@ class Index extends BaseController
     public function comic_chapter($channel = 0)
     {
         $chapterId = input('param.chapter_id/d',0);
-        $chapter = $this->NovelCatalogs->getById($chapterId);
-        $novel = $this->Novel->getById($chapter['novel_id']);
+        $chapter = $this->ComicCatalogs->getById($chapterId);
+        $novel = $this->Comic->getById($chapter['novel_id']);
         //章节列表
-        $cataloglist = $this->NovelCatalogs->getlist($chapter['novel_id']);
+        $cataloglist = $this->ComicCatalogs->getlist($chapter['novel_id']);
 
         $pre = $cataloglist[0];
         $next = $cataloglist[count($cataloglist)-1];
@@ -1115,10 +1172,11 @@ class Index extends BaseController
                 $next = $catalog;
             }
         }
-
+        $catalogcount = count($cataloglist);
         View::assign('pre',$pre);
         View::assign('next',$next);
         View::assign('cataloglist',$cataloglist);
+        View::assign('catalogcount',$catalogcount);
         View::assign('novel',$novel);
         View::assign('chapter',$chapter);
         View::assign('channel',$channel);

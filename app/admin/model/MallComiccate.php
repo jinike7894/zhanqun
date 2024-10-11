@@ -19,20 +19,20 @@ class MallComiccate extends TimeModel
 {
 
     protected $deleteTime = 'delete_time';
-	public function getmenu($pid = 0)
-	{
-		if($pid ==='')
-		{
-			$list = $this->field('id,pid,title')->where(array('status'=>1))->order('sort desc,id asc')->cache(600)->select();
-		}else{
-			$map[] = ['pid','=',$pid];
-			$list = $this->field('id,pid,title')->where(array('status'=>1,'pid'=>$pid))->order('sort desc,id asc')->cache(600)->select();
-		}
-		return $list;
-	}
-	public function getPidMenuList()
+    public function getmenu($pid = 0)
     {
-		$map[] = ['status', '=', 1];
+        if($pid ==='')
+        {
+            $list = $this->field('id,pid,title')->where(array('status'=>1))->order('sort desc,id asc')->cache(600)->select();
+        }else{
+            $map[] = ['pid','=',$pid];
+            $list = $this->field('id,pid,title')->where(array('status'=>1,'pid'=>$pid))->order('sort desc,id asc')->cache(600)->select();
+        }
+        return $list;
+    }
+    public function getPidMenuList()
+    {
+        $map[] = ['status', '=', 1];
         $list        = $this->field('id,pid,title')
             ->where($map)
             ->select()
