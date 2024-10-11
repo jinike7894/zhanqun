@@ -731,7 +731,7 @@ body {
 }
 
 .homeBookright {
-    width: 60%;
+    /*width: 60%;*/
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -748,10 +748,12 @@ body {
     line-height: 14px;
     text-align: center;
     color: #FFFFFFCC;
+    margin-right: 5px;
 
 }
 
 .dotred {
+    margin-right: 2px;
     width: 4px;
     height: 4px;
     background: #FF0D00;
@@ -842,6 +844,7 @@ p {
 }
 
 .chooseMl {
+    height: 32px;
     width: 100%;
     overflow-x: auto;
     white-space: nowrap;

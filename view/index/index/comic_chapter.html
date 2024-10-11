@@ -31,7 +31,10 @@
             <!-- 标题 -->
             <div class="readTitle">{$chapter['name'] | raw}</div>
 
-            {$chapter['content'] | raw}
+            <!--{$chapter['content'] | raw}-->
+            <div class="readNum">第7/8页</div>
+                <img style="width: 100%;margin-top: 5px;" src="__IMAGES__/mh1.png">
+                <img style="width: 100%;margin: 5px 0;" src="__IMAGES__/mh2.png">
         </div>
         <a href="http://google.com"><img class="banner" src="__IMAGES__/banner.png" /></a>
 
@@ -70,11 +73,11 @@
                 <div class="mulvRightText" id="textToChange">正序</div>
             </div>
         </div>
-        <div class="chooseMl" style="margin-bottom: 15px;">
+        <!--<div class="chooseMl" style="margin-bottom: 15px;">-->
             <!--<a href="#"><div class="choosePage">0-100</div></a>-->
             <!--<a href="#"><div class="choosePage">101-200</div></a>-->
             <!--<a href="#"><div class="choosePage">201-300</div></a>-->
-        </div>
+        <!--</div>-->
         <div class="mulvPz">
             {volist name="cataloglist" id="index"}
             <a  href="/comic/chapter/{$channel}.html?chapter_id={$index['id']}" class="pzList">
