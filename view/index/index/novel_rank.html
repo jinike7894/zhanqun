@@ -100,7 +100,7 @@
         <div class="nav">
             <a href="/novel/{$channel}.html" class="left">
                 <img class="leftBtn" src="__IMAGES__/btn_left.svg" />
-                <div class="leftName">排行榜</div>
+                <div class="leftName">{$bangtitle}</div>
             </a>
             <div class="right">
                 <div class="rightBtn">棋牌游戏</div>
@@ -124,7 +124,18 @@
                 <a href="/novel/detail/{$channel}.html?novel_id={$index['id']}" class="contentList">
                     <div class="contentListLeft">
                         <img class="contentCover" src="{$index['pic']}" />
-                        <div class="contentNum" style="background: #FF1962;">1</div>
+                        <div class="contentNum" style="
+                            {if $i == 1}
+                            background: #FF1962;
+                            {elseif $i == 2}
+                            background: #FF5B25;
+                            {elseif $i == 3}
+                            background: #FFC53E;
+                            color:#00000099;
+                            {else}
+                            background: #3B3A39;
+                            {/if}
+                        ">{$i}</div>
                     </div>
                     <div class="contentRight">
                         <div class="contentName" style="color: #FF3172;">{$index['title'] | raw}</div>
@@ -145,7 +156,7 @@
                         </div>
                         <div class="contentAuthor">
                             <span class="contentNav">最新</span>
-                            <span class="contentA fontWeight">更新至1338章</span>
+                            <span class="contentA fontWeight">更新至{$index['chaptercount']}章</span>
                             <span class="contentA fontWeight">半年前</span>
                         </div>
 <!--                        <div class="contentAuthor">-->

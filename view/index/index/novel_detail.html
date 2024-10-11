@@ -138,13 +138,12 @@
                         </div>
                         <div class="contentAuthor">
                             <span class="contentNav">最新</span>
-                            <span class="contentA fontWeight">更新至1338章</span>
+                            <span class="contentA fontWeight">更新至{$catalogcount}章</span>
                             <span class="contentA fontWeight">半年前</span>
                         </div>
                         <div class="contentAuthor">
                             <span class="contentNav">题材</span>
-                            <a href="#"  class="theme"><span class="contentA fontColor">玄幻</span></a>
-                            <a href="#"  class="theme"><span class="contentA fontColor">乱伦</span></a>
+                            <a href="/novel/category/{$channel}.html?cid={$novel['cate_id']}"  class="theme"><span class="contentA fontColor">{$catetitle | raw}</span></a>
                         </div>
                         <div class="contentRead">
                             <div class="contentReadBox">
@@ -177,7 +176,7 @@
             <!-- 目录 -->
             <div class="mulv">
                 <div class="mulvTop">
-                    <div class="mulvtext">目录—更新至1338章</div>
+                    <div class="mulvtext">目录已更新至{$catalogcount}章</div>
                     <div class="mulvRight">
                         <img class="zhengxu" id="imgToChange" src="__IMAGES__/zhengxu.svg" />
                         <div class="mulvRightText" id="textToChange" >正序</div>
@@ -227,11 +226,11 @@
                         <div class="bookReadNum">
                             <div class="bookReadNumLeft">
                                 <img src="__IMAGES__/book_Open-W.svg" />
-                                <span class="view_number" >12.2K</span>
+                                <span class="view_number" >{$index['eye'] |qqw}</span>
                             </div>
                             <div class="bookReadNumLeft">
                                 <img src="__IMAGES__/star-w.svg" />
-                                <span class="collect_number" >12.2K</span>
+                                <span class="collect_number" >{$index['shoucang'] |qqw}</span>
                             </div>
                         </div>
                     </div>
@@ -242,7 +241,7 @@
                             <span>#乱伦</span>
                         </div>
                         <div style="display: flex; justify-content: space-between;margin-top: 5px;">
-                            <div class="bookNum">共1566章</div>
+                            <div class="bookNum">共{$index['chaptercount']}章</div>
                             <div class="bookTime">
                                 <div class="dot" style="opacity: 1;"></div>2小时前
                             </div>

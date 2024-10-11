@@ -45,7 +45,7 @@
 
         <!-- 导航栏 -->
         <div class="lableList paddingRead" style="margin: 10px;">
-            <a href="#" class="lable flex" style="height:36px;">
+            <a href="/novel/detail/{$channel}.html?novel_id={$novel['id']}" class="lable flex" style="height:36px;">
                 <img src="__IMAGES__/return.svg" style="margin-top: 3px;" /><span style="margin-left: 5px;">返回</span>
             </a>
             <div class="lable flex" id="mulvBtn" style="height:36px;"><img src="__IMAGES__/mulv.svg" /><span
@@ -64,7 +64,7 @@
             <div class="mulvName">{$novel['title'] | raw}</div>
             <div class="mulvTop">
 
-                <div class="mulvtext">目录—更新至1338章</div>
+                <div class="mulvtext">目录—更新至{$catalogcount}章</div>
                 <div class="mulvRight">
                     <img class="zhengxu" id="imgToChange" src="__IMAGES__/zhengxu.svg" />
                     <div class="mulvRightText" id="textToChange">正序</div>

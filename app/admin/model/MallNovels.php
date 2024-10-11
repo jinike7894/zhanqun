@@ -31,6 +31,7 @@ class MallNovels extends TimeModel
         $map[] = ['pid','=',$category_id];
         $map[] = ['status', '=', 1];
         $mallcate = new MallNovelcate();
+        $novelcatalogs = new NovelCatalogs();
         $catelist = $mallcate::field('id')->where($map)->cache(600)->select()->toArray();
         $ids = array_column($catelist,'id');
         array_unshift($ids,$category_id);
@@ -42,6 +43,7 @@ class MallNovels extends TimeModel
         foreach ($list as &$item){
             $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
             $item['title'] = mbConvert($item['title']);
+            $item['chaptercount'] = $novelcatalogs::where([['novel_id', '=', $item['id']]])->cache(6000)->count();
         }
 		$data=array("list"=>$list,"page"=>$page);
         return $data;
@@ -51,9 +53,11 @@ class MallNovels extends TimeModel
         $map[] = ['cate_id','=',$cate_id];
         $list = $this->where($map)->cache(600)->orderRaw("rand()")->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
         $page = $list->render();
+        $novelcatalogs = new NovelCatalogs();
         foreach ($list as &$item){
             $item['enpic'] = replaceVideoCdn($item['enpic'],'video_img_cdn');
             $item['title'] = mbConvert($item['title']);
+            $item['chaptercount'] = $novelcatalogs::where([['novel_id', '=', $item['id']]])->cache(6000)->count();
         }
         $data=array("list"=>$list,"page"=>$page);
         return $data;

@@ -101,7 +101,7 @@
         <div class="nav">
             <a href="/novel/{$channel}.html" class="left">
                 <img class="leftBtn" src="__IMAGES__/btn_left.svg" />
-                <div class="leftName">全部题材</div>
+                <div class="leftName">{$catetitle | raw}</div>
             </a>
             <div class="right" >
                 <a href="http://google.com" class="rightBtn">棋牌游戏</a>
@@ -117,9 +117,9 @@
              justify-content: space-between;
              align-items: center;">
                 <div class="lableList" >
-                    <a  href="/novel/category/{$channel}.html?cid={$cid}&sort=1" class="lable" style="width: 64px;margin: 0 5px;" onlick="">更新</a>
-                    <a  href="/novel/category/{$channel}.html?cid={$cid}&sort=2" class="lable" style="width: 64px;margin: 0 5px;">观看</a>
-                    <a  href="/novel/category/{$channel}.html?cid={$cid}&sort=3" class="lable" style="width: 64px;margin: 0 5px;">收藏</a>
+                    <a  href="/novel/category/{$channel}.html?cid={$cid}&sort=1" class="lable {if condition='$sort eq 1'} lable_active  {/if}" style="width: 64px;margin: 0 5px;" onlick="">更新</a>
+                    <a  href="/novel/category/{$channel}.html?cid={$cid}&sort=2" class="lable {if condition='$sort eq 2'} lable_active  {/if}" style="width: 64px;margin: 0 5px;">观看</a>
+                    <a  href="/novel/category/{$channel}.html?cid={$cid}&sort=3" class="lable {if condition='$sort eq 3'} lable_active  {/if}" style="width: 64px;margin: 0 5px;">收藏</a>
                 </div>
                 <div class="sxBtn"> 
                     <img style="margin-right: 5px;" src="__IMAGES__/slider.svg" />
@@ -129,7 +129,7 @@
              </div>
 
 
-            {volist name="novellist" id="index"}
+            {volist name="novellist" id="index" key="i"}
              <div class="xsBox">
                 <!-- 小说1 -->
                 <a href="/novel/detail/{$channel}.html?novel_id={$index['id']}" class="contentList">
@@ -160,7 +160,7 @@
                         </div>
                         <div class="contentAuthor">
                             <span class="contentNav">最新</span>
-                            <span class="contentA fontWeight">更新至1338章</span>
+                            <span class="contentA fontWeight">更新至{$index['chaptercount']}章</span>
                             <span class="contentA fontWeight">半年前</span>
                         </div>
 <!--                        <div class="contentAuthor">-->
