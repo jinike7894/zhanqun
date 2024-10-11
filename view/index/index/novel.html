@@ -173,8 +173,28 @@
                         {/if}
                     </div>
                     <div class="homeBookright">
-                        <div class="homeBookrightTitle" style="color: #FF3172;">{$index['title'] | raw}</div>
-                        <div class="homeBookrightNum" style="color: #FF3172;">
+                        <div class="homeBookrightTitle" style="
+                            {if $i == 1}
+                             color: #FF3172;
+                            {elseif $i == 2}
+                             color: #FB5E2A;
+                            {elseif $i == 3}
+                            color: #CEA648;
+                            {else}
+                             color: #FFFFFF;
+                            {/if}
+">{$index['title'] | raw}</div>
+                        <div class="homeBookrightNum" style="
+                            {if $i == 1}
+                             color: #FF3172;
+                            {elseif $i == 2}
+                             color: #FB5E2A;
+                            {elseif $i == 3}
+                            color: #CEA648;
+                            {else}
+                             color: #FFFFFF;
+                            {/if}
+">
                             <div class="homeBookrightNumDot" style="
                             {if $i == 1}
                             background: #FF1962;
@@ -206,6 +226,7 @@
 ">{$bangtitle}</span> 全部内容
             </div></a>
             <div class="chooseMl" style="margin-top: 10px;">
+                <a href="/novel/{$channel}.html" class="choosePage  {if condition='$cid eq 0'} choosePage_active  {/if}">全部题材</a>
                 {volist name="novelmenulist" id="index"}
                 <a href="/novel/{$channel}.html?cid={$index['id']}" class="choosePage {if condition='$cid eq $index.id'} choosePage_active  {/if}">{$index['title'] | raw}</a>
                 {/volist}

@@ -883,6 +883,7 @@ class Index extends BaseController
         View::assign('bangtitle',$bangtitle);
         View::assign('bdlist',$bdlist['list']);
         View::assign('page',$bdlist['page']);
+        View::assign('page2',$page);
         View::assign('menulist',$menulist);
         View::assign('channel',$channel);
         return View::fetch();
