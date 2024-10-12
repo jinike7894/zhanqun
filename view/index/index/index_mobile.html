@@ -35,8 +35,18 @@
                     &#39318;&#39029;
                 </div>
             </a>
+            <a href="/novel/{$channel}.html" >
+                <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
+                    &#23567;&#35828; <img style="width:22px;height:12px;margin-left:2px;margin-top:1px; " src="__IMAGES__/new.svg">
+                </div>
+            </a>
+            <a href="/comic/{$channel}.html">
+                <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
+                    &#28459;&#30011; <img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/hots.svg">
+                </div>
+            </a>
             {volist name='menulist' id="menu" key="index"}
-            {if condition="$index > 1 && $index <=4"}
+            {if condition="$index > 0 && $index <=7"}
             <a href="/category/{$channel}.html?category_id={$menu['id']}">
                 <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item ">{$menu['title'] | raw}</div>
             </a>
