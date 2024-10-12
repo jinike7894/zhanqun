@@ -30,25 +30,23 @@
 </div>
 <!-- 标题栏bp -->
 <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav pb10">
+    <a href="/nav/{$channel}.html">
+        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
+    </a>
     <a href="/{$channel}.html">
         <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">
             &#39318;&#39029;
         </div>
     </a>
-    <a href="/nav/{$channel}.html">
-        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
-    </a>
-    <a href="/comic/{$channel}.html" >
+    <a href="/novel/{$channel}.html" >
         <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
-            小说 <img style="width:22px;height:12px;margin-left:2px;margin-top:1px; " src="__IMAGES__/new.svg">
+            &#23567;&#35828; <img style="width:22px;height:12px;margin-left:2px;margin-top:1px; " src="__IMAGES__/new.svg">
         </div>
-
     </a>
     <a href="/comic/{$channel}.html">
         <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
-            漫画<img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/hots.svg">
+            &#28459;&#30011; <img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/hots.svg">
         </div>
-
     </a>
     {volist name='menulist' id="menu"}
     <a href="/category/{$channel}.html?category_id={$menu['id']}">
@@ -94,7 +92,7 @@
     <div class="nav">
         <div class="left">
             <img class="leftBtn" style="margin-right: 5px;" src="__IMAGES__/rectangle.svg" />
-            <div class="leftName">小说</div>
+            <div class="leftName">漫画</div>
         </div>
         <div class="right">
             <a class="rightBtn" href="http://google.com">棋牌游戏</a>
@@ -257,7 +255,7 @@
                         <span style="margin-right:10px;">#{$index['cate'] | raw}</span>
                     </div>
                     <div style="display: flex; justify-content: space-between;margin-top: 5px;">
-                        <div class="bookNum">共{$index['chaptercount']}章</div>
+                        <div class="bookNum">共{$index['chaptercount']}话</div>
                         <div class="bookTime">
                             <div class="dot" style="opacity:1;"></div>2小时前
                         </div>

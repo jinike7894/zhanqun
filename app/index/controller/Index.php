@@ -1173,12 +1173,14 @@ class Index extends BaseController
             }
         }
         $catalogcount = count($cataloglist);
+        $manhuaList = explode('|',$chapter['content']);
         View::assign('pre',$pre);
         View::assign('next',$next);
         View::assign('cataloglist',$cataloglist);
         View::assign('catalogcount',$catalogcount);
         View::assign('novel',$novel);
         View::assign('chapter',$chapter);
+        View::assign('manhuaList',$manhuaList);
         View::assign('channel',$channel);
         return View::fetch();
     }

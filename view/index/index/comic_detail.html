@@ -1,5 +1,5 @@
 {include file="mobile_header" /}
-<title>小说简介</title>
+<title>漫画简介</title>
 <link rel="stylesheet" type="text/css" href="__CSS__/styles.css" />
 </head>
 <style>
@@ -36,25 +36,23 @@
 </div>
 <!-- 标题栏bp -->
 <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav pb10">
+    <a href="/nav/{$channel}.html">
+        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
+    </a>
     <a href="/{$channel}.html">
         <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">
             &#39318;&#39029;
         </div>
     </a>
-    <a href="/nav/{$channel}.html">
-        <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
-    </a>
-    <a href="/comic/{$channel}.html" >
+    <a href="/novel/{$channel}.html" >
         <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
-            小说 <img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/new.svg">
+            &#23567;&#35828; <img style="width:22px;height:12px;margin-left:2px;margin-top:1px; " src="__IMAGES__/new.svg">
         </div>
-
     </a>
     <a href="/comic/{$channel}.html">
         <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
-            漫画<img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/hots.svg">
+            &#28459;&#30011; <img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/hots.svg">
         </div>
-
     </a>
     {volist name='menulist' id="menu"}
     <a href="/category/{$channel}.html?category_id={$menu['id']}">
@@ -100,7 +98,7 @@
     <div class="nav">
         <a href="/comic/{$channel}.html" class="left">
             <img class="leftBtn" src="__IMAGES__/btn_left.svg" />
-            <div class="leftName">小说简介</div>
+            <div class="leftName">漫画简介</div>
         </a>
         <div class="right">
             <a href="http://google.com" class="rightBtn">棋牌游戏</a>
@@ -138,7 +136,7 @@
                     </div>
                     <div class="contentAuthor">
                         <span class="contentNav">最新</span>
-                        <span class="contentA fontWeight">更新至{$catalogcount}章</span>
+                        <span class="contentA fontWeight">更新至{$catalogcount}话</span>
                         <span class="contentA fontWeight">半年前</span>
                     </div>
                     <div class="contentAuthor">
@@ -157,9 +155,9 @@
                     </div>
                 </div>
             </div>
-            <!-- 小说简介 -->
+            <!-- 漫画简介 -->
             <div>
-                <p style="font-size:12px;line-height:20px;margin-bottom:0;"><span style="color: #FFFFFF66;">小说简介：</span>{$novel['description']}</p>
+                <p style="font-size:12px;line-height:20px;margin-bottom:0;">{$novel['description']}</p>
 
             </div>
             <!-- 下面分类 -->
@@ -176,7 +174,7 @@
         <!-- 目录 -->
         <div class="mulv">
             <div class="mulvTop">
-                <div class="mulvtext">目录已更新至{$catalogcount}章</div>
+                <div class="mulvtext">目录已更新至{$catalogcount}话</div>
                 <div class="mulvRight">
                     <img class="zhengxu" id="imgToChange" src="__IMAGES__/zhengxu.svg" />
                     <div class="mulvRightText" id="textToChange" >正序</div>
@@ -193,7 +191,6 @@
                 {volist name="cataloglist" id="index"}
                 <a href="/comic/chapter/{$channel}.html?chapter_id={$index['id']}" class="pzList">
                     <div class="pzLeft">{$index['name'] | raw}</div>
-                    <!--<div class="pzRight">第<span style="color: #FFFFFF99;">{$index['chapter']}</span>章</div>-->
                 </a>
                 {/volist}
 
@@ -241,7 +238,7 @@
                         <span>#乱伦</span>
                     </div>
                     <div style="display: flex; justify-content: space-between;margin-top: 5px;">
-                        <div class="bookNum">共{$index['chaptercount']}章</div>
+                        <div class="bookNum">共{$index['chaptercount']}话</div>
                         <div class="bookTime">
                             <div class="dot" style="opacity: 1;"></div>2小时前
                         </div>

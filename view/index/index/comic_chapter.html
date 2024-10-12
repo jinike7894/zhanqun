@@ -1,5 +1,5 @@
 {include file="mobile_header" /}
-<title>小说阅读</title>
+<title>漫画阅读</title>
 <link rel="stylesheet" type="text/css" href="__CSS__/styles.css" />
 </head>
 
@@ -11,7 +11,7 @@
         <div class="nav">
             <a href="/comic/detail/{$channel}.html?novel_id={$novel['id']}" class="left">
                 <img class="leftBtn" src="__IMAGES__/btn_left.svg" />
-                <div class="leftName">小说阅读</div>
+                <div class="leftName">漫画阅读</div>
             </a>
             <div class="right">
                 <a href="http://google.com" class="rightBtn">棋牌游戏</a>
@@ -32,9 +32,9 @@
             <div class="readTitle">{$chapter['name'] | raw}</div>
 
             <!--{$chapter['content'] | raw}-->
-            <div class="readNum">第7/8页</div>
-                <img style="width: 100%;margin-top: 5px;" src="__IMAGES__/mh1.png">
-                <img style="width: 100%;margin: 5px 0;" src="__IMAGES__/mh2.png">
+                {volist name="manhuaList" id="manhua"}
+                <img style="width: 100%;margin-top: 5px;" src="{$manhua}">
+                {/volist}
         </div>
         <a href="http://google.com"><img class="banner" src="__IMAGES__/banner.png" /></a>
 
@@ -53,9 +53,9 @@
         </a>
         <div class="lable flex" id="mulvBtn" style="height:36px;"><img src="__IMAGES__/mulv.svg" /><span
                 style="margin-left: 5px;">目录</span></div>
-        <a href="/comic/chapter/{$channel}.html?chapter_id={$pre['id']}" class="lable flex" style="height:36px;"><img src="__IMAGES__/chevron_Left.svg" /><span style="margin-left: 5px;">上一章</span>
+        <a href="/comic/chapter/{$channel}.html?chapter_id={$pre['id']}" class="lable flex" style="height:36px;"><img src="__IMAGES__/chevron_Left.svg" /><span style="margin-left: 5px;">上一话</span>
         </a>
-        <a href="/comic/chapter/{$channel}.html?chapter_id={$next['id']}" style="height:36px;" class="lable flex"><span>下一章</span><img src="__IMAGES__/right.svg"
+        <a href="/comic/chapter/{$channel}.html?chapter_id={$next['id']}" style="height:36px;" class="lable flex"><span>下一话</span><img src="__IMAGES__/right.svg"
                                                                                                                                           style="margin-left: 5px;margin-top: 1px;" /></a>
     </div>
 </div>
@@ -67,7 +67,7 @@
         <div class="mulvName">{$novel['title'] | raw}</div>
         <div class="mulvTop">
 
-            <div class="mulvtext">目录—更新至{$catalogcount}章</div>
+            <div class="mulvtext">目录—更新至{$catalogcount}话</div>
             <div class="mulvRight">
                 <img class="zhengxu" id="imgToChange" src="__IMAGES__/zhengxu.svg" />
                 <div class="mulvRightText" id="textToChange">正序</div>
