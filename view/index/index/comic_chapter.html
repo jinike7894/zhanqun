@@ -4,6 +4,7 @@
 </head>
 
 <body>
+
 <!-- 人气榜 -->
 <div id="page">
     <div style="width: 100%;position: fixed;background: #000;top: 0;">
@@ -100,6 +101,43 @@
 
 </div>
 <div class="popupBack"></div>
+<script type="text/javascript" src="{$jscsscdn}__JS__/utils_mobile.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
+  // sweetalert2弹窗配置
+  const SSwal = Swal.mixin({
+    confirmButtonColor: '#007bff',
+    cancelButtonColor: '#6c757d',
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    reverseButtons: true,
+  })
+ 
+  /*
+  debugger
+  */
+  myDialog(
+      [
+          {volist name='XPopUpList' id="XPopUp" key="index"}
+          {
+              url: '{$XPopUp['img']}',
+              id: {$XPopUp['id']},
+              herf: '{$XPopUp['url']}'
+          },
+          {/volist}
+      ]
+  )
+ 
+</script>
+
+
+
 
 <script>
     $(document).on('click', 'selector', function (event) {
