@@ -8,5 +8,6 @@ return [
         'curd'      => 'app\common\command\Curd',
         'node'      => 'app\common\command\Node',
         'OssStatic' => 'app\common\command\OssStatic',
+        'Manhua' => 'app\common\command\Manhua',
     ],
 ];
