@@ -117,7 +117,7 @@
             <!-- 小说1 -->
             <a href="/comic/detail/{$channel}.html?novel_id={$index['id']}" class="contentList">
                 <div class="contentListLeft">
-                    <img class="contentCover" src="{$index['pic']}" />
+                    <img class="contentCover" src="{$index['enpic'] | raw}" />
                     {if condition='$page2 eq 1'}
                     <div class="contentNum" style="
                             {if $i == 1}
