@@ -207,6 +207,22 @@ if (!function_exists('replaceAdCdn')) {
     }
 }
 
+if (!function_exists('replaceManhuaCdn')) {
+    function replaceManhuaCdn($oldPath): string
+    {
+        $file_extension = pathinfo($oldPath, PATHINFO_EXTENSION);
+        $newPath = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $oldPath);
+
+        $adCdnConfig = sysconfig('site', 'manhua_img_cdn');
+        if(empty($adCdnConfig)){
+            return $newPath;
+        }
+        $url_parts = parse_url($newPath);
+        $path = isset($url_parts['path']) ? $url_parts['path'] : '';
+        return sysconfig('site', 'manhua_img_cdn') . $path ;
+    }
+}
+
 
 
 if (!function_exists('mbConvert')) {

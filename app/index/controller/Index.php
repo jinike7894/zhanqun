@@ -899,7 +899,7 @@ class Index extends BaseController
         $novelId = input('param.novel_id/d',0);
 
         $novel = $this->Novel->getById($novelId);
-        $novel['enpic'] = replaceVideoCdn($novel['enpic'], 'video_img_cdn');
+        $novel['enpic'] = replaceVideoCdn($novel['enpic'], 'manhua_img_cdn');
         $novel['title'] = mbConvert($novel['title']);
 
         $menulist = $this->Menu->getmenu(0);
