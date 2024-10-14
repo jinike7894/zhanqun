@@ -156,17 +156,18 @@
                 <p style="font-size:12px;line-height:20px;margin-bottom:0;">{$novel['description']}</p>
 
             </div>
-            <!-- 下面分类 -->
-            <!--                <div class="bottomClass">-->
-            <!--                    <a href="#" class="bct"><span style="color: #FFFFFF66;"># </span>母女花</a>-->
-            <!--                    <a href="#" class="bct"><span style="color: #FFFFFF66;"># </span>校花</a>-->
-            <!--                </div>-->
             <a href="/comic/chapter/{$channel}.html?chapter_id={$cataloglist[0]['id']}"
                class="openRead" ><div class="openRead">开始阅读</div></a>
 
         </div>
 
-        <a href="http://google.com"><img class="banner" src="__IMAGES__/banner.png" /></a>
+        {volist name='XTopBannerHFList' id="XTopHF"}
+        <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+            <img class="hf-ad-img lozad"
+                 data-src="{$XTopHF['img'] | raw}"
+                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+        </a>
+        {/volist}
         <!-- 目录 -->
         <div class="mulv">
             <div class="mulvTop">
@@ -176,13 +177,7 @@
                     <div class="mulvRightText" id="textToChange" >正序</div>
                 </div>
             </div>
-            <!--                <div class="chooseMl">-->
-            <!--                    <a href="#"><div class="choosePage">0-100</div></a>-->
-            <!--                    <a href="#"><div class="choosePage">101-200</div></a>-->
-            <!--                    <a href="#"><div class="choosePage">201-300</div></a>-->
-            <!--                    <a href="#"><div class="choosePage">300-400</div></a>-->
 
-            <!--                </div>-->
             <div class="mulvPz">
                 {volist name="cataloglist" id="index"}
                 <a href="/comic/chapter/{$channel}.html?chapter_id={$index['id']}" class="pzList">

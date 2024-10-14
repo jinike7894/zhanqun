@@ -21,7 +21,13 @@
         </div>
 
     </div>
-    <a href="http://google.com" style="background: #000;"><img style="margin-top:50px; margin-bottom:10px;padding:0 12px;" class="banner" src="__IMAGES__/banner.png" /></a>
+    {volist name='XTopBannerHFList' id="XTopHF"}
+    <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+        <img class="hf-ad-img lozad"
+             data-src="{$XTopHF['img'] | raw}"
+             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+    </a>
+    {/volist}
 
     <div class="contentBox">
 
@@ -36,8 +42,14 @@
                 <img style="width: 100%;margin-top: 5px;" src="{$manhua | raw}">
                 {/volist}
         </div>
-        <a href="http://google.com"><img class="banner" src="__IMAGES__/banner.png" /></a>
 
+        {volist name='XTopBannerHFList' id="XTopHF"}
+        <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+            <img class="hf-ad-img lozad"
+                 data-src="{$XTopHF['img'] | raw}"
+                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+        </a>
+        {/volist}
 
 
         <!-- 分页 -->
@@ -73,11 +85,7 @@
                 <div class="mulvRightText" id="textToChange">正序</div>
             </div>
         </div>
-        <!--<div class="chooseMl" style="margin-bottom: 15px;">-->
-            <!--<a href="#"><div class="choosePage">0-100</div></a>-->
-            <!--<a href="#"><div class="choosePage">101-200</div></a>-->
-            <!--<a href="#"><div class="choosePage">201-300</div></a>-->
-        <!--</div>-->
+
         <div class="mulvPz">
             {volist name="cataloglist" id="index"}
             <a  href="/comic/chapter/{$channel}.html?chapter_id={$index['id']}" class="pzList">
