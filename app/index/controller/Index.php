@@ -899,7 +899,7 @@ class Index extends BaseController
         $novelId = input('param.novel_id/d',0);
 
         $novel = $this->Novel->getById($novelId);
-        $novel['enpic'] = replaceVideoCdn($novel['enpic'], 'manhua_img_cdn');
+        $novel['enpic'] = mbConvert(replaceManhuaCdn($novel['pic']));
         $novel['title'] = mbConvert($novel['title']);
 
         $menulist = $this->Menu->getmenu(0);
@@ -1120,7 +1120,7 @@ class Index extends BaseController
         $novelId = input('param.novel_id/d',0);
 
         $novel = $this->Comic->getById($novelId);
-        $novel['enpic'] = replaceVideoCdn($novel['enpic'], 'video_img_cdn');
+        $novel['enpic'] = mbConvert(replaceManhuaCdn($novel['pic']));
         $novel['title'] = mbConvert($novel['title']);
 
         $menulist = $this->Menu->getmenu(0);
@@ -1174,6 +1174,9 @@ class Index extends BaseController
         }
         $catalogcount = count($cataloglist);
         $manhuaList = explode('|',$chapter['content']);
+        foreach ($manhuaList as &$item){
+            $item = mbConvert(replaceManhuaCdn($item));
+        }
         View::assign('pre',$pre);
         View::assign('next',$next);
         View::assign('cataloglist',$cataloglist);
