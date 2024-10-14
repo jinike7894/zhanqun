@@ -98,10 +98,9 @@
             <div class="leftName">漫画简介</div>
         </a>
         <div class="right">
-            <a href="http://google.com" class="rightBtn">棋牌游戏</a>
-            <a href="http://google.com" class="rightBtn">强奸迷奸</a>
-            <a href="http://google.com" class="rightBtn">偷拍自拍</a>
-
+            {volist name='XCategoryTitleTextList' id="XSudokuText"}
+            <a i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank" class="rightBtn">{$XSudokuText['name'] | raw}</a>
+            {/volist}
         </div>
     </div>
 
@@ -202,9 +201,9 @@
                 <div class="leftName">热门推荐</div>
             </div>
             <div class="right">
-                <a href="http://google.com"><div class="rightBtn">棋牌游戏</div></a>
-                <a href="http://google.com"><div class="rightBtn">强奸迷奸</div></a>
-                <a href="http://google.com"><div class="rightBtn">偷拍自拍</div></a>
+                {volist name='XCategoryTitleTextList' id="XSudokuText"}
+                <a i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank"><div class="rightBtn">{$XSudokuText['name'] | raw}</div></a>
+                {/volist}
 
             </div>
         </div>
@@ -231,8 +230,7 @@
                 <div style="padding: 5px;">
                     <div class="bookName">{$index['title'] | raw}</div>
                     <div class="bookNav">
-                        <span>#人妻</span>
-                        <span>#乱伦</span>
+                        <span>{$index['tags']}</span>
                     </div>
                     <div style="display: flex; justify-content: space-between;margin-top: 5px;">
                         <div class="bookNum">共{$index['chaptercount']}话</div>

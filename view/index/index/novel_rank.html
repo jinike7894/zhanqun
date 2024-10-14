@@ -98,10 +98,9 @@
                 <div class="leftName">{$bangtitle}</div>
             </a>
             <div class="right">
-                <div class="rightBtn">棋牌游戏</div>
-                <div class="rightBtn">强奸迷奸</div>
-                <div class="rightBtn">偷拍自拍</div>
-
+                {volist name='XCategoryTitleTextList' id="XSudokuText"}
+                <a i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank" class="rightBtn">{$XSudokuText['name'] | raw}</a>
+                {/volist}
             </div>
         </div>
 
@@ -118,7 +117,7 @@
                 <!-- 小说1 -->
                 <a href="/novel/detail/{$channel}.html?novel_id={$index['id']}" class="contentList">
                     <div class="contentListLeft">
-                        <img class="contentCover" src="{$index['pic']}" />
+                        <img class="contentCover" src="{$index['enpic']}" />
                         {if condition='$page2 eq 1'}
                         <div class="contentNum" style="
                             {if $i == 1}

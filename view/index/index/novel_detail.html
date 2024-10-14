@@ -98,10 +98,9 @@
                 <div class="leftName">小说简介</div>
             </a>
             <div class="right">
-                <a href="http://google.com" class="rightBtn">棋牌游戏</a>
-                <a href="http://google.com" class="rightBtn">强奸迷奸</a>
-                <a href="http://google.com" class="rightBtn">偷拍自拍</a>
-
+                {volist name='XCategoryTitleTextList' id="XSudokuText"}
+                <a i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank" class="rightBtn">{$XSudokuText['name'] | raw}</a>
+                {/volist}
             </div>
         </div>
 
@@ -214,7 +213,7 @@
                 {volist name="tjlist" id="index"}
                 <a href="/novel/detail/{$channel}.html?novel_id={$index['id']}"  class="book">
                     <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="{$index['pic']}" />
+                        <img style="width: 100%;height: 100%;" src="{$index['enpic']}" />
                         <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="__IMAGES__/lianzai.png" />
@@ -232,8 +231,6 @@
                     <div style="padding: 5px;">
                         <div class="bookName">{$index['title'] | raw}</div>
                         <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
                         </div>
                         <div style="display: flex; justify-content: space-between;margin-top: 5px;">
                             <div class="bookNum">共{$index['chaptercount']}章</div>

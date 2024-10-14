@@ -92,10 +92,9 @@
             <div class="leftName">漫画</div>
         </div>
         <div class="right">
-            <a class="rightBtn" href="http://google.com">棋牌游戏</a>
-            <a class="rightBtn" href="http://google.com">强奸迷奸</a>
-            <a class="rightBtn" href="http://google.com">偷拍自拍</a>
-
+            {volist name='XCategoryTitleTextList' id="XSudokuText"}
+            <a i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank" class="rightBtn">{$XSudokuText['name'] | raw}</a>
+            {/volist}
         </div>
     </div>
 
