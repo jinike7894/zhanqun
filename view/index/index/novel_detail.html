@@ -111,7 +111,7 @@
                 <!-- 小说1 -->
                 <div class="contentList">
                     <div class="contentListLeft">
-                        <img class="contentCover" src="{$novel['enpic'] | raw}" />
+                        <img class="contentCover lozad"   data-src="{$novel['enpic'] | raw}" />
                     </div>
                     <div class="contentRight" style="display: flex;flex-direction: column;justify-content: space-between;">
                         <div class="contentName" style="color: #FF3172;">{$novel['title'] | raw}</div>
@@ -127,7 +127,7 @@
                             {else}
                                 <span class="contentLz" style="background: linear-gradient(285.38deg, #00A814 61.2%, #B6FE00 97.69%);
 ;
-">完结</span>
+">完结</span>src="__IMAGES__/loading_img_bg_default.jpg"
                             {/if}
                         </div>
                         <div class="contentAuthor">
@@ -207,7 +207,7 @@
                 {volist name="tjlist" id="index"}
                 <a href="/novel/detail/{$channel}.html?novel_id={$index['id']}"  class="book">
                     <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="{$index['enpic'] | raw}" />
+                        <img style="width: 100%;height: 100%;" class="lozad" src="__IMAGES__/loading_img_bg_default.jpg" data-src="{$index['enpic'] | raw}" />
                         <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="__IMAGES__/lianzai.png" />
