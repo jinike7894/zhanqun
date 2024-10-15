@@ -21,20 +21,20 @@
             </div>
 
         </div>
-        {volist name='XMhTopHFList' id="XTopHF"}
-        <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
-            <img class="hf-ad-img lozad"
-                 data-src="{$XTopHF['img'] | raw}"
-                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
-        </a>
-        {/volist}
         <div class="contentBox">
-
-
             <!-- 小说标题 -->
             <div>
                 <!-- 标题 -->
-                <div class="readTitle">{$chapter['name'] | raw}</div>
+                <div class="readTitle">
+                    {volist name='XMhTopHFList' id="XTopHF"}
+                    <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+                        <img class="hf-ad-img lozad"
+                             data-src="{$XTopHF['img'] | raw}"
+                             src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                    </a>
+                    {/volist}
+                    {$chapter['name'] | raw}
+                </div>
 
                     {$chapter['content'] | raw}
             </div>
