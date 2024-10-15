@@ -110,6 +110,8 @@
                 $('.popupRead').show();
                 $('.popupBack').show();
             });
+            const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+            observer.observe();
         });
         $(document).ready(function () {
             $('.popupBack').click(function () {
