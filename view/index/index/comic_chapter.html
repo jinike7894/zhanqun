@@ -31,7 +31,7 @@
             <!-- 标题 -->
             <div class="readTitle">
                 {volist name='XMhTopHFList' id="XTopHF"}
-                <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+                <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank" style="padding:0">
                     <img class="hf-ad-img lozad"
                          data-src="{$XTopHF['img'] | raw}"
                          src="__IMAGES__/loading_img_bg_default.jpg" alt="">
@@ -47,7 +47,7 @@
         </div>
 
         {volist name='XMhBottomHFList' id="XTopHF"}
-        <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+        <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank" style="padding: 0;">
             <img class="hf-ad-img lozad"
                  data-src="{$XTopHF['img'] | raw}"
                  src="__IMAGES__/loading_img_bg_default.jpg" alt="">
