@@ -539,6 +539,44 @@ class Index extends BaseController
             }
             View::assign('XCategoryVideoListInsertList',$XCategoryVideoListInsertList);
 
+
+            //X站-小说漫画-简介-横幅广告 80 $XMhJJHFList
+            $XMhJJHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '80'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+            foreach ($XMhJJHFList as $key => &$item) {
+                $item['url'] = mbConvert($item['androidurl']);
+                if (strpos($item['img'], 'http') === false) {
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
+                }
+            }
+            View::assign('XMhJJHFList',$XMhJJHFList);
+
+            //X站-小说漫画-正文头部-横幅广告 81 $XMhTopHFList
+            $XMhTopHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '81'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+            foreach ($XMhTopHFList as $key => &$item) {
+                $item['url'] = mbConvert($item['androidurl']);
+                if (strpos($item['img'], 'http') === false) {
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
+                }
+            }
+            View::assign('XMhTopHFList',$XMhTopHFList);
+
+
+            //X站-小说漫画-正文尾部-横幅广告 82 $XMhBottomHFList
+            $XMhBottomHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+                ->where(array('status'=>1,'is_banner'=>0))
+                ->where(['pid' => '82'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
+            foreach ($XMhBottomHFList as $key => &$item) {
+                $item['url'] = mbConvert($item['androidurl']);
+                if (strpos($item['img'], 'http') === false) {
+                    $item['img'] = mbConvert(replaceAdCdn($item['img']));
+                }
+            }
+            View::assign('XMhBottomHFList',$XMhBottomHFList);
+
         }
     }
 	public function nav($channel = 0)
