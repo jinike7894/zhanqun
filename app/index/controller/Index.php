@@ -939,6 +939,8 @@ class Index extends BaseController
         $novel = $this->Novel->getById($novelId);
         $novel['enpic'] = mbConvert(replaceManhuaCdn($novel['pic']));
         $novel['title'] = mbConvert($novel['title']);
+        $novel['author'] = mbConvert($novel['author']);
+        $novel['description'] = mbConvert($novel['description']);
 
         $menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item){
@@ -989,6 +991,9 @@ class Index extends BaseController
                 $next = $catalog;
             }
         }
+        $chapter['content'] = mbConvert($chapter['content']);
+        $chapter['content'] = str_replace(['&#60;&#112;&#62;','&#60;&#47;&#112;&#62;'],['<p>','</p>'],$chapter['content']);
+        $chapter['name'] = mbConvert($chapter['name']);
         $catalogcount = count($cataloglist);
         View::assign('pre',$pre);
         View::assign('next',$next);
