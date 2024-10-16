@@ -117,7 +117,7 @@
                         <div class="contentName" style="color: #FF3172;">{$novel['title'] | raw}</div>
                         <div class="contentAuthor">
                             <span class="contentNav">作者</span>
-                            <span class="contentA">{$novel['author']}</span>
+                            <span class="contentA">{$novel['author'] | raw}</span>
                         </div>
                         <div class="contentAuthor">
                             <span class="contentNav">状态</span>
@@ -153,7 +153,7 @@
                 </div>
                 <!-- 小说简介 -->
                 <div>
-                    <p style="font-size:12px;line-height:20px;margin-bottom:0;"><span style="color: #FFFFFF66;">小说简介：</span>{$novel['description']}</p>
+                    <p style="font-size:12px;line-height:20px;margin-bottom:0;"><span style="color: #FFFFFF66;">小说简介：</span>{$novel['description'] | raw}</p>
 
                 </div>
                 <a href="/novel/chapter/{$channel}.html?chapter_id={$cataloglist[0]['id']}" 
