@@ -36,6 +36,13 @@ class Api extends BaseController
 	}
 	public function syncData(){
 	    $data= input('post.');
+		$XPopUpList = $this->MallVideos
+            ->where(array('title'=>$data["name"]))
+            ->select();
+		if($XPopUpList){
+			echo json_encode(["code"=>3,"msg"=>"重复视频"]);
+			die;
+		}
 	    $videoData=[
 	        "cate_id"=>$data["cid"],
 	        "zm_vid"=>$data["cid"],
@@ -57,7 +64,11 @@ class Api extends BaseController
 	        "update_time"=>time(),
 	        ];
 	    $res=$this->MallVideos->insert($videoData);
-	    var_dump($res);die;
+	    if(!$res){
+			echo json_encode(["code"=>0,"msg"=>"上传失败"]);
+			die;
+		}
+		echo json_encode(["code"=>1,"msg"=>"上传成功"]);
 	}
 	public function timeformat($seconds){
         $hours = floor($seconds / 3600);
