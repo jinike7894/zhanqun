@@ -38,11 +38,13 @@ class Index extends BaseController
         $onlineemail = sysconfig('site', 'onlineemail');
         $foreverurl = sysconfig('site', 'foreverurl');
         $bdtongji = sysconfig('site', 'bdtongji');
+        $tuoyilink = "https://c.tuoya2.cc?c=2039";
         View::assign('jscsscdn',$jscsscdn);
         View::assign('onlinekf',$onlinekf);
         View::assign('onlineemail',$onlineemail);
         View::assign('foreverurl',$foreverurl);
         View::assign('bdtongji',$bdtongji);
+        View::assign('tuoyilink',$tuoyilink);
         View::assign('action',$action);
 
 
