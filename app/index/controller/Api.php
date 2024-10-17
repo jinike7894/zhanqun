@@ -42,7 +42,7 @@ class Api extends BaseController
 	        "is_recommend"=>0,
 	        "title"=>$data["name"],
 	        "pic"=>$data["pic"],
-	        "enpic"=>$data["pic"],
+	        "enpic"=>$data["en_pic"],
 	        "video"=>$data["m3u8"],
 	        "eye"=>rand(10000,100000),
 	        "time"=>$this->timeformat($data["duration"]),
