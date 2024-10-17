@@ -47,8 +47,10 @@ class MallVideos extends TimeModel
 		}		
 		$page = $list->render();
         foreach ($list as &$item){
-            $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
-            $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+            if($item['id']<=5000){
+                $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
+                $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+            }
             $item['title'] = mbConvert($item['title']);
         }
 		$data=array("list"=>$list,"page"=>$page);
@@ -60,8 +62,10 @@ class MallVideos extends TimeModel
         $list = $this->where($map)->cache(600)->orderRaw("rand()")->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
         $page = $list->render();
         foreach ($list as &$item){
-            $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
-            $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+            if($item['id']<=5000){
+                $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
+                $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+            }
             $item['title'] = mbConvert($item['title']);
         }
         $data=array("list"=>$list,"page"=>$page);
@@ -86,8 +90,10 @@ class MallVideos extends TimeModel
 		}
 		$page = $list->render();
         foreach ($list as &$item){
-            $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
-            $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+            if($item['id']<=5000){
+                $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
+                $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+            }
         }
 		$data=array("list"=>$list,"page"=>$page);
 		return $data;
@@ -146,8 +152,10 @@ class MallVideos extends TimeModel
 			}
 		}
         foreach ($list as &$item){
-            $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
-            $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+            if($item['id']<=5000){
+                $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
+                $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+            }
             $item['title'] = mbConvert($item['title']);
         }
 		return $list;

@@ -677,8 +677,10 @@ class Index extends BaseController
         $limit = input('param.limit',21);
 		$child_menu = $this->Menu->getmenu($category_id);
 		$vodlist = $this->MallVideos->getById($vid);
-        $vodlist['enpic'] = replaceVideoCdn($vodlist['enpic'], 'video_img_cdn');
-        $vodlist['video'] = replaceVideoCdn($vodlist['video'], 'video_cdn');
+        if($vid <= 5000){
+            $vodlist['enpic'] = replaceVideoCdn($vodlist['enpic'], 'video_img_cdn');
+            $vodlist['video'] = replaceVideoCdn($vodlist['video'], 'video_cdn');
+        }
         $vodlist['title'] = mbConvert($vodlist['title']);
 		$guesslist = $this->MallVideos->getmorelist($vodlist['cate_id'],$page,$limit);
         $category = $this->Menu->getCateInfo($vodlist['cate_id']);
