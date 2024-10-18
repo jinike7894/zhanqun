@@ -38,11 +38,12 @@ class Api extends BaseController
 	    $data= input('post.');
 		$XPopUpList = $this->MallVideos
             ->where(array('title'=>$data["name"]))
-            ->select();
-		if($XPopUpList){
+            ->select()->toArray();
+		if(!empty($XPopUpList)){
 			echo json_encode(["code"=>3,"msg"=>"重复视频"]);
 			die;
 		}
+
 	    $videoData=[
 	        "cate_id"=>$data["cid"],
 	        "zm_vid"=>$data["cid"],
