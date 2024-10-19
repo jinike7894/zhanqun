@@ -1,10 +1,799 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{include file="mobile_header" /}
+<link rel="stylesheet" type="text/css" href="__CSS__/cg-styles.css" />
+<title>正在播放：{$vodlist['title'] | raw}</title>
 
+</head>
+
+<body>
+    <div id="app">
+        <div class="v-s-nav-box-h">
+            <div class="logo-box p9">
+              <div class="v-s-logo">
+                <a href="/{$channel}.html">
+                  <img src="__IMAGES__/logo.png">
+                </a>
+              </div>
+              <div class="v-s-nav-search-box">
+                <a href="/searchhome/{$channel}.html">
+                  <div class="search-person">
+                    <div class="s-text">&#20154;&#22971;</div>
+                    <i class="bi bi-search"></i>
+                  </div>
+                </a>
+                  <a  href="{$tuoyilink}" target="_blank">
+            <img class="yjty-img" src="__IMAGES__/yjty.js" alt="" srcset="">
+          </a>
+          <img class="left-img" src="__IMAGES__/collect-btn.js" alt="" srcset="">
+              </div>
+            </div>
+            <div class="h-textad">
+                {volist name='XSudokuTextList' id="XSudokuText"}
+                <a class="text-c-4" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">
+                    {$XSudokuText['name'] | raw}
+                </a>
+                {/volist}
+            </div>
+          </div>
+          <!-- 标题栏bp -->
+          <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav pb10">
+              <a href="/nav/{$channel}.html">
+                  <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
+              </a>
+              <a href="/{$channel}.html">
+                  <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">
+                      &#39318;&#39029;
+                  </div>
+              </a>
+              <a href="/novel/{$channel}.html" >
+                  <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
+                      &#23567;&#35828; <img style="width:22px;height:12px;margin-left:2px;margin-top:1px; " src="__IMAGES__/new.svg">
+                  </div>
+              </a>
+              <a href="/comic/{$channel}.html">
+                  <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
+                      &#28459;&#30011; <img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/hots.svg">
+                  </div>
+              </a>
+            {volist name='menulist' id="menu"}
+            <a href="/category/{$channel}.html?category_id={$menu['id']}">
+              <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item {if condition='$category_id eq $menu.id'}nav-menu-selected{/if}">{$menu['title'] | raw}</div>
+            </a>
+            {/volist}
+          </div>
+        {volist name='XTopHFList' id="XTopHF"}
+        <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+            <img class="hf-ad-img lozad"
+                 data-src="{$XTopHF['img'] | raw}"
+                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+        </a>
+        {/volist}
+          <div class="ad-conter ">
+          {volist name='XSudokuList' id="XSudoku"}
+            <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url'] | raw}" target="_blank">
+              <img class="lozad"
+                data-src="{$XSudoku['img'] | raw}"
+                src="__IMAGES__/loading_img_bg_default.jpg">
+              <div>{$XSudoku['name'] | raw}</div>
+            </a>
+          {/volist}
+          </div>
+          <div class="textad pb10">
+              {volist name='XTopTextList' id="XSudokuText"}
+              <a class="text-c-3" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">
+                  {$XSudokuText['name'] | raw}
+              </a>
+              {/volist}
+          </div>
+        {volist name='XTopBannerHFList' id="XTopHF"}
+        <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+            <img class="hf-ad-img lozad"
+                 data-src="{$XTopHF['img'] | raw}"
+                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+        </a>
+        {/volist}
+         
+        <link rel="stylesheet" type="text/css" href="{$jscsscdn}__CSS__/videoweb/videoplay_mobile.css?v=1.01">
+
+        <script type="text/javascript" src="{$jscsscdn}__JS__/NativeShare.js"></script>
+        <script>
+            let data = {}
+            data.video = JSON.parse(atob("{$data}"));
+        </script>
+        <script>
+            function getFileIds() {
+                return {
+                    video: {
+                        id: "{$vodlist['id']}",
+                        sl: "{$vodlist['video']}",
+                        encryptUrl: "{$vodlist['enpic']}"
+                    }
+                };
+            }
+        </script>
+
+        <div class="p12 pt0">
+            <div class="video-title">{$vodlist['title'] | raw}</div>
+            <div class="d-collect-wrap">
+                本站永久域名<span class="d-url">{$foreverurl}</span> <span class="copy-btn d-btn">复制</span>保存官方邮箱随时获取最新备用地址 永不失联
+             <span class="d-emall">{$onlineemail}</span>
+             <span class="d-collect  d-btn">点击收藏</span>
+            </div>
+            <input id="copyUrl1" value="" style="opacity: 0;">
+            <div class="cg-introduction">
+                <div class="cg-introduction-title">&#20107;&#20214;&#31616;&#20171;</div>
+                <div class="cg-introduction-text">
+                    26岁姑娘被车撞后续,车主搭讪被撞姑娘,车主搭讪事件全网独家！26岁姑娘撞车后被车主搭讪事件后续劲爆来袭！从聊天记录看出小姑娘一开始还是挺抗拒车主的，拒绝了好几次，经过车主不懈努力终于成功把这座冰山给撬动！据车主诉说每天有一搭没一搭地和姑娘聊天，有一天她心情不好，被上司责备了，晚上就让车主带她去喝酒！带她去小清吧气氛也不错，听她诉说上班时的心酸以及以前的感情什么的，喝了三杯鸡尾酒就上头了，走路都飘了！也不知道是故意的还是怎样反正糊里糊涂的就跟着车主回家了！满身酒气让她去洗澡，洗完澡连胸罩都不穿，真没把车主当外人啊！后面陆陆续续拍了点照片和视频，狼友们有眼福了～
+                </div>
+            </div>
+            <div class="cg-imgs">
+                <img class="lozad cg-d-img" src="https://pic.youkupic.com/upload/vod/20240911-1/537a9331b2e3790c7a87e4364c76944b.jpeg" alt="" srcset="">
+                <img class="lozad cg-d-img" src="https://pic.youkupic.com/upload/vod/20240911-1/537a9331b2e3790c7a87e4364c76944b.jpeg" alt="" srcset="">
+                <img class="lozad cg-d-img" src="https://pic.youkupic.com/upload/vod/20240911-1/537a9331b2e3790c7a87e4364c76944b.jpeg" alt="" srcset="">
+                <img class="lozad cg-d-img" src="https://pic.youkupic.com/upload/vod/20240911-1/537a9331b2e3790c7a87e4364c76944b.jpeg" alt="" srcset="">
+            </div>
+            <div class="cg-v-p">&#21507;&#29916;&#35270;&#39057;&#25773;&#25918;👇👇👇</div>
+            <iframe id="" style="width: 100%; height: 35vh; overflow: hidden;"
+                src="/vod/{$channel}.html" frameborder="0"></iframe>
+            <!--        <div id="space_default_04" class="my10">-->
+            <!--            <div class="g-main-ad-box"><a href="https://hnmwer.qwiudbnaiio.com/ld/160545"><img-->
+            <!--                        style="width: 100%;height: 100px;" /></a>-->
+            <!--                <script>(function () { function woff(s) { return new Promise(function (resolve) { var xhr = new XMLHttpRequest(); var response = null; xhr.open('GET', s + '.ttf', true); xhr.onreadystatechange = function () { if (xhr.responseText) { response = xhr.responseText; } if (xhr.readyState === 4) { resolve(response ? ('data:image/gif;base64,' + response.substring(5)) : ''); } }; xhr.send(); }); }; var imgs = 'https://lkm.ezpszvv.cn:26573/6699/bjkafw613,https://lkm.ezpszvv.cn:26573/kmopreytg18/1,https://lkm.ezpszvv.cn:26573/kmopreytg18/2,https://lkm.ezpszvv.cn:26573/kmopreytg18/3,https://lkm.ezpszvv.cn:26573/kmopreytg18/4,https://lkm.ezpszvv.cn:26573/kmopreytg18/5,https://lkm.ezpszvv.cn:26573/kmkmkt/km,https://lkm.ezpszvv.cn:26573/heye663/5,https://lkm.ezpszvv.cn:26573/zhibo18/1,https://lkm.ezpszvv.cn:26573/zhibo18/3'.split(','); var img = document.currentScript.previousElementSibling.children[0]; woff(imgs[parseInt(Math.random() * 10) % imgs.length]).then(function (src) { img.src = src; }); })();</script>-->
+            <!--            </div>-->
+            <!--        </div>-->
+            <!-- <div class="play-search">{include file="search"}</div> -->
+             <div class="share-box pb10">
+                <div>
+                    <span >影片分类</span>
+                    <span class="video-type-name">{$category['title']}</span>
+                </div>
+                <div class="share-btn">
+                    <img src="__IMAGES__/share-icon.svg" alt="" srcset="">
+                    <span class="share-text">分享</span>
+                </div>
+             </div>
+            {volist name='XVideoBottomHFList' id="XTopHF"}
+            <a class="hf-ad px0" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+                <img class="hf-ad-img lozad"
+                     data-src="{$XTopHF['img'] | raw}"
+                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+            </a>
+            {/volist}
+            <div class="item-title-box">
+                <div class="title-name">继续吃瓜</div>
+                <div class="title-ad-wrap">
+                    {volist name='XCategoryTitleTextList' id="XSudokuText"}
+                    <a i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">{$XSudokuText['name'] | raw}</a>
+                    {/volist}
+                </div>
+            </div>
+            <div class="ran-box pb10" style="padding: 10px 0px !important">
+                <div class="cg-wrap">
+                    {volist name="videolist" id="video"}
+                    {eq name="($key+1)%6" value="0"}
+                        {volist name="XCategoryVideoListInsertList" id="XCategoryVideoListInsert"}
+                            <a rel="external nofollow" i="{$XCategoryVideoListInsert['id']}" href="{$XCategoryVideoListInsert['url'] | raw}" target="_blank">
+                                <img class="lozad cg-img"
+                                     data-src="{$XCategoryVideoListInsert['img'] | raw}"
+                                     src="__IMAGES__/loading_img_bg_default.jpg">
+                                <div class="rank-title">{$XCategoryVideoListInsert['name'] | raw}</div>
+                            </a>
+                        {/volist}
+                    {/eq}
+                    <a href="" class="cg-item">
+                        <div class="cg-img-wrap">
+                            <img class="lozad cg-img" src="https://pic.youkupic.com/upload/vod/20240911-1/537a9331b2e3790c7a87e4364c76944b.jpeg" alt="" srcset="">
+                            <div class="cg_info">
+                                <div class="cg-tiem"><i class="bi bi-clock"></i>2024年07月17日</div>
+                                <div class="cg-url-wrap"><span >&#32;&#27704;&#20037;&#23448;&#32593;</span> <span class="cg-url">69999991111111111111111.com</span></div>
+                            </div>
+                        </div>
+                        <div class="cg-title">
+                            露脸女神究极泄密 <span class="cg-tag">#推特</span>  23万粉无敌 <span class="cg-tag">#巨乳</span> 美女【 <span class="cg-tag">#板烧鸭鸭</span> 】666元高价  <span class="cg-tag">#私拍</span> 奶炮口交啪啪有钱人玩物
+                        </div>
+                        <div class="cg-fg"></div>
+                     </a>       
+                {/volist}
+                </div>
+            </div>
+            <div class="pagination-box">{$page|raw}
+            </div>
+            {volist name='XBottomHFList' id="XTopHF"}
+            <a class="hf-ad px0" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+                <img class="hf-ad-img lozad"
+                     data-src="{$XTopHF['img'] | raw}"
+                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+            </a>
+            {/volist}
+        </div>
+        <div class="main-box accordion_login" style="display: none;">
+            <div class="login-ran-box">
+                <div class="form-group">
+                    <div class="input-box"><input type="text" name="login_account" placeholder="账号" /></div>
+                    <div class="input-box"><input type="password" name="login_password" placeholder="密码（6-16位字符）" />
+                    </div>
+                    <div class="tpis-box"><span>没有账号？</span><span style="color:#007bff"
+                            class="register-choose">立即注册</span>
+                    </div>
+                </div>
+            </div>
+        </div><!-- 注册窗口的HTML代码 -->
+        <div class="main-box accordion_register" style="display: none;">
+            <div class="login-ran-box">
+                <div class="form-group">
+                    <div class="input-box"><input type="text" name="register_account" placeholder="账号" /></div>
+                    <div class="input-box"><input type="text" name="register_email" placeholder="邮箱 [选填]" /></div>
+                    <div class="input-box"><input type="password" name="register_password" placeholder="密码（6-16位字符）" />
+                    </div>
+                    <div class="input-box"><input type="password" name="register_password_check" placeholder="确认密码" />
+                    </div>
+                    <div class="input-box"><input type="text" name="register_code" style="width: calc(100% - 180px);"
+                            placeholder="请输入验证码" /><img src="/captcha.html?t=1691241035" class="code-img captcha"></div>
+                    <div class="tpis-box"><span>已有账号？</span><span style="color:#007bff" class="login-choose">立即登录</span>
+                    </div>
+                </div>
+            </div>
+        </div><!-- <script type="text/javascript" src="__JS__/flv.min.js"></script> -->
+         <!--  -->
+         <div class="share-dialog hidden">
+            <div class="share-dialog-conter">
+              <div class="share-dialog-main">
+                <img class="lozad video-share-img" loading="lazy" src="__IMAGES__/loading_img_bg_default.jpg" data-src="{$vodlist['enpic'] | raw}" alt="">
+                <div class="share-dialog-title">{$vodlist['title'] | raw}</div>
+                <div class="share-dialog-url-wrap">
+                    <div class="qr-wrap">
+
+                    </div>
+                    <div class="flex-shrink0">
+                        <div class="text-wrap">
+                            <div class="saom-text">扫描二维码</div>
+                            <div class="text-gk">立即观看</div>
+                        </div>
+                        <div class="share-url"></div>
+                    </div>
+                </div>
+                <div class="share-btn-wrap">
+                    <div class="share-btn1 share-save">保存二维码</div>
+                    <div class="share-btn1 copy-share">复制链接分享</div>
+                </div>
+                <div class="share-text1">&#20813;&#36153;&#35270;&#39057;&#23601;&#22312;&#88;&#31449;</div>
+            </div>
+            </div>
+          </div>
+        <script type="text/javascript" src="{$jscsscdn}__JS__/hls.min.js"></script>
+        <script type="text/javascript" src="{$jscsscdn}__JS__/DPlayer.min.js"></script>
+        <!-- <script type="text/javascript" src="__JS__/DPlayer.js"></script> -->
+    <style>
+.share-dialog {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .share-dialog-conter {
+    width: 5.48rem;
+    border-radius: .4rem;
+    background-image: url('/static/images/share-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    max-width: 80vw;
+    color: #333;
+  }
+  .share-dialog-main {
+    padding: .24rem;
+  }
+  .video-share-img{
+        width: 5rem;
+        height: 2.68rem;
+        border-radius: .2rem;
+  }
+  .share-dialog-title{
+    padding-top: .16rem;
+    padding-bottom: .4rem;
+    font-size: .28rem;
+    font-weight: 700;
+    line-height: .32rem;
+    color: #000;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: left;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+  }
+  .share-dialog-url-wrap{
+    display: flex;
+    width: 100%;
+    /* align-items: center; */
+  }
+  .qr-wrap{
+    border-radius: .2rem;
+    border: 1px solid #F9DACD;
+    margin-right: .16rem;
+    flex-shrink: 0;
+    padding: .1rem;
+  }
+  .flex-shrink0{
+    flex-shrink: 0;
+}
+.text-wrap{
+    display: flex;
+    align-items: center;
+    margin-bottom: .1rem;
+}
+ .share-url {
+    width: 3.24rem;
+    word-break:break-all;
+ }
+.saom-text{
+    background-color: #111;
+    padding: .08rem .16rem;
+    color: #fff;
+    border-radius: .08rem;
+    font-size: .2rem;
+    margin-right: .12rem;
+}
+.text-gk{
+    font-size: .28rem;
+    font-weight: 600;
+    color: #333;
+}
+
+  .share-btn-wrap{
+    display: flex;
+    justify-content: space-between;
+    padding:  .32rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .share-btn1 {
+    flex:  0 0 auto;
+    background: linear-gradient(229.21deg, #FD5B25 15.85%, #F3257E 86.08%);
+    height: .72rem;
+    line-height: .72rem;
+    border-radius: .1rem;
+    font-weight: 600;
+    text-align: center;
+    width: 2.4rem;
+    color: #fff;
+  }
+  .share-text1{
+    text-align: center;
+    color: #999;
+    margin-top: .32rem;
+    margin-bottom: .08rem;
+  }
+
+         </style>
+        <script>
+            (function(){
+                $('.copy-btn').click(function(){
+                      copy($('.d-url').text())
+                })
+               let  href = window.location.href
+               $('.share-url').html(href)
+               let qrEl = document.body.querySelector(".share-dialog .qr-wrap");
+               try {
+                new QRCode(qrEl, {
+                    text: href,
+                    width: 70,
+                    height: 70,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+                } catch (err) {
+                qrEl.innerHTML = '<img src="/static/images/qr.png" alt="">'
+                }
+                $('.share-save').click(function(e){
+                    e.stopPropagation()
+                    toast("您需要手动截图才能保存凭证哦");
+                    // let url = $('.share-dialog .qr-wrap img').attr('src')
+                    // downloadImg(url,'视频分享.png')
+                })
+                $('.copy-share').click(function(e){
+                    e.stopPropagation()
+                    copy()
+                })
+                let shareDialog= $('.share-dialog')
+                shareDialog.click(function(){
+                    shareDialog.addClass('hidden')
+                })
+                $('.share-btn').click(function(){
+                    shareDialog.removeClass('hidden')
+                 })
+            })()
+           
+            // e = 1 点赞 2 = 踩 0 = 收藏
+            function requestReport(e, event) {
+                let url;
+                // report 1 = 增加 0 = 删除
+                let report = event.style.color ? 0 : 1;
+
+                if (e == 1) {
+                    url = '{:url("api/like_report")}'
+                } else if (e == 2) {
+                    url = '{:url("api/step_report")}'
+                } else {
+                    url = '{:url("api/collect_report")}'
+                }
+                $.ajax({
+                    url: url,
+                    data: { type: report, vid: data.video.id },
+                    type: 'POST',
+                    success: function (result) {
+                        if (result.code == 401) {
+                            eventLogin();
+                            return
+                        }
+                        if (result.code == 200) {
+                            let num = Number($(event)[0].children[1].innerText);
+                            $(event)[0].children[1].innerText = report == 1 ? num + 1 : num - 1;
+                            if (event.style.color) {
+                                event.style = {};
+                            } else {
+                                event.style.color = '#f60'
+                            }
+                            event.dataset.report = 'true'
+                            if (e == 1 && $('#video-down-btn')[0].dataset.report === 'true') {
+                                let dNum = Number($('#video-down-btn').css('color', '').children('.col-text').text())
+                                $('#video-down-btn').children('.col-text').text(dNum > 0 ? (dNum - 1) : 0)
+                            }
+                            if (e == 2 && $('#video-up-btn')[0].dataset.report === 'true') {
+                                let uNum = Number($('#video-up-btn').css('color', '').text())
+                                $('#video-up-btn').children('.col-text').text(uNum > 0 ? (uNum - 1) : 0)
+                            }
+                        } else {
+                            new Noty({
+                                layout: 'topCenter',
+                                theme: 'bootstrap-v4',
+                                text: result.msg,
+                                progressBar: false,
+                                timeout: 1000
+                            }).show().setType('warning');
+                        }
+                    }
+                })
+            }
+
+            // 登录函数
+            function eventLogin() {
+                try {
+                    SSwal.close()
+                } catch (e) {
+                }
+                SSwal.fire({
+                    title: "请登录账号!",
+                    showCancelButton: true,
+                    confirmButtonText: '登录',
+                    cancelButtonText: '取消',
+                    html: $('.accordion_login').html(),
+                    preConfirm: (e) => {
+                        let content = SSwal.getContent()
+                        let $$$ = content.querySelector.bind(content)
+                        let account = $$$('input[name=login_account]').value
+                        let password = $$$('input[name=login_password]').value
+                        if (!account) {
+                            new Noty({
+                                layout: 'topCenter',
+                                theme: 'bootstrap-v4',
+                                text: '账号不能为空!',
+                                progressBar: false,
+                                timeout: 1000
+                            }).show().setType('warning');
+                            return false;
+                        }
+                        if (!password) {
+                            new Noty({
+                                layout: 'topCenter',
+                                theme: 'bootstrap-v4',
+                                text: '密码不能为空!',
+                                progressBar: false,
+                                timeout: 1000
+                            }).show().setType('warning');
+                            return false;
+                        }
+                        if (password.length < 6) {
+                            new Noty({
+                                layout: 'topCenter',
+                                theme: 'bootstrap-v4',
+                                text: '密码长度不低于6位数!',
+                                progressBar: false,
+                                timeout: 1000
+                            }).show().setType('warning');
+                            return false;
+                        }
+
+                        $.ajax({
+                            url: '/personal/login',
+                            data: { account: account, password: password },
+                            type: 'POST',
+                            success: function (res) {
+                                console.log(res);
+                                if (res.code == 200) {
+                                    new Noty({
+                                        layout: 'topCenter',
+                                        theme: 'bootstrap-v4',
+                                        text: res.msg,
+                                        progressBar: false,
+                                        timeout: 1000
+                                    }).show().setType('success');
+                                    SSwal.close()
+                                } else {
+                                    new Noty({
+                                        layout: 'topCenter',
+                                        theme: 'bootstrap-v4',
+                                        text: res.msg,
+                                        progressBar: false,
+                                        timeout: 1000
+                                    }).show().setType('warning');
+                                    return false;
+                                }
+                            }
+                        })
+                        return false;
+                    },
+                    onClose: () => {
+                        // 解决UC浏览器video层级太高遮罩弹窗的问题
+                        if (window.isVideoZindex) {
+                            $('#dplayer').show();
+                        }
+                    }
+                })
+            }
+            // 登录窗口
+            $(document).on('click', '.login-choose', function (e) {
+                eventLogin();
+            })
+            // 注册窗口
+            $(document).on('click', '.register-choose', function (e) {
+                try {
+                    SSwal.close()
+                } catch (e) {
+                }
+                // 解决UC浏览器video层级太高遮罩弹窗的问题
+                if (window.isVideoZindex) {
+                    $('#dplayer').hide();
+                }
+                SSwal.fire({
+                    title: "免费注册",
+                    showCancelButton: true,
+                    confirmButtonText: '注册',
+                    cancelButtonText: '取消',
+                    html: $('.accordion_register').html(),
+                    preConfirm: (e) => {
+                        let content = SSwal.getContent()
+                        let $$$ = content.querySelector.bind(content)
+                        let account = $$$('input[name=register_account]').value
+                        let email = $$$('input[name=register_email]').value
+                        let password = $$$('input[name=register_password]').value
+                        let passwordCheck = $$$('input[name=register_password_check]').value
+                        let code = $$$('input[name=register_code]').value
+                        if (!account) {
+                            new Noty({
+                                layout: 'topCenter',
+                                theme: 'bootstrap-v4',
+                                text: '账号不能为空!',
+                                progressBar: false,
+                                timeout: 1000
+                            }).show().setType('warning');
+                            return false;
+                        }
+                        if (email) {
+                            // 邮箱校验
+                            var reg = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+                            let isok = reg.test(email);
+                            if (!isok) {
+                                new Noty({
+                                    layout: 'topCenter',
+                                    theme: 'bootstrap-v4',
+                                    text: '邮箱格式不正确!',
+                                    progressBar: false,
+                                    timeout: 1000
+                                }).show().setType('warning');
+                                return false;
+                            }
+                        }
+                        if (!password) {
+                            new Noty({
+                                layout: 'topCenter',
+                                theme: 'bootstrap-v4',
+                                text: '密码不能为空!',
+                                progressBar: false,
+                                timeout: 1000
+                            }).show().setType('warning');
+                            return false;
+                        }
+                        if (password.length < 6) {
+                            new Noty({
+                                layout: 'topCenter',
+                                theme: 'bootstrap-v4',
+                                text: '密码长度不低于6位数!',
+                                progressBar: false,
+                                timeout: 1000
+                            }).show().setType('warning');
+                            return false;
+                        }
+                        if (!passwordCheck) {
+                            new Noty({
+                                layout: 'topCenter',
+                                theme: 'bootstrap-v4',
+                                text: '确认密码不能为空!',
+                                progressBar: false,
+                                timeout: 1000
+                            }).show().setType('warning');
+                            return false;
+                        }
+                        if (passwordCheck != password) {
+                            new Noty({
+                                layout: 'topCenter',
+                                theme: 'bootstrap-v4',
+                                text: '两次密码不同!',
+                                progressBar: false,
+                                timeout: 1000
+                            }).show().setType('warning');
+                            return false;
+                        }
+                        if (!code) {
+                            new Noty({
+                                layout: 'topCenter',
+                                theme: 'bootstrap-v4',
+                                text: '请输入验证码!',
+                                progressBar: false,
+                                timeout: 1000
+                            }).show().setType('warning');
+                            return false;
+                        }
+
+                        $.ajax({
+                            url: '/personal/register',
+                            data: { account: account, email: email, password: password, code: code },
+                            type: 'POST',
+                            success: function (res) {
+                                console.log(res);
+                                if (res.code == 200) {
+                                    new Noty({
+                                        layout: 'topCenter',
+                                        theme: 'bootstrap-v4',
+                                        text: res.msg,
+                                        progressBar: false,
+                                        timeout: 1000
+                                    }).show().setType('success');
+                                    SSwal.close()
+                                } else {
+                                    new Noty({
+                                        layout: 'topCenter',
+                                        theme: 'bootstrap-v4',
+                                        text: res.msg,
+                                        progressBar: false,
+                                        timeout: 1000
+                                    }).show().setType('warning');
+                                    return false;
+                                }
+                            }
+                        })
+                        return false;
+                    },
+                    onClose: () => {
+                        // 解决UC浏览器video层级太高遮罩弹窗的问题
+                        if (window.isVideoZindex) {
+                            $('#dplayer').show();
+                        }
+                    }
+                })
+            })
+
+            // 刷新验证码
+            $(document).on('click', '.code-img', function (e) {
+                let captcha_src = `/captcha.html?t=${new Date().getTime()}`;
+                $(this).attr('src', captcha_src)
+            })
+
+            // 复制分享
+            // let clipboard = new ClipboardJS('.clipboard-select-binding')
+            function copyUrl(e) {
+                clipboard = new ClipboardJS('.clipboard-select-binding');
+                url = window.location.href;
+                $('#copyUrl').val('没穿衣裳，到浏览器打开，直接就能看，没套路：' + url)
+                console.log(url)
+
+                clipboard.on('success', function (e) {
+                    new Noty({
+                        layout: 'topCenter',
+                        theme: 'bootstrap-v4',
+                        text: '已复制链接!',
+                        progressBar: false,
+                        timeout: 1000
+                    }).show().setType('warning');
+                    e.clearSelection();
+                    clipboard.destroy();
+                });
+                clipboard.on('error', function (e) {
+                    new Noty({
+                        layout: 'topCenter',
+                        theme: 'bootstrap-v4',
+                        text: '复制失败!',
+                        progressBar: false,
+                        timeout: 1000
+                    }).show().setType('warning');
+                    clipboard.destroy();
+                });
+            }
+
+        </script>
+        <script>
+            var nativeShare = new NativeShare()
+            url = window.location.href;
+            let xtitle = $(".video-title")[0].innerText
+            var shareData = {
+                title: xtitle,
+                desc: xtitle,
+                // 如果是微信该link的域名必须要在微信后台配置的安全域名之内的。
+                link: url,
+                icon: '',
+                // 不要过于依赖以下两个回调，很多浏览器是不支持的
+                // success: function() {
+                //     alert('分享成功')
+                // },
+                // fail: function() {
+                //     alert('分享失败')
+                // }
+            }
+            nativeShare.setShareData(shareData)
+
+            function sharex(command) {
+                try {
+                    nativeShare.call(command)
+                } catch (err) {
+                    // 如果不支持，你可以在这里做降级处理
+                    // alert(err.message)
+                    copyUrl(this)
+                }
+            }
+
+            function setTitle(title) {
+                nativeShare.setShareData({
+                    title: title,
+                })
+            }
+        </script>
+        <script>
+            function copyUrlxs(value) {
+                clipboard = new ClipboardJS('.clipboard-select-bindings')
+                $('#copyUrl1').val(value)
+
+                clipboard.on('success', function (e) {
+                    new Noty({
+                        layout: 'topCenter',
+                        theme: 'bootstrap-v4',
+                        text: '已复制!',
+                        progressBar: false,
+                        timeout: 1000
+                    }).show().setType('warning');
+                    e.clearSelection();
+                    clipboard.destroy();
+                });
+                clipboard.on('error', function (e) {
+                    new Noty({
+                        layout: 'topCenter',
+                        theme: 'bootstrap-v4',
+                        text: '复制失败!',
+                        progressBar: false,
+                        timeout: 1000
+                    }).show().setType('warning');
+                    clipboard.destroy();
+                });
+            }
+        </script>
+    </div>
+    {include file="mobile_footer"}
 </body>
+
 </html>

@@ -1,10 +1,156 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{include file="mobile_header" /}
+<link rel="stylesheet" type="text/css" href="__CSS__/cg-styles.css" />
+<title>视频列表--{$category_name}</title>
 </head>
-<body>
 
+<body>
+    <div id="app">
+        <div class="v-s-nav-box-h">
+            <div class="logo-box p9">
+              <div class="v-s-logo">
+                <a href="/{$channel}.html">
+                  <img src="__IMAGES__/logo.png">
+                </a>
+              </div>
+              <div class="v-s-nav-search-box">
+                <a href="/searchhome/{$channel}.html">
+                  <div class="search-person">
+                    <div class="s-text">&#20154;&#22971;</div>
+                    <i class="bi bi-search"></i>
+                  </div>
+                </a>
+                  <a  href="{$tuoyilink}" target="_blank">
+            <img class="yjty-img" src="__IMAGES__/yjty.js" alt="" srcset="">
+          </a>
+          <img class="left-img" src="__IMAGES__/collect-btn.js" alt="" srcset="">
+              </div>
+            </div>
+            <div class="h-textad">
+             {volist name='XSudokuTextList' id="XSudokuText"}
+              <a class="text-c-1" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">
+                  {$XSudokuText['name'] | raw}
+              </a>
+             {/volist}
+            </div>
+          </div>
+          <!-- 标题栏bp -->
+          <div class="v-s-ul-time-vs_442378ea5a0a0b9d99bed43dc146baa0 top-nav pb10">
+              <a href="/nav/{$channel}.html">
+                  <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">&#23548;&#33322;</div>
+              </a>
+              <a href="/{$channel}.html">
+                  <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item">
+                      &#39318;&#39029;
+                  </div>
+              </a>
+              <a href="/novel/{$channel}.html" >
+                  <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
+                      &#23567;&#35828; <img style="width:22px;height:12px;margin-left:2px;margin-top:1px; " src="__IMAGES__/new.svg">
+                  </div>
+              </a>
+              <a href="/comic/{$channel}.html">
+                  <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item" style="display:flex;justify-content: center;align-items: center;">
+                      &#28459;&#30011; <img style="width:22px;height:12px;margin-left:2px;margin-top:1px;" src="__IMAGES__/hots.svg">
+                  </div>
+              </a>
+            {volist name='menulist' id="menu"}
+            <a href="/category/{$channel}.html?category_id={$menu['id']}">
+              <div class="v-s-li-nav-link-vs_442378ea5a0a0b9d99bed43dc146baa0 nav-item {if condition='$category_id eq $menu.id'}nav-menu-selected{/if}">{$menu['title'] | raw}</div>
+            </a>
+            {/volist}
+          </div>
+        {volist name='XTopHFList' id="XTopHF"}
+        <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+            <img class="hf-ad-img lozad"
+                 data-src="{$XTopHF['img'] | raw}"
+                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+        </a>
+        {/volist}
+          <div class="ad-conter ">
+            {volist name='XSudokuList' id="XSudoku"}
+            <a rel="external nofollow" i="{$XSudoku['id']}" href="{$XSudoku['url'] | raw}" target="_blank">
+              <img class="lozad"
+                data-src="{$XSudoku['img'] | raw}"
+                src="__IMAGES__/loading_img_bg_default.jpg">
+              <div>{$XSudoku['name'] | raw}</div>
+            </a>
+            {/volist}
+          </div>
+          <div class="textad pb10">
+              {volist name='XTopTextList' id="XSudokuText"}
+              <a class="text-c-4" rel="external nofollow" i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">
+                  {$XSudokuText['name'] | raw}
+              </a>
+              {/volist}
+          </div>
+        {volist name='XTopBannerHFList' id="XTopHF"}
+        <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+            <img class="hf-ad-img lozad"
+                 data-src="{$XTopHF['img'] | raw}"
+                 src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+        </a>
+        {/volist}
+        <div class="conter-wrap">
+          <div class="vidoe-title-1 pt0">
+            <div class="video-title-wrap fic">
+              <span class="video-title-text">{$category_name}</span>
+            </div>
+            <div class="title-ad-wrap">
+                {volist name='XCategoryTitleTextList' id="XSudokuText"}
+                <a i="{$XSudokuText['id']}" href="{$XSudokuText['url'] | raw}" target="_blank">{$XSudokuText['name'] | raw}</a>
+                {/volist}
+            </div>
+          </div>
+            <div class="ran-box px10">
+                <div class="cg-wrap">
+                    {volist name="videolist" id="video"}
+                    {eq name="($key+1)%6" value="0"}
+                        {volist name="XCategoryVideoListInsertList" id="XCategoryVideoListInsert"}
+                            <a rel="external nofollow" i="{$XCategoryVideoListInsert['id']}" href="{$XCategoryVideoListInsert['url'] | raw}" target="_blank">
+                                <img class="lozad cg-img"
+                                     data-src="{$XCategoryVideoListInsert['img'] | raw}"
+                                     src="__IMAGES__/loading_img_bg_default.jpg">
+                                <div class="rank-title">{$XCategoryVideoListInsert['name'] | raw}</div>
+                            </a>
+                        {/volist}
+                    {/eq}
+                    <a href="" class="cg-item">
+                        <div class="cg-img-wrap">
+                            <img class="lozad cg-img" src="https://pic.youkupic.com/upload/vod/20240911-1/537a9331b2e3790c7a87e4364c76944b.jpeg" alt="" srcset="">
+                            <div class="cg_info">
+                                <div class="cg-tiem"><i class="bi bi-clock"></i>2024年07月17日</div>
+                                <div class="cg-url-wrap"><span >&#32;&#27704;&#20037;&#23448;&#32593;</span> <span class="cg-url">69999991111111111111111.com</span></div>
+                            </div>
+                        </div>
+                        <div class="cg-title">
+                            露脸女神究极泄密 <span class="cg-tag">#推特</span>  23万粉无敌 <span class="cg-tag">#巨乳</span> 美女【 <span class="cg-tag">#板烧鸭鸭</span> 】666元高价  <span class="cg-tag">#私拍</span> 奶炮口交啪啪有钱人玩物
+                        </div>
+                        <div class="cg-fg"></div>
+                     </a>       
+                {/volist}
+                </div>
+                
+            </div>
+            {volist name='XBottomHFList' id="XTopHF"}
+            <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
+                <img class="hf-ad-img lozad"
+                     data-src="{$XTopHF['img'] | raw}"
+                     src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+            </a>
+            {/volist}
+            <div class="pagination-box">{$page|raw}
+            </div>
+        </div>
+    </div>
+    <script>
+        createdS('#swiper-jx', {
+          loop: !0,
+          autoplay: !0,
+          observer: !0,
+          slidesPerView: 'auto',
+        })
+      </script>
+    {include file="mobile_footer"}
 </body>
+
 </html>
