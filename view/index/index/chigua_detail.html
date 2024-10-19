@@ -166,34 +166,32 @@
                     {/volist}
                 </div>
             </div>
-            <div class="ran-box pb10" style="padding: 10px 0px !important">
-                <div class="cg-wrap">
-                    {volist name="videolist" id="video"}
-                    {eq name="($key+1)%6" value="0"}
-                        {volist name="XCategoryVideoListInsertList" id="XCategoryVideoListInsert"}
-                            <a rel="external nofollow" i="{$XCategoryVideoListInsert['id']}" href="{$XCategoryVideoListInsert['url'] | raw}" target="_blank">
-                                <img class="lozad cg-img"
-                                     data-src="{$XCategoryVideoListInsert['img'] | raw}"
-                                     src="__IMAGES__/loading_img_bg_default.jpg">
-                                <div class="rank-title">{$XCategoryVideoListInsert['name'] | raw}</div>
-                            </a>
-                        {/volist}
-                    {/eq}
-                    <a href="" class="cg-item">
-                        <div class="cg-img-wrap">
-                            <img class="lozad cg-img" src="https://pic.youkupic.com/upload/vod/20240911-1/537a9331b2e3790c7a87e4364c76944b.jpeg" alt="" srcset="">
-                            <div class="cg_info">
-                                <div class="cg-tiem"><i class="bi bi-clock"></i>2024年07月17日</div>
-                                <div class="cg-url-wrap"><span >&#32;&#27704;&#20037;&#23448;&#32593;</span> <span class="cg-url">69999991111111111111111.com</span></div>
-                            </div>
+            <div class="cg-wrap"  style="padding: 10px 0px !important">
+                {volist name="videolist" id="video"}
+                {eq name="($key+1)%6" value="0"}
+                    {volist name="XCategoryVideoListInsertList" id="XCategoryVideoListInsert"}
+                        <a rel="external nofollow" i="{$XCategoryVideoListInsert['id']}" href="{$XCategoryVideoListInsert['url'] | raw}" target="_blank">
+                            <img class="lozad cg-img"
+                                    data-src="{$XCategoryVideoListInsert['img'] | raw}"
+                                    src="__IMAGES__/loading_img_bg_default.jpg">
+                            <div class="rank-title">{$XCategoryVideoListInsert['name'] | raw}</div>
+                        </a>
+                    {/volist}
+                {/eq}
+                <a href="" class="cg-item">
+                    <div class="cg-img-wrap">
+                        <img class="lozad cg-img" src="https://pic.youkupic.com/upload/vod/20240911-1/537a9331b2e3790c7a87e4364c76944b.jpeg" alt="" srcset="">
+                        <div class="cg_info">
+                            <div class="cg-tiem"><i class="bi bi-clock"></i>2024年07月17日</div>
+                            <div class="cg-url-wrap"><span >&#32;&#27704;&#20037;&#23448;&#32593;</span> <span class="cg-url">69999991111111111111111.com</span></div>
                         </div>
-                        <div class="cg-title">
-                            露脸女神究极泄密 <span class="cg-tag">#推特</span>  23万粉无敌 <span class="cg-tag">#巨乳</span> 美女【 <span class="cg-tag">#板烧鸭鸭</span> 】666元高价  <span class="cg-tag">#私拍</span> 奶炮口交啪啪有钱人玩物
-                        </div>
-                        <div class="cg-fg"></div>
-                     </a>       
-                {/volist}
-                </div>
+                    </div>
+                    <div class="cg-title">
+                        露脸女神究极泄密 <span class="cg-tag">#推特</span>  23万粉无敌 <span class="cg-tag">#巨乳</span> 美女【 <span class="cg-tag">#板烧鸭鸭</span> 】666元高价  <span class="cg-tag">#私拍</span> 奶炮口交啪啪有钱人玩物
+                    </div>
+                    <div class="cg-fg"></div>
+                    </a>       
+            {/volist}
             </div>
             <div class="pagination-box">{$page|raw}
             </div>

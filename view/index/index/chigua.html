@@ -101,8 +101,7 @@
                 {/volist}
             </div>
           </div>
-            <div class="ran-box px10">
-                <div class="cg-wrap">
+                <div class="cg-wrap px10">
                     {volist name="videolist" id="video"}
                     {eq name="($key+1)%6" value="0"}
                         {volist name="XCategoryVideoListInsertList" id="XCategoryVideoListInsert"}
@@ -129,8 +128,6 @@
                      </a>       
                 {/volist}
                 </div>
-                
-            </div>
             {volist name='XBottomHFList' id="XTopHF"}
             <a class="hf-ad" rel="external nofollow" i="{$XTopHF['id']}" href="{$XTopHF['url'] | raw}" target="_blank">
                 <img class="hf-ad-img lozad"
