@@ -52,6 +52,10 @@ Route::get('/comic/detail/:channel','index/comic_detail')->pattern(['channel' =>
 
 Route::get('/comic/chapter/:channel','index/comic_chapter')->pattern(['channel' => '\d+(_\d+)?$']);
 
+Route::get('/chigua/:channel','index/chigua')->pattern(['channel' => '\d+(_\d+)?$']);
+
+Route::get('/chigua/detail/:channel','index/chigua_detail')->pattern(['channel' => '\d+(_\d+)?$']);
+
 Route::get('/test/:channel','index/test')->pattern(['channel' => '\d+(_\d+)?$']);
 
 Route::post('/tongji','data/tongji');

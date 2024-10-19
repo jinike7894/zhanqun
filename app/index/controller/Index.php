@@ -1234,6 +1234,18 @@ class Index extends BaseController
         View::assign('channel',$channel);
         return View::fetch();
     }
+
+    public function chigua($channel = 0)
+    {
+        View::assign('channel',$channel);
+        return View::fetch();
+    }
+    public function chigua_detail($channel = 0)
+    {
+        View::assign('channel',$channel);
+        return View::fetch();
+    }
+
     public function test()
     {
 
