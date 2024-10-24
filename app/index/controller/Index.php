@@ -650,6 +650,9 @@ class Index extends BaseController
 		$page = input('param.page',1);
 		$limit = input('param.limit',32);
 		$videolist = $this->MallVideos->getlist($category_id,$category_child_id,$page,$limit);
+        if($category_id == 40){
+            $videolist = $this->MallVideos->getnewlist($category_id,$category_child_id,$page,$limit);
+        }
 		View::assign('category_id',$category_id);
 		View::assign('category_child_id',$category_child_id);
 		View::assign('menulist',$menulist);
