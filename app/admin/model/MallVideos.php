@@ -56,6 +56,38 @@ class MallVideos extends TimeModel
 		$data=array("list"=>$list,"page"=>$page);
         return $data;
 	}
+
+    public function getnewlist($category_id,$category_child_id,$page,$pagesize)
+    {
+        if(!empty($category_child_id))
+        {
+            $map[] = ['cate_id','=',$category_child_id];
+            $map[] = ['status', '=', 1];
+            $list=$this->where($map)->order('id desc')->cache(600)->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
+        }else{
+            $map[] = ['pid','=',$category_id];
+            $map[] = ['status', '=', 1];
+            $mallcate = new MallCate();
+            $catelist = $mallcate::field('id')->where($map)->cache(600)->select()->toArray();
+            $ids = array_column($catelist,'id');
+            array_unshift($ids,$category_id);
+            $ids = implode(',',$ids);
+            $map1[] = ['cate_id','in',$ids];
+            $map1[] = ['status', '=', 1];
+            $list=$this->where($map1)->order('id desc')->cache(600)->paginate(['list_rows'=>$pagesize,'query' => request()->param()]);
+        }
+        $page = $list->render();
+        foreach ($list as &$item){
+            if($item['id']<=5000){
+                $item['enpic'] = mbConvert(replaceVideoCdn($item['enpic'],'video_img_cdn'));
+                $item['video'] = replaceVideoCdn($item['video'],'video_cdn');
+            }
+            $item['title'] = mbConvert($item['title']);
+        }
+        $data=array("list"=>$list,"page"=>$page);
+        return $data;
+    }
+
 	public function getmorelist($cate_id,$page,$pagesize)
 	{
         $map[] = ['cate_id','=',$cate_id];

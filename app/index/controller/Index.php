@@ -606,9 +606,9 @@ class Index extends BaseController
         foreach ($menulist as &$item){
             $item['title'] = mbConvert($item['title']);
         }
-        $newlist = $this->MallVideos->getlist(40,0,1,6);
+        $newlist = $this->MallVideos->getlist(11,0,1,6);
         $pxlist = $this->MallVideos->getlist(12,0,1,6);
-        $yuanclist = $this->MallVideos->getlist(11,0,1,6);
+        $yuanclist = $this->MallVideos->getnewlist(40,0,1,6);
         $chigualist = $this->MallVideos->getlist(1,0,1,6);
         $guochanlist = $this->MallVideos->getlist(14,0,1,6);
         $rihanlist = $this->MallVideos->getlist(3,0,1,6);
