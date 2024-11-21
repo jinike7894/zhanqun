@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>导航导流</title>
+    <link rel="stylesheet" href="__STATIC__/index/css/styles.css">
+    <link rel="stylesheet" href="__STATIC__/index/css/swiper.css">
+    <link rel="stylesheet" href="__STATIC__/index/css/swiperGf.css" />
+    <link rel="stylesheet" href="__STATIC__/index/home.css">
+    <script src="__STATIC__/index/res.js"></script>
+    <link rel="stylesheet" href="__STATIC__/index/swiper.css">
+</head>
+<!-- <script type="text/javascript" src="./jquery.js"></script> -->
+<style>
+    .active {
+        padding: 0px 16px;
+        border-radius: 41px;
+        background: linear-gradient(90deg, #FA7D77 0%, #AB4F89 100%);
+    }
+
+    a {
+        color: #ffff;
+    }
+</style>
+
+<body>
+    <input type="hidden" id="site_id" value="{$site_id}">
+    <input type="hidden" id="channel" value="{$tongjiCode}">
+    <div class="index_page">
+        <!-- 顶部广告提示 -->
+        <div class="index_scrollbar">
+            <img src="__STATIC__/index/img/Frame.png" class="index_frame">
+            <span class="index_scrollbar_text"> 因本站包含成人内容，如有打不开请尝试在不同浏览器</span>
+        </div>
+
+
+        <!-- 轮播图 -->
+
+        <div class="index_swiper">
+            <div class="swiper-banner swiper">
+                <div class="swiper-wrapper">
+                    {volist name='BannerList' id="Banner"}
+                    <div class="swiper-slide">
+                        <img class="banner-img ad" src="{$Banner.img}" alt="" data-id="{$Banner.id}"
+                            data-channel="{$channel}" data-site="{$site_id}" data-url="{$Banner.androidurl}">
+                    </div>
+                    {/volist}
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+        <!-- 导航切换 -->
+        <div class="index_nav">
+            {volist name='pcategory' id="item"}
+            <a class="index_nav_li  {if condition='$adcateid eq $item.id'}active{/if}"
+                href="./{$channel}.html?adcateid={$item.id}">{$item.title}</a>
+            {/volist}
+        </div>
+        <!-- 九宫格 -->
+        <div class="index_jiugongge">
+            {volist name='jiugongge_img' id="item"}
+            <div class="index_jiugongge_li ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                data-url="{$item.androidurl}">
+                <img class="index_jiugongge_img" src="{$item.img}"
+                    onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                <div class="index_jiugongge_text">{$item.name}</div>
+            </div>
+            {/volist}
+        </div>
+        <!-- 九宫格文字版 -->
+        <div class="index-jiugonggeTxt">
+            {volist name='jiugongge_font' id="item"}
+            <div class="index_jiugonggeTxt_text ad" data-id="{$item.id}" data-channel="{$channel}"
+                data-site="{$site_id}" data-url="{$item.androidurl}">{$item.name}</div>
+            {/volist}
+            <!-- <div class="index_jiugonggeTxt_text index_jiugonggeTxt_hotColor">
+                <img src="__STATIC__/index/img/hot.png" class="index_jiugongge_hot">国产精品
+            </div>
+            <div class="index_jiugonggeTxt_text">国产精品</div>
+            <div class="index_jiugonggeTxt_text">国产精品</div>
+            <div class="index_jiugonggeTxt_text">国产精品</div>
+            <div class="index_jiugonggeTxt_text">国产精品</div>
+            <div class="index_jiugonggeTxt_text">国产精品</div>
+            <div class="index_jiugonggeTxt_text index_jiugonggeTxt_hotColor">
+                <img src="__STATIC__/index/img/hot.png" class="index_jiugongge_hot">国产精品
+            </div>
+            <div class="index_jiugonggeTxt_text index_jiugonggeTxt_newColor">
+                <img src="__STATIC__/index/img/new.png" class="index_jiugongge_hot">国产精品
+            </div>
+            <div class="index_jiugonggeTxt_text">国产精品</div>
+            <div class="index_jiugonggeTxt_text">国产精品</div>
+            <div class="index_jiugonggeTxt_text">国产精品</div> -->
+
+        </div>
+        <!-- 新闻条 -->
+        <div class="index_news">
+
+            <!-- 视频标签开始 -->
+            {volist name="video" id="item"}
+            <a href="/video/info/{$channel}.html?id={$item.id}">
+                <div class="index_news_line">
+                    <div class="index_news_line_left">
+                        <div class="index_news_line_left_text">
+                            {$item.title}
+                        </div>
+                        <div class="index_news_line_left_BottomBox">
+                            <div class="index_news_line_left_BottomBox_videoBtn">视频</div>
+                            <div class="index_news_line_left_BottomBox_text">阅读{$item.eye|eyew}W</div>
+                            <div class="index_news_line_left_BottomBox_text">一小时前</div>
+                        </div>
+
+                    </div>
+                    <img src="{$item.pic}" class="index_news_line_right_img"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+
+                </div>
+            </a>
+            {/volist}
+            <!-- <div class="index_news_line">
+                <div class="index_news_line_left">
+                    <div class="index_news_line_left_text">
+                        汗流浃背的前杨已婚女人是一个初级工人和一个庸俗的矛喝...
+                    </div>
+                    <div class="index_news_line_left_BottomBox">
+                        <div class="index_news_line_left_BottomBox_videoBtn">视频</div>
+                        <div class="index_news_line_left_BottomBox_text">阅读86W</div>
+                        <div class="index_news_line_left_BottomBox_text">一小时前</div>
+
+                    </div>
+
+                </div>
+                <img src="__STATIC__/index/img/newsCover.png" class="index_news_line_right_img">
+
+            </div> -->
+            <!-- 视频标签结束 -->
+            <!-- 吃瓜标签开始 -->
+            <div class="index_news_chigua">
+                {volist name="img_chigua" id="items"}
+                <div class="index_news_chigua_title">
+                    {$items.title}
+                </div>
+                <div class="index_news_chigua_imgBox">
+
+                    <img src="{$items.cover}" class="index_news_chigua_img"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img src="{$items.cover1}" class="index_news_chigua_img"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <!-- <img src="{$items.cover2}" class="index_news_chigua_img"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';"> -->
+                </div>
+                <div class="index_news_line_left_BottomBox">
+                    <div class="index_news_line_left_BottomBox_videoBtn">吃瓜</div>
+                    <div class="index_news_line_left_BottomBox_text">阅读{$items.eye|eyew}W</div>
+                    <div class="index_news_line_left_BottomBox_text">一小时前</div>
+
+                </div>
+                {/volist}
+            </div>
+            <!-- 吃瓜标签结束 -->
+
+        </div>
+
+        <!-- 真人认证 -->
+        <div class="index_realPerson">
+            {volist name='yuepao_ad' id="item"}
+            <div class="index_realperson_box ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                data-url="{$item.androidurl}">
+                <div class="index_realPerson_leftBox">
+                    <div class="index_realPerson_left">
+                        <img src="{$item.img}" class="index_realPerson_leftImg"
+                            onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                        <img src="__STATIC__/index/img/realperson.png" class="index_realPerson_leftIcon">
+                    </div>
+
+                </div>
+
+                <div class="index_realPerson_right">
+                    <div class="index_realPerson_right_title">
+                        <div class="index_realPerson_rightBox">
+                            <div class="index_realPerson_right_titleName">{$item.name}</div>
+                            <div class="index_realPerson_right_titleBtn">在线约炮</div>
+                        </div>
+
+                        <div class="index_realPerson_right_like">
+                            <img src="__STATIC__/index/img/like.png" class="index_realPerson_right_likeImg">
+                            <div class="index_realPerson_right_liketxt">{$item.like}人喜欢</div>
+                        </div>
+                    </div>
+                    <div class="index_realPerson_right_information">
+                        <div class="index_realPerson_right_informationAge">{$item.age}岁</div>
+                        <div class="index_realPerson_right_informationAge">{$item.height}cm</div>
+                        <div class="index_realPerson_right_informationAge">学生</div>
+                    </div>
+                    <div class="index_realPerson_address">
+                        <div class="index_realPerson_addressBox">
+                            <img src="__STATIC__/index/img/address.png" class="index_realPerson_addressImg">
+                            <div class="index_realPerson_addressTxt">附近{$item.km}KM</div>
+                        </div>
+                        <div class="index_realPerson_addressBox dotBox">
+                            <img src="__STATIC__/index/img/greenDot.png" class="index_realPerson_addressImg">
+                            <div class="index_realPerson_addresstime">{$item.time}分钟前</div>
+                        </div>
+
+                    </div>
+
+                    <div class="index_realPerson_imgBox">
+                        {volist name='item.pics' id="pic"}
+                        <img src="{$pic}" class="index_realPerson_img"
+                            onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                        {/volist}
+                        <!-- <img src="__STATIC__/index/img/chigua2.png" class="index_realPerson_img">
+                        <img src="__STATIC__/index/img/chigua2.png" class="index_realPerson_img">
+                        <img src="__STATIC__/index/img/chigua2.png" class="index_realPerson_img"> -->
+                        <img src="__STATIC__/index/img/next.png" class="index_realPerson_img">
+                    </div>
+                </div>
+
+            </div>
+            {/volist}
+
+
+        </div>
+    </div>
+    <!-- 直播模块 -->
+    <div class="index_alive">
+        {volist name='live_ad' id="item"}
+        <div class="index_alive_a ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+            data-url="{$item.androidurl}">
+            <div class="index_alive_box">
+                <!-- 图片盒子 -->
+                <div class="index_alive_imgbox">
+                    <img src="{$item.img}" class="index_alive_img"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <!-- 直播观看人数 -->
+                    <div class="index_alive_videoBox">
+                        <img src="__STATIC__/index/img/video.png" class="index_alive_videoImg">
+                        <div class="index_alive_imgTxt">{$item.online}人</div>
+                    </div>
+                    <!-- 收藏按钮 -->
+                    <img src="__STATIC__/index/img/collect.png" class="index_alive_collect">
+                </div>
+                <!-- 内容 标题 -->
+                <div class="index_alive_titleBox titleBox">
+                    <div class="index_alive_title">{$item.name}</div>
+                    <div class="index_alive_nav">直播中</div>
+
+                </div>
+                <div class="index_alive_titleBox zanBox">
+                    <div class="index_realPerson_addressBox ">
+                        <img src="__STATIC__/index/img/greenDot.png" class="index_realPerson_addressImg">
+                        <div class="index_realPerson_addresstime">{$item.online}</div>
+                        <div class="index_alive_online">人在线</div>
+                    </div>
+                    <div class="index_alive_zanBox ">
+                        <img src="__STATIC__/index/img/zan.png" class="index_alive_zan">
+                        <div class="index_alive_zanNum">{$item.click}</div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+        {/volist}
+
+
+    </div>
+
+
+    <div class="index_page">
+        <!-- 吃瓜阅读 -->
+        <div class="index_chiguaRead">
+            {volist name="img_chigua1" id="items"}
+            <a href="">
+                <div class="index_news_chigua">
+                    <div class="index_news_chigua_title">
+                        {$items.title}
+                    </div>
+                    <div class="index_chiguaRead_img">
+
+                        <img src="{$items.cover}" class="index_chiguaRead_left"
+                            onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+
+                        <div class="index_chiguaRead_rightBox">
+
+                            <img src="{$items.cover}" class="index_chiguaRead_rightImg"
+                                onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                            <img src="{$items.cover1}" class="index_chiguaRead_rightImg"
+                                onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                            <!-- <img src="{$items.cover2}" class="index_chiguaRead_rightImg"
+                                onerror="this.src='/static/images/loading_img_bg_default.jpg';"> -->
+                            <!-- <img src="__STATIC__/index/img/chigua3.png" class="index_chiguaRead_rightImg"> -->
+                        </div>
+
+                    </div>
+                    <div class="index_news_line_left_BottomBox">
+                        <div class="index_news_line_left_BottomBox_videoBtn">吃瓜</div>
+                        <div class="index_news_line_left_BottomBox_text">阅读{$items.eye|eyew}W</div>
+                        <div class="index_news_line_left_BottomBox_text">一小时前</div>
+
+                    </div>
+
+                </div>
+
+            </a>
+            {/volist}
+        </div>
+        <!-- 小说 -->
+        {volist name="novel" id="item"}
+        <a href="/novel/info/{$channel}.html?id={$item.id}">
+            <div class="index_read">
+
+                <div class="index_read_left">
+                    <!-- 标题 -->
+                    <div class="index_read_tilteBox">
+                        <div class="index_read_tilte">{$item.title}</div>
+                        <div class="index_read_Nav">{$item.cate.title}</div>
+                    </div>
+                    <!-- 篇章 -->
+                    <div class="index_read_timeBox">
+                        <div class="index_read_all">共{$item.num}章</div>
+                        <div class="index_read_time">
+                            <img src="__STATIC__/index/img/redDot.png" class="index_read_readDot">
+                            <div class="index_read_timeTxt">{$item.time}分钟前</div>
+                        </div>
+                    </div>
+                    <!-- 内容 -->
+                    <div class="index_read_content">
+                        {$item.description|fontsize}
+                    </div>
+                    <div class="index_news_line_left_BottomBox">
+                        <div class="index_news_line_left_BottomBox_videoBtn">小说</div>
+                        <div class="index_news_line_left_BottomBox_text">阅读{$item.eye|eyew}W</div>
+                        <div class="index_news_line_left_BottomBox_text">一小时前</div>
+
+                    </div>
+
+                </div>
+                <div class="index_read_right">
+                    <img src="{$item.pic}" class="index_read_rightImg"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img src="__STATIC__/index/img/lzBtn.png" class="index_read_lzBtn">
+                </div>
+
+
+
+            </div>
+
+        </a>
+        {/volist}
+        <!-- 两列 抖音 -->
+        <div class="index_dyList">
+            {volist name='zhong_font_ad' id="item"}
+            <div class="ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                data-url="{$item.androidurl}">
+                <div class="index_dyListBox">
+                    <div class="flexBox">
+                        <img src="{$item.img}" class="index_dyList_img"
+                            onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                        <div class="index_dyList_dyTxt">{$item.name}</div>
+
+                    </div>
+
+                    <img src="__STATIC__/index/img/rightIcon.png" class="index_dyList_rightIcon">
+                </div>
+            </div>
+            {/volist}
+
+        </div>
+        <!-- 小说 -->
+        {volist name="novel1" id="item"}
+        <a href="/novel/info/{$channel}.html?id={$item.id}">
+            <div class="index_read">
+
+                <div class="index_read_left">
+                    <!-- 标题 -->
+                    <div class="index_read_tilteBox">
+                        <div class="index_read_tilte">{$item.title}</div>
+                        <div class="index_read_Nav">{$item.cate.title}</div>
+                    </div>
+                    <!-- 篇章 -->
+                    <div class="index_read_timeBox">
+                        <div class="index_read_all">共{$item.num}章</div>
+                        <div class="index_read_time">
+                            <img src="__STATIC__/index/img/redDot.png" class="index_read_readDot">
+                            <div class="index_read_timeTxt">{$item.time}分钟前</div>
+                        </div>
+                    </div>
+                    <!-- 内容 -->
+                    <div class="index_read_content">
+                        {$item.description|fontsize}
+                    </div>
+                    <div class="index_news_line_left_BottomBox">
+                        <div class="index_news_line_left_BottomBox_videoBtn">小说</div>
+                        <div class="index_news_line_left_BottomBox_text">阅读{$item.eye|eyew}W</div>
+                        <div class="index_news_line_left_BottomBox_text">一小时前</div>
+
+                    </div>
+
+                </div>
+                <div class="index_read_right">
+                    <img src="{$item.pic}" class="index_read_rightImg"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img src="__STATIC__/index/img/lzBtn.png" class="index_read_lzBtn">
+                </div>
+
+
+
+            </div>
+
+        </a>
+        {/volist}
+    </div>
+
+    <!-- 漫画 -->
+    <div class="index_cartoon">
+        {volist name="manhua" id="item"}
+        <a href="/comics/info/{$channel}.html?id={$item.id}" class="index_alive_a">
+            <div class="index_cartoon_box">
+                <!-- 图片盒子 -->
+                <div class="index_cartoon_imgbox">
+                    <img src="{$item.pic}" class="index_cartoon_img"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <!-- top -->
+                    <img src="__STATIC__/index/img/top.png" class="index_cartoon_top">
+                    <!-- 收藏按钮 -->
+                    <img src="__STATIC__/index/img/lzBtn.png" class="index_cartoon_lz">
+                    <!-- 观看 收藏 -->
+                    <div class="index_cartoon_bottomBox">
+                        <div class="index_cartoon_eyeBox">
+                            <img src="__STATIC__/index/img/eye.png" class="index_cartoon_eyeImg">
+                            <div class="index_cartoon_eyeNum">{$item.eye}K</div>
+                        </div>
+                        <div class="index_cartoon_eyeBox">
+                            <img src="__STATIC__/index/img/star.png" class="index_cartoon_starImg">
+                            <div class="index_cartoon_eyeNum">{$item.shoucang}K</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 内容 标题 -->
+                <div class="index_cartoon_titleBox titleBox">
+                    <div class="index_cartoon_nav">漫画</div>
+                    <div class="index_alive_title">{$item.title|fontsize2}</div>
+                </div>
+                <div class="index_cartoon_titleBox ">
+                    <div class="index_cartoon_li">#{$item.cate.title}</div>
+
+                </div>
+
+                <div class="index_alive_titleBox zanBox">
+                    <div class="index_cartoon_all ">
+                        共{$item.num}章
+                    </div>
+                    <div class="index_cartoon_timeBox ">
+                        <img src="__STATIC__/index/img/dot.png" class="index_cartoon_dot">
+                        <div class="index_cartoon_time">今天</div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </a>
+        {/volist}
+
+
+
+
+
+    </div>
+    <div class="index_page">
+        <!-- 广告 -->
+        <div>
+            {volist name='zhong_img_ad' id="item"}
+            <img src="{$item.img}" class="index_advertisement ad" data-id="{$item.id}" data-channel="{$channel}"
+                data-site="{$site_id}" data-url="{$item.androidurl}"
+                onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+            {/volist}
+        </div>
+        {volist name='video1' id="item"}
+        <a href="/video/info/{$channel}.html?id={$item.id}">
+            <div class="index_news_line">
+                <div class="index_news_line_left">
+                    <div class="index_news_line_left_text">
+                        {$item.title}
+                    </div>
+                    <div class="index_news_line_left_BottomBox">
+                        <div class="index_news_line_left_BottomBox_videoBtn">视频</div>
+                        <div class="index_news_line_left_BottomBox_text">阅读{$item.eye|eyew}W</div>
+                        <div class="index_news_line_left_BottomBox_text">一小时前</div>
+
+                    </div>
+
+                </div>
+                <img src="{$item.pic}" class="index_news_line_right_img"
+                    onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+
+            </div>
+        </a>
+        {/volist}
+        <!-- 视频标签结束 -->
+        <!-- 吃瓜标签开始 -->
+        {volist name="img_chigua2" id="items"}
+        <a href="">
+            <div class="index_news_chigua">
+                <div class="index_news_chigua_title">
+                    {$items.title}
+                </div>
+                <div class="index_news_chigua_imgBox">
+                    {volist name="items.pic" id="item"}
+                    <img src="{$item}" class="index_news_chigua_img"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    {/volist}
+                </div>
+                <div class="index_news_line_left_BottomBox">
+                    <div class="index_news_line_left_BottomBox_videoBtn">吃瓜</div>
+                    <div class="index_news_line_left_BottomBox_text">阅读{$items.eye|eyew}W</div>
+                    <div class="index_news_line_left_BottomBox_text">一小时前</div>
+
+                </div>
+
+            </div>
+        </a>
+        {/volist}
+        <!-- 吃瓜标签结束 -->
+    </div>
+    <!-- 漫画 -->
+    <div class="index_cartoon">
+        {volist name="img1" id="item"}
+        <a href="" class="index_alive_a">
+            <div class="index_cartoon_box">
+                <!-- 图片盒子 -->
+                <div class="index_cartoon_imgbox">
+                    <img src="{$item.pic[0]}" class="index_cartoon_img"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+
+                    <div class="index_cartoon_pageBox">
+                        <img src="__STATIC__/index/img/tjPage.png" class="index_cartoon_pageImg">
+                        <div class="index_cartoon_pageNum">{$item.num}张</div>
+                    </div>
+                    <div class="index_cartoon_bottomBox">
+                        <div class="index_cartoon_eyeBox">
+                            <img src="__STATIC__/index/img/eye.png" class="index_cartoon_eyeImg">
+                            <div class="index_cartoon_eyeNum">{$item.eye|eyek}K</div>
+                        </div>
+                        <div class="index_cartoon_eyeBox">
+                            <img src="__STATIC__/index/img/star.png" class="index_cartoon_starImg">
+                            <div class="index_cartoon_eyeNum">{$item.shoucang|eyek}K</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 内容 标题 -->
+                <div class="index_cartoon_titleBox titleBox">
+                    <div class="index_alive_title">{$item.title}</div>
+                    <div class="index_cartoon_nav navMargin">图集</div>
+                </div>
+                <div class="index_cartoon_titleBox ">
+                    <div class="index_cartoon_li">{$item.detail}</div>
+                </div>
+                <div class="index_cartoon_titleBox ">
+                    <div class="index_cartoon_li">#{$item.fenlei.title}</div>
+
+                </div>
+
+
+            </div>
+
+        </a>
+        {/volist}
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+</body>
+<script>
+    var base = '';
+    // var _hmt = _hmt || [];
+    // (function () {
+    //     var hm = document.createElement("script");
+    //     // hm.src = "https://hm.baidu.com/hm.js?1";
+    //     var s = document.getElementsByTagName("script")[0];
+    //     s.parentNode.insertBefore(hm, s);
+    // })();
+
+    // 51la
+    // cnzz
+</script>
+<script src="__STATIC__/index/jq.js"></script>
+<script src="__STATIC__/index/swiper.js"></script>
+<script src="__STATIC__/index/app.js"></script>
+
+
+</html>

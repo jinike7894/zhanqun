@@ -37,6 +37,7 @@ class Products extends Model
         'create_time' => 'int',
         'update_time' => 'int',
         'delete_time' => 'int',
+		'url_type' => 'int',
     ];
 	
 	public function search($page=1,$limit=10,$wd)

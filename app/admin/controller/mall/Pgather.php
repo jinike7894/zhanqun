@@ -36,6 +36,7 @@ class Pgather extends AdminController
                 return $this->selectList();
             }
             list($page, $limit, $where, $cxdate,$channelCode) = $this->buildTableParames1();
+            
             //$count = Products::where($where)->count();
             if(empty($cxdate)){
 				$cxdate[] = ['date','=',date('Y-m-d')];
@@ -48,6 +49,8 @@ class Pgather extends AdminController
                 $totalShows += $item['shows'];
                 $totalClicks += $item['clicks'];
                 $totalDownfinish += $item['downfinish'];
+                $list[$k]["date"]=json_encode($cxdate);
+               
             }
             $data = [
                 'code'  => 0,

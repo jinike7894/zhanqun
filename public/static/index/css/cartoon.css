@@ -1,0 +1,45 @@
+#cartoonPage{
+    background: #0D0E0E;
+}
+.header_fqlogoTxt {
+    /* width: 71px; */
+    height: 20px;
+    margin-left: 4px;
+}
+.fqheader_navTxt_active{
+    font-family: PingFang SC;
+    font-size: 15px;
+    font-weight: 600;
+    height: 21px;
+    line-height: 21px;
+    text-align: left;
+    color: #FA2B24;
+}
+.cartoonlable_active{
+    height: 28px;
+    border-radius: 5px;
+    line-height: 30px;
+    font-family: SF Pro;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 28px;
+    text-align: center;
+    background: #FA2B24;
+    color: #fff;
+}
+.cartoonchoosePage_active{
+    display: inline-block;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #FFFFFF26;
+    color: #FFFFFF99;
+    margin: 0 5px;
+    line-height: 30px;
+    font-family: SF Pro;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    background: #FA2B24;
+    color: #fff;
+}

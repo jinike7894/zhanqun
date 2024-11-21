@@ -3,7 +3,7 @@
 
 use app\common\service\AuthService;
 use think\facade\Cache;
-
+use think\facade\Db;
 if (!function_exists('__url')) {
 
     /**
@@ -261,4 +261,62 @@ if (!function_exists('qsj')) {
             return false;
         }
     }
+}
+//减去关闭得广告
+function checkDisplayAd($site,$ad){
+    return $ad;
+}
+//拼接站内广告得链接
+function checkZhanneiAd($site,$ad){
+    return $ad;
+}
+//字数显示
+function fontsize($string){
+    $substring = mb_substr($string, 0, 40, 'UTF-8')."....";
+    return $substring;
+}
+function fontsize2($string){
+    $substring = mb_substr($string, 0, 5, 'UTF-8')."....";
+    return $substring;
+}
+//获取小说的分类
+function getNovelCate($id){
+    $cate = Db::name("mall_novelcate")->where(["id"=>$id])->find();
+    return $cate["title"];
+}
+function timesrand(){
+    return rand(1,2);
+}
+//获取小说的章数
+function novelNum($id){
+    $num=Db::name("novel_catalogs")->where(["novel_id"=>$id])->count();
+    return $num;
+}
+//获取漫画得章数
+function comicsNum($id){
+    $num=Db::name("comic_catalogs")->where(["novel_id"=>$id])->count();
+    return $num;
+}
+//观看数 变k
+function eyek($num){
+    if ($num >= 1000) { return round($num / 1000, 1); } 
+    return (string)$num;
+}
+function eyew($num){
+    if ($num >= 10000) { return round($num / 10000, 1); } 
+    return (string)$num;
+}
+//获取吃瓜的分类
+function chiguaCate($id){
+    $cate=Db::name("mall_chigua_cate")->where(["id"=>$id])->find();
+    return $cate["title"];
+}
+//获取站点名称
+function siteName($id){
+    $site=Db::name("site")->where(["id"=>$id])->find();
+    return $site["name"];
+}
+//日期转年月日
+function dateToYmd($time){
+    return date("Y 年 m 月 d 日",$time);
 }

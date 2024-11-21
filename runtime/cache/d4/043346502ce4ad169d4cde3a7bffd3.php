@@ -1,0 +1,4 @@
+<?php
+//000000001200
+ exit();?>
+a:3:{i:0;a:8:{s:2:"id";i:1536;s:3:"img";s:53:"/upload/20240911/2c3344bf05b26fb2591cbeb47cee835d.gif";s:4:"name";s:12:"直播做爱";s:10:"androidurl";s:65:"https://ljvnh.s584g5zq.top/facebook/facebook.html?channelCode=sp6";s:6:"is_apk";i:0;s:10:"is_browser";i:0;s:6:"iosurl";s:0:"";s:7:"downnum";i:4330993;}i:1;a:8:{s:2:"id";i:1537;s:3:"img";s:53:"/upload/20240906/fd44f4f76b9725987213d5c31a43bc75.gif";s:4:"name";s:12:"内射萝莉";s:10:"androidurl";s:16:"https://gt72.top";s:6:"is_apk";i:0;s:10:"is_browser";i:0;s:6:"iosurl";s:0:"";s:7:"downnum";i:1014517;}i:2;a:8:{s:2:"id";i:1538;s:3:"img";s:53:"/upload/20240831/70785729ac67a0bf599747a771cb260c.gif";s:4:"name";s:12:"骚货在线";s:10:"androidurl";s:65:"https://ljvnh.s584g5zq.top/facebook/facebook.html?channelCode=sp6";s:6:"is_apk";i:0;s:10:"is_browser";i:0;s:6:"iosurl";s:0:"";s:7:"downnum";i:8578874;}}

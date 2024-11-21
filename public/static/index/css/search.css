@@ -1,0 +1,162 @@
+body {
+    background: #171818;
+}
+
+#searchpage {
+
+    background: #171818;
+    max-width: 500px;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+.search_hot {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.search_hotBox {
+    display: flex;
+    align-items: center;
+    height: 22px;
+    padding: 8px 0;
+    margin: 16px 0;
+}
+
+.search_hotNum {
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    font-family: PingFang SC;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: center;
+
+}
+
+.serach_hotOne {
+    background: #D9001A;
+    color: #FFFFFF;
+}
+
+.serach_hotOneTxt {
+    color: #D9001A;
+    width: 146px; 
+    height: 22px; 
+    font-family: PingFang SC; 
+    font-size: 14px; 
+    font-weight: 600; 
+    line-height: 22px; 
+    text-align: left; 
+    margin-left: 8px;
+}
+
+.serach_hotTwo {
+    background: #FF4A20;
+    color: #FFFFFF;
+}
+
+.search_hotTxtTwo {
+    color: #FF4A20;
+    width: 146px; 
+    height: 22px; 
+    font-family: PingFang SC; 
+    font-size: 14px; 
+    font-weight: 600; 
+    line-height: 22px; 
+    text-align: left; 
+    margin-left: 8px;
+}
+
+.serach_hotThree {
+    background: #FFA825;
+    color: #FFFFFF;
+}
+
+.search_hotTxtThree {
+    color: #FFA825;
+    width: 146px; 
+    height: 22px; 
+    font-family: PingFang SC; 
+    font-size: 14px; 
+    font-weight: 600; 
+    line-height: 22px; 
+    text-align: left; 
+    margin-left: 8px;
+}
+
+.serach_hotOther {
+    background: #FFFFFF1A;
+    color: #FFFFFF99;
+}
+
+.search_hotTxtOther {
+    color: #FFFFFFCC;
+}
+
+.search_hotTxt {
+    width: 146px;
+    height: 22px;
+    font-family: PingFang SC;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+    margin-left: 8px;
+}
+
+.search_back {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin-right: 12px;
+    
+}
+
+.search_input_input {
+    width: 317px;
+    height: 30px;
+    /* padding: 0px 12px 0px 12px; */
+    border-radius: 20px;
+    background: #D9D9D91A;
+    border: 0px;
+    padding-left: 12px;
+}
+
+.search_inputBox {
+    width: 317px;
+    height: 30px;
+    position: relative;
+    color: #0D0E0E;
+    font-family: PingFang SC;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 19.6px;
+    text-align: left;
+    
+
+}
+
+.search_searchBtn {
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 20px;
+    background-color: #F2C545;
+    position: absolute;
+    right: -12px;
+    top: 0;
+    text-align: center;
+}
+.search_input{
+    display: flex;
+    align-items: center;
+    padding:0 8px;
+    margin-bottom: 13px;
+}
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}

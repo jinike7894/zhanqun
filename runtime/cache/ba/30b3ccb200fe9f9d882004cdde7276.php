@@ -1,0 +1,4 @@
+<?php
+//000000000600
+ exit();?>
+a:4:{i:0;a:9:{s:2:"id";i:1474;s:11:"channelCode";s:3:"404";s:6:"sj_num";i:1;s:3:"sum";i:1;s:4:"date";s:10:"2024-11-05";s:6:"status";i:0;s:11:"create_time";i:1730802795;s:11:"update_time";i:1730802795;s:11:"delete_time";N;}i:1;a:9:{s:2:"id";i:1473;s:11:"channelCode";s:1:"1";s:6:"sj_num";i:4;s:3:"sum";i:4;s:4:"date";s:10:"2024-11-05";s:6:"status";i:0;s:11:"create_time";i:1730736169;s:11:"update_time";i:1730736169;s:11:"delete_time";N;}i:2;a:9:{s:2:"id";i:1472;s:11:"channelCode";s:1:"3";s:6:"sj_num";i:18;s:3:"sum";i:18;s:4:"date";s:10:"2024-11-05";s:6:"status";i:0;s:11:"create_time";i:1730736032;s:11:"update_time";i:1730736032;s:11:"delete_time";N;}i:3;a:9:{s:2:"id";i:1471;s:11:"channelCode";s:1:"2";s:6:"sj_num";i:106;s:3:"sum";i:106;s:4:"date";s:10:"2024-11-05";s:6:"status";i:0;s:11:"create_time";i:1730736018;s:11:"update_time";i:1730736018;s:11:"delete_time";N;}}

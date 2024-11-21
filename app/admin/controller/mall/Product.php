@@ -65,7 +65,15 @@ class Product extends AdminController
         }
         return $this->fetch();
     }
-
+   public function geturltype(){
+    $data = [
+        'code'  => 0,
+        'msg'   => '',
+        'count' => 0,
+        'data'  => [["id"=>0,"name"=>"站外跳转"],["id"=>1,"站内跳转"]],
+    ];
+    return json($data);
+   }
     /**
      * @NodeAnotation(title="批量修改")
      */
@@ -121,6 +129,25 @@ class Product extends AdminController
         $this->assign('row', $row);
         return $this->fetch();
     }
-
+    public function add(){
+        if ($this->request->isPost()) {
+         
+            $data=[
+                "pid"=>$_POST["pid"],
+                "cid"=>$_POST["cid"],
+                "name"=>$_POST["name"],
+                "k_name"=>$_POST["k_name"],
+                "sort"=>$_POST["sort"],
+                "img"=>$_POST["img"],
+                "is_best"=>$_POST["is_best"],
+                "url_type"=>$_POST["url_type"],
+                "androidurl"=>$_POST["androidurl"],
+            ];
+         
+            $save = $this->model->save($data);
+            $save ? $this->success('保存成功') : $this->error('保存失败');
+        }
+        return $this->fetch();
+    }
 
 }

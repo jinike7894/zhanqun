@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>小说首页</title>
+    <link rel="stylesheet" href="__STATIC__/novel/css/styleOld.css">
+    <link rel="stylesheet" href="__STATIC__/novel/css/introduction.css">
+    <link rel="stylesheet" href="__STATIC__/novel/css/home.css">
+
+    <script type="text/javascript" src="__STATIC__/novel/js/jquery.js"></script>
+    <script type="text/javascript" src="__STATIC__/novel/js/app.js"></script>
+    <link rel="stylesheet" href="__STATIC__/novel/css/styles.css">
+    <link rel="stylesheet" href="__STATIC__/novel/css/swiperGf.css" />
+    <link rel="stylesheet" href="__STATIC__/css/commons.css" />
+</head>
+<style>
+    /* .swiper-slide  {
+    background: #000;
+} */
+
+    .actives1 > .header_navTxt{
+        color: #F2C545 !important;
+        background: none;
+    }
+    .actives1 > .header_navli{
+        width: 22px;
+        height: 3px;
+        border-radius: 3px;
+        background: #F2C545;
+    }
+
+    /* a {
+        color: #ffff;
+    } */
+
+</style>
+<body>
+    <input type="hidden" id="site_id" value="{$site_id}">
+    <input type="hidden" id="channel" value="{$tongjiCode}">
+
+    <div id="page">
+
+        <div class="header">
+            <div class="headerBox">
+                <div class="logoBox">
+                    <img src="{$logo}" class="header_logo">
+
+                </div>
+                <a href="/novel/search/{$channel}.html">
+                    <div class="header_input">
+                        <div class="headerInput" > 搜索</div>
+                        <img src="__STATIC__/novel/img/search.png" class="header_search">
+    
+                    </div>
+                </a>
+                
+                <img src="__STATIC__/novel/img/collectBtn.png" class="header_collect">
+
+            </div>
+            <div class="header_nav">
+                <a href="/novel/{$channel}.html">
+                <div class="header_navLine">
+                    <div class="header_navTxt">
+                        全部
+                    </div>
+                    <div class="header_navli"></div>
+
+                </div>
+                </a>
+                {volist  name='novelCate' id="item"}
+                <a href="/novel/{$channel}.html?cate_id={$item.id}">
+                <div class="header_navLine   {if condition='$cate_id eq $item.id'}actives1{/if}">
+                    <div class="header_navTxt ">
+                        {$item.title}
+                    </div>
+                    <div class="header_navli"></div>
+                </div>
+                </a>
+                {/volist}
+
+            </div>
+        </div>
+        
+
+        <div class="contentBox" style="padding-top: 90px;">
+
+          
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    {volist name='BannerList' id="Banner"}
+                    <div class="swiper-slide ad "  data-id="{$Banner.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$Banner.androidurl}"><img src="{$Banner.img}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"></div>
+                    {/volist}
+                </div>
+       
+                <div class="swiper-pagination"></div>
+            </div>
+
+
+       
+            <div class="index_jiugongge">
+                {volist name='jiugongge_img' id="item"}
+                <div class="index_jiugongge_li ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                data-url="{$item.androidurl}">
+                    <img class="index_jiugongge_img" src="{$item.img}" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <div class="index_jiugongge_text">{$item.name}</div>
+                </div>
+                {/volist}
+
+            </div>
+      
+            <div class="index-jiugonggeTxt" style="margin-bottom: 8px;">
+                {volist name='jiugongge_font' id="item"}
+                <div class="index_jiugonggeTxt_text ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                data-url="{$item.androidurl}" style="background: #171818;">{$item.name}</div>
+                {/volist}
+
+
+            </div>
+   
+            <div class="home_LabelBox">
+                {volist name='img_font_ad' id="item"}
+                    <div class="home_Label ad"  data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$item.androidurl}">
+                        <img src=" {$item.img}" class="home_LabelCoverImg" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                        <div class="home_LabelContent">
+                            <div class="home_LabelContent_title">
+                               {$item.name}
+                            </div>
+                            <div class="home_LabelContent_txt">
+                                {$item.content}
+                            </div>
+                        </div>
+                        <img src="__STATIC__/novel/img/yellowRight.png" class="home_LabelContent_title_yellowRight">
+                    </div>
+                  {/volist}
+              
+
+            </div> 
+            <div class="index_swiper">
+                <div class="swiper-banner swiper">
+                    <div class="swiper-wrapper">
+                        {volist name='BannerList2' id="Banner"}
+                        <div class="swiper-slide">
+                            <img class="banner-img ad" src="{$Banner.img}" alt=""
+                             data-id="{$Banner.id}" 
+                             data-channel="{$channel}" 
+                             data-site="{$site_id}"
+                             data-url="{$Banner.androidurl}"
+                             >
+                        </div>
+                        {/volist}
+             
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+    
+            </div>
+            <!-- 导航栏 -->
+            <div class="lableList">
+                <a href="/novel/{$channel}.html?type=renqi"><div class="lable">人气榜</div></a>
+                <a href="/novel/{$channel}.html?type=tuijian"><div class="lable">推荐榜</div></a>
+                <a href="/novel/{$channel}.html?type=shoucang"><div class="lable">收藏榜</div></a>
+                <a href="/novel/{$channel}.html?type=resou"><div class="lable">热搜榜</div></a>
+            </div>
+
+            <div class="homeBookBox">
+                {volist name='novel1' id="item" key="index"}
+               
+                <a class="homeBook" href="/novel/info/{$channel}.html?id={$item.id}">
+
+                    <div class="homeBookLeft">
+                        <img class="homeBookLeftCover" src="{$item.pic}" onerror="this.src='/static/images/loading_img_bg_default.jpg';" />
+                        <img class="homeBookLeftWj" src="__STATIC__/novel/images/wanjie.png">
+                    </div>
+                    <div class="homeBookright">
+                        <div class="homeBookrightTitle" {if condition="($index eq 1) or($index eq 2)or ($index eq 3) "}style="color: #FF3172;"{/if}>{$item.title}</div>
+                        <div class="homeBookrightNum" {if condition="($index eq 1) or($index eq 2)or ($index eq 3) "}style="color: #FF3172;"{/if}>
+                            <div class="homeBookrightNumDot" {if condition="($index eq 1) or($index eq 2)or ($index eq 3) "}style="background: #FF1962;
+" {/if}>{$index}</div> {$item.cate_id|getNovelCate}
+                        </div>
+                        <div class="homeBookreadNum">
+                            <div>{$item.eye|eyek}k阅读</div>
+                            <div style="display: flex;align-items: center;">
+                                <div class="dotred"></div>{$item.times}小时前
+                            </div>
+                        </div>
+
+                    </div>
+           
+                </a>
+               
+                {/volist}
+            </div>
+            <div class="chooseMl" style="margin-top: 10px;">
+                <div class="choosePage">全部题材</div>
+                {volist  name='novelCate' id="item"}
+                <a href="/novel/{$channel}.html?cate_id={$item.id}"><div class="choosePage">{$item.title}</div></a>
+                {/volist}
+            </div>
+
+            <div class="hotList">
+                {volist name="novels1" id="item"}
+                <a href="/novel/info/{$channel}.html?id={$item.id}">
+                <div class="book">
+                    <div class="bookImg">
+                        <img style="width: 100%;height: 100%;" src="{$item.pic}"  onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                        <img style="position: absolute;
+                        top: 0;
+                        left: 0;width: 26px;height: 16px;" src="__STATIC__/novel/images/wanjie.png" />
+                        <div class="bookReadNum">
+                            <div class="bookReadNumLeft">
+                                <img src="__STATIC__/novel/images/Book_Open-W.svg" />
+                                <span>{$item.eye|eyek}K</span>
+                            </div>
+                            <div class="bookReadNumLeft">
+                                <img src="__STATIC__/novel/images/Star-w.svg" />
+                                <span>{$item.shoucang|eyek}K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 5px;">
+                        <div class="bookName">{$item.title}</div>
+                        <div class="bookNav">
+                            <span>#{$item.cate_id|getNovelCate}</span>
+                          
+                        </div>
+                        <div style="display: flex; justify-content: space-between;margin-top: 5px;">
+                            <div class="bookNum">共{$item.id|novelNum}章</div>
+                            <div class="bookTime">
+                                <div class="dot"></div>{$item.title|timesrand}小时前
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </a>
+                {/volist}
+            </div>
+            {volist name='zhong_img_ad' id="item"}
+            <img src="{$item.img}" class="banner ad" data-id="{$item.id}" data-channel="{$channel}"
+            data-site="{$site_id}" data-url="{$item.androidurl}">
+            {/volist}
+            <!-- 抖音 -->
+            <div class="index_dyList" style="padding: 8px 0;border: 0px;">
+                {volist name='zhong_font_ad' id="item"}
+              
+                    <div class="index_dyListBox ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$item.androidurl}">
+                        <div class="flexBox">
+                            <img src="{$item.img}" class="index_dyList_img" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                            <div class="index_dyList_dyTxt">{$item.name}</div>
+
+                        </div>
+
+                        <img src="__STATIC__/novel/img/rightIcon.png" class="index_dyList_rightIcon">
+                    </div>
+          
+                {/volist}
+
+            </div>
+            <div class="hotList">
+                {volist name="novels2" id="item"}
+                <a href="/novel/info/{$channel}.html?id={$item.id}">
+                <div class="book">
+                    <div class="bookImg">
+                        <img style="width: 100%;height: 100%;" src="{$item.pic}" onerror="this.src='/static/images/loading_img_bg_default.jpg';" />
+                        <img style="position: absolute;
+                        top: 0;
+                        left: 0;width: 26px;height: 16px;" src="__STATIC__/novel/images/wanjie.png" />
+                        <div class="bookReadNum">
+                            <div class="bookReadNumLeft">
+                                <img src="__STATIC__/novel/images/Book_Open-W.svg" />
+                                <span>{$item.eye|eyek}K</span>
+                            </div>
+                            <div class="bookReadNumLeft">
+                                <img src="__STATIC__/novel/images/Star-w.svg" />
+                                <span>{$item.shoucang|eyek}K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="padding: 5px;">
+                        <div class="bookName">{$item.title}</div>
+                        <div class="bookNav">
+                            <span>#{$item.cate_id|getNovelCate}</span>
+                          
+                        </div>
+                        <div style="display: flex; justify-content: space-between;margin-top: 5px;">
+                            <div class="bookNum">共{$item.id|novelNum}章</div>
+                            <div class="bookTime">
+                                <div class="dot"></div>{$item.title|timesrand}小时前
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                </a>
+                {/volist}
+            </div>
+            {volist name='di_img_ad' id="item"}
+            <img class="banner ad" src="{$item.img}"  data-id="{$item.id}" data-channel="{$channel}"
+             data-site="{$site_id}" data-url="{$item.androidurl}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+            {/volist}
+            <!-- 抖音 -->
+            <div class="index_dyList" style="padding: 8px 0;border: 0px;">
+            
+                {volist name='di_img_font_ad' id="item"}
+                    <div class="index_dyListBox ad " data-id="{$item.id}" data-channel="{$channel}"
+                    data-site="{$site_id}" data-url="{$item.androidurl}">
+                        <div class="flexBox">
+                            <img src="{$item.img}" class="index_dyList_img" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                            <div class="index_dyList_dyTxt">{$item.name}</div>
+
+                        </div>
+
+                        <img src="__STATIC__/video/img/rightIcon.png" class="index_dyList_rightIcon">
+                    </div>
+                    {/volist}
+
+            </div>
+
+            <!-- 分页 -->
+            <div class="pageNum" style="margin-top: 10px;">
+                {$novel2|raw}
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+    </div>
+
+
+</body>
+<script src="__STATIC__/common/jq.js"></script>
+<script src="__STATIC__/common/swiper.js"></script>
+<script src="__STATIC__/common/apps.js"></script>
+<script src="__STATIC__/novel/js/swiper.js"></script>
+<script>
+
+var swiper = new Swiper(".mySwiper", {
+      cssMode: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      mousewheel: true,
+      keyboard: true,
+    });
+
+    $(document).ready(function () {
+        //小说分类点击变亮
+        $(".lable").click(function () {
+            $(".lable").removeClass("lable_active");
+            $(this).addClass("lable_active");
+        });
+        //漫画分类点击变亮
+        $(".choosePage").click(function () {
+            $(".choosePage").removeClass("choosePage_active");
+            $(this).addClass("choosePage_active");
+        });
+        //导航栏
+        $(".header_navTxt").click(function () {
+            $(".header_navTxt").removeClass("header_navTxt_active");
+            $(this).addClass("header_navTxt_active");
+        });
+        //点击正倒序
+        $('.mulvTop').click(function () {
+            var currentText = $('#textToChange').text();
+            if (currentText === "正序") {
+                $('#textToChange').text("倒序");
+                $('#imgToChange').attr('src', '__STATIC__/novel/images/daoxu.svg');
+
+            } else {
+                $('#textToChange').text("正序");
+                $('#imgToChange').attr('src', '__STATIC__/novel/images/zhengxu.svg');
+            }
+        });
+    });
+</script>
+
+</html>

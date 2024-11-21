@@ -1,0 +1,215 @@
+p {
+    font-family: PingFang SC;
+   font-size: 12px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: left;
+    color: #FFFFFFB2;
+
+}
+
+.openRead {
+    width: 100%;
+    height: 36px;
+    background: linear-gradient(229.21deg, #FD5B25 15.85%, #F3257E 86.08%);
+    font-family: PingFang SC;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: center;
+    border-radius: 10px;
+    color: var(--text-100, #FFFFFF);
+    margin-top: 10px;
+}
+
+.mulvtext {
+    font-family: PingFang SC;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+    color: #FDA765;
+
+}
+
+.mulvRightText {
+    font-family: PingFang SC;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+    color: #FFFFFF99;
+    margin-left: 5px;
+}
+
+.mulvRight {
+    display: flex;
+
+}
+
+.mulvTop {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.chooseMl {
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    /* 对于Firefox */
+    overflow-x: scroll;
+    margin-bottom: 8px;
+}
+
+.choosePage {
+    display: inline-block;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #FFFFFF26;
+    color: #FFFFFF99;
+    margin: 0 5px;
+    line-height: 30px;
+    font-family: SF Pro;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+
+
+}
+.choosePage_active {
+    display: inline-block;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #FFFFFF26;
+    color: #FFFFFF99;
+    margin: 0 5px;
+    line-height: 30px;
+    font-family: SF Pro;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    background: linear-gradient(229.21deg, #FD5B25 15.85%, #F3257E 86.08%);
+
+}
+.pzLeft {
+    font-family: PingFang SC;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    text-align: left;
+    color: #FFFFFF99;
+
+}
+
+.pzRight {
+    font-family: PingFang SC;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19.6px;
+    text-align: left;
+    color: #FFFFFF66;
+
+}
+
+.pzList {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 50px;
+    border-bottom: 1px solid #FFFFFF0D;
+    padding: 10px 0;
+}
+
+.bookImg {
+
+    /* height: 149px; */
+    position: relative;
+    height:149px ;
+
+}
+
+.book {
+    border-radius: 4px;
+    overflow: hidden;
+    background: #2A2928;
+    /*margin: 5px*/
+}
+
+.bookReadNum {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 10px;
+}
+
+.bookReadNumLeft {
+    display: flex;
+    align-items: center;
+    font-family: SF Pro;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 11.93px;
+    text-align: left;
+    color: #FFFFFF99;
+
+}
+
+.bookName {
+    font-family: PingFang SC;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 18.2px;
+    text-align: left;
+    color: #FFFFFFCC;
+    white-space: nowrap;
+    /* 防止文本换行 */
+    overflow: hidden;
+    /* 隐藏超出容器的文本 */
+    text-overflow: ellipsis;
+    /* 超出部分显示为省略号 */
+}
+
+.bookNav {
+    font-family: PingFang SC;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    text-align: left;
+    color: #FFFFFF66;
+    margin-top: 3px;
+
+}
+
+.bookNum {
+    font-family: PingFang SC;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    text-align: left;
+    color: #FFFFFF99;
+}
+
+.bookTime {
+    font-family: PingFang SC;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    text-align: left;
+    color: #FFFFFF99;
+    display: flex;
+    align-items: center;
+}
+
+.dot {
+    width: 4px;
+    height: 4px;
+    background: #FF0D00;
+    border-radius: 2px;
+}

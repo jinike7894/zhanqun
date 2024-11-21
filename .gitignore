@@ -1,15 +1,4 @@
 /.idea
 /.vscode
 *.log
-.env
-/.htaccess
-/public/upload
-/public/docs
-runtime/admin
-runtime/log
-runtime/session
-runtime/temp
-runtime/cache
-runtime/index
-public/conf
-public/WowOss.exe
+

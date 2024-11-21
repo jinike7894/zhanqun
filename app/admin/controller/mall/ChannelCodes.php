@@ -1,4 +1,5 @@
 <?php
+
 namespace app\admin\controller\mall;
 
 use app\common\model\Channelcode;
@@ -8,6 +9,7 @@ use app\common\controller\AdminController;
 use EasyAdmin\annotation\ControllerAnnotation;
 use EasyAdmin\annotation\NodeAnotation;
 use think\App;
+use think\facade\Db;
 
 /**
  * Class Admin
@@ -18,7 +20,7 @@ class ChannelCodes extends AdminController
 {
 
     use Curd;
-	
+
     protected $sort = [
         'sort' => 'desc',
         'id'   => 'asc',
@@ -42,6 +44,31 @@ class ChannelCodes extends AdminController
             list($page, $limit, $where) = $this->buildTableParames();
             $count = $this->model->where($where)->count();
             $list = $this->model->where($where)->page($page, $limit)->select();
+            if ($list) {
+                $list = $list->toArray();
+                $siteArray = [];
+                $siteCategoryArray = [];
+                foreach ($list as $k => $v) {
+                    $siteArray[] = $v["site_id"];
+                    $siteCategoryArray[] = $v["site_category_id"];
+                }
+                $siteData = Db::name("site")->whereIn("id", $siteArray)->select()->toArray();
+                $sitecategoryData = Db::name("site_category")->whereIn("id", $siteCategoryArray)->select()->toArray();
+                foreach ($list as $kd => $vd) {
+                    foreach ($siteData as $ks => $vs) {
+                        if ($vd["site_id"] == $vs["id"]) {
+                            $list[$kd]["site"] = $vs["name"];
+                        }
+                    }
+                    foreach ($sitecategoryData as $kcs => $vcs) {
+                        if ($vd["site_category_id"] == $vcs["id"]) {
+                            $list[$kd]["site_category"] = $vcs["name"];
+                        }
+                    }
+                }
+            }
+
+
             $data = [
                 'code'  => 0,
                 'msg'   => '',
@@ -65,7 +92,7 @@ class ChannelCodes extends AdminController
                 $post['uid'] = ($post['uid'] ?? 0) ?: 0;
                 $save = $this->model->save($post);
             } catch (\Exception $e) {
-                $this->error('保存失败:'.$e->getMessage());
+                $this->error('保存失败:' . $e->getMessage());
             }
             $save ? $this->success('保存成功') : $this->error('保存失败');
         }
@@ -85,8 +112,7 @@ class ChannelCodes extends AdminController
             $post = $this->request->post();
             $rule = [];
             $this->validate($post, $rule);
-            if(empty($post['password']))
-            {
+            if (empty($post['password'])) {
                 unset($post['password']);
             }
             try {
@@ -98,6 +124,7 @@ class ChannelCodes extends AdminController
             $save ? $this->success('保存成功') : $this->error('保存失败');
         }
         $hours = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'];
+
         $this->assign('row', $row);
         $this->assign('hours', $hours);
         return $this->fetch();
@@ -122,5 +149,4 @@ class ChannelCodes extends AdminController
             $this->error('删除失败');
         }
     }
-
 }

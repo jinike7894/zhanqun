@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>人气榜</title>
+    <link rel="stylesheet" href="__STATIC__/novel/css/styleOld.css">
+    <link rel="stylesheet" href="__STATIC__/novel/css/home.css">
+    <link rel="stylesheet" href="__STATIC__/novel/css/introduction.css">
+    <script type="text/javascript" src="__STATIC__/novel/js/jquery.js"></script>
+    <script type="text/javascript" src="__STATIC__/novel/js/app.js"></script>
+    <link rel="stylesheet" href="__STATIC__/novel/css/styles.css">
+    <link rel="stylesheet" href="__STATIC__/novel/css/swiperGf.css" />
+    <link rel="stylesheet" href="__STATIC__/css/commons.css" />
+    
+    <!-- <link rel="stylesheet" href="__STATIC__/index/css/swiper.css">
+    <link rel="stylesheet" href="__STATIC__/index/css/swiperGf.css" />
+    <link rel="stylesheet" href="__STATIC__/index/home.css"> -->
+    <!-- <script src="__STATIC__/index/res.js"></script> -->
+    <!-- <link rel="stylesheet" href="__STATIC__/index/swiper.css"> -->
+   
+   
+</head>
+<style>
+    ul{
+        padding: 0;
+    }
+    /* .page-item{
+        color:antiquewhite;
+    } */
+</style>
+<body>
+    
+    <input type="hidden" id="site_id" value="{$site_id}">
+    <input type="hidden" id="channel" value="{$tongjiCode}">
+    <!--小说阅读 -->
+    <div id="page">
+        <!-- 顶部 -->
+        <div class="header">
+            <div class="headerBox">
+                <div class="logoBox">
+                    <a href="/comics/{$channel}.html">
+                    <img src="{$logo}" class="header_logo">
+                    </a>
+
+                </div>
+                <a href="/comics/search/{$channel}.html">
+                    <div class="header_input">
+                        <div class="headerInput"> 搜索</div>
+                        <img src="__STATIC__/novel/img/search.png" class="header_search">
+
+                    </div>
+                </a>
+
+                <img src="__STATIC__/novel/img/collectBtn.png" class="header_collect">
+
+            </div>
+            <div class="header_nav">
+                <a href="/comics/{$channel}.html">
+                    <div class="header_navLine">
+                        <div class="header_navTxt">
+                            全部
+                        </div>
+                        <div class="header_navli"></div>
+
+                    </div>
+                </a>
+                {volist name='novelCate' id="item"}
+                <a href="/comics/{$channel}.html?cate_id={$item.id}">
+                    <div class="header_navLine">
+                        <div class="header_navTxt">
+                            {$item.title}
+                        </div>
+                        <div class="header_navli"></div>
+                    </div>
+                </a>
+                {/volist}
+
+            </div>
+        </div>
+        <div class="contentBox">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    {volist name='BannerList' id="Banner"}
+                    <div class="swiper-slide ad " data-id="{$Banner.id}" data-channel="{$channel}" data-site="{$site_id}"
+                        data-url="{$Banner.androidurl}"><img src="{$Banner.img}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"></div>
+                    {/volist}
+                </div>
+                <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+      
+        <!-- 顶部结束 -->
+        <!-- 九宫格 -->
+        <div class="index_jiugongge">
+            {volist name='jiugongge_img' id="item"}
+            <div class="index_jiugongge_li ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                data-url="{$item.androidurl}">
+                <img class="index_jiugongge_img" src="{$item.img}" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                <div class="index_jiugongge_text">{$item.name}</div>
+            </div>
+            {/volist}
+
+        </div>
+        <!-- Swiper -->
+        <!-- <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                {volist name='BannerList2' id="Banner"}
+                <div class="swiper-slide ad " data-id="{$Banner.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$Banner.androidurl}"><img src="{$Banner.img}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"></div>
+                {/volist}
+            </div>
+            <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div> -->
+
+         <!-- 轮播图 -->
+
+        <div class="index_swiper">
+            <div class="swiper-banner swiper">
+                <div class="swiper-wrapper">
+                    {volist name='BannerList2' id="Banner"}
+                    <div class="swiper-slide">
+                        <img class="banner-img ad" src="{$Banner.img}" alt=""
+                         data-id="{$Banner.id}" 
+                         data-channel="{$channel}" 
+                         data-site="{$site_id}"
+                         data-url="{$Banner.androidurl}"
+                         >
+                    </div>
+                    {/volist}
+         
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="__STATIC__/comics/css/styleOld.css">
+    <link rel="stylesheet" href="__STATIC__/comics/css/introduction.css">
+    <link rel="stylesheet" href="__STATIC__/comics/css/home.css">
+    <script type="text/javascript" src="__STATIC__/comics/js/jquery.js"></script>
+    <script type="text/javascript" src="__STATIC__/comics/js/app.js"></script>
+    <link rel="stylesheet" href="__STATIC__/comics/css/styles.css">
+    <link rel="stylesheet" href="__STATIC__/comics/css/swiperGf.css" />
+    <link rel="stylesheet" href="__STATIC__/css/commons.css" />
+</head>
+<style>
+    /* .swiper-slide  {
+    background: #000;
+} */
+
+    .actives1 > .header_navTxt{
+        color: #FA2B24 !important;
+        background: none;
+    }
+    .actives1 > .header_navli{
+        width: 22px;
+        height: 3px;
+        border-radius: 3px;
+        background: #FA2B24;
+    }
+
+    /* a {
+        color: #ffff;
+    } */
+
+</style>
+<body>
+    <input type="hidden" id="site_id" value="{$site_id}">
+    <input type="hidden" id="channel" value="{$tongjiCode}">
+    <!-- 人气榜 -->
+    <div id="page">
+
+        <!-- 顶部 -->
+        <div class="header">
+            <div class="headerBox">
+                <a href="/comics/{$channel}.html">
+                    <div class="logoBox">
+                        <img src="{$logo}" class="header_logo">
+
+                    </div>
+                </a>
+                <a href="/comics/search/{$channel}.html">
+                    <div class="header_input">
+                        <div class="headerInput"> 搜索</div>
+                        <img src="__STATIC__/comics/img/search.png" class="header_search">
+
+                    </div>
+                </a>
+
+                <img src="__STATIC__/comics/img/collectBtn.png" class="header_collect">
+
+            </div>
+            <div class="header_nav">
+                <a href="/comics/searchres/{$channel}.html?query={$query}">
+                <div class="header_navLine">
+                    <div class="header_navTxt">
+                        全部
+                    </div>
+                    <div class="header_navli"></div>
+
+                </div>
+            </a>
+                {volist name='videoCateData' id="item"}
+                <a href="/comics/searchres/{$channel}.html?cate_id={$item.id}&query={$query}">
+                    <div class="header_navLine {if condition='$cate_id eq $item.id'}actives1{/if}">
+                        <div class="header_navTxt">
+                            {$item.title}
+                        </div>
+                        <div class="header_navli"></div>
+
+                    </div>
+                </a>
+                {/volist}
+
+            </div>
+        </div>
+            <!-- 顶部结束 -->
+            <div class="contentBox" style="padding-top: 90px;">
+
+                <!-- Swiper -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        {volist name='BannerList' id="Banner"}
+                        <div class="swiper-slide ad" data-id="{$Banner.id}" data-channel="{$channel}"
+                            data-site="{$site_id}" data-url="{$Banner.androidurl}"><img src="{$Banner.img}"></div>
+                        {/volist}
+                    </div>
+                    <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+                    <div class="swiper-pagination"></div>
+                </div>
+
+
+                <!-- 九宫格 -->
+                <div class="index_jiugongge">
+                    {volist name='jiugongge_img' id="item"}
+                    <div class="index_jiugongge_li ad" data-id="{$item.id}" data-channel="{$channel}"
+                        data-site="{$site_id}" data-url="{$item.androidurl}">
+                        <img class="index_jiugongge_img" src="{$item.img}">
+                        <div class="index_jiugongge_text">{$item.name}</div>
+                    </div>
+                    {/volist}
+
+                </div>
+
+
+                <!-- 返回栏 -->
+                <div class="nav" style="padding-left: 0;">
+                    <div class="left">
+                        <img class="leftBtn" style="margin-right: 5px;" src="__STATIC__/comics/images/rectangle.svg" />
+                        <div class="leftName">搜索结果 - {$query}</div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="hotList">
+                    {volist name='list' id="item"}
+                    <a href="/comics/info/{$channel}.html?id={$item.id}">
+                    <div class="book">
+                        <div class="bookImg">
+                            <img style="width: 100%;height: 100%;" src="{$item.pic}" />
+                            <img style="position: absolute;
+                        top: 0;
+                        left: 0;width: 26px;height: 16px;" src="__STATIC__/comics/images/wanjie.png" />
+                            <div class="bookReadNum">
+                                <div class="bookReadNumLeft">
+                                    <img src="__STATIC__/comics/images/Book_Open-W.svg" />
+                                    <span>{$item.eye}K</span>
+                                </div>
+                                <div class="bookReadNumLeft">
+                                    <img src="__STATIC__/comics/images/Star-w.svg" />
+                                    <span>{$item.shoucang}K</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 5px;">
+                            <div class="bookName">{$item.title}</div>
+                            <div class="bookNav">
+                                <span>#{$item.cate_id|getNovelCate}</span>
+                            
+                            </div>
+                            <div style="display: flex; justify-content: space-between;margin-top: 5px;">
+                                <div class="bookNum">共1566章</div>
+                                <div class="bookTime">
+                                    <div class="dot"></div>2小时前
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                    {/volist}
+                </div>
+                {volist name='di_img_ad' id="item"}
+            <img class="banner ad " src="{$item.img}"   data-id="{$item.id}" data-channel="{$channel}"
+            data-site="{$site_id}" data-url="{$item.androidurl}"/>
+            {/volist}
+                <!-- 抖音 -->
+                <div class="index_dyList" style="padding: 8px 0;border: 0px;">
+                    {volist name='di_img_font_ad' id="item"}
+                  
+                        <div class="index_dyListBox ad"  data-id="{$item.id}" data-channel="{$channel}"
+                        data-site="{$site_id}" data-url="{$item.androidurl}">
+                            <div class="flexBox">
+                                <img src="{$item.img}" class="index_dyList_img">
+                                <div class="index_dyList_dyTxt">{$item.name}</div>
+
+                            </div>
+
+                            <img src="__STATIC__/comics/img/rightIcon.png" class="index_dyList_rightIcon">
+                        </div>
+                    </a>
+                    {/volist}
+
+                </div>
+                <!-- 分页 -->
+                <div class="pageNum" style="margin-top: 10px;">
+                    {$list|raw}
+                    <!-- <div class="pageNext">
+                        <img src="__STATIC__/comics/images/Chevron_Left.svg" />
+                    </div>
+                    <div class="pageNumBox" style="background: #FFFFFF33;">1</div>
+                    <div class="pageNumBox">2</div>
+                    <div class="pageNumBox">3</div>
+                    <div class="pageNumBox">4</div>
+                    <div class="pageNumBox">5</div>
+                    <div class="pageNumBox">6</div>
+                    <div class="pageMore">...</div>
+                    <div class="pageNumBox">142</div>
+                    <div class="pageNext"> <img src="__STATIC__/comics/images/right.svg" /> </div> -->
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+    </div>
+
+
+</body>
+<script src="__STATIC__/comics/js/swiper.js"></script>
+<script>
+
+    var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+    });
+
+    $(document).ready(function () {
+        //小说分类点击变亮
+        $(".lable").click(function () {
+            $(".lable").removeClass("lable_active");
+            $(this).addClass("lable_active");
+        });
+        //漫画分类点击变亮
+        $(".choosePage").click(function () {
+            $(".choosePage").removeClass("choosePage_active");
+            $(this).addClass("choosePage_active");
+        });
+        //导航栏
+        $(".header_navTxt").click(function () {
+            $(".header_navTxt").removeClass("header_navTxt_active");
+            $(this).addClass("header_navTxt_active");
+        });
+        //点击正倒序
+        $('.mulvTop').click(function () {
+            var currentText = $('#textToChange').text();
+            if (currentText === "正序") {
+                $('#textToChange').text("倒序");
+                $('#imgToChange').attr('src', '__STATIC__/comics/images/daoxu.svg');
+
+            } else {
+                $('#textToChange').text("正序");
+                $('#imgToChange').attr('src', '__STATIC__/comics/images/zhengxu.svg');
+            }
+        });
+    });
+</script>
+
+</html>

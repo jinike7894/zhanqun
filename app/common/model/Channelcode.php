@@ -27,6 +27,8 @@ class Channelcode extends Model
         'create_time' => 'int',
         'update_time' => 'int',
         'delete_time' => 'int',
+        'site_id' => 'int',
+        'site_category_id' => 'int',
     ];
 
     function getChannelInfo($channel)

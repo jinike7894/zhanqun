@@ -1,0 +1,192 @@
+#page {
+    width: 100%;
+    height: 100%;
+}
+
+.hr {
+    width: 100%;
+    margin: 20px 0;
+    height: 1px;
+    background: #eee;
+}
+
+.jggImg_nameBox {
+    margin-top: -35px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.jggImg_name {
+    width: 100px;
+    height: 30px;
+    background: #fff;
+    text-align: center;
+}
+
+.jggImg_zkBtn {
+    width: 80px;
+    height: 30px;
+    background: #ccc;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.jggImg_sqBtn{
+    width: 80px;
+    height: 30px;
+    background: green;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.jggtxt_zkBtn {
+    width: 80px;
+    height: 30px;
+    background: #ccc;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.jggtxt_sqBtn{
+    width: 80px;
+    height: 30px;
+    background: green;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.swiper_zkBtn {
+    width: 80px;
+    height: 30px;
+    background: #ccc;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.swiper_sqBtn{
+    width: 80px;
+    height: 30px;
+    background: green;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.tc_zkBtn {
+    width: 80px;
+    height: 30px;
+    background: #ccc;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.tc_sqBtn{
+    width: 80px;
+    height: 30px;
+    background: green;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.spCover_zkBtn {
+    width: 80px;
+    height: 30px;
+    background: #ccc;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+.spCover_sqBtn{
+    width: 80px;
+    height: 30px;
+    background: green;
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+}
+table {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+tbody {
+    width: 100%;
+}
+
+tr {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: space-around;
+}
+th{
+    width: 100px;
+    font-family: PingFang SC;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 28px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+td{
+    width: 100px;
+    text-align: center;
+}
+.tableTitle{
+    height: 40px;
+    align-items: center;
+    background: #ccc;
+}
+.select{
+    width: 80px;
+    height: 30px;
+    border-radius: 4px;
+}
+.btnBox{
+    display: flex;
+    justify-content: center;
+    
+}
+.cancel{
+    margin: 40px 20px;
+    width: 80px;
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    line-height: 30px;
+    text-align: center;
+}
+.saveBtn{
+    margin: 40px 20px;
+    width: 80px;
+    height: 30px;
+    background: #ccc;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    line-height: 30px;
+    text-align: center;
+}

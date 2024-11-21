@@ -23,6 +23,8 @@ define(["jquery", "easy-admin"], function ($, ea,Vue) {
                 toolbar: ['refresh', 'add'],
                 cols: [[
                     {field: 'id', minWidth: 80, title: 'ID'},
+                    {field: 'site', minWidth: 80, title: '站点', searchOp: '='},
+                    {field: 'site_category', minWidth: 80, title: '站点类型', searchOp: '='},
                     {field: 'channelCode', minWidth: 80, title: '渠道号', searchOp: '='},
                     {field: 'remark', minWidth: 90, title: '备注', search:false},
                     // {field: 'mininum', minWidth: 100, title: '每日保底量', search:false},

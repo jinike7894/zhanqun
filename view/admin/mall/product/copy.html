@@ -14,12 +14,12 @@
             </div>
         </div>
         
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label">到期日期</label>
             <div class="layui-input-block">
                 <input type="text" name="due_date" readonly="true" id="due_date" value="{$row.due_date|default=''}" class="layui-input" lay-verify="" placeholder="请输入到期日期">
             </div>
-        </div>
+        </div> -->
         
         <div class="layui-form-item">
             <label class="layui-form-label">排序(越小越前)</label>
@@ -29,7 +29,7 @@
         </div>
 		
 		<div class="layui-form-item">
-            <label class="layui-form-label">广告位名称</label>
+            <label class="layui-form-label">外显名称</label>
             <div class="layui-input-block">
                 <!--<input type="text" name="name" class="layui-input" lay-verify="required" placeholder="请输入广告位名称" value="{$row.name|default=''}">-->
                 <textarea name="name" class="layui-textarea" placeholder="请输入广告位名称,匹配城市请用{city}占位">{$row.name|default=''}</textarea>
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label">是否首页展示</label>
             <div class="layui-input-block">
                 <select name="is_home" id="is_home">
@@ -70,8 +70,8 @@
                     <option value="1" {if $row.is_banner eq 1}selected{/if}>是</option>
                 </select>
             </div>
-        </div>
-        <div class="layui-form-item">
+        </div> -->
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label">内页广告位置</label>
             <div class="layui-input-block">
                 <select name="ad_position" id="ad_position">
@@ -80,14 +80,32 @@
                     <option value="2" {if $row.ad_position eq 2}selected{/if}>底部</option>
                 </select>
             </div>
-        </div>
+        </div> -->
         <div class="layui-form-item">
+            <label class="layui-form-label">跳转方式-</label>
+            <div class="layui-input-block">
+                <select name="url_type" id="url_type"  disabled  lay-filter="url_type">
+                    <option value="1"   {if $row.url_type eq 1} selected {/if} >站内跳转</option>
+                    <option value="0"  {if $row.url_type eq 0} selected {/if} >站外跳转</option>
+                </select>
+            </div>
+        </div>
+        {if $row.url_type eq 0}
+        <div class="layui-form-item urls" >
+            <label class="layui-form-label">链接</label>
+            <div class="layui-input-block">
+                <input type="text" name="androidurl" class="layui-input" 
+                    placeholder="请输入产品链接,必须以http://或者https://开头" value="" />
+            </div>
+        </div>
+        {/if}
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label">产品链接(安卓)</label>
             <div class="layui-input-block">
                 <input type="text" name="androidurl" class="layui-input" lay-verify="required" placeholder="请输入产品链接,必须以http://或者https://开头" value="{$row.androidurl|default=''}" />
             </div>
-        </div>
-
+        </div> -->
+<!-- 
         <div class="layui-form-item">
             <label class="layui-form-label">是否APK直链</label>
             <div class="layui-input-block">
@@ -108,9 +126,9 @@
                     <option value="3" {if $row.is_browser eq 3}selected{/if}>春药内页</option>
                 </select>
             </div>
-        </div>
+        </div> -->
         
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label">产品链接(ios)</label>
             <div class="layui-input-block">
                 <input type="text" name="iosurl" class="layui-input" placeholder="请输入产品链接,必须以http://或者https://开头" value="{$row.iosurl|default=''}">
@@ -129,16 +147,16 @@
             <div class="layui-input-block">
                 <input type="text" name="slogan" class="layui-input" placeholder="请输入产品简介" value="{$row.slogan|default=''}">
             </div>
-        </div>
+        </div> -->
 
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label">产品描述(博彩)</label>
             <div class="layui-input-block">
                 <input type="text" name="txt" class="layui-input" placeholder="请输入产品描述" value="{$row.txt|default=''}">
             </div>
-        </div>
+        </div> -->
 
-        <div class="layui-form-item">
+        <div class="layui-form-item" style="display: none;">
             <label class="layui-form-label">是否推荐(博彩)</label>
             <div class="layui-input-block">
                 <select name="is_best" id="is_best">
@@ -148,7 +166,7 @@
             </div>
         </div>
         
-        <div class="layui-form-item" v-if="is_best == '1'" v-show='true'>
+        <!-- <div class="layui-form-item" v-if="is_best == '1'" v-show='true'>
             <label class="layui-form-label required">强烈推荐</label>
             <div class="layui-input-block layuimini-upload">
                 <input name="glory" class="layui-input layui-col-xs6" lay-verify="required" placeholder="请上传强烈推荐图片" value="{$row.glory|default=''}">
@@ -157,9 +175,9 @@
                     <span><a class="layui-btn layui-btn-normal" id="select_glory_image" data-upload-select="glory" data-upload-number="one"><i class="fa fa-list"></i> 选择</a></span>
                 </div>
             </div>
-        </div>
+        </div> -->
         
-        <div class="layui-form-item" v-if="is_best == '1'" v-show='true'>
+        <!-- <div class="layui-form-item" v-if="is_best == '1'" v-show='true'>
             <label class="layui-form-label required">推荐小图</label>
             <div class="layui-input-block layuimini-upload">
                 <input name="fav" class="layui-input layui-col-xs6" lay-verify="required" placeholder="请上传强烈推荐图片" value="{$row.fav|default=''}">
@@ -168,13 +186,13 @@
                     <span><a class="layui-btn layui-btn-normal" id="select_fav_image" data-upload-select="fav" data-upload-number="one"><i class="fa fa-list"></i> 选择</a></span>
                 </div>
             </div>
-        </div>
+        </div> -->
         
 
         <div class="layui-form-item">
             <label class="layui-form-label required">详细图(3~6张)</label>
             <div class="layui-input-block layuimini-upload">
-                <input name="pics" class="layui-input layui-col-xs6" lay-verify="required" placeholder="请上传产品详细图片(3~6张)" value="{$row.pics|default=''}">
+                <input name="pics" class="layui-input layui-col-xs6"  placeholder="请上传产品详细图片(3~6张)" value="{$row.pics|default=''}">
                 <div class="layuimini-upload-btn">
                     <span><a class="layui-btn" data-upload="pics" data-upload-number="three" data-upload-exts="png|jpg|jpeg|gif|webp" data-upload-icon="image"><i class="fa fa-upload"></i> 上传</a></span>
                     <span><a class="layui-btn layui-btn-normal" id="select_pics" data-upload-select="pics" data-upload-number="three" data-upload-mimetype="image/*"><i class="fa fa-list"></i> 选择</a></span>

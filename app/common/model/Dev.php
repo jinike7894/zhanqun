@@ -30,60 +30,66 @@ class Dev extends \think\Model
 	
 	public function report($ot)
 	{
-	    $map[] = [['ip','=',$ot['ip']],['channelCode','=',$ot['channelCode']],['date','=',date('Y-m-d')]];
-	    $list = $this->field('uuid')->where($map)->find();
+	    $map[] = [['ip','=',$ot['ip']],['channelCode','=',$ot['channelCode']],['date','=',date('Y-m-d')],["site_id","=",$ot["site_id"]]];
+		$list = $this->field('uuid')->where($map)->find();
 	    if (!empty($ot['ua']) && strlen($ot['ua']) > 255) {
 	        $ot['ua'] = substr($ot['ua'], 0, 255);
 	    }
         try{
-        	if(empty($list)) {
+			//如果ip没访问过
+        	if(!$list) {
+		
         	    $ot['date'] = date('Y-m-d');
-        		$this->save($ot);
-        		
+        		$res=$this->save($ot);
+
         	    $channelCode = new Channelcode();
         	    $qdtongji = new Qdtongji();
+				//查询渠道
         	    $result = $channelCode::where(array('channelCode'=>$ot['channelCode']))->find();
         	    if(empty($result))
         	    {
-        	        $channelCode->save(['uid' => 0,'channelCode' => $ot['channelCode']]);
-        	        $ct['channelCode'] = $ot['channelCode'];
-        	        $ct['sj_num'] = 1;
-        	        $ct['sum'] = 1;
-        	        $ct['date'] = date('Y-m-d');
-        	        $q = $qdtongji::where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date']))->find();
-        	        if(empty($q))
-        	        {
-        	            $qdtongji->save($ct);
-        	        }else{
-        	            $qdtongji->where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date']))->inc('sj_num')->inc('sum')->update();
-        	        }
-        	        //只存东方凯撒数据
-        	        if($ot['channelCode'] == 11 || $ot['channelCode'] == 12)
-        	        {
-        	            $subid = new Subid();
-        	            $map1[] = ['channelCode', '=', $ot['channelCode']];
-        	            $map1[] = ['subid', '=', $ot['subid']];
-        	            $map1[] = ['date', '=', date('Y-m-d')];
-        	            $r = $subid::where($map1)->find();
-        	            if(empty($r))
-        	            {
-        	                $sub['channelCode'] = $ot['channelCode'];
-        	                $sub['subid'] = $ot['subid'];
-        	                $sub['date'] = date('Y-m-d');
-        	                $sub['sum'] = 1;
-        	                $subid->save($sub);
-        	            }else{
-        	                $subid->where($map1)->inc('sum')->update();
-        	            }
-        	        }
+					return "channel error";
+					//如果渠道不存在则不统计
+        	        // $channelCode->save(['uid' => 0,'channelCode' => $ot['channelCode']]);
+        	        // $ct['channelCode'] = $ot['channelCode'];
+        	        // $ct['sj_num'] = 1;
+        	        // $ct['sum'] = 1;
+        	        // $ct['date'] = date('Y-m-d');
+        	        // $q = $qdtongji::where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date']))->find();
+        	        // if(empty($q))
+        	        // {
+        	        //     $qdtongji->save($ct);
+        	        // }else{
+        	        //     $qdtongji->where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date']))->inc('sj_num')->inc('sum')->update();
+        	        // }
+        	        // //只存东方凯撒数据
+        	        // if($ot['channelCode'] == 11 || $ot['channelCode'] == 12)
+        	        // {
+        	        //     $subid = new Subid();
+        	        //     $map1[] = ['channelCode', '=', $ot['channelCode']];
+        	        //     $map1[] = ['subid', '=', $ot['subid']];
+        	        //     $map1[] = ['date', '=', date('Y-m-d')];
+        	        //     $r = $subid::where($map1)->find();
+        	        //     if(empty($r))
+        	        //     {
+        	        //         $sub['channelCode'] = $ot['channelCode'];
+        	        //         $sub['subid'] = $ot['subid'];
+        	        //         $sub['date'] = date('Y-m-d');
+        	        //         $sub['sum'] = 1;
+        	        //         $subid->save($sub);
+        	        //     }else{
+        	        //         $subid->where($map1)->inc('sum')->update();
+        	        //     }
+        	        // }
         	     }else{
         	         $mininum = $result['mininum'];
         	         $ratio = $result['ratio'];
         	         $ct['channelCode'] = $ot['channelCode'];
+					 $ct['site_id'] = $ot['site_id'];
         	         $ct['sj_num'] = 1;
         	         $ct['sum'] = 1;
         	         $ct['date'] = date('Y-m-d');
-        	         $q = $qdtongji::where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date']))->find();
+        	         $q = $qdtongji::where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date'],"site_id"=>$ct['site_id'] ))->find();
         	         if(empty($q))
         	         {
         	             $qdtongji->save($ct);
@@ -93,39 +99,41 @@ class Dev extends \think\Model
         	                 //判断当日安装量已经达到最低标准，当需要扣量
         	                 if(qsj($ratio))
         	                 {
-        	                     $qdtongji->where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date']))->inc('sj_num')->update();
+        	                     $qdtongji->where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date'],"site_id"=>$ct['site_id']))->inc('sj_num')->update();
         	                 }else{
-        	                     $qdtongji->where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date']))->inc('sj_num')->inc('sum')->update();
+        	                     $qdtongji->where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date'],"site_id"=>$ct['site_id']))->inc('sj_num')->inc('sum')->update();
         	                 }
         	             }else{
-        	                 $qdtongji->where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date']))->inc('sj_num')->inc('sum')->update();
+        	                 $qdtongji->where(array('channelCode'=>$ct['channelCode'],'date'=>$ct['date'],"site_id"=>$ct['site_id']))->inc('sj_num')->inc('sum')->update();
         	             }
         	         }
         	        //只存东方凯撒数据
-        	        if($ot['channelCode'] == 11 || $ot['channelCode'] == 12)
-        	        {
-        	            $subid = new Subid();
-        	            $map1[] = ['channelCode', '=', $ot['channelCode']];
-        	            $map1[] = ['subid', '=', $ot['subid']];
-        	            $map1[] = ['date', '=', date('Y-m-d')];
-        	            $r = $subid::where($map1)->find();
-        	            if(empty($r))
-        	            {
-        	                $sub['channelCode'] = $ot['channelCode'];
-        	                $sub['subid'] = $ot['subid'];
-        	                $sub['date'] = date('Y-m-d');
-        	                $sub['sum'] = 1;
-        	                $subid->save($sub);
-        	            }else{
-        	                $subid->where($map1)->inc('sum')->update();
-        	            }
-        	        }
+        	        // if($ot['channelCode'] == 11 || $ot['channelCode'] == 12)
+        	        // {
+        	        //     $subid = new Subid();
+        	        //     $map1[] = ['channelCode', '=', $ot['channelCode']];
+        	        //     $map1[] = ['subid', '=', $ot['subid']];
+        	        //     $map1[] = ['date', '=', date('Y-m-d')];
+        	        //     $r = $subid::where($map1)->find();
+        	        //     if(empty($r))
+        	        //     {
+        	        //         $sub['channelCode'] = $ot['channelCode'];
+        	        //         $sub['subid'] = $ot['subid'];
+        	        //         $sub['date'] = date('Y-m-d');
+        	        //         $sub['sum'] = 1;
+        	        //         $subid->save($sub);
+        	        //     }else{
+        	        //         $subid->where($map1)->inc('sum')->update();
+        	        //     }
+        	        // }
         	    }
+				return "success";
 		    }
-        
+			return "error";
         } catch (\Exception $e) {
             
         }
+		
 	}
 	
 	public function getlist($where,$cxdate)

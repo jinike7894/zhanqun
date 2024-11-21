@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>详情</title>
+    <link rel="stylesheet" href="./css/styleOld.css">
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body style="background: #171919;width: 100%;">
+    <!-- 人气榜 -->
+    <div id="page">
+        <!-- 返回栏 -->
+        <div class="nav">
+            <div class="left">
+                <img class="leftBtn" src="./img/btn_left.png" />
+                <div class="leftName">查看图集</div>
+            </div>
+        </div>
+
+
+        <div class="contentBox">
+            <div class="watchTj_title">
+                [XiuRen]高清写真图 2024.10.16 No.9298 徐莉芝Booty 美腿丝袜
+            </div>
+            <div class="watchTj_BtnBox">
+                <div class="watchTj_Btn">
+                    乱伦社区
+                </div>
+                <div class="watchTj_Btn">
+                    乱伦社区
+                </div>
+                <div class="watchTj_Btn">
+                    乱伦社区
+                </div>
+                <div class="watchTj_Btn">
+                    乱伦社区
+                </div>
+
+            </div>
+            <div class="watchTj_txtBox">
+                性感女神@杨晨晨Yome 性感写真发布，性感黑色上衣搭配性短期，
+                紫色轻透情趣服饰搭配性感紫色丝袜，性感迷人的丰腴身材，
+                完美绝伦的身段一览无余，女神姿态摄人心魄，写真共计81P足量放送，
+                希望大家喜欢和多多支持。女神杨晨晨第613套秀人写真作品。
+            </div>
+            <div class="watchTj_imgBtnBox">
+                <div class="watchTj_imgBtn liebiaoBtn">
+                    <img src="./img/list.png" class="watchTj_img">列表模式
+                </div>
+                <div class="watchTj_imgBtn lunboBtn">
+                    <img src="./img/img.png" class="watchTj_img">轮播模式
+                </div>
+
+            </div>
+
+
+        </div>
+        <div class="watchTj_content watchTj_lunboms">
+            <div class="watchTj_pageNum">
+                <span style="color: #FFFFFFB2;">5</span> / 23
+            </div>
+            <div class="watcchTj_imgBox">
+                <img src="./img/tjbanner.png" class="watcchTj_tjbanner">
+            </div>
+            <div class="watchTj_pageNum">
+                <span style="color: #FFFFFFB2;">5</span> / 23
+            </div>
+            <div class="watchTj_imgBtnBox">
+                <div class="watchTj_imgBtn" style="background: #3C3C3C;">
+                    <img src="./img/leftJt.png" class="watchTj_img">上一张
+                </div>
+                <div class="watchTj_imgBtn">
+                   下一张 <img src="./img/rightJt.png" class="watchTj_img" style="margin-left:4px ;">
+                </div>
+
+            </div>
+        </div>
+        <div class="watchTj_liebiaoBox">
+            <div class="watchTj_liebiaoms">
+                <img src="./img/tjbanner.png" class="watchTj_tjbanner">
+                <img src="./img/tjbanner.png" class="watchTj_tjbanner">
+                <img src="./img/tjbanner.png" class="watchTj_tjbanner">
+                <img src="./img/tjbanner.png" class="watchTj_tjbanner">
+                <img src="./img/tjbanner.png" class="watchTj_tjbanner">
+                <img src="./img/tjbanner.png" class="watchTj_tjbanner">
+             </div>
+             <div class="pageNum" style="margin: 16px 0;">
+                <div class="pageNext">
+                    <img src="./img/Chevron_Left.svg" />
+                </div>
+                <div class="pageNumBox" style="background: #FFFFFF33;">1</div>
+                <div class="pageNumBox">2</div>
+                <div class="pageNumBox">3</div>
+                <div class="pageNumBox">4</div>
+                <div class="pageNumBox">5</div>
+                <div class="pageNumBox">6</div>
+                <div class="pageMore">...</div>
+                <div class="pageNumBox">142</div>
+                <div class="pageNext"> <img src="./img/right.svg" /> </div>
+            </div>
+
+        </div>
+        
+        
+
+        <div class="watchTj_btnBottomBox">
+            <div class="watchTj_btnBottomBox_txt">
+                合肥银泰城lv柜姐
+            </div>
+            <div class="watchTj_btnBottomBox_txt">
+                合肥银泰城lv柜姐
+            </div>
+            <div class="watchTj_btnBottomBox_txt">
+                合肥银泰
+            </div>
+            <div class="watchTj_btnBottomBox_txt">
+                合肥银泰城lv柜姐
+            </div>
+
+        </div>
+        <div class="watchTj_gjc">
+            关键词： #丝袜 #美腿 #高清写真 #1080P #杨晨晨Yome #摄影
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <script>
+        $(document).on('click', 'selector', function (event) {
+            event.preventDefault();
+        });
+
+        $(document).ready(function () {
+            $('.liebiaoBtn').click(function () {
+                $('.watchTj_liebiaoBox').show();
+                $('.watchTj_lunboms').hide();
+                $(".liebiaoBtn").css("background-color", "#B7003B")
+                $(".lunboBtn").css("background-color", "#3C3C3C")
+            });
+        });
+        $(document).ready(function () {
+            $('.lunboBtn').click(function () {
+                $('.watchTj_liebiaoBox').hide();
+                $('.watchTj_lunboms').show();
+                $(".lunboBtn").css("background-color", "#B7003B")
+                $(".liebiaoBtn").css("background-color", "#3C3C3C")
+            });
+        });
+        $(document).ready(function () {
+            $('#mulvBtn').click(function () {
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>

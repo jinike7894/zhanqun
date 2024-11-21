@@ -1,7 +1,20 @@
 <link rel="stylesheet" type="text/css" href="/static/plugs/lay-module/xm-select/static/formSeletv4.css"/>
 <div class="layuimini-container">
     <form id="app-form" class="layui-form layuimini-form">
-
+        <div class="layui-form-item">
+            <label class="layui-form-label required">站点</label>
+            <div class="layui-input-block">
+                <select name="site_id" lay-verify="required" data-select="{:url('website.site/getcategory')}"
+                data-fields="id,name"  data-value="{$row.site_id|default=''}"></select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label required">站点类型</label>
+            <div class="layui-input-block">
+                <select name="site_category_id" lay-verifysite_idrequired" data-select="{:url('website.category/getcategory')}"
+                data-fields="id,name"  data-value="{$row.site_category_id|default=''}"></select>
+            </div>
+        </div>
         <div class="layui-form-item">
             <label class="layui-form-label required">渠道号</label>
             <div class="layui-input-block">

@@ -1,0 +1,4 @@
+<?php
+//000000001200
+ exit();?>
+a:3:{i:0;a:8:{s:2:"id";i:1462;s:3:"img";s:53:"/upload/20240901/8b8a1c9623bd897232466eb2146d8d3b.gif";s:4:"name";s:12:"伊人直播";s:10:"androidurl";s:34:"https://losa28.nzavk.com/7597.html";s:6:"is_apk";i:0;s:10:"is_browser";i:0;s:6:"iosurl";s:34:"https://losa28.nzavk.com/7597.html";s:7:"downnum";i:7879330;}i:1;a:8:{s:2:"id";i:1504;s:3:"img";s:53:"/upload/20240906/fd44f4f76b9725987213d5c31a43bc75.gif";s:4:"name";s:12:"嫩模网红";s:10:"androidurl";s:17:"https://esb91.top";s:6:"is_apk";i:0;s:10:"is_browser";i:0;s:6:"iosurl";s:17:"https://esb91.top";s:7:"downnum";i:1014147;}i:2;a:8:{s:2:"id";i:1463;s:3:"img";s:53:"/upload/20240901/8c9d8d1713bad5f656de7a9bcde54e50.gif";s:4:"name";s:12:"顶级直播";s:10:"androidurl";s:59:"https://dj003.aargvfe.com/dj003/1.html?channelCode=S9CXDGKQ";s:6:"is_apk";i:0;s:10:"is_browser";i:0;s:6:"iosurl";s:59:"https://dj003.aargvfe.com/dj003/1.html?channelCode=S9CXDGKQ";s:7:"downnum";i:3403401;}}

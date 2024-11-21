@@ -1,0 +1,165 @@
+{include file="chigua/header" /}
+<div class="nav" style="background: #161616;">
+    <div class="left">
+        <img class="leftBtn" src="__STATIC__/chigua/images/btn_left.svg" />
+        <div class="leftName">吃瓜阅读</div>
+    </div>
+</div>
+<div class="read_hl">
+    <div class="read_hl_title">
+        {$info.title}
+    </div>
+    <div class="read_hl_txt" style="margin-top: 24px;">{$site_id|siteName}官方 • {$info.create_time|dateToYmd}</div>
+    <div class="read_hl_txt">{$info.cate_id|chiguaCate}</div>
+
+    <div id="rich-text-container" contenteditable="true"> </div>
+             
+    <!-- <div id="rich-text-container" ></div> -->
+    <script>
+        $.ajax({
+            "url":"/chigua/contents/1.html",
+            "type":"get",
+            "data":{"id":"{$info.id}"},
+            "success":function(res){
+                $("#rich-text-container").html(res.data)
+            }
+        })
+  
+    </script>
+
+
+</div>
+
+<div class="nav">
+    <div class="left">
+        <img class="leftBtn" style="margin-right: 5px;" src="__STATIC__/chigua/images/rectangle.svg" />
+        <div class="leftName">推荐黑料</div>
+    </div>
+</div>
+<!--视频播放模块 -->
+<div class="home_hlList">
+    {volist name='chigua' id="item"}
+    <a href="/chigua/info/{$channel}.html?id={$item.id}">
+    <div class="home_hl_box">
+        <img src="{$item.cover}" class="home_hl_img" />
+        <div class="home_hl_back"></div>
+        <div class="home_hl_txtBox">
+            <div class="home_hl_txtTop">
+                {$item.title}
+            </div>
+            <div class="home_hl_txtBottom">
+                {$site_id|siteName}官方 • {$item.create_time|dateToYmd}
+            </div>
+            <div class="home_hl_txtBottom">
+            {$item.cate_id|chiguaCate}
+            </div>
+        </div>
+        <img src="__STATIC__/chigua/img/searchHot.png" class="home_hl_searchHot">
+    </div>
+    </a>
+    {/volist}
+</div>
+<!-- 广告 -->
+<!-- <img src="__STATIC__/chigua/img/ggHl.png" class="home_hl_gg"> -->
+
+{volist name='di_img_ad' id="item"}
+<img class="banner ad" src="{$item.img}"  data-id="{$item.id}" data-channel="{$channel}"
+ data-site="{$site_id}" data-url="{$item.androidurl}" />
+{/volist}
+<!-- 抖音 -->
+<div class="index_dyList" style="padding: 8px 0;border: 0px;">
+    {volist name='di_img_font_ad' id="item"}
+    <div class="index_dyListBox ad " data-id="{$item.id}" data-channel="{$channel}"
+    data-site="{$site_id}" data-url="{$item.androidurl}">
+        <div class="flexBox">
+            <img src="{$item.img}" class="index_dyList_img">
+            <div class="index_dyList_dyTxt">{$item.name}</div>
+
+        </div>
+
+        <img src="__STATIC__/video/img/rightIcon.png" class="index_dyList_rightIcon">
+    </div>
+    {/volist}
+
+</div>
+
+<!-- 分页 -->
+<div class="pageNum" style="margin-top: 10px;">
+    {$chigua|raw}
+    <!-- <div class="pageNext">
+        <img src="__STATIC__/chigua/images/Chevron_Left.svg" />
+    </div>
+    <div class="pageNumBox" style="background: #FFFFFF33;">1</div>
+    <div class="pageNumBox">2</div>
+    <div class="pageNumBox">3</div>
+    <div class="pageNumBox">4</div>
+    <div class="pageNumBox">5</div>
+    <div class="pageNumBox">6</div>
+    <div class="pageMore">...</div>
+    <div class="pageNumBox">142</div>
+    <div class="pageNext"> <img src="__STATIC__/chigua/images/right.svg" /> </div> -->
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</body>
+<script src="__STATIC__/chigua/js/swiper.js"></script>
+<script>
+
+    var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+    });
+
+    $(document).ready(function () {
+        //小说分类点击变亮
+        $(".lable").click(function () {
+            $(".lable").removeClass("lable_active");
+            $(this).addClass("lable_active");
+        });
+        //漫画分类点击变亮
+        $(".choosePage").click(function () {
+            $(".choosePage").removeClass("choosePage_active");
+            $(this).addClass("choosePage_active");
+        });
+        //导航栏
+        $(".header_navTxt").click(function () {
+            $(".header_navTxt").removeClass("hlheader_navTxt_active");
+            $(this).addClass("hlheader_navTxt_active");
+        });
+        //点击正倒序
+        $('.mulvTop').click(function () {
+            var currentText = $('#textToChange').text();
+            if (currentText === "正序") {
+                $('#textToChange').text("倒序");
+                $('#imgToChange').attr('src', '__STATIC__/chigua/images/daoxu.svg');
+
+            } else {
+                $('#textToChange').text("正序");
+                $('#imgToChange').attr('src', '__STATIC__/chigua/images/zhengxu.svg');
+            }
+        });
+    });
+</script>
+
+</html>

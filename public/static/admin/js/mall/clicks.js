@@ -23,6 +23,8 @@ define(["jquery", "easy-admin", "treetable", "iconPickerFa", "autocomplete"], fu
                 cols: [[
                     {type: "checkbox"},
                     {field: 'id', width: 80, title: 'ID',search:false},
+                    {field: 'site_name', minWidth: 0, title: '站点',sort:true},
+                    {field: 'cate_name', minWidth: 0, title: '站点类型',sort:true},
                     {field: 'channelCode', minWidth: 0, title: '推广渠道',sort:true},
                     {field: 'sj_num', minWidth: 120, title: '进站ip', search: false,sort:true},
                     // {field: 'total_shows', Width: 80, title: '展示次数', search: false,sort:true},
@@ -39,7 +41,7 @@ define(["jquery", "easy-admin", "treetable", "iconPickerFa", "autocomplete"], fu
                         operat: [
                             [{
                                 text: '查看',
-                                url: init.show_url,
+                                url: 'mall.clicks/show',
                                 field: 'channelCode,date',
                                 method: 'open',
                                 auth: 'show',

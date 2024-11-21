@@ -1,0 +1,334 @@
+{include file="novel/header" /}
+        <!-- 返回栏 -->
+        <div class="nav">
+            <div class="left">
+                <img class="leftBtn" style="margin-right: 5px;" src="__STATIC__/novel/images/rectangle.svg" />
+                <div class="leftName">小说阅读</div>
+            </div>
+        </div>
+
+        <div class="contentBox" >
+
+
+            <div class="xsBox">
+                <!-- 小说1 -->
+                <div class="contentList">
+                    <div class="contentListLeft">
+                        <img class="contentCover" src="{$info.pic}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                        <!-- <div class="contentNum" style="background: #FF1962;">1</div> -->
+                    </div>
+                    <div class="contentRight">
+                        <div class="contentName" style="color: #FF3172;">{$info.title}</div>
+                        <div class="contentAuthor">
+                            <span class="contentNav">作者</span>
+                            <span class="contentA">{$info.author}</span>
+                        </div>
+                        <div class="contentAuthor">
+                            <span class="contentNav">状态</span>
+                            <span class="contentLz" style="background: linear-gradient(282.53deg, #1D4AFF 64.29%, #00EAFF 95.78%);
+">连载</span>
+                        </div>
+                        <div class="contentAuthor">
+                            <span class="contentNav">最新</span>
+                            <span class="contentA fontWeight">更新至{$info.id|novelNum}章</span>
+                            <span class="contentA fontWeight">{$info.id|timesrand}小时前</span>
+                        </div>
+                        <div class="contentAuthor">
+                            <span class="contentNav">题材</span>
+                            <span class="contentA fontColor">{$info.cate_id|getNovelCate}</span>
+                            <!-- <span class="contentA fontColor">乱伦</span> -->
+                        </div>
+                        <div class="contentRead">
+                            <div class="contentReadBox">
+                                <img src="__STATIC__/novel/images/Book_Open.svg" />
+                                阅读 <span class="contentK">{$info.eye|eyek}K</span>
+                            </div>
+                            <div class="contentReadBox">
+                                <img src="__STATIC__/novel/images/Star.svg" />
+                                收藏<span>{$info.shoucang|eyek}K</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 小说简介 -->
+                <div>
+                    <p><span style="color: #FFFFFF66;">小说简介：</span>{$info.description|fontsize}</p>
+
+                </div>
+                <!-- 下面分类 -->
+                <div class="bottomClass">
+                    <div class="bct"><span style="color: #FFFFFF66;"># </span>{$info.cate_id|getNovelCate}</div>
+
+                </div>
+              
+                {if condition="$novelcountid eq 0"}
+                <div class="openRead">暂无章节</div>
+                {else/}
+                <a href="/novel/chapter/{$channel}.html?chapter_id={$novelcountid}">
+                    <div class="openRead">开始阅读</div>
+                </a>
+                {/if}
+            </div>
+
+            {volist name='zhong_img_ad' id="item"}
+            <img src="{$item.img}" class="banner ad" data-id="{$item.id}" data-channel="{$channel}"
+                data-site="{$site_id}" data-url="{$item.androidurl}" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+            {/volist}
+
+
+
+            <div class="introduction_gg">
+                {volist name='zhong_font_ad' id="item"}
+                <div class="introduction_ggNav ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$item.androidurl}">
+                    <div class="introduction_ggTxt">
+                        {$item.name}
+                    </div>
+                    <img src="{$item.img}" class="introduction_ggBtn" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+
+                </div>
+                {/volist}
+
+            </div>
+            <!-- 目录 -->
+            <div class="mulv">
+                <div class="mulvTop">
+                    <div class="mulvtext">目录—更新至{$info.id|novelNum}章</div>
+                    <div class="mulvRight">
+                        <img class="zhengxu" id="imgToChange" src="__STATIC__/novel/images/zhengxu.svg" />
+                        <div class="mulvRightText" id="textToChange">正序</div>
+                    </div>
+                </div>
+                <!-- <div class="chooseMl">
+                    <div class="choosePage">0-100</div>
+                    <div class="choosePage">101-200</div>
+                    <div class="choosePage">201-300</div>
+                    <div class="choosePage">300-400</div>
+                    <div class="choosePage">400-500</div>
+                    <div class="choosePage">500-600</div>
+                    <div class="choosePage">600-700</div>
+                    <div class="choosePage">700-800</div>
+                 
+                </div> -->
+                <div class="mulvPz">
+                    {volist name="novelcount" id="item" key="index"}
+                    <div class="pzList">
+                        <a href="/novel/chapter/{$channel}.html?chapter_id={$item.id}">
+                            <div class="pzLeft">{$item.name}</div>
+                        </a>
+                        <!-- <div class="pzRight">第<span style="color: #FFFFFF99;">{$index}</span>章</div> -->
+                    </div>
+                    {/volist}
+                </div>
+
+            </div>
+
+            <!-- 热门推荐 -->
+            <div class="nav" style="padding: 0;">
+                <div class="left">
+                    <img class="leftBtn" style="margin-right: 5px;" src="__STATIC__/novel/images/rectangle.svg" />
+                    <div class="leftName">官方推荐</div>
+                </div>
+            </div>
+            <!-- 官方推荐 -->
+            <div class="hotList">
+
+                {volist name="novels1" id="item"}
+                <a href="/novel/info/{$channel}.html?id={$item.id}">
+                    <div class="book">
+                        <div class="bookImg">
+                            <img style="width: 100%;height: 100%;" src="{$item.pic}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                            <img style="position: absolute;
+                        top: 0;
+                        left: 0;width: 26px;height: 16px;" src="__STATIC__/novel/images/wanjie.png" />
+                            <div class="bookReadNum">
+                                <div class="bookReadNumLeft">
+                                    <img src="__STATIC__/novel/images/Book_Open-W.svg" />
+                                    <span>{$item.eye|eyek}K</span>
+                                </div>
+                                <div class="bookReadNumLeft">
+                                    <img src="__STATIC__/novel/images/Star-w.svg" />
+                                    <span>{$item.shoucang|eyek}K</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 5px;">
+                            <div class="bookName">{$item.title}</div>
+                            <div class="bookNav">
+                                <span>#{$item.cate_id|getNovelCate}</span>
+
+                            </div>
+                            <div style="display: flex; justify-content: space-between;margin-top: 5px;">
+                                <div class="bookNum">共{$item.id|novelNum}章</div>
+                                <div class="bookTime">
+                                    <div class="dot"></div>{$item.title|timesrand}小时前
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                {/volist}
+
+            </div>
+
+            {volist name='di_img_ad' id="item"}
+            <img class="banner ad" src="{$item.img}" data-id="{$item.id}" data-channel="{$channel}"
+                data-site="{$site_id}" data-url="{$item.androidurl}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+            {/volist}
+
+
+            <!-- 官方推荐 -->
+            <div class="hotList">
+                {volist name="novels2" id="item"}
+                <a href="/novel/info/{$channel}.html?id={$item.id}">
+                    <div class="book">
+                        <div class="bookImg">
+                            <img style="width: 100%;height: 100%;" src="{$item.pic}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                            <img style="position: absolute;
+                        top: 0;
+                        left: 0;width: 26px;height: 16px;" src="__STATIC__/novel/images/wanjie.png" />
+                            <div class="bookReadNum">
+                                <div class="bookReadNumLeft">
+                                    <img src="__STATIC__/novel/images/Book_Open-W.svg" />
+                                    <span>{$item.eye|eyek}K</span>
+                                </div>
+                                <div class="bookReadNumLeft">
+                                    <img src="__STATIC__/novel/images/Star-w.svg" />
+                                    <span>{$item.shoucang|eyek}K</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="padding: 5px;">
+                            <div class="bookName">{$item.title}</div>
+                            <div class="bookNav">
+                                <span>#{$item.cate_id|getNovelCate}</span>
+
+                            </div>
+                            <div style="display: flex; justify-content: space-between;margin-top: 5px;">
+                                <div class="bookNum">共{$item.id|novelNum}章</div>
+                                <div class="bookTime">
+                                    <div class="dot"></div>{$item.title|timesrand}小时前
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                {/volist}
+            </div>
+            <!-- 抖音 -->
+            <div class="index_dyList">
+                {volist name='di_img_font_ad' id="item"}
+                <div class="index_dyListBox ad " data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$item.androidurl}">
+                    <div class="flexBox">
+                        <img src="{$item.img}" class="index_dyList_img" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                        <div class="index_dyList_dyTxt">{$item.name}</div>
+
+                    </div>
+
+                    <img src="__STATIC__/video/img/rightIcon.png" class="index_dyList_rightIcon">
+                </div>
+                {/volist}
+
+            </div>
+
+            <!-- 分页 -->
+            <div class="pageNum" style="margin-top: 10px;">
+                {$novel2|raw}
+                <!-- <div class="pageNext">
+                    <img src="__STATIC__/novel/images/Chevron_Left.svg" />
+                </div>
+                <div class="pageNumBox" style="background: #FFFFFF33;">1</div>
+                <div class="pageNumBox">2</div>
+                <div class="pageNumBox">3</div>
+                <div class="pageNumBox">4</div>
+                <div class="pageNumBox">5</div>
+                <div class="pageNumBox">6</div>
+                <div class="pageMore">...</div>
+                <div class="pageNumBox">142</div>
+                <div class="pageNext"> <img src="__STATIC__/novel/images/right.svg" /> </div> -->
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script>
+
+    </script>
+</body>
+<!-- <script src="__STATIC__/novel/js/swiper.js"></script> -->
+
+
+
+<script src="__STATIC__/index/jq.js"></script>
+<script src="__STATIC__/index/swiper.js"></script>
+<script src="__STATIC__/novel/js/apps.js"></script>
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+    });
+    // var swipers = new Swiper(".swipers", {
+    //     cssMode: true,
+    //     navigation: {
+    //         nextEl: ".swiper-button-next",
+    //         prevEl: ".swiper-button-prev",
+    //     },
+    //     pagination: {
+    //         el: ".swiper-pagination",
+    //     },
+    //     mousewheel: true,
+    //     keyboard: true,
+    // });
+    $(document).ready(function () {
+        //目录点击变亮
+        $(".choosePage").click(function () {
+            $(".choosePage").removeClass("choosePage_active");
+            $(this).addClass("choosePage_active");
+            var moveX = $(this).position().left + $(this).parent().scrollLeft();
+            var pageX = document.documentElement.clientWidth;
+            var blockWidth = $(this).width();
+            var left = moveX - (pageX / 2) + (blockWidth / 2);
+            $(".chooseMl").scrollLeft(left);
+        });
+        //点击正倒序
+        $('.mulvTop').click(function () {
+            var currentText = $('#textToChange').text();
+            if (currentText === "正序") {
+                $('#textToChange').text("倒序");
+                $('#imgToChange').attr('src', '__STATIC__/novel/images/daoxu.svg');
+                var container = $('.mulvPz');
+                var items = container.find('.pzList');
+                items = items.toArray().reverse();
+                container.empty();
+                $.each(items, function (index, item) {
+                    container.append(item);
+                });
+            } else {
+                $('#textToChange').text("正序");
+                $('#imgToChange').attr('src', '__STATIC__/novel/images/zhengxu.svg');
+                var container = $('.mulvPz');
+                var items = container.find('.pzList');
+                items = items.toArray().reverse();
+                container.empty();
+                $.each(items, function (index, item) {
+                    container.append(item);
+                });
+            }
+        });
+    });
+</script>
+
+</html>

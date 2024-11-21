@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>搜索</title>
+    <link rel="stylesheet" href="__STATIC__/novel/css/styleOld.css">
+    <link rel="stylesheet" href="__STATIC__/novel/css/introduction.css">
+    <link rel="stylesheet" href="__STATIC__/novel/css/home.css">
+    <script type="text/javascript" src="__STATIC__/novel/js/jquery.js"></script>
+    <script type="text/javascript" src="__STATIC__/novel/js/app.js"></script>
+
+    <link rel="stylesheet" href="__STATIC__/novel/css/search.css">
+    <link rel="stylesheet" href="__STATIC__/novel/css/styles.css">
+    <link rel="stylesheet" href="__STATIC__/novel/css/swiperGf.css" />
+</head>
+<style>
+    a{
+       color: #FFFFFFCC;
+    }
+</style>
+
+<body>
+    <input type="hidden" id="site_id" value="{$site_id}">
+    <input type="hidden" id="channel" value="{$tongjiCode}">
+    <!-- 人气榜 -->
+    <div id="searchpage">
+
+        <!-- 顶部 -->
+        <div class="header">
+            <div class="headerBox">
+                <a href="/novel/{$channel}.html">
+                <div class="logoBox">
+                    <img src="{$logo}" class="header_logo">
+
+                </div>
+            </a>
+           
+                <img src="__STATIC__/novel/img/collectBtn.png" class="header_collect">
+
+            </div>
+            <div class="search_input">
+                <a href="/novel/{$channel}.html"><img src="__STATIC__/novel/img/back.png" class="search_back"></a>
+                <div  class="search_inputBox">
+                    <input class="search_input_input" />
+                    <img src="__STATIC__/novel/img/search.png" class="header_search">
+                
+                        <div class="search_searchBtn" data-url="/novel/searchres/{$channel}.html">搜索</div>
+                </div>
+                
+            </div>
+        </div>
+        <!-- 顶部结束 -->
+        <div class="contentBox" style="padding-top: 90px;">
+
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    {volist name='BannerList' id="Banner"}
+                    <div class="swiper-slide ad"  data-id="{$Banner.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$Banner.androidurl}"><img src="{$Banner.img}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"></div>
+                    {/volist}
+                </div>
+                <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+            <!-- 返回栏 -->
+            <div class="nav" style="padding-left: 0;margin-top: 6px;">
+                <div class="left">
+                    <img class="leftBtn" style="margin-right: 5px;" src="__STATIC__/novel/images/rectangle.svg" />
+                    <div class="leftName">热门搜索</div>
+                </div>
+            </div>
+            <div class="search_hot">
+                <div class="search_hotLeft">
+                    {volist name='video1' id="item" key="index"}
+                    <a href="/novel/searchres/{$channel}.html?query={$item.title}">
+                        <div class="search_hotBox">
+                            <div class="search_hotNum 
+                            {if condition='$index eq 1' }serach_hotOne{/if}
+                            {if condition='$index eq 2' }serach_hotTwo{/if}
+                             {if condition='$index eq 3' }serach_hotThree{/if}
+                             ">
+                                {$index}
+                            </div>
+                            <div class="search_hotTxt   
+                            {if condition='$index eq 1' }serach_hotOneTxt{/if}
+                            {if condition='$index eq 2' }search_hotTxtTwo{/if}
+                            {if condition='$index eq 3' }search_hotTxtThree{/if}
+                            ">
+                                {$item.title}
+                            </div>
+                        </div>
+                    </a>
+                    {/volist}
+                </div>
+                <div class="search_hotRight">
+                    {volist name='video2' id="item" key="index"}
+                    <a href="/novel/searchres/{$channel}.html?query={$item.title}">
+                        <div class="search_hotBox">
+                            <div class="search_hotNum serach_hotOther">
+                               {$index+6}
+                            </div>
+                            <div class="search_hotTxt search_hotTxtOther">
+                                {$item.title}
+                            </div>
+                        </div>
+                    </a>
+                   {/volist}
+                
+
+                </div>
+
+
+            </div>
+
+
+            <!-- 九宫格 -->
+            <div class="index_jiugongge">
+                {volist name='jiugongge_img' id="item"}
+                <div class="index_jiugongge_li ad"
+                data-id="{$Banner.id}" data-channel="{$channel}" data-site="{$site_id}"
+                data-url="{$Banner.androidurl}"
+                >
+                    <img class="index_jiugongge_img" src="{$item.img}" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <div class="index_jiugongge_text">{$item.name}</div>
+                </div>
+                {/volist}
+               
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+</body>
+<script src="__STATIC__/novel/js/swiper.js"></script>
+<script>
+
+    var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+    });
+
+    $(document).ready(function () {
+        //小说分类点击变亮
+        $(".lable").click(function () {
+            $(".lable").removeClass("lable_active");
+            $(this).addClass("lable_active");
+        });
+        //漫画分类点击变亮
+        $(".choosePage").click(function () {
+            $(".choosePage").removeClass("choosePage_active");
+            $(this).addClass("choosePage_active");
+        });
+        //导航栏
+        $(".header_navTxt").click(function () {
+            $(".header_navTxt").removeClass("header_navTxt_active");
+            $(this).addClass("header_navTxt_active");
+        });
+        //点击正倒序
+        $('.mulvTop').click(function () {
+            var currentText = $('#textToChange').text();
+            if (currentText === "正序") {
+                $('#textToChange').text("倒序");
+                $('#imgToChange').attr('src', '__STATIC__/novel/images/daoxu.svg');
+
+            } else {
+                $('#textToChange').text("正序");
+                $('#imgToChange').attr('src', '__STATIC__/novel/images/zhengxu.svg');
+            }
+        });
+    });
+    $(document).ready(function() { $('.search_searchBtn').on('click', function() {
+         var text=$(".search_input_input").val();
+         var url=$(this).attr("data-url");
+        window.location.href = url+"?query="+text; 
+    }); 
+        });
+</script>
+
+</html>

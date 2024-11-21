@@ -1,0 +1,26 @@
+
+    .pagination{
+        height: 20px;
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    ul {
+    list-style-type: none;
+}
+.page-item{
+    display: flex;
+    line-height: 24px;
+    height: 24px;
+    border: 1px solid #FFFFFF1A;
+    color: #FFFFFF99;
+   padding: 2px 4px;
+    align-items: center;
+    border-radius: 4px;
+}
+.page-link{
+    color: #FFFFFF99;
+}
+.active{
+   background:#FFFFFF1A;
+}

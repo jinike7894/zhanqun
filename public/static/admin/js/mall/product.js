@@ -40,29 +40,30 @@ define(["jquery", "easy-admin", "vue"], function ($, ea,Vue) {
                     {field: 'k_name', width: 120, title: '客户名称', edit: 'text',sort:true},
                     {field: 'img', width: 180, title: '产品图片', search: false, templet: ea.table.image},
                     {field: 'androidurl', width: 180, title: '产品链接', edit: 'text',sort:true},
-                    {field: 'status', filter:'status1', title: '暂停', width: 85, search: false, templet: ea.table.switch,
-                        switchfunc: function(res) {
-                            var data = {
-                                id: res.id,
-                                field: 'status',
-                                value: res.checked == 1 ? 1 : 2,
-                            };
-                            ea.request.post({
-                                url: init.modify_url,
-                                prefix: true,
-                                data: data,
-                            }, function (res) {
-                                table.reload(init.table_render_id);
-                            }, function (res) {
-                                ea.msg.error(res.msg, function () {
-                                    table.reload(init.table_render_id);
-                                });
-                            }, function () {
-                                table.reload(init.table_render_id);
-                            });
-                        }
-                    },
+                    // {field: 'status', filter:'status1', title: '暂停', width: 85, search: false, templet: ea.table.switch,
+                    //     switchfunc: function(res) {
+                    //         var data = {
+                    //             id: res.id,
+                    //             field: 'status',
+                    //             value: res.checked == 1 ? 1 : 2,
+                    //         };
+                    //         ea.request.post({
+                    //             url: init.modify_url,
+                    //             prefix: true,
+                    //             data: data,
+                    //         }, function (res) {
+                    //             table.reload(init.table_render_id);
+                    //         }, function (res) {
+                    //             ea.msg.error(res.msg, function () {
+                    //                 table.reload(init.table_render_id);
+                    //             });
+                    //         }, function () {
+                    //             table.reload(init.table_render_id);
+                    //         });
+                    //     }
+                    // },
                     {field: 'status', title: '状态', width: 85, search: 'select', selectList: {0: '禁用', 1: '启用',2: '暂停'}, templet: ea.table.switch},
+                    {field: 'url_type', title: '跳转方式', width: 85, search: 'select', selectList: {0: '站外', 1: '站内'}},
                     {
                         width: 170,
                         title: '操作',
@@ -132,6 +133,11 @@ define(["jquery", "easy-admin", "vue"], function ($, ea,Vue) {
             ea.listen();
         },
     };
-
+    $(document).ready(function() {
+        $('#url_type').change(function() {
+            var selectedValue = $(this).val();
+            console.log("选中的值是: " + selectedValue);
+        });
+    });
     return Controller;
 });

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>人气榜</title>
+    <link rel="stylesheet" href="__STATIC__/video/styles.css">
+    <link rel="stylesheet" href="__STATIC__/video/introduction.css">
+    <script type="text/javascript" src="__STATIC__/video/js/jquery.js"></script>
+    <script type="text/javascript" src="__STATIC__/video/js/app.js"></script>
+    <link rel="stylesheet" href="__STATIC__/video/css/styles.css">
+    <link rel="stylesheet" href="__STATIC__/video/css/index.min.css"/>
+    <script charset="utf-8" src="__STATIC__/video/js/index.min.js"></script>
+    <link rel="stylesheet" href="__STATIC__/video/home.css">
+    <link rel="stylesheet" href="__STATIC__/video/min.css" />
+    <link rel="stylesheet" href="__STATIC__/css/commons.css" />
+
+
+</head>
+<style>
+
+    .actives > .header_navTxt {
+        color: #00feb1 !important;
+        background: none;
+    }
+    .actives > .header_navli{
+        width: 22px;
+        height: 3px;
+        border-radius: 3px;
+        background: #00FEB1;
+    }
+
+
+</style>
+<body>
+    <input type="hidden" id="site_id" value="{$site_id}">
+    <input type="hidden" id="channel" value="{$tongjiCode}">
+    <!--小说阅读 -->
+    <div id="page">
+        
+
+
+        <div class="header">
+            <div class="headerBox">
+                <a href="/video/{$channel}.html">
+                <div class="logoBox">
+                    <img src="{$logo}" class="header_logo">
+                    <!-- <img src="__STATIC__/video/img/logoTxt.png" class="header_logoTxt"> -->
+
+                </div>
+                </a>
+                <a href="/video/search/{$channel}.html">
+                    <div class="header_input">
+                        <div class="headerInput"> 搜索</div>
+                        <img src="__STATIC__/video/img/search.png" class="header_search">
+
+                    </div>
+                </a>
+
+                <img src="__STATIC__/video/img/collectBtn.png" class="header_collect">
+
+            </div>
+            <div class="header_nav">
+                <a href="./{$channel}.html">
+                <div class="header_navLine">
+                    <div class="header_navTxt">
+                        全部
+                    </div>
+                    <div class="header_navli"></div>
+
+                </div>
+                </a>
+                {volist  name='videoCateData' id="item"}
+                <a href="./{$channel}.html?cate_id={$item.id}">
+                <div class="header_navLine {if condition='$cate_id eq $item.id'}actives{/if} ">
+                    <div class="header_navTxt">
+                        {$item.title}
+                    </div>
+                    <div class="header_navli"></div>
+                </div>
+                </a>
+                {/volist}
+             
+
+            </div>
+        </div>
+        <!-- 顶部结束 -->
+        <div class="contentBox" style="padding-top: 90px;">
+
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    {volist name='BannerList' id="Banner"}
+                    <div class="swiper-slide ad" data-id="{$Banner.id}" data-channel="{$channel}" data-site="{$site_id}"
+                        data-url="{$Banner.androidurl}"><img src="{$Banner.img}"></div>
+                    {/volist}
+                </div>
+                <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+                <div class="swiper-pagination"></div>
+            </div>
+            <!-- 九宫格 -->
+            <div class="index_jiugongge">
+                {volist name='jiugongge_img' id="item"}
+                <div class="index_jiugongge_li ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$item.androidurl}">
+                    <img class="index_jiugongge_img" src="{$item.img}">
+                    <div class="index_jiugongge_text">{$item.name}</div>
+                </div>
+                {/volist}
+
+
+            </div>
+            <!-- 标签 -->
+            <!-- <div class="home_LabelBox">
+
+                {volist name='jiugongge_font' id="item"}
+                <div class="home_Label ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$item.androidurl}">
+                    <img src="{$item.img}" class="home_LabelCoverImg">
+                    <div class="home_LabelContent">
+                        <div class="home_LabelContent_title">
+                            {$item.name}
+                        </div>
+                        <div class="home_LabelContent_txt">
+                            {$item.content}
+                        </div>
+                    </div>
+                    <img src="__STATIC__/video/img/rightCircle.png" class="home_LabelContent_title_yellowRight">
+                </div>
+
+                {/volist}
+
+            </div> -->
+            <!-- <div class="index_swiper" style="margin-bottom: 16px;">
+                <div class="swiper-banner swiper">
+                    <div class="swiper-wrapper">
+                        {volist name='BannerList2' id="Banner"}
+                        <div class="swiper-slide">
+                            <img class="banner-img ad" src="{$Banner.img}" alt=""
+                             data-id="{$Banner.id}" 
+                             data-channel="{$channel}" 
+                             data-site="{$site_id}"
+                             data-url="{$Banner.androidurl}"
+                             >
+                        </div>
+                        {/volist}
+             
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+    
+            </div> -->
+
+
+
+        
+
+
+        <!-- 返回栏 -->
+        <div class="nav">
+            <div class="left">
+                <img class="leftBtn" style="margin-right: 5px;" src="__STATIC__/video/images/rectangle.png" />
+                <div class="leftName">视频播放</div>
+            </div>
+        </div>
+      
+       
+
+        <div class="contentBox">
+            <div class="introduction_Box">
+                <div class="introduction_title">
+                    {$info.title}
+                </div>
+                <div > 
+                    <div id="mse" class="mse"></div>
+                </div>
+                <div class="introduction_txt">
+                    视频简介：{$info.introduce}
+                </div>
+            </div>
+
+
+
+            {volist name='zhong_img_ad' id="item"}
+            <img src="{$item.img}" class="banner ad" data-id="{$item.id}" data-channel="{$channel}"
+                data-site="{$site_id}" data-url="{$item.androidurl}">
+            {/volist}
+            <div class="introduction_gg">
+                {volist name='zhong_font_ad' id="item"}
+                <div class="introduction_ggNav ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$item.androidurl}">
+                    <div class="introduction_ggTxt">
+                        {$item.name}
+                    </div>
+                    <img src="__STATIC__/video/img/rightCircle.png" class="introduction_ggBtn">
+
+                </div>
+                {/volist}
+
+            </div>
+
+  <div class="index_swiper" style="margin-bottom: 16px;">
+                <div class="swiper-banner swiper">
+                    <div class="swiper-wrapper">
+                        {volist name='BannerList2' id="Banner"}
+                        <div class="swiper-slide">
+                            <img class="banner-img ad" src="{$Banner.img}" alt=""
+                             data-id="{$Banner.id}" 
+                             data-channel="{$channel}" 
+                             data-site="{$site_id}"
+                             data-url="{$Banner.androidurl}"
+                             >
+                        </div>
+                        {/volist}
+             
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+    
+            </div>
+            <!-- 热门推荐 -->
+            <div class="nav" style="padding: 0;">
+                <div class="left">
+                    <img class="leftBtn" style="margin-right: 5px;" src="__STATIC__/video/images/rectangle.png" />
+                    <div class="leftName">官方推荐</div>
+                </div>
+            </div>
+            <!-- 官方推荐 -->
+            <div class="home_videoList">
+                {volist name='list' id="item"}
+                <a href="/video/info/{$channel}.html?id={$item.id}">
+                    <div class="home_videoLable">
+                        <div class="home_videoLable_imgBox">
+                            <img src="{$item.pic}" class="home_videoLable_img">
+                            <div class="home_videoLable_clock">
+                                {$item.time}
+                            </div>
+                        </div>
+
+                        <div class="home_videoLable_text">
+                            {$item.title}
+                        </div>
+                        <div class="home_videoLable_bfNum">
+                            {$item.eye|eyew}w次播放
+                        </div>
+
+                    </div>
+                </a>
+                {/volist}
+
+            </div>
+            {volist name='di_img_ad' id="item"}
+            <img class="banner ad" src="{$item.img}" data-id="{$item.id}" data-channel="{$channel}"
+                data-site="{$site_id}" data-url="{$item.androidurl}" />
+            {/volist}
+            <!-- 抖音 -->
+            <div class="index_dyList">
+
+                {volist name='di_img_font_ad' id="item"}
+
+                <div class="index_dyListBox ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$item.androidurl}">
+                    <div class="flexBox">
+                        <img src="{$item.img}" class="index_dyList_img">
+                        <div class="index_dyList_dyTxt">{$item.name}</div>
+
+                    </div>
+
+                    <img src="__STATIC__/video/img/rightIcon.png" class="index_dyList_rightIcon">
+                </div>
+
+                {/volist}
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+    <script>
+
+    </script>
+</body>
+<script src="__STATIC__/common/jq.js"></script>
+<script src="__STATIC__/common/swiper.js"></script>
+<script src="__STATIC__/common/apps.js"></script>
+<script src="__STATIC__/video/js/swiper-bundle.min.js"></script>
+<script charset="utf-8" src="__STATIC__/video/js/index1.min.js"></script>
+
+
+ <script> 
+    const config = {
+          "id": "mse",
+          "url": "{$info.video}",
+          "playsinline": true,
+          "poster": "",
+          "plugins": [],
+          "width":" 100%",
+          "height": "180px",
+        }
+        config.plugins.push(HlsPlayer)
+        let player = new Player(config)
+    
+        var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+    });
+   
+
+
+
+
+
+    $(document).ready(function () {
+        //目录点击变亮
+        $(".choosePage").click(function () {
+            $(".choosePage").removeClass("choosePage_active");
+            $(this).addClass("choosePage_active");
+            var moveX = $(this).position().left + $(this).parent().scrollLeft();
+            var pageX = document.documentElement.clientWidth;
+            var blockWidth = $(this).width();
+            var left = moveX - (pageX / 2) + (blockWidth / 2);
+            $(".chooseMl").scrollLeft(left);
+        });
+        //点击正倒序
+        $('.mulvTop').click(function () {
+            var currentText = $('#textToChange').text();
+            if (currentText === "正序") {
+                $('#textToChange').text("倒序");
+                $('#imgToChange').attr('src', '__STATIC__/video/images/daoxu.svg');
+
+            } else {
+                $('#textToChange').text("正序");
+                $('#imgToChange').attr('src', '__STATIC__/video/images/zhengxu.svg');
+            }
+        });
+    });
+</script>
+<style>
+    .mse{
+        width: 200px;
+        flex:auto;
+    }
+</style>
+</html>

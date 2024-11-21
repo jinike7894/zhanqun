@@ -10,7 +10,7 @@ define(["jquery", "easy-admin"], function ($, ea) {
         table_render_id: 'currentTableRenderId',
         index_url: 'mall.pgather/index',
         modify_url: 'mall.pgather/modify',
-        show_url: 'mall.pgathershow/index',
+        show_url: 'mall.proshow/index',
     };
 
     var Controller = {
@@ -31,6 +31,7 @@ define(["jquery", "easy-admin"], function ($, ea) {
                     {field: 'channelCode', minWidth: 0, title: '推广渠道',hide:true,search:'select',selectList:{'name':'/gladmin/mall.data/getchannelCode1'},dong:true},
                     // {field: 'shows', Width: 80, title: '展示次数', search: false,sort:true},
                     {field: 'clicks', Width: 80, title: '点击次数', search: false,sort:true},
+                   
                     // {field: 'downfinish', Width: 80, title: '下载次数', search: false,sort:true},
                     // {field: 'ratio1', Width: 80, title: '点击/展示', search: false,sort:true,templet:function(d) {return d.ratio1 + '%'}},
                     // {field: 'ratio', Width: 80, title: '下载/点击', search: false,sort:true,templet:function(d) {return d.ratio + '%'}},
@@ -41,7 +42,7 @@ define(["jquery", "easy-admin"], function ($, ea) {
                         operat: [
                             [{
                                 text: '查看',
-                                url: init.show_url,
+                                url: init.show_url+"?filter="+getUrlParam('filter'),
                                 method: 'open',
                                 auth: 'show',
                                 class: 'layui-btn layui-btn-normal layui-btn-xs',
@@ -71,7 +72,7 @@ define(["jquery", "easy-admin"], function ($, ea) {
                     {field: 'channelCode', minWidth: 0, title: '推广渠道',hide:true,search:'select',selectList:{'name':'/gladmin/mall.data/getchannelCode1'},dong:true},
                     // {field: 'shows', Width: 80, title: '展示次数', search: false,sort:true},
                     {field: 'clicks', Width: 80, title: '点击次数', search: false,sort:true},
-
+               
                     // {field: 'downfinish', Width: 80, title: '下载次数', search: false,sort:true},
                     // {field: 'ratio1', Width: 80, title: '点击/展示', search: false,sort:true,templet:function(d) {return d.ratio1 + '%'}},
                     // {field: 'ratio', Width: 80, title: '下载/点击', search: false,sort:true,templet:function(d) {return d.ratio + '%'}},
@@ -81,8 +82,9 @@ define(["jquery", "easy-admin"], function ($, ea) {
                         templet: ea.table.tool,
                         operat: [
                             [{
-                                text: '查看',
+                                text: '查看2',
                                 url: init.show_url,
+                                field: 'id,date',
                                 method: 'open',
                                 auth: 'show',
                                 class: 'layui-btn layui-btn-normal layui-btn-xs',
@@ -97,3 +99,8 @@ define(["jquery", "easy-admin"], function ($, ea) {
     };
     return Controller;
 });
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+    if (r != null) return unescape(r[2]); return null; //返回参数值
+}

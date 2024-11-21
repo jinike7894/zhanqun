@@ -1,0 +1,4 @@
+<?php
+//000000000600
+ exit();?>
+a:1:{i:0;a:20:{s:2:"id";i:4519;s:7:"cate_id";i:11;s:6:"zm_vid";i:6691;s:12:"is_recommend";i:0;s:5:"title";s:82:"【超火家庭摄像头-极品美少妇】孩子醒了继续操绝对真实刺激";s:3:"pic";s:81:"https://17cporn.s3.ap-east-1.amazonaws.com/video/m3u8/2023/11/14/04b58fd2/vod.jpg";s:5:"enpic";s:84:"https://17cporn.s3.ap-east-1.amazonaws.com/video/m3u8/2023/11/14/04b58fd2/vod_en.jpg";s:5:"video";s:84:"https://17cporn.s3.ap-east-1.amazonaws.com/video/m3u8/2023/11/14/04b58fd2/index.m3u8";s:3:"eye";i:160644;s:4:"time";s:5:"56:14";s:4:"sort";i:3949;s:6:"status";i:1;s:5:"isvip";i:0;s:2:"up";i:0;s:4:"down";i:0;s:3:"fav";i:0;s:6:"remark";N;s:11:"create_time";i:1701270870;s:11:"update_time";i:1715431086;s:11:"delete_time";N;}}
