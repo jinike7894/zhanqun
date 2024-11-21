@@ -1,4 +1,4 @@
-<?php /*a:1:{s:47:"C:\wwwroot\zhanqun\view\index\video\search.html";i:1732182920;}*/ ?>
+<?php /*a:1:{s:47:"C:\wwwroot\zhanqun\view\index\video\search.html";i:1732204593;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,7 +99,7 @@
                             ">
                                 <?php echo htmlentities($index); ?>
                             </div>
-                            <div class="   
+                            <div class="search_hotTxt    
                             <?php if($index == 1): ?>
                             serach_hotOneTxt
                             <?php endif; if($index == 2): ?>
