@@ -224,7 +224,8 @@ a {
 
 .index_news_chigua_imgBox {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row; 
+    gap: 5px;
     margin: 8px 0;
 }
 
