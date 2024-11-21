@@ -160,10 +160,10 @@
             </div>
             <!-- 导航栏 -->
             <div class="lableList">
-                <a href="/novel/{$channel}.html?type=renqi"><div class="lable">人气榜</div></a>
-                <a href="/novel/{$channel}.html?type=tuijian"><div class="lable">推荐榜</div></a>
-                <a href="/novel/{$channel}.html?type=shoucang"><div class="lable">收藏榜</div></a>
-                <a href="/novel/{$channel}.html?type=resou"><div class="lable">热搜榜</div></a>
+                <a href="/novel/{$channel}.html?type=renqi"><div class="lable {if condition='$types eq 1'}lable_active{/if}">人气榜</div></a>
+                <a href="/comics/{$channel}.html?type=tuijian"><div class="lable {if condition='$types eq 2'}lable_active{/if}">推荐榜</div></a>
+                <a href="/comics/{$channel}.html?type=shoucang"><div class="lable {if condition='$types eq 3'}lable_active{/if}">收藏榜</div></a>
+                <a href="/comics/{$channel}.html?type=resou"><div class="lable {if condition='$types eq 4'}lable_active{/if}">热搜榜</div></a>
             </div>
 
             <div class="homeBookBox">
@@ -197,7 +197,7 @@
             <div class="chooseMl" style="margin-top: 10px;">
                 <div class="choosePage">全部题材</div>
                 {volist  name='novelCate' id="item"}
-                <a href="/novel/{$channel}.html?cate_id={$item.id}"><div class="choosePage">{$item.title}</div></a>
+                <a href="/novel/{$channel}.html?cate_id={$item.id}"><div class="choosePage {if condition='$cate_id eq $item.id'}choosePage choosePage_active{/if}">{$item.title}</div></a>
                 {/volist}
             </div>
 

@@ -203,24 +203,30 @@ class Novel extends BaseController
         View::assign('novelCate', $novelCate);
         $novel1 = Db::name("mall_novels");
         //查询10个小说 默认eye排序
+        $type=1;
         if (isset($_GET["type"])) {
             switch ($_GET["type"]) {
                 case "renqi":
+                    $type=1;
                     $novel1->order("renqi desc");
                     break;
                 case "tuijian":
+                    $type=2;
                     $novel1->order("tuijian desc");
                     break;
                 case "shoucang":
+                    $type=3;
                     $novel1->order("shoucang desc");
                     break;
                 case "resou":
+                    $type=4;
                     $novel1->order("resou desc");
                     break;
             }
         }else{
             $novel1->order("renqi desc");
         }
+        View::assign('types', $type);
         $novel1 = $novel1->where(["status" => 1])->limit(10)->select();
         $novel1 = $novel1->toArray();
         foreach ($novel1 as $k => $v) {

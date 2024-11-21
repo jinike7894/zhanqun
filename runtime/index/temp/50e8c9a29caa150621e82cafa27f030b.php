@@ -1,4 +1,4 @@
-<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\novel\index.html";i:1732185902;}*/ ?>
+<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\novel\index.html";i:1732205212;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -161,10 +161,10 @@
             </div>
             <!-- 导航栏 -->
             <div class="lableList">
-                <a href="/novel/<?php echo htmlentities($channel); ?>.html?type=renqi"><div class="lable">人气榜</div></a>
-                <a href="/novel/<?php echo htmlentities($channel); ?>.html?type=tuijian"><div class="lable">推荐榜</div></a>
-                <a href="/novel/<?php echo htmlentities($channel); ?>.html?type=shoucang"><div class="lable">收藏榜</div></a>
-                <a href="/novel/<?php echo htmlentities($channel); ?>.html?type=resou"><div class="lable">热搜榜</div></a>
+                <a href="/novel/<?php echo htmlentities($channel); ?>.html?type=renqi"><div class="lable <?php if($types == 1): ?>lable_active<?php endif; ?>">人气榜</div></a>
+                <a href="/comics/<?php echo htmlentities($channel); ?>.html?type=tuijian"><div class="lable <?php if($types == 2): ?>lable_active<?php endif; ?>">推荐榜</div></a>
+                <a href="/comics/<?php echo htmlentities($channel); ?>.html?type=shoucang"><div class="lable <?php if($types == 3): ?>lable_active<?php endif; ?>">收藏榜</div></a>
+                <a href="/comics/<?php echo htmlentities($channel); ?>.html?type=resou"><div class="lable <?php if($types == 4): ?>lable_active<?php endif; ?>">热搜榜</div></a>
             </div>
 
             <div class="homeBookBox">
@@ -198,7 +198,7 @@
             <div class="chooseMl" style="margin-top: 10px;">
                 <div class="choosePage">全部题材</div>
                 <?php if(is_array($novelCate) || $novelCate instanceof \think\Collection || $novelCate instanceof \think\Paginator): $i = 0; $__LIST__ = $novelCate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
-                <a href="/novel/<?php echo htmlentities($channel); ?>.html?cate_id=<?php echo htmlentities($item['id']); ?>"><div class="choosePage"><?php echo htmlentities($item['title']); ?></div></a>
+                <a href="/novel/<?php echo htmlentities($channel); ?>.html?cate_id=<?php echo htmlentities($item['id']); ?>"><div class="choosePage <?php if($cate_id == $item['id']): ?>choosePage choosePage_active<?php endif; ?>"><?php echo htmlentities($item['title']); ?></div></a>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
 
