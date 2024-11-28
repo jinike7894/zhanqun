@@ -133,11 +133,11 @@
 
 
                 <div class="hotList">
-                    {volist name='list' id="item"}
+                    {volist name='videodata1' id="item"}
                     <a href="/comics/info/{$channel}.html?id={$item.id}">
                     <div class="book">
                         <div class="bookImg">
-                            <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$tmimg}{$item.enpic}" />
+                            <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$item.enpic|raw}" />
                             <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="__STATIC__/comics/images/wanjie.png" />
@@ -195,18 +195,7 @@
                 <!-- 分页 -->
                 <div class="pageNum" style="margin-top: 10px;">
                     {$list|raw}
-                    <!-- <div class="pageNext">
-                        <img src="__STATIC__/comics/images/Chevron_Left.svg" />
-                    </div>
-                    <div class="pageNumBox" style="background: #FFFFFF33;">1</div>
-                    <div class="pageNumBox">2</div>
-                    <div class="pageNumBox">3</div>
-                    <div class="pageNumBox">4</div>
-                    <div class="pageNumBox">5</div>
-                    <div class="pageNumBox">6</div>
-                    <div class="pageMore">...</div>
-                    <div class="pageNumBox">142</div>
-                    <div class="pageNext"> <img src="__STATIC__/comics/images/right.svg" /> </div> -->
+                
                 </div>
 
 

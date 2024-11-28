@@ -807,6 +807,7 @@ class Index extends BaseController
         //漫画
         $manhua = Db::name("mall_comics")->where(["status" => 1])->orderRaw('rand()')->limit(3)->select()->toArray();
         foreach ($manhua as $mk => &$mv) {
+            $mv["enpic"]=mbConvert(replaceManhuaCdn($mv["pic"]));
             $mv["eye"] = rand(1111, 9999);
             $mv["shoucang"] = rand(1111, 9999);
             $mv["cate"] = Db::name("mall_comiccate")->where(["id" => $mv["cate_id"]])->find();

@@ -1,4 +1,4 @@
-<?php /*a:2:{s:46:"C:\wwwroot\zhanqun\view\index\comics\info.html";i:1732607650;s:48:"C:\wwwroot\zhanqun\view\index\comics\header.html";i:1732607634;}*/ ?>
+<?php /*a:2:{s:46:"C:\wwwroot\zhanqun\view\index\comics\info.html";i:1732808791;s:48:"C:\wwwroot\zhanqun\view\index\comics\header.html";i:1732607634;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -161,7 +161,7 @@
                 <!-- 小说1 -->
                 <div class="contentList">
                     <div class="contentListLeft">
-                        <img class="contentCover" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($info['enpic']); ?>" />
+                        <img class="contentCover lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo $info['enpic']; ?>" />
                         <div class="contentNum" style="background: #FF1962;">1</div>
                     </div>
                     <div class="contentRight">
@@ -245,17 +245,7 @@
                         <div class="mulvRightText" id="textToChange">正序</div>
                     </div>
                 </div>
-                <!-- <div class="chooseMl">
-                    <div class="choosePage">0-100</div>
-                    <div class="choosePage">101-200</div>
-                    <div class="choosePage">201-300</div>
-                    <div class="choosePage">300-400</div>
-                    <div class="choosePage">400-500</div>
-                    <div class="choosePage">500-600</div>
-                    <div class="choosePage">600-700</div>
-                    <div class="choosePage">700-800</div>
-                 
-                </div> -->
+            
                 <div class="mulvPz">
                     <?php if(is_array($novelcount) || $novelcount instanceof \think\Collection || $novelcount instanceof \think\Paginator): $index = 0; $__LIST__ = $novelcount;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($index % 2 );++$index;?>
                     <div class="pzList">
@@ -283,7 +273,7 @@
                 <a href="/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                     <div class="book">
                         <div class="bookImg">
-                            <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>"/>
+                            <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo $item['enpic']; ?>"/>
                             <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/comics/images/wanjie.png" />
@@ -330,7 +320,7 @@
                 <a href="/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                     <div class="book">
                         <div class="bookImg">
-                            <img style="width: 100%;height: 100%;" src="<?php echo htmlentities($item['pic']); ?>" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                            <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo $item['enpic']; ?>"/>
                             <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/comics/images/wanjie.png" />

@@ -232,9 +232,10 @@ class Comics extends BaseController
         $novel1 = $novel1->where(["status" => 1])->orderRaw("rand()")->limit(10)->select();
         $novel1 = $novel1->toArray();
         foreach ($novel1 as $k => $v) {
+            $novel1[$k]["enpic"]=mbConvert(replaceManhuaCdn($v["pic"]));
             $novel1[$k]["times"] = rand(1, 2);
         }
-
+      
         View::assign('novel1', $novel1);
         //获取小说12个
         $novelModel=Db::name("mall_comics");
@@ -251,6 +252,7 @@ class Comics extends BaseController
         $novels1=[];
         $novels2=[];
         foreach($novel2 as $k=>$v){
+            $v["enpic"]=mbConvert(replaceManhuaCdn($v["pic"]));
             if (in_array($k, [0,1,2,3,4,5])) { 
                 $novels1[]=$v;
              }
@@ -258,6 +260,7 @@ class Comics extends BaseController
                 $novels2[]=$v;
             }
         }
+   
         View::assign('novels1', $novels1);
         View::assign('novels2', $novels2);
         View::assign('channel', $channel);
@@ -278,7 +281,10 @@ class Comics extends BaseController
             $videoModel->where(["id" => $_GET["id"]]);
         }
         //推荐视频
-        $video = Db::name("mall_comics")->where("status", "1")->orderRaw("rand()")->limit(6)->select();
+        $video = Db::name("mall_comics")->where("status", "1")->orderRaw("rand()")->limit(6)->select()->toArray();
+        // foreach( $video as $k=>$v){
+        //     $video[$k]["enpic"]=mbConvert(replaceManhuaCdn($v["pic"]));
+        // }
         View::assign('list', $video);
         //查询章数
         $novelcount = Db::name("comic_catalogs")->where("novel_id",$_GET["id"])->where("status", "1")->paginate([
@@ -292,9 +298,9 @@ class Comics extends BaseController
         }
         $novelcounttotal = Db::name("comic_catalogs")->where("novel_id",$_GET["id"])->where("status", "1")->count();
         $videoData = $videoModel->where("status", "1")->find();
+        $videoData["enpic"]=mbConvert(replaceManhuaCdn($videoData["pic"]));
+     
         View::assign('novelcounttotal', $novelcounttotal);
-
-       ;
         $novel2 =  Db::name("mall_comics")->where("status",1)->orderRaw("rand()")->paginate([
             'list_rows' => 12,
             'query'     => request()->param(),
@@ -304,6 +310,7 @@ class Comics extends BaseController
         $novels1=[];
         $novels2=[];
         foreach($novel2 as $k=>$v){
+            $v["enpic"]=mbConvert(replaceManhuaCdn($v["pic"]));
             if (in_array($k, [0,1,2,3,4,5])) { 
                 $novels1[]=$v;
              }
@@ -313,65 +320,13 @@ class Comics extends BaseController
         }
         View::assign('novels1', $novels1);
         View::assign('novels2', $novels2);
-
-
-
-
-
         View::assign('novelcount', $novelcount);
         View::assign('novelcountid', $novelcountid);
         View::assign('info', $videoData);
         View::assign('channel', $channel);
         return View::fetch('comics/info');
 
-        // $vid = input('param.vid/d',0);
-        // $category_id = input('param.category_id/d',0);
-        // $category_child_id = input('param.category_child_id/d',0);
-        // $menulist = $this->Menu->getmenu(0);
-        // foreach ($menulist as &$item){
-        //     $item['title'] = mbConvert($item['title']);
-        // }
-        // $page = input('param.page',1);
-        // $limit = input('param.limit',21);
-        // $child_menu = $this->Menu->getmenu($category_id);
-        // $vodlist = $this->MallVideos->getById($vid);
-        // if($vid <= 5000){
-        //     $vodlist['enpic'] = replaceVideoCdn($vodlist['enpic'], 'video_img_cdn');
-        //     $vodlist['video'] = replaceVideoCdn($vodlist['video'], 'video_cdn');
-        // }
-        // $vodlist['title'] = mbConvert($vodlist['title']);
-        // $guesslist = $this->MallVideos->getmorelist($vodlist['cate_id'],$page,$limit);
-        // $category = $this->Menu->getCateInfo($vodlist['cate_id']);
-        // $arr['id'] = $vodlist['id'];
-        // $arr['url'] = $vodlist['pic'];
-        // $arr['encryptUrl'] = $vodlist['pic'];
-        // $arr['cid'] = $category_child_id;
-        // $arr['sl'] = $vodlist['video'];
-        // $arr['title'] = $vodlist['title'];
-        // $arr['playedCount'] = mt_rand(1000000,9999999);
-        // $arr['duration'] = $vodlist['time'];
-        // $arr['vip'] = 0;
-        // $arr['up_num'] = $vodlist['up'];
-        // $arr['down_num'] = $vodlist['down'];
-        // $arr['fav_num'] = $vodlist['fav'];
-        // $arr['is_fav'] = false;
-        // $data = base64_encode(json_encode($arr));
-        // View::assign('category_id',$category_id);
-        // View::assign('category_child_id',$category_child_id);
-        // View::assign('menulist',$menulist);
-        // View::assign('child_menu',$child_menu);
-        // View::assign('vodlist',$vodlist);
-        // View::assign('data',$data);
-        // View::assign('guesslist',$guesslist['list']);
-        // View::assign('page',$guesslist['page']);
-        // View::assign('channel',$channel);
-        // View::assign('category',$category);
-        // if(ismobile())
-        // {
-        // 	return View::fetch('vodplay_mobile');
-        // }else{
-        // 	return View::fetch('vodplay_mobile');
-        // }
+       
     }
     public function read($channel = 0)
     {
@@ -452,21 +407,15 @@ class Comics extends BaseController
             $videoModel->where('title', 'like', "%{$_GET["query"]}%");
         }
         $videoData = $videoModel->where("status", "1")->paginate(6);
+        $videodatas=$videoData->toArray();
+        $videodata1=[];
+        foreach($videodatas["data"] as $k=>$v){
+            $v['enpic']=mbConvert(replaceManhuaCdn($v["pic"]));
+            $videodata1[]=$v;
+        }
+        View::assign('videodata1', $videodata1);
         View::assign('list', $videoData);
-        // $videoCateData=Db::name("mall_cate")->where([["id","<>",1]])->select();
-        // $video1=[];
-        // $video2=[];
-        // foreach($videoCateData as $k=>$v){
-        //     if (in_array($k, [0,1,2,3,4,5])) { 
-        //         $video1[]=$v;
-        //      }
-        //     if (in_array($k, [6,7,8,9,10,11])) { 
-        //         $video2[]=$v;
-        //     }
-        // }
-        // View::assign('video2',$video2);
-        // View::assign('video1',$video1);
-        // View::assign('videoCateData',$videoCateData);
+    
         View::assign('channel', $channel);
         return View::fetch('comics/searchres');
     }

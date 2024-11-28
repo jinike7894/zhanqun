@@ -1,4 +1,4 @@
-<?php /*a:1:{s:47:"C:\wwwroot\zhanqun\view\index\comics\index.html";i:1732607631;}*/ ?>
+<?php /*a:1:{s:47:"C:\wwwroot\zhanqun\view\index\comics\index.html";i:1732807779;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -188,7 +188,7 @@
                 <a class="homeBook" href="/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
 
                     <div class="homeBookLeft">
-                        <img class="homeBookLeftCover lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>"/>
+                        <img class="homeBookLeftCover lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo $item['enpic']; ?>"/>
                         <img class="homeBookLeftWj" src="/static/comics/images/wanjie.png">
                     </div>
                     <div class="homeBookright">
@@ -222,7 +222,7 @@
                 <a href="/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                 <div class="book">
                     <div class="bookImg">
-                        <img style="width: 100%;height: 100%;"  class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>"/>
+                        <img style="width: 100%;height: 100%;"  class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo $item['enpic']; ?>"/>
                         <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/comics/images/wanjie.png" />
@@ -282,7 +282,7 @@
                 <a href="/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                 <div class="book">
                     <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>"/>
+                        <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo $item['enpic']; ?>"/>
                         <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/comics/images/wanjie.png" />

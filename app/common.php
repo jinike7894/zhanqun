@@ -434,3 +434,8 @@ function urlparse($url){
      $parsedUrl = parse_url($url, PHP_URL_PATH); // 输出结果 
      return  $parsedUrl;
 }
+//漫画小说picen
+function mxUrl($pic){
+
+    return mbConvert(replaceManhuaCdn($pic));
+}

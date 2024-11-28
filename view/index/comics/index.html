@@ -187,7 +187,7 @@
                 <a class="homeBook" href="/comics/info/{$channel}.html?id={$item.id}">
 
                     <div class="homeBookLeft">
-                        <img class="homeBookLeftCover lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$tmimg}{$item.enpic}"/>
+                        <img class="homeBookLeftCover lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$item.enpic|raw}"/>
                         <img class="homeBookLeftWj" src="__STATIC__/comics/images/wanjie.png">
                     </div>
                     <div class="homeBookright">
@@ -221,7 +221,7 @@
                 <a href="/comics/info/{$channel}.html?id={$item.id}">
                 <div class="book">
                     <div class="bookImg">
-                        <img style="width: 100%;height: 100%;"  class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$tmimg}{$item.enpic}"/>
+                        <img style="width: 100%;height: 100%;"  class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$item.enpic|raw}"/>
                         <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="__STATIC__/comics/images/wanjie.png" />
@@ -281,7 +281,7 @@
                 <a href="/comics/info/{$channel}.html?id={$item.id}">
                 <div class="book">
                     <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$tmimg}{$item.enpic}"/>
+                        <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$item.enpic|raw}"/>
                         <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="__STATIC__/comics/images/wanjie.png" />

@@ -1,4 +1,4 @@
-<?php /*a:1:{s:51:"C:\wwwroot\zhanqun\view\index\comics\searchres.html";i:1732607743;}*/ ?>
+<?php /*a:1:{s:51:"C:\wwwroot\zhanqun\view\index\comics\searchres.html";i:1732808298;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -134,11 +134,11 @@
 
 
                 <div class="hotList">
-                    <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+                    <?php if(is_array($videodata1) || $videodata1 instanceof \think\Collection || $videodata1 instanceof \think\Paginator): $i = 0; $__LIST__ = $videodata1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
                     <a href="/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                     <div class="book">
                         <div class="bookImg">
-                            <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>" />
+                            <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo $item['enpic']; ?>" />
                             <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/comics/images/wanjie.png" />
@@ -196,18 +196,7 @@
                 <!-- 分页 -->
                 <div class="pageNum" style="margin-top: 10px;">
                     <?php echo $list; ?>
-                    <!-- <div class="pageNext">
-                        <img src="/static/comics/images/Chevron_Left.svg" />
-                    </div>
-                    <div class="pageNumBox" style="background: #FFFFFF33;">1</div>
-                    <div class="pageNumBox">2</div>
-                    <div class="pageNumBox">3</div>
-                    <div class="pageNumBox">4</div>
-                    <div class="pageNumBox">5</div>
-                    <div class="pageNumBox">6</div>
-                    <div class="pageMore">...</div>
-                    <div class="pageNumBox">142</div>
-                    <div class="pageNext"> <img src="/static/comics/images/right.svg" /> </div> -->
+                
                 </div>
 
 

@@ -1,4 +1,4 @@
-<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\index\index.html";i:1732787765;}*/ ?>
+<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\index\index.html";i:1732810107;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -402,7 +402,7 @@
             <div class="index_cartoon_box">
                 <!-- 图片盒子 -->
                 <div class="index_cartoon_imgbox">
-                    <img class="index_cartoon_img lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>">
+                    <img class="index_cartoon_img lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo $item['enpic']; ?>">
                     <!-- top -->
                     <img src="/static/index/img/top.png" class="index_cartoon_top">
                     <!-- 收藏按钮 -->
