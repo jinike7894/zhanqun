@@ -15,7 +15,7 @@
                 <!-- 小说1 -->
                 <div class="contentList">
                     <div class="contentListLeft">
-                        <img class="contentCover" src="{$info.pic}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                        <img class="contentCover" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$tmimg}{$info.enpic}" />
                         <div class="contentNum" style="background: #FF1962;">1</div>
                     </div>
                     <div class="contentRight">
@@ -137,7 +137,7 @@
                 <a href="/comics/info/{$channel}.html?id={$item.id}">
                     <div class="book">
                         <div class="bookImg">
-                            <img style="width: 100%;height: 100%;" src="{$item.pic}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                            <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$tmimg}{$item.enpic}"/>
                             <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="__STATIC__/comics/images/wanjie.png" />
@@ -265,6 +265,12 @@
 <script src="__STATIC__/common/swiper.js"></script>
 <script src="__STATIC__/common/apps.js"></script>
 <script>
+     $(document).ready(function () {
+    // $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
     var swiper = new Swiper(".mySwiper", {
         cssMode: true,
         navigation: {

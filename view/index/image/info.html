@@ -1,0 +1,278 @@
+{include file="image/header3" /}
+<body style="background: #171919;width: 100%;">
+    <!-- 人气榜 -->
+    <div id="page">
+        <!-- 返回栏 -->
+        <div class="nav">
+            <div class="left">
+                <img class="leftBtn" src="__STATIC__/image/img/btn_left.png" />
+                <div class="leftName">查看图集</div>
+            </div>
+        </div>
+
+
+        <div class="contentBox" >
+            <div class="watchTj_title">
+                {$info.title}
+            </div>
+            <div class="watchTj_BtnBox">
+                {volist name="cateRand" id="item"}
+                <div class="watchTj_Btn">
+                   {$item.title}
+                </div>
+               {/volist}
+            </div>
+            <div class="watchTj_txtBox">
+             {$info.detail}
+            </div>
+            <div class="watchTj_imgBtnBox">
+                <a href="/image/info/{$channel}.html?show_type=2&id={$id}">
+                <div class="watchTj_imgBtn liebiaoBtn">
+                    <img src="__STATIC__/image/img/list.png" class="watchTj_img">列表模式
+                </div>
+            </a>
+                <a href="/image/info/{$channel}.html?show_type=1&id={$id}">
+                <div class="watchTj_imgBtn lunboBtn">
+                    
+                    <img src="__STATIC__/image/img/img.png" class="watchTj_img">轮播模式
+                </div>
+                </a>
+            </div>
+
+
+        </div>
+        {volist name="list_img" id="item"}
+        <div class="watchTj_content watchTj_lunboms">
+            <div class="watchTj_pageNum">
+                <span style="color: #FFFFFFB2;">{$page_list}</span> / {$item.count}
+            </div>
+            <div class="watcchTj_imgBox">
+                <img   class="watchTj_tjbanner imgbase64" data-src="{$item.list}"
+                src="/static/images/loading_img_bg_default.jpg">
+            </div>
+            <div class="watchTj_pageNum">
+                <span style="color: #FFFFFFB2;">{$page_list}</span> / {$item.count}
+            </div>
+            <div class="watchTj_imgBtnBox">
+                {if condition="$page_list==1"}
+             
+                    <div class="watchTj_imgBtn" style="background: #3C3C3C;">
+                        <img src="__STATIC__/image/img/leftJt.png" class="watchTj_img">第一页
+                    </div>
+            
+                    <a href="/image/info/{$channel}.html?id={$id}&page_list={$page_list+1}&show_type=1">
+                    <div class="watchTj_imgBtn">
+                       下一张 <img src="__STATIC__/image/img/rightJt.png" class="watchTj_img" style="margin-left:4px ;">
+                    </div>
+                    </a>
+                {elseif condition="$page_list==$item.count"}
+                <a href="/image/info/{$channel}.html?id={$id}&page_list={$page_list-1}&show_type=1">
+                    <div class="watchTj_imgBtn" style="background: #3C3C3C;">
+                        <img src="__STATIC__/image/img/leftJt.png" class="watchTj_img">上一张
+                    </div>
+                    </a>
+                   
+                    <div class="watchTj_imgBtn">
+                       最后一页 <img src="__STATIC__/image/img/rightJt.png" class="watchTj_img" style="margin-left:4px ;">
+                    </div>
+                   
+                {else/}
+                <a href="/image/info/{$channel}.html?id={$id}&page_list={$page_list-1}&show_type=1">
+                    <div class="watchTj_imgBtn" style="background: #3C3C3C;">
+                        <img src="__STATIC__/image/img/leftJt.png" class="watchTj_img">上一张
+                    </div>
+                    </a>
+                    <a href="/image/info/{$channel}.html?id={$id}&page_list={$page_list+1}&show_type=1">
+                    <div class="watchTj_imgBtn">
+                       下一张 <img src="__STATIC__/image/img/rightJt.png" class="watchTj_img" style="margin-left:4px ;">
+                    </div>
+                    </a>
+
+                {/if}
+               
+            </div>
+        </div>
+        {/volist}
+        <div class="watchTj_liebiaoBox">
+            {volist name="banner_img" id="item"}
+            <div class="watchTj_liebiaoms">
+                {volist name="item.list" id="items"}
+                <img  class="watchTj_tjbanner imgbase64" data-src="{$items}"
+                src="/static/images/loading_img_bg_default.jpg" >
+                {/volist}
+             </div>
+             <div class="pageNum" style="margin: 16px 0;">
+
+
+
+
+                {if condition="$item.count>1"}
+                {if condition="$banner_list==1"}
+             
+                <div class="watchTj_imgBtn" style="background: #3C3C3C;">
+                    <img src="__STATIC__/image/img/leftJt.png" class="watchTj_img">第一页
+                </div>
+        
+                <a href="/image/info/{$channel}.html?id={$id}&banner_list={$banner_list+1}&show_type=2">
+                <div class="watchTj_imgBtn">
+                   下一页 <img src="__STATIC__/image/img/rightJt.png" class="watchTj_img" style="margin-left:4px ;">
+                </div>
+                </a>
+            {elseif condition="$banner_list==$item.count"}
+         
+            <a href="/image/info/{$channel}.html?id={$id}&banner_list={$banner_list-1}&show_type=2">
+                <div class="watchTj_imgBtn" style="background: #3C3C3C;">
+                    <img src="__STATIC__/image/img/leftJt.png" class="watchTj_img">上一页
+                </div>
+                </a>
+               
+                <div class="watchTj_imgBtn">
+                   最后一页 <img src="__STATIC__/image/img/rightJt.png" class="watchTj_img" style="margin-left:4px ;">
+                </div>
+               
+            {else/}
+           
+            <a href="/image/info/{$channel}.html?id={$id}&banner_list={$banner_list-1}&show_type=2">
+                <div class="watchTj_imgBtn" style="background: #3C3C3C;">
+                    <img src="__STATIC__/image/img/leftJt.png" class="watchTj_img">上一页
+                </div>
+                </a>
+                <a href="/image/info/{$channel}.html?id={$id}&banner_list={$banner_list+1}&show_type=2">
+                <div class="watchTj_imgBtn">
+                    下一页 <img src="__STATIC__/image/img/rightJt.png" class="watchTj_img" style="margin-left:4px ;">
+                </div>
+                </a>
+           
+           
+
+            {/if}
+            {/if}
+            </div>
+            {/volist}
+        </div>
+        
+        
+
+        <div class="watchTj_btnBottomBox">
+            <div class="watchTj_btnBottomBox_txt">
+                {$info.cate_id|getImageCate}
+            </div>
+         
+
+        </div>
+        <div class="watchTj_gjc">
+            关键词： #{$info.cate_id|getImageCate}
+        </div>
+        <div class="hotList" style="padding:0 8px">
+            {volist name="list" id="item"}
+            <a href="/image/info/{$channel}.html?id={$item.id}">
+            <div class="book">
+                <div class="bookImg">
+                    <img style="width: 100%;height: 100%;" data-src="{$item.pic|imagefirst}"
+                    src="/static/images/loading_img_bg_default.jpg" class="imgbase64"/>
+                    <div class="bookBox_numPage">
+                        <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">{$item.pic_num}张
+                    </div>
+                </div>
+                <div style="padding: 5px;">
+                    <div class="bookName">{$item.title|fontsize3}</div>
+                    <div class="bookText">{$item.detail|fontsize3}</div>
+                    <div class="bookNav">
+                        <span>#{$item.cate_id|getImageCate}</span>
+            
+                    </div>
+                </div>
+
+            </div>
+            </a>
+            {/volist}
+         
+        </div>
+        {volist name='di_img_ad' id="item"}
+        <img class="banner ad" style="padding:0 8px" src="{$item.img}"  data-id="{$item.id}" data-channel="{$channel}"
+         data-site="{$site_id}" data-url="{$item.androidurl}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+        {/volist}
+        <div class="index_dyList" style="padding: 8px 8px;border: 0px;">
+            {volist name='di_img_font_ad' id="item"}
+                <div class="index_dyListBox ad " data-id="{$item.id}" data-channel="{$channel}"
+                data-site="{$site_id}" data-url="{$item.androidurl}">
+                    <div class="flexBox">
+                        <img src="{$item.img}" class="index_dyList_img" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                        <div class="index_dyList_dyTxt">{$item.name}</div>
+
+                    </div>
+
+                    <img src="__STATIC__/video/img/rightIcon.png" class="index_dyList_rightIcon">
+                </div>
+                {/volist}
+
+        </div>
+
+
+
+    </div>
+
+
+    <script src="__STATIC__/common/jq.js"></script>
+    <script src="__STATIC__/common/swiper.js"></script>
+    <script src="__STATIC__/common/apps.js"></script>
+    <script>
+         $(document).ready(function () {
+        // 获取所有 class 为 imgbase64 的 img 标签 
+        $('img.imgbase64').each(function () {
+            var img = $(this);
+            var imgSrc = img.attr('data-src');
+            imgSrc = imgSrc.trimStart();
+            var url="{$img_cdn}/"+imgSrc
+            var content="";
+            $.ajax({ url:url, 
+             type: 'GET', 
+             success: function(data) { 
+                content='data:image/jpeg;base64,'+data
+                console.log(content)
+                img.attr('src', content);
+            }, 
+                error: function(xhr, status, error) { } 
+            });
+           
+        });
+    });
+         var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+    });
+        $(document).on('click', 'selector', function (event) {
+            event.preventDefault();
+        });
+
+        $(document).ready(function () {
+            var show_type="{$show_type}"
+            if(show_type==2){
+                $('.liebiaoBtn').click(function () {
+                $('.watchTj_liebiaoBox').show();
+                $('.watchTj_lunboms').hide();
+                $(".liebiaoBtn").css("background-color", "#B7003B")
+                $(".lunboBtn").css("background-color", "#3C3C3C")
+            });
+            }else{
+                $('.watchTj_liebiaoBox').hide();
+                $('.watchTj_lunboms').show();
+                $(".lunboBtn").css("background-color", "#B7003B")
+                $(".liebiaoBtn").css("background-color", "#3C3C3C")
+            }
+           
+        });
+      
+
+    </script>
+</body>
+
+</html>

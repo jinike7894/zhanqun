@@ -1,4 +1,4 @@
-<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\image\index.html";i:1732113639;}*/ ?>
+<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\image\index.html";i:1732705477;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,752 +7,222 @@
     <meta charset="UTF-8">
     <title>首页</title>
     <link rel="stylesheet" href="/static/image/css/styleOld.css">
+    <link rel="stylesheet" href="/static/image/css/home.css">
     <script type="text/javascript" src="/static/image/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/image/js/app.js"></script>
     <link rel="stylesheet" href="/static/image/css/styles.css">
     <link rel="stylesheet" href="/static/image/css/swiperGf.css" />
+    <link rel="stylesheet" href="/static/css/commons.css" />
 </head>
 
 <body>
+    <input type="hidden" id="site_id" value="<?php echo htmlentities($site_id); ?>">
+    <input type="hidden" id="channel" value="<?php echo htmlentities($tongjiCode); ?>">
     <!-- 人气榜 -->
     <div id="page">
 
         <!-- 顶部 -->
         <div class="header">
             <div class="header_nav">
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        推荐
+                <a href="/image/<?php echo htmlentities($channel); ?>.html">
+                    <div class="header_navLine ">
+                        <div class="header_navTxt ">
+                            推荐
+                        </div>
                     </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        精选美女
+                </a>
+                <?php if(is_array($novelCate) || $novelCate instanceof \think\Collection || $novelCate instanceof \think\Paginator): $i = 0; $__LIST__ = $novelCate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+                <a href="/image/<?php echo htmlentities($channel); ?>.html?cate_id=<?php echo htmlentities($item['id']); ?>">
+                    <div class="header_navLine ">
+                        <div class="header_navTxt  <?php if($cate_id == $item['id']): ?>header_navTxt_active<?php endif; ?> ">
+                            <?php echo htmlentities($item['title']); ?>
+                        </div>
                     </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        日韩美女
-                    </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        港台美女
-                    </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        国产美女
-                    </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        系统
-                    </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        穿越
-                    </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        武侠
-                    </div>
-                </div>
+                </a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
 
             </div>
         </div>
         <!-- 顶部结束 -->
-        <div class="contentBox">
+        <div class="contentBox" style="padding-top:60px">
 
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="/static/image/img/banner1.png"></div>
-                    <div class="swiper-slide">Slide 2</div>
-                    <div class="swiper-slide">Slide 3</div>
-                    <div class="swiper-slide">Slide 4</div>
-                    <div class="swiper-slide">Slide 5</div>
-                    <div class="swiper-slide">Slide 6</div>
-                    <div class="swiper-slide">Slide 7</div>
-                    <div class="swiper-slide">Slide 8</div>
-                    <div class="swiper-slide">Slide 9</div>
+
+                    <?php if(is_array($BannerList) || $BannerList instanceof \think\Collection || $BannerList instanceof \think\Paginator): $i = 0; $__LIST__ = $BannerList;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$Banner): $mod = ($i % 2 );++$i;?>
+                    <div class="swiper-slide ad " data-id="<?php echo htmlentities($Banner['id']); ?>" data-channel="<?php echo htmlentities($channel); ?>"
+                        data-site="<?php echo htmlentities($site_id); ?>" data-url="<?php echo htmlentities($Banner['androidurl']); ?>"><img src="<?php echo htmlentities($Banner['img']); ?>"
+                            onerror="this.src='/static/images/loading_img_bg_default.jpg';"></div>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
                 </div>
-                <!-- <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div> -->
                 <div class="swiper-pagination"></div>
             </div>
             <div class="home_searchBox">
-                <a href="">
+                <?php if(is_array($novelCate) || $novelCate instanceof \think\Collection || $novelCate instanceof \think\Paginator): $i = 0; $__LIST__ = $novelCate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+                <a href="/image/<?php echo htmlentities($channel); ?>.html?cate_id=<?php echo htmlentities($item['id']); ?>">
                     <div class="home_searchBox_btn">
-                        女神
+                        <?php echo htmlentities($item['title']); ?>
                     </div>
                 </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        极品
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+                <a href="/image/search/<?php echo htmlentities($channel); ?>.html">
+                    <div class="home_searchMore">
+                        搜索更多
+                        <img src="/static/image/img/search.png" class="home_searchImg">
                     </div>
                 </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        嫩模
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        网红达人
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        风俗媚娘
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        气质
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        网红达人
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        风俗媚娘
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <div class="home_searchMore">
-                    搜索更多
-                    <img src="/static/image/img/search.png" class="home_searchImg">
-                </div>
-
             </div>
 
 
 
             <!-- 九宫格文字版 -->
             <div class="index-jiugonggeTxt" style="margin-bottom: 8px;">
-                <div class="index_jiugonggeTxt_text">
+
+                <?php if(is_array($jiugongge_font) || $jiugongge_font instanceof \think\Collection || $jiugongge_font instanceof \think\Paginator): $i = 0; $__LIST__ = $jiugongge_font;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+                <div class="index_jiugonggeTxt_text ad" data-id="<?php echo htmlentities($item['id']); ?>" data-channel="<?php echo htmlentities($channel); ?>"
+                    data-site="<?php echo htmlentities($site_id); ?>" data-url="<?php echo htmlentities($item['androidurl']); ?>">
                     <div class="index_jiugonggeTxt_textleft">
-                        <img src="/static/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
+                        <img src="<?php echo htmlentities($item['img']); ?>" class="index_jiugonggeTxt_img">
+                        <?php echo htmlentities($item['name']); ?>
                     </div>
-                    
+
                     <img src="/static/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
                 </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="/static/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="/static/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="/static/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="/static/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="/static/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="/static/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="/static/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="/static/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="/static/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="/static/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="/static/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="/static/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="/static/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="/static/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="/static/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="/static/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
         </div>
+
+        <div class="index_swiper">
+            <div class="swiper-banner swiper">
+                <div class="swiper-wrapper">
+                    <?php if(is_array($BannerList2) || $BannerList2 instanceof \think\Collection || $BannerList2 instanceof \think\Paginator): $i = 0; $__LIST__ = $BannerList2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$Banner): $mod = ($i % 2 );++$i;?>
+                    <div class="swiper-slide">
+                        <img class="banner-img ad" src="<?php echo htmlentities($Banner['img']); ?>" alt="" data-id="<?php echo htmlentities($Banner['id']); ?>"
+                            data-channel="<?php echo htmlentities($channel); ?>" data-site="<?php echo htmlentities($site_id); ?>" data-url="<?php echo htmlentities($Banner['androidurl']); ?>">
+                    </div>
+                    <?php endforeach; endif; else: echo "" ;endif; ?>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+
         <!-- 排行榜 -->
         <div class="home_cardBox">
+            <?php if(is_array($novelCateorder) || $novelCateorder instanceof \think\Collection || $novelCateorder instanceof \think\Paginator): $i = 0; $__LIST__ = $novelCateorder;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
             <div class="home_card">
                 <div class="home_card_title">
-                    <img src="/static/image/img/flag.png" class="home_card_flag">中国女神排行榜
+                    <img src="/static/image/img/flag.png" class="home_card_flag"><?php echo htmlentities($item['title']); ?>排行榜
                 </div>
                 <div class="home_card_hr"></div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num" style="background: #D13E3E;">1</div>
-                        <div class="home_card_name">sugar小</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">1306942</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #C66234;">2</div>
-                        <div class="home_card_name">米妮大萌</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #CBAD3E;">3</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">4</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">5</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">6</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">7</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">8</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
+                <?php echo $item['order_html']; ?>
 
             </div>
-            <div class="home_card">
-                <div class="home_card_title">
-                    <img src="/static/image/img/flag.png" class="home_card_flag">中国女神排行榜
-                </div>
-                <div class="home_card_hr"></div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num" style="background: #D13E3E;">1</div>
-                        <div class="home_card_name">sugar小</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">1306942</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #C66234;">2</div>
-                        <div class="home_card_name">米妮大萌</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #CBAD3E;">3</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">4</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">5</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">6</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">7</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">8</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="home_card">
-                <div class="home_card_title">
-                    <img src="/static/image/img/flag.png" class="home_card_flag">中国女神排行榜
-                </div>
-                <div class="home_card_hr"></div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num" style="background: #D13E3E;">1</div>
-                        <div class="home_card_name">sugar小</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">1306942</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #C66234;">2</div>
-                        <div class="home_card_name">米妮大萌</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #CBAD3E;">3</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">4</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">5</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">6</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">7</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">8</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="/static/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-
-            </div>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
         <!-- 图集 -->
 
         <div class="contentBox">
             <div class="tj_nav">推荐相册</div>
             <div class="hotList">
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="/static/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="/static/image/img/tuji.png" class="bookBox_img">47张
-                        </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="/static/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="/static/image/img/tuji.png" class="bookBox_img">47张
+                <?php if(is_array($images1) || $images1 instanceof \think\Collection || $images1 instanceof \think\Paginator): $i = 0; $__LIST__ = $images1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+                <a href="/image/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
+                    <div class="book">
+                        <div class="bookImg">
+                            <img style="width: 100%;height: 100%;"  data-src="<?php echo htmlentities(imagefirst($item['pic'])); ?>"
+                            src="/static/images/loading_img_bg_default.jpg" class="imgbase64" />
+                            <div class="bookBox_numPage">
+                                <img src="/static/image/img/tuji.png" class="bookBox_img"><?php echo htmlentities($item['pic_num']); ?>张
+                            </div>
                         </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
+                        <div style="padding: 5px;">
+                            <div class="bookName"><?php echo htmlentities(fontsize3($item['title'])); ?></div>
+                            <div class="bookText"><?php echo htmlentities(fontsize3($item['detail'])); ?></div>
+                            <div class="bookNav">
+                                <span>#<?php echo htmlentities(getImageCate($item['cate_id'])); ?></span>
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="/static/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="/static/image/img/tuji.png" class="bookBox_img">47张
+                            </div>
                         </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="/static/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="/static/image/img/tuji.png" class="bookBox_img">47张
-                        </div>
                     </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
-
-                </div>
+                </a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
-            <img class="banner" src="/static/image/img/gg1.png" />
+
+            <?php if(is_array($zhong_img_ad) || $zhong_img_ad instanceof \think\Collection || $zhong_img_ad instanceof \think\Paginator): $i = 0; $__LIST__ = $zhong_img_ad;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+            <img src="<?php echo htmlentities($item['img']); ?>" class="banner ad" data-id="<?php echo htmlentities($item['id']); ?>" data-channel="<?php echo htmlentities($channel); ?>"
+                data-site="<?php echo htmlentities($site_id); ?>" data-url="<?php echo htmlentities($item['androidurl']); ?>">
+            <?php endforeach; endif; else: echo "" ;endif; ?>
+
             <div class="index_dyList" style="padding: 8px 0;border: 0px;">
-                <a href="">
-                    <div class="index_dyListBox">
-                        <div class="flexBox">
-                            <img src="/static/image/img/chigua1.png" class="index_dyList_img">
-                            <div class="index_dyList_dyTxt">抖阴成人版</div>
+                <?php if(is_array($zhong_font_ad) || $zhong_font_ad instanceof \think\Collection || $zhong_font_ad instanceof \think\Paginator): $i = 0; $__LIST__ = $zhong_font_ad;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
 
-                        </div>
+                <div class="index_dyListBox ad" data-id="<?php echo htmlentities($item['id']); ?>" data-channel="<?php echo htmlentities($channel); ?>" data-site="<?php echo htmlentities($site_id); ?>"
+                    data-url="<?php echo htmlentities($item['androidurl']); ?>">
+                    <div class="flexBox">
+                        <img src="<?php echo htmlentities($item['img']); ?>" class="index_dyList_img"
+                            onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                        <div class="index_dyList_dyTxt"><?php echo htmlentities($item['name']); ?></div>
 
-                        <img src="/static/image/img/rightIcon.png" class="index_dyList_rightIcon">
                     </div>
-                </a>
-                <a href="">
-                    <div class="index_dyListBox">
-                        <div class="flexBox">
-                            <img src="/static/image/img/chigua1.png" class="index_dyList_img">
-                            <div class="index_dyList_dyTxt">抖阴成人版</div>
 
-                        </div>
+                    <img src="/static/novel/img/rightIcon.png" class="index_dyList_rightIcon">
+                </div>
 
-                        <img src="/static/image/img/rightIcon.png" class="index_dyList_rightIcon">
-                    </div>
-                </a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
 
             </div>
             <div class="hotList">
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="/static/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="/static/image/img/tuji.png" class="bookBox_img">47张
+                <?php if(is_array($images2) || $images2 instanceof \think\Collection || $images2 instanceof \think\Paginator): $i = 0; $__LIST__ = $images2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+                <a href="/image/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
+                    <div class="book">
+                        <div class="bookImg">
+                            <img style="width: 100%;height: 100%;" data-src="<?php echo htmlentities(imagefirst($item['pic'])); ?>"
+                                src="/static/images/loading_img_bg_default.jpg" class="imgbase64" />
+                            <div class="bookBox_numPage">
+                                <img src="/static/image/img/tuji.png" class="bookBox_img"><?php echo htmlentities($item['pic_num']); ?>张
+                            </div>
                         </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
+                        <div style="padding: 5px;">
+                            <div class="bookName"><?php echo htmlentities(fontsize3($item['title'])); ?></div>
+                            <div class="bookText"><?php echo htmlentities(fontsize3($item['detail'])); ?></div>
+                            <div class="bookNav">
+                                <span>#<?php echo htmlentities(getImageCate($item['cate_id'])); ?></span>
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="/static/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="/static/image/img/tuji.png" class="bookBox_img">47张
+                            </div>
                         </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="/static/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="/static/image/img/tuji.png" class="bookBox_img">47张
-                        </div>
                     </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
+                </a>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="/static/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="/static/image/img/tuji.png" class="bookBox_img">47张
-                        </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
-
-                </div>
             </div>
-            <img class="banner" src="/static/image/img/gg1.png" />
+            <?php if(is_array($di_img_ad) || $di_img_ad instanceof \think\Collection || $di_img_ad instanceof \think\Paginator): $i = 0; $__LIST__ = $di_img_ad;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+            <img class="banner ad" src="<?php echo htmlentities($item['img']); ?>" data-id="<?php echo htmlentities($item['id']); ?>" data-channel="<?php echo htmlentities($channel); ?>"
+                data-site="<?php echo htmlentities($site_id); ?>" data-url="<?php echo htmlentities($item['androidurl']); ?>"
+                onerror="this.src='/static/images/loading_img_bg_default.jpg';" />
+            <?php endforeach; endif; else: echo "" ;endif; ?>
             <div class="index_dyList" style="padding: 8px 0;border: 0px;">
-                <a href="">
-                    <div class="index_dyListBox">
-                        <div class="flexBox">
-                            <img src="/static/image/img/chigua1.png" class="index_dyList_img">
-                            <div class="index_dyList_dyTxt">抖阴成人版</div>
+                <?php if(is_array($di_img_font_ad) || $di_img_font_ad instanceof \think\Collection || $di_img_font_ad instanceof \think\Paginator): $i = 0; $__LIST__ = $di_img_font_ad;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
+                <div class="index_dyListBox ad " data-id="<?php echo htmlentities($item['id']); ?>" data-channel="<?php echo htmlentities($channel); ?>" data-site="<?php echo htmlentities($site_id); ?>"
+                    data-url="<?php echo htmlentities($item['androidurl']); ?>">
+                    <div class="flexBox">
+                        <img src="<?php echo htmlentities($item['img']); ?>" class="index_dyList_img"
+                            onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                        <div class="index_dyList_dyTxt"><?php echo htmlentities($item['name']); ?></div>
 
-                        </div>
-
-                        <img src="/static/image/img/rightIcon.png" class="index_dyList_rightIcon">
                     </div>
-                </a>
-                <a href="">
-                    <div class="index_dyListBox">
-                        <div class="flexBox">
-                            <img src="/static/image/img/chigua1.png" class="index_dyList_img">
-                            <div class="index_dyList_dyTxt">抖阴成人版</div>
 
-                        </div>
-
-                        <img src="/static/image/img/rightIcon.png" class="index_dyList_rightIcon">
-                    </div>
-                </a>
+                    <img src="/static/video/img/rightIcon.png" class="index_dyList_rightIcon">
+                </div>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
 
             </div>
-             <div class="pageNum" style="margin-top: 10px;">
-                <div class="pageNext">
-                    <img src="/static/image/img/Chevron_Left.svg" />
-                </div>
-                <div class="pageNumBox" style="background: #FFFFFF33;">1</div>
-                <div class="pageNumBox">2</div>
-                <div class="pageNumBox">3</div>
-                <div class="pageNumBox">4</div>
-                <div class="pageNumBox">5</div>
-                <div class="pageNumBox">6</div>
-                <div class="pageMore">...</div>
-                <div class="pageNumBox">142</div>
-                <div class="pageNext"> <img src="/static/image/img/right.svg" /> </div>
+            <div class="pageNum" style="margin-top: 10px;">
+                <?php echo $image; ?>
             </div>
         </div>
 
@@ -767,9 +237,30 @@
 
 
 </body>
+<script src="/static/common/jq.js"></script>
+<script src="/static/common/swiper.js"></script>
+<script src="/static/common/apps.js"></script>
 <script src="/static/image/js/swiper.js"></script>
 <script>
-
+    $(document).ready(function () {
+        // 获取所有 class 为 imgbase64 的 img 标签 
+        $('img.imgbase64').each(function () {
+            var img = $(this);
+            var imgSrc = img.attr('data-src');
+            var url="<?php echo htmlentities($img_cdn); ?>/"+imgSrc
+            var content="";
+            $.ajax({ url:url, 
+             type: 'GET', 
+             success: function(data) { 
+                content='data:image/jpeg;base64,'+data
+                console.log(content)
+                img.attr('src', content);
+            }, 
+                error: function(xhr, status, error) { } 
+            });
+           
+        });
+    });
     var swiper = new Swiper(".mySwiper", {
         cssMode: true,
         navigation: {
@@ -784,7 +275,7 @@
     });
 
     $(document).ready(function () {
-       
+
         //导航栏
         $(".header_navTxt").click(function () {
             $(".header_navTxt").removeClass("header_navTxt_active");

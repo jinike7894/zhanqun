@@ -24,8 +24,10 @@ define(["jquery", "easy-admin", "treetable", "iconPickerFa", "autocomplete"], fu
                     {type: "checkbox"},
                     {field: 'id', width: 80, title: 'ID',search:false},
                     {field: 'site_name', minWidth: 0, title: '站点',sort:true},
+                    
                     {field: 'cate_name', minWidth: 0, title: '站点类型',sort:true},
                     {field: 'channelCode', minWidth: 0, title: '推广渠道',sort:true},
+                    {field: 'remark', minWidth: 0, title: '渠道备注',sort:true},
                     {field: 'sj_num', minWidth: 120, title: '进站ip', search: false,sort:true},
                     // {field: 'total_shows', Width: 80, title: '展示次数', search: false,sort:true},
                     {field: 'total_clicks', Width: 80, title: '点击数', search: false,sort:true},

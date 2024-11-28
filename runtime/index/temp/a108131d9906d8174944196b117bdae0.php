@@ -1,4 +1,4 @@
-<?php /*a:2:{s:46:"C:\wwwroot\zhanqun\view\index\chigua\info.html";i:1732110799;s:48:"C:\wwwroot\zhanqun\view\index\chigua\header.html";i:1732202850;}*/ ?>
+<?php /*a:2:{s:46:"C:\wwwroot\zhanqun\view\index\chigua\info.html";i:1732718776;s:48:"C:\wwwroot\zhanqun\view\index\chigua\header.html";i:1732636986;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="/static/chigua/css/styleOld.css">
     <link rel="stylesheet" href="/static/chigua/css/home.css">
     <script type="text/javascript" src="/static/chigua/js/jquery.js"></script>
-    <script type="text/javascript" src="/static/video/js/app.js"></script>
+    <script type="text/javascript" src="/static/chigua/js/app.js"></script>
     <link rel="stylesheet" href="/static/chigua/css/styles.css">
     <link rel="stylesheet" href="/static/chigua/css/hl_styles.css">
     <link rel="stylesheet" href="/static/chigua/css/swiperGf.css" />
     <link rel="stylesheet" href="/static/css/commons.css" />
+    <link rel="stylesheet" href="/static/chigua/css/search.css">
 </head>
 <style>
     /* .swiper-slide  {
@@ -21,14 +22,14 @@
 } */
 
     .active1 > .header_navTxt{
-        color: #FA2B24 !important;
+        color: #FFB200 !important;
         background: none;
     }
     .active1 > .header_navli{
         width: 22px;
         height: 3px;
         border-radius: 3px;
-        background: #FA2B24;
+        background: #FFB200;
     }
 
     /* a {
@@ -52,7 +53,7 @@
                     <!-- <img src="/static/chigua/img/hlLogotxt.png" class="header_logoTxt"> -->
 
                 </div>
-                <a href="/static/chigua/search.html">
+                <a href="/chigua/search/<?php echo htmlentities($channel); ?>.html">
                     <div class="header_input">
                         <div class="headerInput"> 搜索</div>
                         <img src="/static/chigua/img/search.png" class="header_search">
@@ -87,7 +88,7 @@
             </div>
         </div>
         <!-- 顶部结束 -->
-        <div class="contentBox">
+        <div class="contentBox" style="padding-top:90px">
 
             <!-- Swiper -->
             <div class="swiper mySwiper">
@@ -152,6 +153,16 @@
     <div class="read_hl_txt"><?php echo htmlentities(chiguaCate($info['cate_id'])); ?></div>
 
     <div id="rich-text-container" contenteditable="true"> </div>
+    <div class="watchTj_btnBottomBox">
+        <div class="watchTj_btnBottomBox_txt">
+            <?php echo htmlentities(getImageCate($info['cate_id'])); ?>
+        </div>
+     
+
+    </div>
+    <div class="watchTj_gjc">
+        关键词： #<?php echo htmlentities(getImageCate($info['cate_id'])); ?>
+    </div>
              
     <!-- <div id="rich-text-container" ></div> -->
     <script>

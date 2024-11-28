@@ -48,6 +48,17 @@ class Index extends BaseController
         $foreverurl = sysconfig('site', 'foreverurl');
         $bdtongji = sysconfig('site', 'bdtongji');
         $tuoyilink = "https://c.tuoya2.cc?c=2039";
+        //漫画小说cdn
+        $tmimg = sysconfig('site', 'manhua_img_cdn');
+        View::assign('tmimg', $tmimg);
+        //图片cdn
+        $img_cdn = sysconfig('site', 'img_cdn');
+        View::assign('img_cdn', $img_cdn);
+        //视频封面cdn
+        $videoimg = sysconfig('site', 'video_img_cdn');
+        View::assign('videoimg',$videoimg);
+
+        
         View::assign('jscsscdn', $jscsscdn);
         View::assign('onlinekf', $onlinekf);
         View::assign('onlineemail', $onlineemail);
@@ -56,7 +67,7 @@ class Index extends BaseController
         View::assign('tuoyilink', $tuoyilink);
         View::assign('action', $action);
         //获取轮播广告
-        $BannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $BannerList = $this->Products
             ->where(array('status' => 1))
             ->where(['pid' => 91])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($BannerList as $key => &$item) {
@@ -68,10 +79,10 @@ class Index extends BaseController
             }
         }
         $BannerList = checkDisplayAd($this->site, $BannerList);
-        $BannerList = checkZhanneiAd($this->site, $BannerList);
+        $BannerList = checkZhanneiAd($this->site, $BannerList,$channel);
         View::assign('BannerList', $BannerList);
         //获取缩边轮播图
-        $BannerList2 = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $BannerList2 = $this->Products
             ->where(array('status' => 1))
             ->where(['pid' => 94])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($BannerList2 as $key => &$item) {
@@ -84,7 +95,7 @@ class Index extends BaseController
         }
         //减去该站点关闭得广告
         $BannerList2 = checkDisplayAd($this->site, $BannerList2);
-        $BannerList2 = checkZhanneiAd($this->site, $BannerList2);
+        $BannerList2 = checkZhanneiAd($this->site, $BannerList2,$channel);
         View::assign('BannerList2', $BannerList2);
         //获取广告得分类
         $pcategory = $this->Pcategory->field('id,title')
@@ -96,21 +107,21 @@ class Index extends BaseController
         if ($cateid) {
             $pwhere["cid"] = $cateid;
         }
-        $jiugongge_img = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $jiugongge_img = $this->Products
             ->where(array('status' => 1))
             ->where($pwhere)->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $jiugongge_img = checkDisplayAd($this->site, $jiugongge_img);
-        $jiugongge_img = checkZhanneiAd($this->site, $jiugongge_img);
+        $jiugongge_img = checkZhanneiAd($this->site, $jiugongge_img,$channel);
         View::assign('jiugongge_img', $jiugongge_img);
         //获取九宫格文字
-        $jiugongge_font = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $jiugongge_font = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 84])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $jiugongge_font = checkDisplayAd($this->site, $jiugongge_font);
-        $jiugongge_font = checkZhanneiAd($this->site, $jiugongge_font);
+        $jiugongge_font = checkZhanneiAd($this->site, $jiugongge_font,$channel);
         View::assign('jiugongge_font', $jiugongge_font);
         //获取在线约炮
-        $yuepao_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $yuepao_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 92])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         //截取小图
@@ -127,10 +138,10 @@ class Index extends BaseController
         }
 
         $yuepao_ad = checkDisplayAd($this->site, $yuepao_ad);
-        $yuepao_ad = checkZhanneiAd($this->site, $yuepao_ad);
+        $yuepao_ad = checkZhanneiAd($this->site, $yuepao_ad,$channel);
         View::assign('yuepao_ad', $yuepao_ad);
         //获取直播
-        $live_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $live_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 93])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($live_ad as $kyue => &$vyue) {
@@ -142,10 +153,10 @@ class Index extends BaseController
             }
         }
         $live_ad = checkDisplayAd($this->site, $live_ad);
-        $live_ad = checkZhanneiAd($this->site, $live_ad);
+        $live_ad = checkZhanneiAd($this->site, $live_ad,$channel);
         View::assign('live_ad', $live_ad);
         //获取直播
-        $live_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $live_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 93])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($live_ad as $kyue => &$vyue) {
@@ -157,22 +168,22 @@ class Index extends BaseController
             }
         }
         $live_ad = checkDisplayAd($this->site, $live_ad);
-        $live_ad = checkZhanneiAd($this->site, $live_ad);
+        $live_ad = checkZhanneiAd($this->site, $live_ad,$channel);
         View::assign('live_ad', $live_ad);
 
         //中部文字广告
-        $zhong_font_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $zhong_font_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 87])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $zhong_font_ad = checkDisplayAd($this->site, $zhong_font_ad);
-        $zhong_font_ad = checkZhanneiAd($this->site, $zhong_font_ad);
+        $zhong_font_ad = checkZhanneiAd($this->site, $zhong_font_ad,$channel);
         View::assign('zhong_font_ad', $zhong_font_ad);
         //中部图片广告
-        $zhong_img_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $zhong_img_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 86])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $zhong_img_ad = checkDisplayAd($this->site, $zhong_img_ad);
-        $zhong_img_ad = checkZhanneiAd($this->site, $zhong_img_ad);
+        $zhong_img_ad = checkZhanneiAd($this->site, $zhong_img_ad,$channel);
         View::assign('zhong_img_ad', $zhong_img_ad);
 
 
@@ -187,7 +198,7 @@ class Index extends BaseController
 
         //全站广告开始
         //全站-顶部-文字广告 3       $XSudokuTextList
-        $XSudokuTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $XSudokuTextList = $this->Products
             ->where(array('status' => 1, 'is_banner' => 0))
             ->where(['pid' => '3'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -200,7 +211,7 @@ class Index extends BaseController
 
 
         //全站-顶部横幅-单个广告 63 $XTopHFList
-        $XTopHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $XTopHFList = $this->Products
             ->where(array('status' => 1, 'is_banner' => 0))
             ->where(['pid' => '63'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
         foreach ($XTopHFList as $key => &$item) {
@@ -213,7 +224,7 @@ class Index extends BaseController
 
 
         //X站弹窗位 9                 $XPopUpList
-        $XPopUpList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $XPopUpList = $this->Products
             ->where(array('status' => 1, 'is_banner' => 0))
             ->where(['pid' => '9'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -228,7 +239,7 @@ class Index extends BaseController
         //全站广告结束
         if ($action == 'nav') {
             //导航-banner轮播图 10 $NavBannerList
-            $NavBannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavBannerList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 1))
                 ->where(['pid' => '10'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -241,7 +252,7 @@ class Index extends BaseController
             View::assign('NavBannerList', $NavBannerList);
 
             //导航-影院-九宫格 11     $NavCinemaSudokuList
-            $NavCinemaSudokuList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavCinemaSudokuList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '11'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($NavCinemaSudokuList as $key => &$item) {
@@ -254,7 +265,7 @@ class Index extends BaseController
             View::assign('NavCinemaSudokuList', $NavCinemaSudokuList);
 
             //导航-影院-直播大图 12 $NavCinemaLiveList
-            $NavCinemaLiveList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavCinemaLiveList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '12'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($NavCinemaLiveList as $key => &$item) {
@@ -269,7 +280,7 @@ class Index extends BaseController
             View::assign('NavCinemaLiveList', $NavCinemaLiveList);
 
             //导航-影院-约会大图 13 $NavCinemaHookupList
-            $NavCinemaHookupList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavCinemaHookupList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '13'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($NavCinemaHookupList as $key => &$item) {
@@ -284,7 +295,7 @@ class Index extends BaseController
             View::assign('NavCinemaHookupList', $NavCinemaHookupList);
 
             //导航-影院-药品大图 14 $NavCinemaMedicineList
-            $NavCinemaMedicineList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavCinemaMedicineList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '14'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($NavCinemaMedicineList as $key => &$item) {
@@ -299,7 +310,7 @@ class Index extends BaseController
             View::assign('NavCinemaMedicineList', $NavCinemaMedicineList);
 
             //导航-BC-九宫格 17.      $NavBCSudokuList
-            $NavBCSudokuList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavBCSudokuList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '17'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -313,7 +324,7 @@ class Index extends BaseController
             View::assign('NavBCSudokuList', $NavBCSudokuList);
 
             //导航-BC-直播大图 18.  $NavBCLiveList
-            $NavBCLiveList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavBCLiveList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '18'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -329,7 +340,7 @@ class Index extends BaseController
             View::assign('NavBCLiveList', $NavBCLiveList);
 
             //导航-BC-约会大图 19.  $NavBCHookupList
-            $NavBCHookupList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavBCHookupList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '19'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -345,7 +356,7 @@ class Index extends BaseController
             View::assign('NavBCHookupList', $NavBCHookupList);
 
             //导航-BC-药品大图 20.  $NavBCMedicineList
-            $NavBCMedicineList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavBCMedicineList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '20'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -361,7 +372,7 @@ class Index extends BaseController
             View::assign('NavBCMedicineList', $NavBCMedicineList);
 
             //导航-热门-九宫格 21.    $NavHotSudokuList
-            $NavHotSudokuList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavHotSudokuList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '21'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -375,7 +386,7 @@ class Index extends BaseController
             View::assign('NavHotSudokuList', $NavHotSudokuList);
 
             //导航-热门-直播大图 22 $NavHotLiveList
-            $NavHotLiveList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavHotLiveList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '22'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -391,7 +402,7 @@ class Index extends BaseController
             View::assign('NavHotLiveList', $NavHotLiveList);
 
             //导航-热门-约会大图 23 $NavHotHookupList
-            $NavHotHookupList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavHotHookupList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '23'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -407,7 +418,7 @@ class Index extends BaseController
             View::assign('NavHotHookupList', $NavHotHookupList);
 
             //导航-热门-药品大图 24 $NavHotMedicineList
-            $NavHotMedicineList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavHotMedicineList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '24'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -423,7 +434,7 @@ class Index extends BaseController
             View::assign('NavHotMedicineList', $NavHotMedicineList);
 
             //导航-九宫格中部文字广告 60   $NavSudokuMiddleTextList
-            $NavSudokuMiddleTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavSudokuMiddleTextList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '60'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -435,7 +446,7 @@ class Index extends BaseController
             View::assign('NavSudokuMiddleTextList', $NavSudokuMiddleTextList);
 
             //导航-九宫格底部文字广告 61   $NavSudokuBottomTextList
-            $NavSudokuBottomTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $NavSudokuBottomTextList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '61'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -447,7 +458,7 @@ class Index extends BaseController
             View::assign('NavSudokuBottomTextList', $NavSudokuBottomTextList);
         } else {
             //X站banner轮播图 1        $XBannerList
-            $XBannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XBannerList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 1))
                 ->where(['pid' => '1'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -461,7 +472,7 @@ class Index extends BaseController
             View::assign('XBannerList', $XBannerList);
 
             //X站九宫格. 2                   $XSudokuList
-            $XSudokuList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XSudokuList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '2'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -475,7 +486,7 @@ class Index extends BaseController
             View::assign('XSudokuList', $XSudokuList);
 
             //X站-列表页-插入广告 4 $XVideoListInsertList
-            $XVideoListInsertList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XVideoListInsertList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '4'])->order('sort asc,id asc')->page(1, 2)->cache(1200)->select();
 
@@ -489,7 +500,7 @@ class Index extends BaseController
             View::assign('XVideoListInsertList', $XVideoListInsertList);
 
             //X站-播放页-贴片 6      $XPlayVideoPatch
-            $XPlayVideoPatch = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XPlayVideoPatch = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '6'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
 
@@ -502,7 +513,7 @@ class Index extends BaseController
             View::assign('XPlayVideoPatch', $XPlayVideoPatch);
 
             //X站底飘 7                     $XBottomFloat
-            $XBottomFloat = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XBottomFloat = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '7'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
 
@@ -515,7 +526,7 @@ class Index extends BaseController
             View::assign('XBottomFloat', $XBottomFloat);
 
             //X站小飘窗 8                 $XFloating
-            $XFloating = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XFloating = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '8'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
 
@@ -529,7 +540,7 @@ class Index extends BaseController
 
 
             //X站-中部-文字九宫格 58            $XRecommendTextList
-            $XRecommendTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XRecommendTextList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '58'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -541,7 +552,7 @@ class Index extends BaseController
 
 
             //X站-底部-文字九宫格 59            $XGuessTextList
-            $XGuessTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XGuessTextList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '59'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
 
@@ -553,7 +564,7 @@ class Index extends BaseController
 
 
             //新-X站-底部横幅-单个广告 65 $XBottomHFList
-            $XBottomHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XBottomHFList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '65'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XBottomHFList as $key => &$item) {
@@ -567,7 +578,7 @@ class Index extends BaseController
 
 
             //X站-分类视频精选-顶部-文字九宫格 66 $XTopVideoTextList
-            $XTopVideoTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XTopVideoTextList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '66'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XTopVideoTextList as $key => &$item) {
@@ -579,7 +590,7 @@ class Index extends BaseController
 
 
             //X站-顶部-banner轮播图 67 $XTopBannerHFList
-            $XTopBannerHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XTopBannerHFList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '67'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XTopBannerHFList as $key => &$item) {
@@ -593,7 +604,7 @@ class Index extends BaseController
 
 
             //X站-分类视频精选-底部-banner轮播图 68 $XCateVideoBottomHFList
-            $XCateVideoBottomHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XCateVideoBottomHFList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '68'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XCateVideoBottomHFList as $key => &$item) {
@@ -607,7 +618,7 @@ class Index extends BaseController
 
 
             //X站-分类视频精选-底部-文字九宫格 69 $XCateVideoBottomTextList
-            $XCateVideoBottomTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XCateVideoBottomTextList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '69'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XCateVideoBottomTextList as $key => &$item) {
@@ -618,7 +629,7 @@ class Index extends BaseController
 
 
             //X站-分类视频精选-底部-图片九宫格 70 $XCateVideoBottomSudokuList
-            $XCateVideoBottomSudokuList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XCateVideoBottomSudokuList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '70'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XCateVideoBottomSudokuList as $key => &$item) {
@@ -631,7 +642,7 @@ class Index extends BaseController
 
 
             //X站-播放器底部-banner轮播图 71 $XVideoBottomHFList
-            $XVideoBottomHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XVideoBottomHFList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '71'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XVideoBottomHFList as $key => &$item) {
@@ -644,7 +655,7 @@ class Index extends BaseController
 
 
             //X站-顶部-文字九宫格 72 $XTopTextList
-            $XTopTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XTopTextList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '72'])->order('sort asc,id asc')->page(1, 100)->cache(1200)->select();
             foreach ($XTopTextList as $key => &$item) {
@@ -654,7 +665,7 @@ class Index extends BaseController
             View::assign('XTopTextList', $XTopTextList);
 
             //X站-分类/搜索/猜你喜欢-标题右侧-文字广告  73 $XCategoryTitleTextList
-            $XCategoryTitleTextList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XCategoryTitleTextList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '73'])->order('sort asc,id asc')->page(1, 3)->cache(1200)->select();
             foreach ($XCategoryTitleTextList as $key => &$item) {
@@ -664,7 +675,7 @@ class Index extends BaseController
             View::assign('XCategoryTitleTextList', $XCategoryTitleTextList);
 
             //X站-分类/搜索/猜你喜欢-视频列表-封面广告 74 $XCategoryVideoListInsertList
-            $XCategoryVideoListInsertList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XCategoryVideoListInsertList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '74'])->order('sort asc,id asc')->page(1, 2)->cache(1200)->select();
 
@@ -679,7 +690,7 @@ class Index extends BaseController
 
 
             //X站-小说漫画-简介-横幅广告 80 $XMhJJHFList
-            $XMhJJHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XMhJJHFList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '80'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XMhJJHFList as $key => &$item) {
@@ -691,7 +702,7 @@ class Index extends BaseController
             View::assign('XMhJJHFList', $XMhJJHFList);
 
             //X站-小说漫画-正文头部-横幅广告 81 $XMhTopHFList
-            $XMhTopHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XMhTopHFList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '81'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XMhTopHFList as $key => &$item) {
@@ -704,7 +715,7 @@ class Index extends BaseController
 
 
             //X站-小说漫画-正文尾部-横幅广告 82 $XMhBottomHFList
-            $XMhBottomHFList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+            $XMhBottomHFList = $this->Products
                 ->where(array('status' => 1, 'is_banner' => 0))
                 ->where(['pid' => '82'])->order('sort asc,id asc')->page(1, 1)->cache(1200)->select();
             foreach ($XMhBottomHFList as $key => &$item) {
@@ -742,16 +753,17 @@ class Index extends BaseController
         }
         View::assign('adcateid', $adcateid);
         //随机获取站点
-        $manhuasite = Db::name("site")->where(["type" => 3])->find();
-        $shipinsite = Db::name("site")->where(["type" => 1])->find();
-        $imgsite = Db::name("site")->where(["type" => 4])->find();
-        $xiaoshuosite = Db::name("site")->where(["type" => 2])->find();
-        $chiguaite = Db::name("site")->where(["type" => 6])->find();
-        View::assign('manhuasite', $manhuasite);
-        View::assign('shipinsite', $shipinsite);
-        View::assign('imgsite', $imgsite);
-        View::assign('xiaoshuosite', $xiaoshuosite);
-        View::assign('chiguaite', $chiguaite);
+        $manhuasite = Db::name("site")->where(["type" => 3])->orderRaw("rand()")->find();
+        $shipinsite = Db::name("site")->where(["type" => 1])->orderRaw("rand()")->find();
+        $imgsite = Db::name("site")->where(["type" => 4])->orderRaw("rand()")->find();
+        $xiaoshuosite = Db::name("site")->where(["type" => 2])->orderRaw("rand()")->find();
+        $chiguaite = Db::name("site")->where(["type" => 6])->orderRaw("rand()")->find();
+
+        View::assign('manhuasite', $manhuasite["domain"]);
+        View::assign('shipinsite', $shipinsite["domain"]);
+        View::assign('imgsite', $imgsite["domain"]);
+        View::assign('xiaoshuosite', $xiaoshuosite["domain"]);
+        View::assign('chiguasite', $chiguaite["domain"]);
         $menulist = $this->Menu->getmenu(0);
         foreach ($menulist as &$item) {
             $item['title'] = mbConvert($item['title']);
@@ -760,7 +772,7 @@ class Index extends BaseController
         $video = Db::name("mall_videos")->where(["status" => 1])->orderRaw('rand()')->limit(2)->select();
         //吃瓜图片1条
         $img_chigua = Db::name("mall_chigua")->orderRaw('rand()')->limit(1)->select()->toArray();
-    
+ 
         foreach ($img_chigua as $ik => $iv) {
             $img_chigua[$ik]["eye"] = rand(11111, 99999);
             // if ($iv["cover"]) {
@@ -769,6 +781,8 @@ class Index extends BaseController
             //     $img_chigua[$ik]["eye"] = rand(11111, 99999);
             // }
         }
+      
+        View::assign('img_chigua', $img_chigua);
         $img_chigua1 = Db::name("mall_chigua")->orderRaw('rand()')->limit(1)->select()->toArray();
         foreach ($img_chigua1 as $ik => $iv) {
             $img_chigua1[$ik]["eye"] = rand(11111, 99999);
@@ -807,17 +821,18 @@ class Index extends BaseController
             // $mv["num"]=rand(3,20);
         }
         //吃瓜
-        $img_chigua2 = Db::name("mall_img")->where(["status" => 1, "cate_id" => 1])->orderRaw('rand()')->limit(1)->select()->toArray();
+        $img_chigua2 = Db::name("mall_chigua")->orderRaw('rand()')->limit(1)->select()->toArray();
         foreach ($img_chigua2 as $ik => $iv) {
-            if ($iv["pic"]) {
-                $imgArray = explode(",", $iv["pic"]);
-                $img_chigua2[$ik]["pic"] = $imgArray;
+            // if ($iv["pic"]) {
+            //     $imgArray = explode(",", $iv["pic"]);
+                // $img_chigua2[$ik]["pic"] = $imgArray;
                 $img_chigua2[$ik]["eye"] = rand(11111, 99999);
-            }
+            // }
         }
         //图片
         $img1 = Db::name("mall_img")->where(["status" => 1])->orderRaw('rand()')->limit(3)->select()->toArray();
         foreach ($img1 as $ik => $iv) {
+            $imgArray = explode(",", $iv["pic"]);
             $img1[$ik]["pic"] = $imgArray;
             $img1[$ik]["eye"] = rand(1111, 9999);
             $img1[$ik]["fenlei"] = Db::name("mall_img_cate")->where(["id" => $iv["cate_id"]])->find();
@@ -829,7 +844,7 @@ class Index extends BaseController
         }
         View::assign('channel', $channel);
         View::assign('video', $video);
-        View::assign('img_chigua', $img_chigua);
+        
         View::assign('img_chigua1', $img_chigua1);
         View::assign('novel', $novel);
         View::assign('novel1', $novel1);

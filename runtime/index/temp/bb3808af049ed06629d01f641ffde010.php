@@ -1,4 +1,4 @@
-<?php /*a:2:{s:45:"C:\wwwroot\zhanqun\view\index\novel\info.html";i:1732186199;s:47:"C:\wwwroot\zhanqun\view\index\novel\header.html";i:1732186321;}*/ ?>
+<?php /*a:2:{s:45:"C:\wwwroot\zhanqun\view\index\novel\info.html";i:1732606021;s:47:"C:\wwwroot\zhanqun\view\index\novel\header.html";i:1732605851;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="/static/index/home.css"> -->
     <!-- <script src="/static/index/res.js"></script> -->
     <!-- <link rel="stylesheet" href="/static/index/swiper.css"> -->
+        <!-- 懒加载 -->
+    <script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/static/js/lozad.min.js"></script>
+     <!-- 懒加载 -->
    
    
 </head>
@@ -173,7 +179,8 @@
                 <!-- 小说1 -->
                 <div class="contentList">
                     <div class="contentListLeft">
-                        <img class="contentCover" src="<?php echo htmlentities($info['pic']); ?>" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                        <!-- <img class="contentCover" src="<?php echo htmlentities($info['pic']); ?>" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/> -->
+                        <img class="contentCover lozad" data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($info['enpic']); ?>" src="/static/images/loading_img_bg_default.jpg" />
                         <!-- <div class="contentNum" style="background: #FF1962;">1</div> -->
                     </div>
                     <div class="contentRight">
@@ -296,7 +303,7 @@
                 <a href="/novel/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                     <div class="book">
                         <div class="bookImg">
-                            <img style="width: 100%;height: 100%;" src="<?php echo htmlentities($item['pic']); ?>" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                            <img style="width: 100%;height: 100%;" src="/static/images/loading_img_bg_default.jpg" class=" lozad" data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>" />
                             <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/novel/images/wanjie.png" />
@@ -343,7 +350,7 @@
                 <a href="/novel/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                     <div class="book">
                         <div class="bookImg">
-                            <img style="width: 100%;height: 100%;" src="<?php echo htmlentities($item['pic']); ?>" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                            <img style="width: 100%;height: 100%;"  src="/static/images/loading_img_bg_default.jpg" class=" lozad" data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>" />
                             <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/novel/images/wanjie.png" />
@@ -427,6 +434,12 @@
 <script src="/static/index/swiper.js"></script>
 <script src="/static/novel/js/apps.js"></script>
 <script>
+      $(document).ready(function () {
+    // $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
     var swiper = new Swiper(".mySwiper", {
         cssMode: true,
         navigation: {

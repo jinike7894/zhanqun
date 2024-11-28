@@ -8,6 +8,7 @@ use app\admin\model\SystemQuick;
 use app\common\controller\AdminController;
 use think\App;
 use think\facade\Env;
+use think\facade\Db;
 
 class Index extends AdminController
 {
@@ -36,6 +37,14 @@ class Index extends AdminController
             ->order('sort', 'desc')
             ->limit(8)
             ->select();
+        //查询站点
+        $siteData=Db::name("site")->select()->toArray();
+         //获取站点得数据 ip 点击数
+        foreach($siteData as $k=>$v){
+            $siteData[$k]["ip"]=Db::name("mall_pro_click")->where(["date"=>date("Y-m-d"),"site_id"=>$v["id"]])->sum("ip_total");
+            $siteData[$k]["click"]=Db::name("mall_pro_click")->where(["date"=>date("Y-m-d"),"site_id"=>$v["id"]])->sum("pro_click_total");
+        }
+        $this->assign('siteData', $siteData);
         $this->assign('quicks', $quicks);
         return $this->fetch();
     }

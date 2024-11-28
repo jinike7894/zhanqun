@@ -51,7 +51,7 @@ class Chigua extends BaseController
         View::assign('tuoyilink', $tuoyilink);
         View::assign('action', $action);
         //获取轮播广告
-        $BannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $BannerList = $this->Products
             ->where(array('status' => 1))
             ->where(['pid' => 91])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($BannerList as $key => &$item) {
@@ -64,10 +64,10 @@ class Chigua extends BaseController
         }
         //减去该站点关闭得广告
         $BannerList = checkDisplayAd($this->site, $BannerList);
-        $BannerList = checkZhanneiAd($this->site, $BannerList);
+        $BannerList = checkZhanneiAd($this->site, $BannerList,$channel);
         View::assign('BannerList', $BannerList);
           //获取缩边轮播图
-          $BannerList2 = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+          $BannerList2 = $this->Products
           ->where(array('status'=>1))
           ->where(['pid' => 94])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
           foreach ($BannerList2 as $key => &$item) {
@@ -80,7 +80,7 @@ class Chigua extends BaseController
           }
           //减去该站点关闭得广告
           $BannerList2=checkDisplayAd($this->site,$BannerList2);
-          $BannerList2=checkZhanneiAd($this->site,$BannerList2);
+          $BannerList2=checkZhanneiAd($this->site,$BannerList2,$channel);
           View::assign('BannerList2',$BannerList2);
         //获取广告得分类
         $pcategory = $this->Pcategory->field('id,title')
@@ -92,28 +92,28 @@ class Chigua extends BaseController
         if ($cateid) {
             $pwhere["cid"] = $cateid;
         }
-        $jiugongge_img = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $jiugongge_img = $this->Products
             ->where(array('status' => 1))
             ->where($pwhere)->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $jiugongge_img = checkDisplayAd($this->site, $jiugongge_img);
-        $jiugongge_img = checkZhanneiAd($this->site, $jiugongge_img);
+        $jiugongge_img = checkZhanneiAd($this->site, $jiugongge_img,$channel);
         View::assign('jiugongge_img', $jiugongge_img);
         //获取九宫格文字
-        $jiugongge_font = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,content')
+        $jiugongge_font = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 84])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $jiugongge_font = checkDisplayAd($this->site, $jiugongge_font);
-        $jiugongge_font = checkZhanneiAd($this->site, $jiugongge_font);
+        $jiugongge_font = checkZhanneiAd($this->site, $jiugongge_font,$channel);
         View::assign('jiugongge_font', $jiugongge_font);
         //获取顶部图标文字
-        $img_font_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,content')
+        $img_font_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 85])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $img_font_ad = checkDisplayAd($this->site, $img_font_ad);
-        $img_font_ad = checkZhanneiAd($this->site, $img_font_ad);
+        $img_font_ad = checkZhanneiAd($this->site, $img_font_ad,$channel);
         View::assign('img_font_ad', $img_font_ad);
         //获取在线约炮
-        $yuepao_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $yuepao_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 92])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         //截取小图
@@ -130,10 +130,10 @@ class Chigua extends BaseController
         }
 
         $yuepao_ad = checkDisplayAd($this->site, $yuepao_ad);
-        $yuepao_ad = checkZhanneiAd($this->site, $yuepao_ad);
+        $yuepao_ad = checkZhanneiAd($this->site, $yuepao_ad,$channel);
         View::assign('yuepao_ad', $yuepao_ad);
         //获取直播
-        $live_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $live_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 93])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($live_ad as $kyue => &$vyue) {
@@ -145,10 +145,10 @@ class Chigua extends BaseController
             }
         }
         $live_ad = checkDisplayAd($this->site, $live_ad);
-        $live_ad = checkZhanneiAd($this->site, $live_ad);
+        $live_ad = checkZhanneiAd($this->site, $live_ad,$channel);
         View::assign('live_ad', $live_ad);
         //获取直播
-        $live_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $live_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 93])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($live_ad as $kyue => &$vyue) {
@@ -160,36 +160,36 @@ class Chigua extends BaseController
             }
         }
         $live_ad = checkDisplayAd($this->site, $live_ad);
-        $live_ad = checkZhanneiAd($this->site, $live_ad);
+        $live_ad = checkZhanneiAd($this->site, $live_ad,$channel);
         View::assign('live_ad', $live_ad);
 
         //中部文字广告
-        $zhong_font_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $zhong_font_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 87])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $zhong_font_ad = checkDisplayAd($this->site, $zhong_font_ad);
-        $zhong_font_ad = checkZhanneiAd($this->site, $zhong_font_ad);
+        $zhong_font_ad = checkZhanneiAd($this->site, $zhong_font_ad,$channel);
         View::assign('zhong_font_ad', $zhong_font_ad);
         //中部图片广告
-        $zhong_img_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $zhong_img_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 86])->orderRaw("rand()")->select()->toArray();
         $zhong_img_ad = checkDisplayAd($this->site, $zhong_img_ad);
-        $zhong_img_ad = checkZhanneiAd($this->site, $zhong_img_ad);
+        $zhong_img_ad = checkZhanneiAd($this->site, $zhong_img_ad,$channel);
         View::assign('zhong_img_ad', $zhong_img_ad);
         //底部图片广告
-        $di_img_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $di_img_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 88])->orderRaw("rand()")->select()->toArray();
         $di_img_ad = checkDisplayAd($this->site, $di_img_ad);
-        $di_img_ad = checkZhanneiAd($this->site, $di_img_ad);
+        $di_img_ad = checkZhanneiAd($this->site, $di_img_ad,$channel);
         View::assign('di_img_ad', $di_img_ad);
         //底部图片文字广告
-        $di_img_font_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $di_img_font_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 89])->orderRaw("rand()")->select()->toArray();
         $di_img_font_ad = checkDisplayAd($this->site, $di_img_font_ad);
-        $di_img_font_ad = checkZhanneiAd($this->site, $di_img_font_ad);
+        $di_img_font_ad = checkZhanneiAd($this->site, $di_img_font_ad,$channel);
         View::assign('di_img_font_ad', $di_img_font_ad);
       
         $chiguaCate = Db::name("mall_chigua_cate")->order("sort desc")->select();
@@ -206,7 +206,7 @@ class Chigua extends BaseController
             $where=[["cate_id","=",$_GET["cate_id"]]];
         }
         //获取吃瓜内容
-        $chigua = Db::name("mall_chigua")->where($where)->order("sort desc")->paginate([
+        $chigua = Db::name("mall_chigua")->where($where)->orderRaw("rand()")->paginate([
             'list_rows' => 6,
             'query'     => request()->param(),
          ]);
@@ -300,7 +300,7 @@ class Chigua extends BaseController
         if (empty($channel)) {
             return response('403 access forbidden!', 403);
         }
-        $videoCateData=Db::name("mall_novelcate")->select();
+        $videoCateData=  Db::name("mall_chigua_cate")->order("sort desc")->select();
         $video1=[];
         $video2=[];
         foreach($videoCateData as $k=>$v){
@@ -316,7 +316,7 @@ class Chigua extends BaseController
  
         View::assign('videoCateData', $videoCateData);
         View::assign('channel', $channel);
-        return View::fetch('novel/search');
+        return View::fetch('chigua/search');
     }
 
     public function searchres($channel = 0)
@@ -324,33 +324,23 @@ class Chigua extends BaseController
         if (empty($channel)) {
             return response('403 access forbidden!', 403);
         }
-        $videoCateData = Db::name("mall_novelcate")->select();
+        $videoCateData = Db::name("mall_chigua_cate")->select();
         View::assign('videoCateData', $videoCateData);
         View::assign('query', $_GET["query"]);
-        $videoModel = Db::name("mall_novels");
+        $videoModel = Db::name("mall_chigua");
         if (isset($_GET["cate_id"])) {
             $videoModel->where(["cate_id" => $_GET["cate_id"]]);
         }
         if (isset($_GET["query"]) && $_GET["query"] != "") {
             $videoModel->where('title', 'like', "%{$_GET["query"]}%");
         }
-        $videoData = $videoModel->where("status", "1")->paginate(6);
+        $videoData = $videoModel->paginate([
+            'list_rows' => 6,
+            'query'     => request()->param(),
+         ]);
         View::assign('list', $videoData);
-        // $videoCateData=Db::name("mall_cate")->where([["id","<>",1]])->select();
-        // $video1=[];
-        // $video2=[];
-        // foreach($videoCateData as $k=>$v){
-        //     if (in_array($k, [0,1,2,3,4,5])) { 
-        //         $video1[]=$v;
-        //      }
-        //     if (in_array($k, [6,7,8,9,10,11])) { 
-        //         $video2[]=$v;
-        //     }
-        // }
-        // View::assign('video2',$video2);
-        // View::assign('video1',$video1);
-        // View::assign('videoCateData',$videoCateData);
+
         View::assign('channel', $channel);
-        return View::fetch('novel/searchres');
+        return View::fetch('chigua/searchres');
     }
 }

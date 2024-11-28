@@ -6,752 +6,222 @@
     <meta charset="UTF-8">
     <title>首页</title>
     <link rel="stylesheet" href="__STATIC__/image/css/styleOld.css">
+    <link rel="stylesheet" href="__STATIC__/image/css/home.css">
     <script type="text/javascript" src="__STATIC__/image/js/jquery.js"></script>
+    <script type="text/javascript" src="__STATIC__/image/js/app.js"></script>
     <link rel="stylesheet" href="__STATIC__/image/css/styles.css">
     <link rel="stylesheet" href="__STATIC__/image/css/swiperGf.css" />
+    <link rel="stylesheet" href="__STATIC__/css/commons.css" />
 </head>
 
 <body>
+    <input type="hidden" id="site_id" value="{$site_id}">
+    <input type="hidden" id="channel" value="{$tongjiCode}">
     <!-- 人气榜 -->
     <div id="page">
 
         <!-- 顶部 -->
         <div class="header">
             <div class="header_nav">
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        推荐
+                <a href="/image/{$channel}.html">
+                    <div class="header_navLine ">
+                        <div class="header_navTxt ">
+                            推荐
+                        </div>
                     </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        精选美女
+                </a>
+                {volist name="novelCate" id="item"}
+                <a href="/image/{$channel}.html?cate_id={$item.id}">
+                    <div class="header_navLine ">
+                        <div class="header_navTxt  {if condition='$cate_id eq $item.id'}header_navTxt_active{/if} ">
+                            {$item.title}
+                        </div>
                     </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        日韩美女
-                    </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        港台美女
-                    </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        国产美女
-                    </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        系统
-                    </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        穿越
-                    </div>
-                </div>
-                <div class="header_navLine">
-                    <div class="header_navTxt">
-                        武侠
-                    </div>
-                </div>
+                </a>
+                {/volist}
 
             </div>
         </div>
         <!-- 顶部结束 -->
-        <div class="contentBox">
+        <div class="contentBox" style="padding-top:60px">
 
             <!-- Swiper -->
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="__STATIC__/image/img/banner1.png"></div>
-                    <div class="swiper-slide">Slide 2</div>
-                    <div class="swiper-slide">Slide 3</div>
-                    <div class="swiper-slide">Slide 4</div>
-                    <div class="swiper-slide">Slide 5</div>
-                    <div class="swiper-slide">Slide 6</div>
-                    <div class="swiper-slide">Slide 7</div>
-                    <div class="swiper-slide">Slide 8</div>
-                    <div class="swiper-slide">Slide 9</div>
+
+                    {volist name='BannerList' id="Banner"}
+                    <div class="swiper-slide ad " data-id="{$Banner.id}" data-channel="{$channel}"
+                        data-site="{$site_id}" data-url="{$Banner.androidurl}"><img src="{$Banner.img}"
+                            onerror="this.src='/static/images/loading_img_bg_default.jpg';"></div>
+                    {/volist}
                 </div>
-                <!-- <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div> -->
                 <div class="swiper-pagination"></div>
             </div>
             <div class="home_searchBox">
-                <a href="">
+                {volist name="novelCate" id="item"}
+                <a href="/image/{$channel}.html?cate_id={$item.id}">
                     <div class="home_searchBox_btn">
-                        女神
+                        {$item.title}
                     </div>
                 </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        极品
+                {/volist}
+                <a href="/image/search/{$channel}.html">
+                    <div class="home_searchMore">
+                        搜索更多
+                        <img src="__STATIC__/image/img/search.png" class="home_searchImg">
                     </div>
                 </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        嫩模
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        网红达人
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        风俗媚娘
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        气质
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        网红达人
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        风俗媚娘
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <a href="">
-                    <div class="home_searchBox_btn">
-                        女神
-                    </div>
-                </a>
-                <div class="home_searchMore">
-                    搜索更多
-                    <img src="__STATIC__/image/img/search.png" class="home_searchImg">
-                </div>
-
             </div>
 
 
 
             <!-- 九宫格文字版 -->
             <div class="index-jiugonggeTxt" style="margin-bottom: 8px;">
-                <div class="index_jiugonggeTxt_text">
+
+                {volist name="jiugongge_font" id="item"}
+                <div class="index_jiugonggeTxt_text ad" data-id="{$item.id}" data-channel="{$channel}"
+                    data-site="{$site_id}" data-url="{$item.androidurl}">
                     <div class="index_jiugonggeTxt_textleft">
-                        <img src="__STATIC__/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
+                        <img src="{$item.img}" class="index_jiugonggeTxt_img">
+                        {$item.name}
                     </div>
-                    
+
                     <img src="__STATIC__/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
                 </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="__STATIC__/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="__STATIC__/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="__STATIC__/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="__STATIC__/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="__STATIC__/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="__STATIC__/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="__STATIC__/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="__STATIC__/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="__STATIC__/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="__STATIC__/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="__STATIC__/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="__STATIC__/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="__STATIC__/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="__STATIC__/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
-                <div class="index_jiugonggeTxt_text">
-                    <div class="index_jiugonggeTxt_textleft">
-                        <img src="__STATIC__/image/img/chigua3.png" class="index_jiugonggeTxt_img">
-                        国产精品
-                    </div>
-                    
-                    <img src="__STATIC__/image/img/rightBtn.png" class="index_jiugonggeTxt_rightBtn">
-                </div>
+                {/volist}
             </div>
         </div>
+
+        <div class="index_swiper">
+            <div class="swiper-banner swiper">
+                <div class="swiper-wrapper">
+                    {volist name='BannerList2' id="Banner"}
+                    <div class="swiper-slide">
+                        <img class="banner-img ad" src="{$Banner.img}" alt="" data-id="{$Banner.id}"
+                            data-channel="{$channel}" data-site="{$site_id}" data-url="{$Banner.androidurl}">
+                    </div>
+                    {/volist}
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+
         <!-- 排行榜 -->
         <div class="home_cardBox">
+            {volist name="novelCateorder" id="item"}
             <div class="home_card">
                 <div class="home_card_title">
-                    <img src="__STATIC__/image/img/flag.png" class="home_card_flag">中国女神排行榜
+                    <img src="__STATIC__/image/img/flag.png" class="home_card_flag">{$item.title}排行榜
                 </div>
                 <div class="home_card_hr"></div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num" style="background: #D13E3E;">1</div>
-                        <div class="home_card_name">sugar小</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">1306942</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #C66234;">2</div>
-                        <div class="home_card_name">米妮大萌</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #CBAD3E;">3</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">4</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">5</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">6</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">7</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">8</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
+                {$item.order_html|raw}
 
             </div>
-            <div class="home_card">
-                <div class="home_card_title">
-                    <img src="__STATIC__/image/img/flag.png" class="home_card_flag">中国女神排行榜
-                </div>
-                <div class="home_card_hr"></div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num" style="background: #D13E3E;">1</div>
-                        <div class="home_card_name">sugar小</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">1306942</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #C66234;">2</div>
-                        <div class="home_card_name">米妮大萌</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #CBAD3E;">3</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">4</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">5</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">6</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">7</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">8</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-
-            </div>
-            <div class="home_card">
-                <div class="home_card_title">
-                    <img src="__STATIC__/image/img/flag.png" class="home_card_flag">中国女神排行榜
-                </div>
-                <div class="home_card_hr"></div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num" style="background: #D13E3E;">1</div>
-                        <div class="home_card_name">sugar小</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">1306942</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #C66234;">2</div>
-                        <div class="home_card_name">米妮大萌</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num " style=" background: #CBAD3E;">3</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">4</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">5</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">6</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">7</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-                <div class="home_card_list">
-                    <div class="home_card_left">
-                        <div class="home_card_num ">8</div>
-                        <div class="home_card_name">夏美酱</div>
-                    </div>
-                    <div class="home_card_right">
-                        <img src="__STATIC__/image/img/huo.png" class="home_card_huo">
-                        <div class="home_card_name">236240</div>
-                    </div>
-                </div>
-
-            </div>
+            {/volist}
         </div>
         <!-- 图集 -->
 
         <div class="contentBox">
             <div class="tj_nav">推荐相册</div>
             <div class="hotList">
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="__STATIC__/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">47张
-                        </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="__STATIC__/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">47张
+                {volist name="images1" id="item"}
+                <a href="/image/info/{$channel}.html?id={$item.id}">
+                    <div class="book">
+                        <div class="bookImg">
+                            <img style="width: 100%;height: 100%;"  data-src="{$item.pic|imagefirst}"
+                            src="/static/images/loading_img_bg_default.jpg" class="imgbase64" />
+                            <div class="bookBox_numPage">
+                                <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">{$item.pic_num}张
+                            </div>
                         </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
+                        <div style="padding: 5px;">
+                            <div class="bookName">{$item.title|fontsize3}</div>
+                            <div class="bookText">{$item.detail|fontsize3}</div>
+                            <div class="bookNav">
+                                <span>#{$item.cate_id|getImageCate}</span>
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="__STATIC__/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">47张
+                            </div>
                         </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="__STATIC__/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">47张
-                        </div>
                     </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
-
-                </div>
+                </a>
+                {/volist}
             </div>
-            <img class="banner" src="__STATIC__/image/img/gg1.png" />
+
+            {volist name='zhong_img_ad' id="item"}
+            <img src="{$item.img}" class="banner ad" data-id="{$item.id}" data-channel="{$channel}"
+                data-site="{$site_id}" data-url="{$item.androidurl}">
+            {/volist}
+
             <div class="index_dyList" style="padding: 8px 0;border: 0px;">
-                <a href="">
-                    <div class="index_dyListBox">
-                        <div class="flexBox">
-                            <img src="__STATIC__/image/img/chigua1.png" class="index_dyList_img">
-                            <div class="index_dyList_dyTxt">抖阴成人版</div>
+                {volist name='zhong_font_ad' id="item"}
 
-                        </div>
+                <div class="index_dyListBox ad" data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$item.androidurl}">
+                    <div class="flexBox">
+                        <img src="{$item.img}" class="index_dyList_img"
+                            onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                        <div class="index_dyList_dyTxt">{$item.name}</div>
 
-                        <img src="__STATIC__/image/img/rightIcon.png" class="index_dyList_rightIcon">
                     </div>
-                </a>
-                <a href="">
-                    <div class="index_dyListBox">
-                        <div class="flexBox">
-                            <img src="__STATIC__/image/img/chigua1.png" class="index_dyList_img">
-                            <div class="index_dyList_dyTxt">抖阴成人版</div>
 
-                        </div>
+                    <img src="__STATIC__/novel/img/rightIcon.png" class="index_dyList_rightIcon">
+                </div>
 
-                        <img src="__STATIC__/image/img/rightIcon.png" class="index_dyList_rightIcon">
-                    </div>
-                </a>
+                {/volist}
 
             </div>
             <div class="hotList">
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="__STATIC__/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">47张
+                {volist name="images2" id="item"}
+                <a href="/image/info/{$channel}.html?id={$item.id}">
+                    <div class="book">
+                        <div class="bookImg">
+                            <img style="width: 100%;height: 100%;" data-src="{$item.pic|imagefirst}"
+                                src="/static/images/loading_img_bg_default.jpg" class="imgbase64" />
+                            <div class="bookBox_numPage">
+                                <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">{$item.pic_num}张
+                            </div>
                         </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
+                        <div style="padding: 5px;">
+                            <div class="bookName">{$item.title|fontsize3}</div>
+                            <div class="bookText">{$item.detail|fontsize3}</div>
+                            <div class="bookNav">
+                                <span>#{$item.cate_id|getImageCate}</span>
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="__STATIC__/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">47张
+                            </div>
                         </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="__STATIC__/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">47张
-                        </div>
                     </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
+                </a>
+                {/volist}
 
-                </div>
-                <div class="book">
-                    <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="__STATIC__/image/img/chigua1.png" />
-                        <div class="bookBox_numPage">
-                            <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">47张
-                        </div>
-                    </div>
-                    <div style="padding: 5px;">
-                        <div class="bookName">杨晨晨Yome</div>
-                        <div class="bookText">高清写真图丝袜美腿</div>
-                        <div class="bookNav">
-                            <span>#人妻</span>
-                            <span>#乱伦</span>
-                        </div>
-                    </div>
-
-                </div>
             </div>
-            <img class="banner" src="__STATIC__/image/img/gg1.png" />
+            {volist name='di_img_ad' id="item"}
+            <img class="banner ad" src="{$item.img}" data-id="{$item.id}" data-channel="{$channel}"
+                data-site="{$site_id}" data-url="{$item.androidurl}"
+                onerror="this.src='/static/images/loading_img_bg_default.jpg';" />
+            {/volist}
             <div class="index_dyList" style="padding: 8px 0;border: 0px;">
-                <a href="">
-                    <div class="index_dyListBox">
-                        <div class="flexBox">
-                            <img src="__STATIC__/image/img/chigua1.png" class="index_dyList_img">
-                            <div class="index_dyList_dyTxt">抖阴成人版</div>
+                {volist name='di_img_font_ad' id="item"}
+                <div class="index_dyListBox ad " data-id="{$item.id}" data-channel="{$channel}" data-site="{$site_id}"
+                    data-url="{$item.androidurl}">
+                    <div class="flexBox">
+                        <img src="{$item.img}" class="index_dyList_img"
+                            onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                        <div class="index_dyList_dyTxt">{$item.name}</div>
 
-                        </div>
-
-                        <img src="__STATIC__/image/img/rightIcon.png" class="index_dyList_rightIcon">
                     </div>
-                </a>
-                <a href="">
-                    <div class="index_dyListBox">
-                        <div class="flexBox">
-                            <img src="__STATIC__/image/img/chigua1.png" class="index_dyList_img">
-                            <div class="index_dyList_dyTxt">抖阴成人版</div>
 
-                        </div>
-
-                        <img src="__STATIC__/image/img/rightIcon.png" class="index_dyList_rightIcon">
-                    </div>
-                </a>
+                    <img src="__STATIC__/video/img/rightIcon.png" class="index_dyList_rightIcon">
+                </div>
+                {/volist}
 
             </div>
-             <div class="pageNum" style="margin-top: 10px;">
-                <div class="pageNext">
-                    <img src="__STATIC__/image/img/Chevron_Left.svg" />
-                </div>
-                <div class="pageNumBox" style="background: #FFFFFF33;">1</div>
-                <div class="pageNumBox">2</div>
-                <div class="pageNumBox">3</div>
-                <div class="pageNumBox">4</div>
-                <div class="pageNumBox">5</div>
-                <div class="pageNumBox">6</div>
-                <div class="pageMore">...</div>
-                <div class="pageNumBox">142</div>
-                <div class="pageNext"> <img src="__STATIC__/image/img/right.svg" /> </div>
+            <div class="pageNum" style="margin-top: 10px;">
+                {$image|raw}
             </div>
         </div>
 
@@ -766,9 +236,30 @@
 
 
 </body>
+<script src="__STATIC__/common/jq.js"></script>
+<script src="__STATIC__/common/swiper.js"></script>
+<script src="__STATIC__/common/apps.js"></script>
 <script src="__STATIC__/image/js/swiper.js"></script>
 <script>
-
+    $(document).ready(function () {
+        // 获取所有 class 为 imgbase64 的 img 标签 
+        $('img.imgbase64').each(function () {
+            var img = $(this);
+            var imgSrc = img.attr('data-src');
+            var url="{$img_cdn}/"+imgSrc
+            var content="";
+            $.ajax({ url:url, 
+             type: 'GET', 
+             success: function(data) { 
+                content='data:image/jpeg;base64,'+data
+                console.log(content)
+                img.attr('src', content);
+            }, 
+                error: function(xhr, status, error) { } 
+            });
+           
+        });
+    });
     var swiper = new Swiper(".mySwiper", {
         cssMode: true,
         navigation: {
@@ -783,7 +274,7 @@
     });
 
     $(document).ready(function () {
-       
+
         //导航栏
         $(".header_navTxt").click(function () {
             $(".header_navTxt").removeClass("header_navTxt_active");

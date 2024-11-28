@@ -57,6 +57,7 @@ class Clicks extends AdminController
             if ($list) {
                 $list = $list->toArray();
                 
+                 
                 $siteArray=[];
                 foreach($list as $k=>$v){
                     $siteArray[]=$v["site_id"];
@@ -72,6 +73,8 @@ class Clicks extends AdminController
                 $siteArray = [];
                 $siteCategoryArray = [];
                 foreach ($list as $k => $v) {
+                    //获取渠道备注
+                    $list[$k]["remark"]=Db::name("channelcode")->where(["channelCode"=>$v['channelCode']])->find()["remark"];
                     if($v["site_id"]){
                         $siteArray[] = $v["site_id"];
                     }

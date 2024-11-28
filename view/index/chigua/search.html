@@ -1,0 +1,143 @@
+{include file="chigua/header1" /}
+
+            <!-- 返回栏 -->
+            <div class="nav" style="padding-left: 0;margin-top: 6px;">
+                <div class="left">
+                    <img class="leftBtn" style="margin-right: 5px;" src="__STATIC__/chigua/images/rectangle.svg" />
+                    <div class="leftName">热门搜索</div>
+                </div>
+            </div>
+            <div class="search_hot">
+                <div class="search_hotLeft">
+                    {volist name='video1' id="item" key="index"}
+                    <a href="/chigua/searchres/{$channel}.html?query={$item.title}">
+                        <div class="search_hotBox">
+                            <div class="search_hotNum  
+                            {if condition='$index eq 1' }
+                            serach_hotOne
+                            {/if}
+                            {if condition='$index eq 2' }
+                            serach_hotTwo
+                            {/if}
+                            {if condition='$index eq 3' }
+                            serach_hotThree
+                            {/if}
+                            ">
+                                {$index}
+                            </div>
+                            <div class="search_hotTxt    
+                            {if condition='$index eq 1' }
+                            serach_hotOneTxt
+                            {/if}
+                            {if condition='$index eq 2' }
+                            search_hotTxtTwo
+                            {/if}
+                            {if condition='$index eq 3' }
+                            search_hotTxtThree
+                            {/if}">
+                                {$item.title}
+                            </div>
+                        </div>
+                    </a>
+                    {/volist}
+               
+
+                </div>
+                <div class="search_hotRight">
+                    {volist name='video2' id="item" key="index"}
+                    <a href="/chigua/searchres/{$channel}.html?query={$item.title}">
+                        <div class="search_hotBox">
+                            <div class="search_hotNum serach_hotOther">
+                               {$index+6}
+                            </div>
+                            <div class="search_hotTxt search_hotTxtOther">
+                                {$item.title}
+                            </div>
+                        </div>
+                    </a>
+                   {/volist}
+
+                </div>
+
+
+            </div>
+
+
+            <!-- 九宫格 -->
+            <div class="index_jiugongge">
+                {volist name='jiugongge_img' id="item"}
+                <div class="index_jiugongge_li ad"
+                data-id="{$Banner.id}" data-channel="{$channel}" data-site="{$site_id}"
+                data-url="{$Banner.androidurl}"
+                >
+                    <img class="index_jiugongge_img" src="{$item.img}">
+                    <div class="index_jiugongge_text">{$item.name}</div>
+                </div>
+                {/volist}
+            
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+</body>
+<script src="__STATIC__/chigua/js/swiper-bundle.min.js"></script>
+<script>
+
+    var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+    });
+   //搜索点击跳转
+    $(document).ready(function () {
+        //小说分类点击变亮
+        $(".lable").click(function () {
+            $(".lable").removeClass("lable_active");
+            $(this).addClass("lable_active");
+        });
+        //漫画分类点击变亮
+        $(".choosePage").click(function () {
+            $(".choosePage").removeClass("choosePage_active");
+            $(this).addClass("choosePage_active");
+        });
+        //导航栏
+        $(".header_navTxt").click(function () {
+            $(".header_navTxt").removeClass("header_navTxt_active");
+            $(this).addClass("header_navTxt_active");
+        });
+        //点击正倒序
+        $('.mulvTop').click(function () {
+            var currentText = $('#textToChange').text();
+            if (currentText === "正序") {
+                $('#textToChange').text("倒序");
+                $('#imgToChange').attr('src', '__STATIC__/video/images/daoxu.svg');
+
+            } else {
+                $('#textToChange').text("正序");
+                $('#imgToChange').attr('src', '__STATIC__/video/images/zhengxu.svg');
+            }
+        });
+    });
+    $(document).ready(function() { $('.search_searchBtn').on('click', function() {
+         var text=$(".search_input_input").val();
+         var url=$(this).attr("data-url");
+        window.location.href = url+"?query="+text; 
+    }); 
+        });
+</script>
+
+</html>

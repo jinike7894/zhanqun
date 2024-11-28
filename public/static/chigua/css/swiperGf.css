@@ -16,7 +16,9 @@
     overflow: hidden;
     list-style: none;
     padding: 0;
-    z-index: 1
+    z-index: 1;
+    margin-bottom: 8px;
+    border-radius: 10px;
 }
 
 .swiper-vertical>.swiper-wrapper {
@@ -335,8 +337,8 @@
 }
 
 .swiper-pagination-bullet {
-    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
-    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 4px));
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 4px));
     display: inline-block;
     border-radius: 50%;
     background: var(--swiper-pagination-bullet-inactive-color, #000);
@@ -361,8 +363,14 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-pagination-bullet-active {
-    opacity: var(--swiper-pagination-bullet-opacity, 1);
-    background: var(--swiper-pagination-color, var(--swiper-theme-color))
+    width: 8px !important;
+    height: 4px !important;
+    border-radius: 2px !important;
+    opacity: 0.6 !important;
+    background: #FFFFFF !important;
+
+    /*opacity: var(--swiper-pagination-bullet-opacity, 1);*/
+    /*background: var(--swiper-pagination-color, var(--swiper-theme-color))*/
 }
 
 .swiper-pagination-vertical.swiper-pagination-bullets,
@@ -723,8 +731,8 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-pagination-bullet {
-    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
-    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 4px));
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 4px));
     display: inline-block;
     border-radius: 50%;
     background: var(--swiper-pagination-bullet-inactive-color, #000);
@@ -749,8 +757,8 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-pagination-bullet-active {
-    opacity: var(--swiper-pagination-bullet-opacity, 1);
-    background: var(--swiper-pagination-color, var(--swiper-theme-color))
+    /*opacity: var(--swiper-pagination-bullet-opacity, 1);*/
+    /*background: var(--swiper-pagination-color, var(--swiper-theme-color))*/
 }
 
 .swiper-pagination-vertical.swiper-pagination-bullets,

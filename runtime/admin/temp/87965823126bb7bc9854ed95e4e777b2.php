@@ -1,4 +1,4 @@
-<?php /*a:2:{s:56:"C:\wwwroot\zhanqun\view\admin\website\site\settings.html";i:1731578281;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1730802670;}*/ ?>
+<?php /*a:2:{s:56:"C:\wwwroot\zhanqun\view\admin\website\site\settings.html";i:1732359726;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1732110801;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,21 +35,22 @@
 
     <meta charset="UTF-8">
     <title></title>
-    <script type="text/javascript" src="/static/admin/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
     <link rel="stylesheet" href="/static/admin/css/style.css">
 </head>
 
 <body>
     <div id="page">
         <!-- 九宫格图片 -->
+      <?php if(is_array($ptype) || $ptype instanceof \think\Collection || $ptype instanceof \think\Paginator): $i = 0; $__LIST__ = $ptype;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
         <div class="jggImg">
             <div class="hr"></div>
             <div class="jggImg_nameBox">
-                <div class="jggImg_name">九宫格图片</div>
-                <div class="jggImg_zkBtn" style="display: none;">展开</div>
-                <div class="jggImg_sqBtn">收起</div>
+                <div class="jggImg_name"><?php echo htmlentities($item['title']); ?></div>
+                <div class="jggImg_zkBtn" style="display: none;" data-id="<?php echo htmlentities($item['id']); ?>">展开</div>
+                <div class="jggImg_sqBtn" data-id="<?php echo htmlentities($item['id']); ?>">收起</div>
             </div>
-            <table class="jggContent">
+            <table class="jggContent" data-id="<?php echo htmlentities($item['id']); ?>">
                 <tr class="tableTitle">
                     <th scope="col">ID</th>
                     <th scope="col">类别</th>
@@ -62,263 +63,56 @@
                     <th scope="col">跳转地址</th>
                     <th scope="col">状态</th>
                 </tr>
+                <?php if(is_array($item['ad']) || $item['ad'] instanceof \think\Collection || $item['ad'] instanceof \think\Paginator): $i = 0; $__LIST__ = $item['ad'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
                 <tr>
-                    <th scope="col">5</th>
-                    <th scope="col">直播</th>
-                    <th scope="col">九宫格图片</th>
-                    <th scope="col">12</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">站外跳转</th>
-                    <th scope="col">https://baidu.com</th>
-                    <th scope="col">状态</th>
-                </tr>
-                <tr>
-                    <th scope="col">4</th>
-                    <th scope="col">图库</th>
-                    <th scope="col">九宫格图片</th>
-                    <th scope="col">38</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">站外跳转</th>
+                    <th scope="col"><?php echo htmlentities($items['id']); ?></th>
+                    <th scope="col"><?php echo htmlentities(getAdCate($items['cid'])); ?></th>
+                    <th scope="col"><?php echo htmlentities($item['title']); ?></th>
+                    <th scope="col"><?php echo htmlentities($items['sort']); ?></th>
+                    <th scope="col"><?php echo htmlentities($items['name']); ?></th>
+                    <th scope="col"><?php echo htmlentities($items['k_name']); ?></th>
+                    <th scope="col"><img src="<?php echo htmlentities($items['img']); ?>" style="width: 30px;height: 30px;"></th>
                     <th scope="col">
-                        <select class="select">
-                            <option>to视频1站</option>
-                            <option>to视频2站</option>
-                            <option>to视频3站</option>
-                            <option>to视频4站</option>
+                        <?php if($items['url_type']==1): ?>
+                        站内跳转
+                        <?php else: ?>
+                        站外跳转
+                        <?php endif; ?>
+                    </th>
+                    <th scope="col">
+                        <?php if($items['url_type']==1): ?>
+                        <select class="url" data-id="<?php echo htmlentities($items['id']); ?>">
+                            <option value="0">请选择站点</option>
+                        <?php if(is_array($site) || $site instanceof \think\Collection || $site instanceof \think\Paginator): $i = 0; $__LIST__ = $site;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$site_item): $mod = ($i % 2 );++$i;?>
+                            <option value="<?php echo htmlentities($site_item['id']); ?>" 
+                            <?php if($site_item['id']==$items['url_site_id']): ?>
+                            selected 
+                            <?php endif; ?>
+                            >
+                                <?php echo htmlentities($site_item['name']); ?>
+                            </option>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                    </select>
+                        <?php else: ?>
+                          <?php echo htmlentities($items['androidurl']); ?>
+                        <?php endif; ?>
+                    </th>
+                    <th scope="col">
+                        <select class="switch" data-id="<?php echo htmlentities($items['id']); ?>">
+                           
+                            <option value="1" <?php if($items['switch']==1): ?>selected<?php endif; ?>>开启</option>
+                            <option value="0"
+                            <?php if($items['switch']==0): ?>selected<?php endif; ?> >关闭</option>
                         </select>
                     </th>
-                    <th scope="col">状态</th>
                 </tr>
+               <?php endforeach; endif; else: echo "" ;endif; ?>
             </table>
 
         </div>
-
-        <!-- 九宫格文字 -->
-        <div class="jggImg">
-            <div class="hr"></div>
-            <div class="jggImg_nameBox">
-                <div class="jggImg_name">九宫格文字</div>
-                <div class="jggtxt_zkBtn" style="display: none;">展开</div>
-                <div class="jggtxt_sqBtn">收起</div>
-            </div>
-            <table class="jggtxtContent">
-                <tr class="tableTitle">
-                    <th scope="col">ID</th>
-                    <th scope="col">类别</th>
-                    <th scope="col">分类</th>
-                    <th scope="col">排序</th>
-                    <th scope="col">外显名称</th>
-                    <th scope="col">客户名称</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">跳转方式</th>
-                    <th scope="col">跳转地址</th>
-                    <th scope="col">状态</th>
-                </tr>
-                <tr>
-                    <th scope="col">5</th>
-                    <th scope="col">直播</th>
-                    <th scope="col">九宫格图片</th>
-                    <th scope="col">12</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">站外跳转</th>
-                    <th scope="col">https://baidu.com</th>
-                    <th scope="col">状态</th>
-                </tr>
-                <tr>
-                    <th scope="col">4</th>
-                    <th scope="col">图库</th>
-                    <th scope="col">九宫格图片</th>
-                    <th scope="col">38</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">站外跳转</th>
-                    <th scope="col">
-                        <select class="select">
-                            <option>to视频1站</option>
-                            <option>to视频2站</option>
-                            <option>to视频3站</option>
-                            <option>to视频4站</option>
-                        </select>
-                    </th>
-                    <th scope="col">状态</th>
-                </tr>
-            </table>
-
-        </div>
-        <!-- 轮播图文字 -->
-        <div class="jggImg">
-            <div class="hr"></div>
-            <div class="jggImg_nameBox">
-                <div class="jggImg_name">轮播图</div>
-                <div class="swiper_zkBtn" style="display: none;">展开</div>
-                <div class="swiper_sqBtn">收起</div>
-            </div>
-            <table class="swiperContent">
-                <tr class="tableTitle">
-                    <th scope="col">ID</th>
-                    <th scope="col">类别</th>
-                    <th scope="col">分类</th>
-                    <th scope="col">排序</th>
-                    <th scope="col">外显名称</th>
-                    <th scope="col">客户名称</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">跳转方式</th>
-                    <th scope="col">跳转地址</th>
-                    <th scope="col">状态</th>
-                </tr>
-                <tr>
-                    <th scope="col">5</th>
-                    <th scope="col">直播</th>
-                    <th scope="col">九宫格图片</th>
-                    <th scope="col">12</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">站外跳转</th>
-                    <th scope="col">https://baidu.com</th>
-                    <th scope="col">状态</th>
-                </tr>
-                <tr>
-                    <th scope="col">4</th>
-                    <th scope="col">图库</th>
-                    <th scope="col">九宫格图片</th>
-                    <th scope="col">38</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">站外跳转</th>
-                    <th scope="col">
-                        <select class="select">
-                            <option>to视频1站</option>
-                            <option>to视频2站</option>
-                            <option>to视频3站</option>
-                            <option>to视频4站</option>
-                        </select>
-                    </th>
-                    <th scope="col">状态</th>
-                </tr>
-            </table>
-
-        </div>
-        <!-- 弹窗文字 -->
-        <div class="jggImg">
-            <div class="hr"></div>
-            <div class="jggImg_nameBox">
-                <div class="jggImg_name">弹窗</div>
-                <div class="tc_zkBtn" style="display: none;">展开</div>
-                <div class="tc_sqBtn">收起</div>
-            </div>
-            <table class="tcContent">
-                <tr class="tableTitle">
-                    <th scope="col">ID</th>
-                    <th scope="col">类别</th>
-                    <th scope="col">分类</th>
-                    <th scope="col">排序</th>
-                    <th scope="col">外显名称</th>
-                    <th scope="col">客户名称</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">跳转方式</th>
-                    <th scope="col">跳转地址</th>
-                    <th scope="col">状态</th>
-                </tr>
-                <tr>
-                    <th scope="col">5</th>
-                    <th scope="col">直播</th>
-                    <th scope="col">九宫格图片</th>
-                    <th scope="col">12</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">站外跳转</th>
-                    <th scope="col">https://baidu.com</th>
-                    <th scope="col">状态</th>
-                </tr>
-                <tr>
-                    <th scope="col">4</th>
-                    <th scope="col">图库</th>
-                    <th scope="col">九宫格图片</th>
-                    <th scope="col">38</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">站外跳转</th>
-                    <th scope="col">
-                        <select class="select">
-                            <option>to视频1站</option>
-                            <option>to视频2站</option>
-                            <option>to视频3站</option>
-                            <option>to视频4站</option>
-                        </select>
-                    </th>
-                    <th scope="col">状态</th>
-                </tr>
-            </table>
-
-        </div>
-        <!-- 视频封面 -->
-        <div class="jggImg">
-            <div class="hr"></div>
-            <div class="jggImg_nameBox">
-                <div class="jggImg_name">视频封面</div>
-                <div class="spCover_zkBtn" style="display: none;">展开</div>
-                <div class="spCover_sqBtn">收起</div>
-            </div>
-            <table class="spCoverContent">
-                <tr class="tableTitle">
-                    <th scope="col">ID</th>
-                    <th scope="col">类别</th>
-                    <th scope="col">分类</th>
-                    <th scope="col">排序</th>
-                    <th scope="col">外显名称</th>
-                    <th scope="col">客户名称</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">跳转方式</th>
-                    <th scope="col">跳转地址</th>
-                    <th scope="col">状态</th>
-                </tr>
-                <tr>
-                    <th scope="col">5</th>
-                    <th scope="col">直播</th>
-                    <th scope="col">九宫格图片</th>
-                    <th scope="col">12</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">站外跳转</th>
-                    <th scope="col">https://baidu.com</th>
-                    <th scope="col">状态</th>
-                </tr>
-                <tr>
-                    <th scope="col">4</th>
-                    <th scope="col">图库</th>
-                    <th scope="col">九宫格图片</th>
-                    <th scope="col">38</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">ABCD</th>
-                    <th scope="col">产品图片</th>
-                    <th scope="col">站外跳转</th>
-                    <th scope="col">
-                        <select class="select">
-                            <option>to视频1站</option>
-                            <option>to视频2站</option>
-                            <option>to视频3站</option>
-                            <option>to视频4站</option>
-                        </select>
-                    </th>
-                    <th scope="col">状态</th>
-                </tr>
-            </table>
-
-        </div>
-
-        <div class="btnBox">
+        <?php endforeach; endif; else: echo "" ;endif; ?>
+      
+        <!-- <div class="btnBox">
             <div class="cancel">
                 取消
             </div>
@@ -326,7 +120,7 @@
                 修改
             </div>
 
-        </div>
+        </div> -->
 
     </div>
 
@@ -334,82 +128,53 @@
 
 
     <script>
+        //选择站点
+        $(document).ready(function () { 
+            // 监听具有 class 'url' 的 select 元素的 change 事件
+             $('select.url').change(function () { 
+                 var data={};
+                 data.select =$(this).val(); 
+                // 广告id 
+                 data.pid = $(this).data('id'); 
+                //站点id
+                 data.site_id ='<?php echo htmlentities($site_id); ?>';
+                
+                 $.post("/gladmin/website.site/selectsite",data,function(res){
+                    layer.msg(res.msg);
+                 });
+                }); 
+            });
+            //选择开关
+            $('select.switch').change(function () { 
+                 var data={};
+                 data.select =$(this).val(); 
+                // 广告id 
+                 data.pid = $(this).data('id'); 
+                //站点id
+                 data.site_id ='<?php echo htmlentities($site_id); ?>';
+                 console.log(data)
+                 $.post("/gladmin/website.site/selectswitch",data,function(res){
+                   layer.msg(res.msg);
+                 });
+                }); 
+       
         // 九宫格图片
         $(document).ready(function () {
             $('.jggImg_zkBtn').click(function () {
-                $('.jggImg_zkBtn').hide()
-                $('.jggImg_sqBtn').show()
-                $('.jggContent').show();
+                var id = $(this).data('id'); 
+                $(this).hide(); $('.jggImg_sqBtn[data-id="' + id + '"]').show();
+                 $('.jggContent[data-id="' + id + '"]').show();
             });
         });
         $(document).ready(function () {
             $('.jggImg_sqBtn').click(function () {
-                $('.jggImg_zkBtn').show()
-                $('.jggImg_sqBtn').hide()
-                $('.jggContent').hide();
+                var id = $(this).data('id'); 
+                $(this).hide(); 
+                $('.jggImg_zkBtn[data-id="' + id + '"]').show();
+                 $('.jggContent[data-id="' + id + '"]').hide();
             });
         });
-        // 九宫格文字
-        $(document).ready(function () {
-            $('.jggtxt_zkBtn').click(function () {
-                $('.jggtxt_zkBtn').hide()
-                $('.jggtxt_sqBtn').show()
-                $('.jggtxtContent').show();
-            });
-        });
-        $(document).ready(function () {
-            $('.jggtxt_sqBtn').click(function () {
-                $('.jggtxt_zkBtn').show()
-                $('.jggtxt_sqBtn').hide()
-                $('.jggtxtContent').hide();
-            });
-        });
-        // 轮播图
-        $(document).ready(function () {
-            $('.swiper_zkBtn').click(function () {
-                $('.swiper_zkBtn').hide()
-                $('.swiper_sqBtn').show()
-                $('.swiperContent').show();
-            });
-        });
-        $(document).ready(function () {
-            $('.swiper_sqBtn').click(function () {
-                $('.swiper_zkBtn').show()
-                $('.swiper_sqBtn').hide()
-                $('.swiperContent').hide();
-            });
-        });
-        // 弹窗
-        $(document).ready(function () {
-            $('.tc_zkBtn').click(function () {
-                $('.tc_zkBtn').hide()
-                $('.tc_sqBtn').show()
-                $('.tcContent').show();
-            });
-        });
-        $(document).ready(function () {
-            $('.tc_sqBtn').click(function () {
-                $('.tc_zkBtn').show()
-                $('.tc_sqBtn').hide()
-                $('.tcContent').hide();
-            });
-        });
-        // 视频封面
-        $(document).ready(function () {
-            $('.spCover_zkBtn').click(function () {
-                $('.spCover_zkBtn').hide()
-                $('.spCover_sqBtn').show()
-                $('.spCoverContent').show();
-            });
-        });
-        $(document).ready(function () {
-            $('.spCover_sqBtn').click(function () {
-                $('.spCover_zkBtn').show()
-                $('.spCover_sqBtn').hide()
-                $('.spCoverContent').hide();
-            });
-        });
-
+       
 
 
     </script>

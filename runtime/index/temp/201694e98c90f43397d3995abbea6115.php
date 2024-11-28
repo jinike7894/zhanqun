@@ -1,4 +1,4 @@
-<?php /*a:1:{s:50:"C:\wwwroot\zhanqun\view\index\novel\searchres.html";i:1732187188;}*/ ?>
+<?php /*a:1:{s:50:"C:\wwwroot\zhanqun\view\index\novel\searchres.html";i:1732606294;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +14,15 @@
     <link rel="stylesheet" href="/static/novel/css/styles.css">
     <link rel="stylesheet" href="/static/novel/css/swiperGf.css" />
     <link rel="stylesheet" href="/static/css/commons.css" />
+
+
+    
+   <!-- 懒加载 -->
+   <script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
+   <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
+   <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
+   <script type="text/javascript" src="/static/js/lozad.min.js"></script>
+    <!-- 懒加载 -->
 </head>
 <style>
     ul{
@@ -139,7 +148,7 @@
                     <a href="/novel/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                     <div class="book">
                         <div class="bookImg">
-                            <img style="width: 100%;height: 100%;" src="<?php echo htmlentities($item['pic']); ?>" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                            <img style="width: 100%;height: 100%;" class="lozad" data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>" src="/static/images/loading_img_bg_default.jpg" />
                             <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/novel/images/wanjie.png" />
@@ -228,7 +237,12 @@
 </body>
 <script src="/static/novel/js/swiper.js"></script>
 <script>
-
+   $(document).ready(function () {
+    // $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
     var swiper = new Swiper(".mySwiper", {
         cssMode: true,
         navigation: {

@@ -1,4 +1,4 @@
-<?php /*a:5:{s:54:"C:\wwwroot\zhanqun\view\admin\system\config\index.html";i:1730802670;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1730802670;s:53:"C:\wwwroot\zhanqun\view\admin\system\config\site.html";i:1730802670;s:53:"C:\wwwroot\zhanqun\view\admin\system\config\logo.html";i:1730802670;s:55:"C:\wwwroot\zhanqun\view\admin\system\config\upload.html";i:1730802670;}*/ ?>
+<?php /*a:5:{s:54:"C:\wwwroot\zhanqun\view\admin\system\config\index.html";i:1732110802;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1732110801;s:53:"C:\wwwroot\zhanqun\view\admin\system\config\site.html";i:1732788796;s:53:"C:\wwwroot\zhanqun\view\admin\system\config\logo.html";i:1732110802;s:55:"C:\wwwroot\zhanqun\view\admin\system\config\upload.html";i:1732110802;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -100,7 +100,13 @@
             <tip>填写小说漫画图片cdn。</tip>
         </div>
     </div>
-
+    <div class="layui-form-item">
+        <label class="layui-form-label">图片站cdn</label>
+        <div class="layui-input-block">
+            <input type="text" name="img_cdn" class="layui-input" placeholder="图片站cdn" value="<?php echo sysconfig('site','img_cdn'); ?>">
+            <tip>图片站cdn。</tip>
+        </div>
+    </div>
 
     <div class="layui-form-item">
         <label class="layui-form-label">在线客服</label>

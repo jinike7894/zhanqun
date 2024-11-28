@@ -1,4 +1,4 @@
-<?php /*a:2:{s:51:"C:\wwwroot\zhanqun\view\admin\website\site\add.html";i:1732110800;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1732110801;}*/ ?>
+<?php /*a:2:{s:51:"C:\wwwroot\zhanqun\view\admin\website\site\add.html";i:1732788321;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1732110801;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,15 +32,15 @@
     <form id="app-form" class="layui-form layuimini-form">
         
         <div class="layui-form-item">
-            <label class="layui-form-label">name</label>
+            <label class="layui-form-label">站点名称</label>
             <div class="layui-input-block">
-                <input type="text" name="name" class="layui-input"  placeholder="请输入name" value="">
+                <input type="text" name="name" class="layui-input"  placeholder="请输入站点名称" value="">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label"></label>
+            <label class="layui-form-label">站点域名</label>
             <div class="layui-input-block">
-                <input type="text" name="domain" class="layui-input"  placeholder="请输入domain" value="">
+                <input type="text" name="domain" class="layui-input"  placeholder="请输入站点域名" value="">
             </div>
         </div>
         <div class="layui-form-item">

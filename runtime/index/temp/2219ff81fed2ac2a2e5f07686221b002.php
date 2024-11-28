@@ -1,4 +1,4 @@
-<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\index\index.html";i:1732202340;}*/ ?>
+<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\index\index.html";i:1732787765;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +12,12 @@
     <link rel="stylesheet" href="/static/index/home.css">
     <script src="/static/index/res.js"></script>
     <link rel="stylesheet" href="/static/index/swiper.css">
+     <!-- 懒加载 -->
+     <script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
+     <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
+     <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
+     <script type="text/javascript" src="/static/js/lozad.min.js"></script>
+      <!-- 懒加载 -->
 </head>
 <!-- <script type="text/javascript" src="./jquery.js"></script> -->
 <style>
@@ -78,31 +84,14 @@
             <div class="index_jiugonggeTxt_text ad" data-id="<?php echo htmlentities($item['id']); ?>" data-channel="<?php echo htmlentities($channel); ?>"
                 data-site="<?php echo htmlentities($site_id); ?>" data-url="<?php echo htmlentities($item['androidurl']); ?>"><?php echo htmlentities($item['name']); ?></div>
             <?php endforeach; endif; else: echo "" ;endif; ?>
-            <!-- <div class="index_jiugonggeTxt_text index_jiugonggeTxt_hotColor">
-                <img src="/static/index/img/hot.png" class="index_jiugongge_hot">国产精品
-            </div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text index_jiugonggeTxt_hotColor">
-                <img src="/static/index/img/hot.png" class="index_jiugongge_hot">国产精品
-            </div>
-            <div class="index_jiugonggeTxt_text index_jiugonggeTxt_newColor">
-                <img src="/static/index/img/new.png" class="index_jiugongge_hot">国产精品
-            </div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div> -->
-
+     
         </div>
         <!-- 新闻条 -->
         <div class="index_news">
 
             <!-- 视频标签开始 -->
             <?php if(is_array($video) || $video instanceof \think\Collection || $video instanceof \think\Paginator): $i = 0; $__LIST__ = $video;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
-            <a href="/video/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
+            <a href="<?php echo htmlentities($shipinsite); ?>/video/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                 <div class="index_news_line">
                     <div class="index_news_line_left">
                         <div class="index_news_line_left_text">
@@ -115,32 +104,19 @@
                         </div>
 
                     </div>
-                    <img src="<?php echo htmlentities($item['pic']); ?>" class="index_news_line_right_img"
-                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img  class="index_news_line_right_img lozad" 
+                    data-src="<?php echo htmlentities($videoimg); ?><?php echo htmlentities(urlparse($item['enpic'])); ?>"
+                        src="/static/images/loading_img_bg_default.jpg">
 
                 </div>
             </a>
             <?php endforeach; endif; else: echo "" ;endif; ?>
-            <!-- <div class="index_news_line">
-                <div class="index_news_line_left">
-                    <div class="index_news_line_left_text">
-                        汗流浃背的前杨已婚女人是一个初级工人和一个庸俗的矛喝...
-                    </div>
-                    <div class="index_news_line_left_BottomBox">
-                        <div class="index_news_line_left_BottomBox_videoBtn">视频</div>
-                        <div class="index_news_line_left_BottomBox_text">阅读86W</div>
-                        <div class="index_news_line_left_BottomBox_text">一小时前</div>
-
-                    </div>
-
-                </div>
-                <img src="/static/index/img/newsCover.png" class="index_news_line_right_img">
-
-            </div> -->
+    
             <!-- 视频标签结束 -->
             <!-- 吃瓜标签开始 -->
             <div class="index_news_chigua">
                 <?php if(is_array($img_chigua) || $img_chigua instanceof \think\Collection || $img_chigua instanceof \think\Paginator): $i = 0; $__LIST__ = $img_chigua;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
+                <a href="<?php echo htmlentities($chiguasite); ?>/chigua/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($items['id']); ?>">
                 <div class="index_news_chigua_title">
                     <?php echo htmlentities($items['title']); ?>
                 </div>
@@ -159,6 +135,7 @@
                     <div class="index_news_line_left_BottomBox_text">一小时前</div>
 
                 </div>
+                </a>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
             <!-- 吃瓜标签结束 -->
@@ -278,7 +255,7 @@
         <!-- 吃瓜阅读 -->
         <div class="index_chiguaRead">
             <?php if(is_array($img_chigua1) || $img_chigua1 instanceof \think\Collection || $img_chigua1 instanceof \think\Paginator): $i = 0; $__LIST__ = $img_chigua1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-            <a href="">
+            <a href="<?php echo htmlentities($chiguasite); ?>/chigua/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($items['id']); ?>">
                 <div class="index_news_chigua">
                     <div class="index_news_chigua_title">
                         <?php echo htmlentities($items['title']); ?>
@@ -290,9 +267,9 @@
 
                         <div class="index_chiguaRead_rightBox">
 
-                            <img src="<?php echo htmlentities($items['cover']); ?>" class="index_chiguaRead_rightImg"
-                                onerror="this.src='/static/images/loading_img_bg_default.jpg';">
                             <img src="<?php echo htmlentities($items['cover1']); ?>" class="index_chiguaRead_rightImg"
+                                onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                            <img src="<?php echo htmlentities($items['cover2']); ?>" class="index_chiguaRead_rightImg"
                                 onerror="this.src='/static/images/loading_img_bg_default.jpg';">
                             <!-- <img src="<?php echo htmlentities($items['cover2']); ?>" class="index_chiguaRead_rightImg"
                                 onerror="this.src='/static/images/loading_img_bg_default.jpg';"> -->
@@ -314,7 +291,7 @@
         </div>
         <!-- 小说 -->
         <?php if(is_array($novel) || $novel instanceof \think\Collection || $novel instanceof \think\Paginator): $i = 0; $__LIST__ = $novel;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
-        <a href="/novel/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
+        <a href="<?php echo htmlentities($xiaoshuosite); ?>/novel/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
             <div class="index_read">
 
                 <div class="index_read_left">
@@ -344,8 +321,8 @@
 
                 </div>
                 <div class="index_read_right">
-                    <img src="<?php echo htmlentities($item['pic']); ?>" class="index_read_rightImg"
-                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img  class="index_read_rightImg lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>"
+                       >
                     <img src="/static/index/img/lzBtn.png" class="index_read_lzBtn">
                 </div>
 
@@ -376,7 +353,7 @@
         </div>
         <!-- 小说 -->
         <?php if(is_array($novel1) || $novel1 instanceof \think\Collection || $novel1 instanceof \think\Paginator): $i = 0; $__LIST__ = $novel1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
-        <a href="/novel/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
+        <a href="<?php echo htmlentities($xiaoshuosite); ?>/novel/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
             <div class="index_read">
 
                 <div class="index_read_left">
@@ -406,8 +383,7 @@
 
                 </div>
                 <div class="index_read_right">
-                    <img src="<?php echo htmlentities($item['pic']); ?>" class="index_read_rightImg"
-                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img class="index_read_rightImg lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>">
                     <img src="/static/index/img/lzBtn.png" class="index_read_lzBtn">
                 </div>
 
@@ -422,12 +398,11 @@
     <!-- 漫画 -->
     <div class="index_cartoon">
         <?php if(is_array($manhua) || $manhua instanceof \think\Collection || $manhua instanceof \think\Paginator): $i = 0; $__LIST__ = $manhua;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
-        <a href="/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>" class="index_alive_a">
+        <a href="<?php echo htmlentities($manhuasite); ?>/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>" class="index_alive_a">
             <div class="index_cartoon_box">
                 <!-- 图片盒子 -->
                 <div class="index_cartoon_imgbox">
-                    <img src="<?php echo htmlentities($item['pic']); ?>" class="index_cartoon_img"
-                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img class="index_cartoon_img lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>">
                     <!-- top -->
                     <img src="/static/index/img/top.png" class="index_cartoon_top">
                     <!-- 收藏按钮 -->
@@ -487,7 +462,7 @@
             <?php endforeach; endif; else: echo "" ;endif; ?>
         </div>
         <?php if(is_array($video1) || $video1 instanceof \think\Collection || $video1 instanceof \think\Paginator): $i = 0; $__LIST__ = $video1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
-        <a href="/video/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
+        <a href="<?php echo htmlentities($shipinsite); ?>/video/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
             <div class="index_news_line">
                 <div class="index_news_line_left">
                     <div class="index_news_line_left_text">
@@ -501,8 +476,9 @@
                     </div>
 
                 </div>
-                <img src="<?php echo htmlentities($item['pic']); ?>" class="index_news_line_right_img"
-                    onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                <img  class="index_news_line_right_img lozad" 
+                    data-src="<?php echo htmlentities($videoimg); ?><?php echo htmlentities(urlparse($item['enpic'])); ?>"
+                        src="/static/images/loading_img_bg_default.jpg">
 
             </div>
         </a>
@@ -510,16 +486,16 @@
         <!-- 视频标签结束 -->
         <!-- 吃瓜标签开始 -->
         <?php if(is_array($img_chigua2) || $img_chigua2 instanceof \think\Collection || $img_chigua2 instanceof \think\Paginator): $i = 0; $__LIST__ = $img_chigua2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$items): $mod = ($i % 2 );++$i;?>
-        <a href="">
+        <a href="<?php echo htmlentities($chiguasite); ?>/chigua/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($items['id']); ?>">
             <div class="index_news_chigua">
                 <div class="index_news_chigua_title">
                     <?php echo htmlentities($items['title']); ?>
                 </div>
                 <div class="index_news_chigua_imgBox">
-                    <?php if(is_array($items['pic']) || $items['pic'] instanceof \think\Collection || $items['pic'] instanceof \think\Paginator): $i = 0; $__LIST__ = $items['pic'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
-                    <img src="<?php echo htmlentities($item); ?>" class="index_news_chigua_img"
+                    <img src="<?php echo htmlentities($items['cover']); ?>" class="index_news_chigua_img"
                         onerror="this.src='/static/images/loading_img_bg_default.jpg';">
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                    <img src="<?php echo htmlentities($items['cover1']); ?>" class="index_news_chigua_img"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
                 </div>
                 <div class="index_news_line_left_BottomBox">
                     <div class="index_news_line_left_BottomBox_videoBtn">吃瓜</div>
@@ -536,12 +512,13 @@
     <!-- 漫画 -->
     <div class="index_cartoon">
         <?php if(is_array($img1) || $img1 instanceof \think\Collection || $img1 instanceof \think\Paginator): $i = 0; $__LIST__ = $img1;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
-        <a href="" class="index_alive_a">
+        <a href="<?php echo htmlentities($imgsite); ?>/image/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>" class="index_alive_a">
             <div class="index_cartoon_box">
                 <!-- 图片盒子 -->
                 <div class="index_cartoon_imgbox">
-                    <img src="<?php echo htmlentities($item['pic'][0]); ?>" class="index_cartoon_img"
-                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img class="index_cartoon_img imgbase64"
+                    data-src="<?php echo htmlentities($item['pic'][0]); ?>"
+                        src="/static/images/loading_img_bg_default.jpg" >
 
                     <div class="index_cartoon_pageBox">
                         <img src="/static/index/img/tjPage.png" class="index_cartoon_pageImg">
@@ -590,6 +567,32 @@
 
 </body>
 <script>
+    $(document).ready(function () {
+    // $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
+    
+      $(document).ready(function () {
+        // 获取所有 class 为 imgbase64 的 img 标签 
+        $('img.imgbase64').each(function () {
+            var img = $(this);
+            var imgSrc = img.attr('data-src');
+            var url="<?php echo htmlentities($img_cdn); ?>/"+imgSrc
+            var content="";
+            $.ajax({ url:url, 
+             type: 'GET', 
+             success: function(data) { 
+                content='data:image/jpeg;base64,'+data
+                console.log(content)
+                img.attr('src', content);
+            }, 
+                error: function(xhr, status, error) { } 
+            });
+           
+        });
+    });
     var base = '';
     // var _hmt = _hmt || [];
     // (function () {

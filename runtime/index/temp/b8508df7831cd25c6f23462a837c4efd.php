@@ -1,4 +1,4 @@
-<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\video\index.html";i:1732182805;}*/ ?>
+<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\video\index.html";i:1732638704;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="/static/video/css/styles.css">
     <link rel="stylesheet" href="/static/video/min.css" />
     <link rel="stylesheet" href="/static/css/commons.css" />
+       <!-- 懒加载 -->
+       <script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
+       <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
+       <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
+       <script type="text/javascript" src="/static/js/lozad.min.js"></script>
+        <!-- 懒加载 -->
 </head>
 <style>
     /* .swiper-slide  {
@@ -177,7 +183,7 @@
                 <a href="/video/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                     <div class="home_videoLable">
                         <div class="home_videoLable_imgBox">
-                            <img src="<?php echo htmlentities($item['pic']); ?>" class="home_videoLable_img">
+                            <img  class="home_videoLable_img lozad"  src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($videoimg); ?><?php echo htmlentities(urlparse($item['enpic'])); ?>">
                             <div class="home_videoLable_clock">
                                 <?php echo htmlentities($item['time']); ?>
                             </div>
@@ -223,10 +229,10 @@
             </div>
             <div class="home_videoList">
                 <?php if(is_array($video2) || $video2 instanceof \think\Collection || $video2 instanceof \think\Paginator): $i = 0; $__LIST__ = $video2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
-
+                <a href="/video/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                     <div class="home_videoLable">
                         <div class="home_videoLable_imgBox">
-                            <img src="<?php echo htmlentities($item['pic']); ?>" class="home_videoLable_img">
+                            <img class="home_videoLable_img lozad"   src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($videoimg); ?><?php echo htmlentities(urlparse($item['enpic'])); ?>">
                             <div class="home_videoLable_clock">
                                 <?php echo htmlentities($item['time']); ?>
                             </div>
@@ -240,6 +246,7 @@
                         </div>
 
                     </div>
+                    </a>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
             </div>
             <?php if(is_array($di_img_ad) || $di_img_ad instanceof \think\Collection || $di_img_ad instanceof \think\Paginator): $i = 0; $__LIST__ = $di_img_ad;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>
@@ -302,7 +309,12 @@
 <script src="/static/common/apps.js"></script>
 <script src="/static/video/js/swiper-bundle.min.js"></script>
 <script>
-
+  $(document).ready(function () {
+    // $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
     var swiper = new Swiper(".mySwiper", {
         cssMode: true,
         navigation: {

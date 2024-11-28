@@ -41,9 +41,13 @@ Route::get('/comics/chapter/:channel','comics/read')->pattern(['channel' => '\d+
 //吃瓜
 Route::get('/chigua/:channel','chigua/index')->pattern(['channel' => '\d+(_\d+)?$']);
 Route::get('/chigua/info/:channel','chigua/info')->pattern(['channel' => '\d+(_\d+)?$']);
+Route::get('/chigua/search/:channel','chigua/search')->pattern(['channel' => '\d+(_\d+)?$']);
+Route::get('/chigua/searchres/:channel','chigua/searchres')->pattern(['channel' => '\d+(_\d+)?$']);
 Route::get('/chigua/contents/:channel','chigua/getcontents')->pattern(['channel' => '\d+(_\d+)?$']);
 //图片
 Route::get('/image/:channel','image/index')->pattern(['channel' => '\d+(_\d+)?$']);
+Route::get('/image/search/:channel','image/search')->pattern(['channel' => '\d+(_\d+)?$']);
+Route::get('/image/searchres/:channel','image/searchres')->pattern(['channel' => '\d+(_\d+)?$']);
 Route::get('/image/info/:channel','image/info')->pattern(['channel' => '\d+(_\d+)?$']);
 // Route::get('/image/contents/:channel','chigua/getcontents')->pattern(['channel' => '\d+(_\d+)?$']);
 

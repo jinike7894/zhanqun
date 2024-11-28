@@ -42,8 +42,11 @@ class Novel extends BaseController
         $onlineemail = sysconfig('site', 'onlineemail');
         $foreverurl = sysconfig('site', 'foreverurl');
         $bdtongji = sysconfig('site', 'bdtongji');
+        $tmimg = sysconfig('site', 'manhua_img_cdn');
+        View::assign('tmimg', $tmimg);
         $tuoyilink = "https://c.tuoya2.cc?c=2039";
         View::assign('jscsscdn', $jscsscdn);
+        
         View::assign('onlinekf', $onlinekf);
         View::assign('onlineemail', $onlineemail);
         View::assign('foreverurl', $foreverurl);
@@ -51,7 +54,7 @@ class Novel extends BaseController
         View::assign('tuoyilink', $tuoyilink);
         View::assign('action', $action);
         //获取轮播广告
-        $BannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $BannerList = $this->Products
             ->where(array('status' => 1))
             ->where(['pid' => 91])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($BannerList as $key => &$item) {
@@ -64,10 +67,10 @@ class Novel extends BaseController
         }
         //减去该站点关闭得广告
         $BannerList = checkDisplayAd($this->site, $BannerList);
-        $BannerList = checkZhanneiAd($this->site, $BannerList);
+        $BannerList = checkZhanneiAd($this->site, $BannerList,$channel);
         View::assign('BannerList', $BannerList);
           //获取缩边轮播图
-          $BannerList2 = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+          $BannerList2 = $this->Products
           ->where(array('status'=>1))
           ->where(['pid' => 94])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
           foreach ($BannerList2 as $key => &$item) {
@@ -80,7 +83,7 @@ class Novel extends BaseController
           }
           //减去该站点关闭得广告
           $BannerList2=checkDisplayAd($this->site,$BannerList2);
-          $BannerList2=checkZhanneiAd($this->site,$BannerList2);
+          $BannerList2=checkZhanneiAd($this->site,$BannerList2,$channel);
           View::assign('BannerList2',$BannerList2);
         //获取广告得分类
         $pcategory = $this->Pcategory->field('id,title')
@@ -92,28 +95,28 @@ class Novel extends BaseController
         if ($cateid) {
             $pwhere["cid"] = $cateid;
         }
-        $jiugongge_img = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $jiugongge_img = $this->Products
             ->where(array('status' => 1))
             ->where($pwhere)->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $jiugongge_img = checkDisplayAd($this->site, $jiugongge_img);
-        $jiugongge_img = checkZhanneiAd($this->site, $jiugongge_img);
+        $jiugongge_img = checkZhanneiAd($this->site, $jiugongge_img,$channel);
         View::assign('jiugongge_img', $jiugongge_img);
         //获取九宫格文字
-        $jiugongge_font = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,content')
+        $jiugongge_font = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 84])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $jiugongge_font = checkDisplayAd($this->site, $jiugongge_font);
-        $jiugongge_font = checkZhanneiAd($this->site, $jiugongge_font);
+        $jiugongge_font = checkZhanneiAd($this->site, $jiugongge_font,$channel);
         View::assign('jiugongge_font', $jiugongge_font);
         //获取顶部图标文字
-        $img_font_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,content')
+        $img_font_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 85])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $img_font_ad = checkDisplayAd($this->site, $img_font_ad);
-        $img_font_ad = checkZhanneiAd($this->site, $img_font_ad);
+        $img_font_ad = checkZhanneiAd($this->site, $img_font_ad,$channel);
         View::assign('img_font_ad', $img_font_ad);
         //获取在线约炮
-        $yuepao_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $yuepao_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 92])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         //截取小图
@@ -130,10 +133,10 @@ class Novel extends BaseController
         }
 
         $yuepao_ad = checkDisplayAd($this->site, $yuepao_ad);
-        $yuepao_ad = checkZhanneiAd($this->site, $yuepao_ad);
+        $yuepao_ad = checkZhanneiAd($this->site, $yuepao_ad,$channel);
         View::assign('yuepao_ad', $yuepao_ad);
         //获取直播
-        $live_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $live_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 93])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($live_ad as $kyue => &$vyue) {
@@ -145,10 +148,10 @@ class Novel extends BaseController
             }
         }
         $live_ad = checkDisplayAd($this->site, $live_ad);
-        $live_ad = checkZhanneiAd($this->site, $live_ad);
+        $live_ad = checkZhanneiAd($this->site, $live_ad,$channel);
         View::assign('live_ad', $live_ad);
         //获取直播
-        $live_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $live_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 93])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($live_ad as $kyue => &$vyue) {
@@ -160,36 +163,36 @@ class Novel extends BaseController
             }
         }
         $live_ad = checkDisplayAd($this->site, $live_ad);
-        $live_ad = checkZhanneiAd($this->site, $live_ad);
+        $live_ad = checkZhanneiAd($this->site, $live_ad,$channel);
         View::assign('live_ad', $live_ad);
 
         //中部文字广告
-        $zhong_font_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $zhong_font_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 87])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $zhong_font_ad = checkDisplayAd($this->site, $zhong_font_ad);
-        $zhong_font_ad = checkZhanneiAd($this->site, $zhong_font_ad);
+        $zhong_font_ad = checkZhanneiAd($this->site, $zhong_font_ad,$channel);
         View::assign('zhong_font_ad', $zhong_font_ad);
         //中部图片广告
-        $zhong_img_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $zhong_img_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 86])->orderRaw("rand()")->select()->toArray();
         $zhong_img_ad = checkDisplayAd($this->site, $zhong_img_ad);
-        $zhong_img_ad = checkZhanneiAd($this->site, $zhong_img_ad);
+        $zhong_img_ad = checkZhanneiAd($this->site, $zhong_img_ad,$channel);
         View::assign('zhong_img_ad', $zhong_img_ad);
         //底部图片广告
-        $di_img_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $di_img_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 88])->orderRaw("rand()")->select()->toArray();
         $di_img_ad = checkDisplayAd($this->site, $di_img_ad);
-        $di_img_ad = checkZhanneiAd($this->site, $di_img_ad);
+        $di_img_ad = checkZhanneiAd($this->site, $di_img_ad,$channel);
         View::assign('di_img_ad', $di_img_ad);
         //底部图片文字广告
-        $di_img_font_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $di_img_font_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 89])->orderRaw("rand()")->select()->toArray();
         $di_img_font_ad = checkDisplayAd($this->site, $di_img_font_ad);
-        $di_img_font_ad = checkZhanneiAd($this->site, $di_img_font_ad);
+        $di_img_font_ad = checkZhanneiAd($this->site, $di_img_font_ad,$channel);
         View::assign('di_img_font_ad', $di_img_font_ad);
     }
 
@@ -239,7 +242,7 @@ class Novel extends BaseController
         if(isset($_GET["cate_id"])){
             $novelModel->where("cate_id",$_GET["cate_id"]);
         }
-        $novel2 = $novelModel->where("status",1)->paginate([
+        $novel2 = $novelModel->where("status",1)->orderRaw("rand()")->paginate([
             'list_rows' => 12,
             'query'     => request()->param(),
          ]);

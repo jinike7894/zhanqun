@@ -1,4 +1,4 @@
-<?php /*a:2:{s:52:"C:\wwwroot\zhanqun\view\admin\website\site\edit.html";i:1732110800;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1732110801;}*/ ?>
+<?php /*a:2:{s:52:"C:\wwwroot\zhanqun\view\admin\website\site\edit.html";i:1732788353;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1732110801;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,15 +32,15 @@
     <form id="app-form" class="layui-form layuimini-form">
         
         <div class="layui-form-item">
-            <label class="layui-form-label">name</label>
+            <label class="layui-form-label">站点名称</label>
             <div class="layui-input-block">
-                <input type="text" name="name" class="layui-input"  placeholder="请输入name" value="<?php echo htmlentities((isset($row['name']) && ($row['name'] !== '')?$row['name']:'')); ?>">
+                <input type="text" name="name" class="layui-input"  placeholder="请输入站点名称" value="<?php echo htmlentities((isset($row['name']) && ($row['name'] !== '')?$row['name']:'')); ?>">
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">domain</label>
+            <label class="layui-form-label">站点名称</label>
             <div class="layui-input-block">
-                <input type="text" name="domain" class="layui-input"  placeholder="请输入domain" value="<?php echo htmlentities((isset($row['domain']) && ($row['domain'] !== '')?$row['domain']:'')); ?>">
+                <input type="text" name="domain" class="layui-input"  placeholder="请输入站点名称" value="<?php echo htmlentities((isset($row['domain']) && ($row['domain'] !== '')?$row['domain']:'')); ?>">
             </div>
         </div>
         <div class="layui-form-item">
@@ -52,12 +52,12 @@
                 </select>
             </div>
         </div>
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label">站点模板</label>
             <div class="layui-input-block">
                 <input type="text" name="template" class="layui-input"  placeholder="请输入站点模板" value="<?php echo htmlentities((isset($row['template']) && ($row['template'] !== '')?$row['template']:'')); ?>">
             </div>
-        </div>
+        </div> -->
         <div class="layui-form-item">
             <label class="layui-form-label required">logo</label>
             <div class="layui-input-block layuimini-upload">

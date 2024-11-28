@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>搜索</title>
+    <link rel="stylesheet" href="__STATIC__/chigua/css/styleOld.css">
+    <link rel="stylesheet" href="__STATIC__/chigua/css/home.css">
+    <script type="text/javascript" src="__STATIC__/chigua/js/jquery.js"></script>
+    <script type="text/javascript" src="__STATIC__/video/js/app.js"></script>
+    <link rel="stylesheet" href="__STATIC__/chigua/css/styles.css">
+    <link rel="stylesheet" href="__STATIC__/chigua/css/hl_styles.css">
+    <link rel="stylesheet" href="__STATIC__/chigua/css/swiperGf.css" />
+    <link rel="stylesheet" href="__STATIC__/css/commons.css" />
+    <link rel="stylesheet" href="__STATIC__/chigua/css/search.css">
+</head>
+<style>
+    a{
+        color: #FFFFFFCC;
+    }
+</style>
+<body>
+    <input type="hidden" id="site_id" value="{$site_id}">
+    <input type="hidden" id="channel" value="{$tongjiCode}">
+    <!-- 人气榜 -->
+    <div id="searchpage">
+
+        <!-- 顶部 -->
+        <div class="header">
+            <div class="headerBox">
+                <a href="/chigua/{$channel}.html">
+                <div class="logoBox">
+                    <img src="{$logo}" class="header_logo">
+                    <!-- <img src="__STATIC__/video/img/logoTxt.png" class="header_logoTxt"> -->
+
+                </div>
+            </a>
+                <!-- <div class="header_input">
+                    <input class="headerInput" />
+                    <img src="__STATIC__/video/img/search.png" class="header_search">
+
+                </div> -->
+                <img src="__STATIC__/chigua/img/collectBtn.png" class="header_collect">
+
+            </div>
+            <div class="search_input" >
+                <a href="/chigua/{$channel}.html"><img src="__STATIC__/chigua/img/back.png" class="search_back"></a>
+                <div  class="search_inputBox">
+                    <input class="search_input_input" />
+                    <img src="__STATIC__/chigua/img/search.png" class="header_search">
+                    <div style="color: #000;">
+                        <div class="search_searchBtn" data-url="/chigua/searchres/{$channel}.html">搜索</div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        <!-- 顶部结束 -->
+        <div class="contentBox" style="padding-top: 90px;">
+
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    {volist name='BannerList' id="Banner"}
+                    <div class="swiper-slide ad"
+                    data-id="{$Banner.id}" data-channel="{$channel}" data-site="{$site_id}"
+                        data-url="{$Banner.androidurl}"
+                    ><img src="{$Banner.img}"></div>
+                    {/volist}
+           
+                </div>
+                <!-- <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div> -->
+                <div class="swiper-pagination"></div>
+            </div>

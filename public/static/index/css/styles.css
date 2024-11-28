@@ -997,3 +997,32 @@ a {
     overflow-x: scroll;
 
 }
+.index_cartoon_pageBox { 
+    display: flex; 
+    align-items: center; 
+    position: absolute; 
+    top: 4px; 
+    left: 4px; 
+    width: 57px; 
+    height: 22px; 
+    border-radius: 32px; 
+    background: #00000066; 
+    justify-content: center; 
+} 
+ 
+.index_cartoon_pageImg { 
+    width: 18px; 
+    height: 18px; 
+} 
+ 
+.index_cartoon_pageNum { 
+    font-family: PingFang SC; 
+    font-size: 12px; 
+    font-weight: 600; 
+    line-height: 16.8px; 
+    text-align: left; 
+    text-underline-position: from-font; 
+    text-decoration-skip-ink: none; 
+    color: #FFFFFF; 
+    margin-left: 2px; 
+}

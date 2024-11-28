@@ -4,6 +4,7 @@
 use app\common\service\AuthService;
 use think\facade\Cache;
 use think\facade\Db;
+
 if (!function_exists('__url')) {
 
     /**
@@ -33,7 +34,6 @@ if (!function_exists('password')) {
         $value = sha1('blog_') . md5($value) . md5('_encrypt') . sha1($value);
         return sha1($value);
     }
-
 }
 
 if (!function_exists('xdebug')) {
@@ -101,7 +101,6 @@ if (!function_exists('array_format_key')) {
         }
         return $newArray;
     }
-
 }
 
 if (!function_exists('auth')) {
@@ -120,7 +119,6 @@ if (!function_exists('auth')) {
         $check = $authService->checkNode($node);
         return $check;
     }
-
 }
 
 if (!function_exists('ismobile')) {
@@ -133,11 +131,10 @@ if (!function_exists('ismobile')) {
     {
         $user_agent = $_SERVER['HTTP_USER_AGENT'];
         if (preg_match('/iphone|ipod|ipad|android/i', $user_agent)) {
-			return true;
-		}
-		return false;
+            return true;
+        }
+        return false;
     }
-
 }
 if (!function_exists('qqw')) {
 
@@ -148,17 +145,17 @@ if (!function_exists('qqw')) {
     function qqw($num)
     {
         $data = $num;
-        if($num>=10000){
-            $data = round(intval($num) / 10000,2) . 'w';
+        if ($num >= 10000) {
+            $data = round(intval($num) / 10000, 2) . 'w';
         }
-		return $data;
+        return $data;
     }
-
 }
 
 
 if (!function_exists('getIP')) {
-    function getIP(){
+    function getIP()
+    {
         if (isset($_SERVER)) {
             if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
                 $realip = $_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -169,7 +166,7 @@ if (!function_exists('getIP')) {
             }
         } else {
             if (getenv("HTTP_X_FORWARDED_FOR")) {
-                $realip = getenv( "HTTP_X_FORWARDED_FOR");
+                $realip = getenv("HTTP_X_FORWARDED_FOR");
             } elseif (getenv("HTTP_CLIENT_IP")) {
                 $realip = getenv("HTTP_CLIENT_IP");
             } else {
@@ -183,11 +180,11 @@ if (!function_exists('getIP')) {
 
 
 if (!function_exists('replaceVideoCdn')) {
-    function replaceVideoCdn($oldPath,$configName): string
+    function replaceVideoCdn($oldPath, $configName): string
     {
         $url_parts = parse_url($oldPath);
         $path = isset($url_parts['path']) ? $url_parts['path'] : '';
-        return sysconfig('site', $configName) . $path ;
+        return sysconfig('site', $configName) . $path;
     }
 }
 
@@ -198,12 +195,12 @@ if (!function_exists('replaceAdCdn')) {
         $newPath = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $oldPath);
 
         $adCdnConfig = sysconfig('site', 'ad_cdn');
-        if(empty($adCdnConfig)){
+        if (empty($adCdnConfig)) {
             return $newPath;
         }
         $url_parts = parse_url($newPath);
         $path = isset($url_parts['path']) ? $url_parts['path'] : '';
-        return sysconfig('site', 'ad_cdn') . $path ;
+        return sysconfig('site', 'ad_cdn') . $path;
     }
 }
 
@@ -214,12 +211,12 @@ if (!function_exists('replaceManhuaCdn')) {
         $newPath = preg_replace('/\.[^.]+$/', "_file." . $file_extension, $oldPath);
 
         $adCdnConfig = sysconfig('site', 'manhua_img_cdn');
-        if(empty($adCdnConfig)){
+        if (empty($adCdnConfig)) {
             return $newPath;
         }
         $url_parts = parse_url($newPath);
         $path = isset($url_parts['path']) ? $url_parts['path'] : '';
-        return sysconfig('site', 'manhua_img_cdn') . $path ;
+        return sysconfig('site', 'manhua_img_cdn') . $path;
     }
 }
 
@@ -228,13 +225,13 @@ if (!function_exists('replaceManhuaCdn')) {
 if (!function_exists('mbConvert')) {
     function mbConvert($value)
     {
-        if(is_array($value)){
+        if (is_array($value)) {
             $arr = [];
             foreach ($value as $key => &$item) {
                 $unicode = unpack('n*', mb_convert_encoding($item, 'UTF-16BE', 'UTF-8'));
                 $str = '';
                 foreach ($unicode as $val) {
-                    $str .= '&#'.$val . ';';
+                    $str .= '&#' . $val . ';';
                 }
                 $arr[$key] = $str;
             }
@@ -244,7 +241,7 @@ if (!function_exists('mbConvert')) {
         $unicode = unpack('n*', mb_convert_encoding($value, 'UTF-16BE', 'UTF-8'));
         $str = '';
         foreach ($unicode as $val) {
-            $str .= '&#'.$val . ';';
+            $str .= '&#' . $val . ';';
         }
         return $str;
     }
@@ -252,71 +249,188 @@ if (!function_exists('mbConvert')) {
 
 
 if (!function_exists('qsj')) {
-    function qsj($num){
-        $sjs = mt_rand(0,99) + 1;
-        if(($num>=1 && $num <=99 && $sjs >=1 && $sjs <= $num) || $num >=100)
-        {
+    function qsj($num)
+    {
+        $sjs = mt_rand(0, 99) + 1;
+        if (($num >= 1 && $num <= 99 && $sjs >= 1 && $sjs <= $num) || $num >= 100) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 }
 //减去关闭得广告
-function checkDisplayAd($site,$ad){
+function checkDisplayAd($site, $ad)
+{
+    if (!$ad) {
+        return $ad;
+    }
+    $adres = Db::name("site")->where("id", $site)->find();
+    $adres = json_decode($adres["display_show"], true);
+    if ($adres) {
+        foreach ($adres as $k => $v) {
+            foreach ($ad as $ka => $va) {
+                if ($va["id"] == $v) {
+                    unset($ad[$ka]);
+                }
+            }
+        }
+    }
+
     return $ad;
 }
 //拼接站内广告得链接
-function checkZhanneiAd($site,$ad){
+function checkZhanneiAd($site, $ad, $channel)
+{
+    if (!$ad) {
+        return $ad;
+    }
+    $siteres = Db::name("site")->where("id", $site)->find();
+    $adres = json_decode($siteres["zhannei_settings"], true);
+    if (!empty($adres)) {
+        foreach ($ad as $ka => $va) {
+
+            if ($va["url_type"] == 1) {
+                foreach ($adres as $k => $v) {
+                    if ($v["pid"] == $va["id"]) {
+
+                        if ($v["site_id"] == $siteres["id"]) {
+                            $ad[$ka]["androidurl"] = $siteres["domain"] . "/" . $channel . ".html";
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     return $ad;
 }
 //字数显示
-function fontsize($string){
-    $substring = mb_substr($string, 0, 40, 'UTF-8')."....";
+function fontsize($string)
+{
+    $substring = mb_substr($string, 0, 40, 'UTF-8') . "....";
     return $substring;
 }
-function fontsize2($string){
-    $substring = mb_substr($string, 0, 5, 'UTF-8')."....";
+function fontsize2($string)
+{
+    $substring = mb_substr($string, 0, 5, 'UTF-8') . "....";
+    return $substring;
+}
+function fontsize3($string)
+{
+    $substring = mb_substr($string, 0, 10, 'UTF-8') . "....";
     return $substring;
 }
 //获取小说的分类
-function getNovelCate($id){
-    $cate = Db::name("mall_novelcate")->where(["id"=>$id])->find();
+function getNovelCate($id)
+{
+    $cate = Db::name("mall_novelcate")->where(["id" => $id])->find();
     return $cate["title"];
 }
-function timesrand(){
-    return rand(1,2);
+//获取图片得分类
+function getImageCate($id)
+{
+
+    $cate = Db::name("mall_img_cate")->where(["id" => $id])->find();
+    return $cate["title"];
+}
+function timesrand()
+{
+    return rand(1, 2);
 }
 //获取小说的章数
-function novelNum($id){
-    $num=Db::name("novel_catalogs")->where(["novel_id"=>$id])->count();
+function novelNum($id)
+{
+    $num = Db::name("novel_catalogs")->where(["novel_id" => $id])->count();
     return $num;
 }
 //获取漫画得章数
-function comicsNum($id){
-    $num=Db::name("comic_catalogs")->where(["novel_id"=>$id])->count();
+function comicsNum($id)
+{
+    $num = Db::name("comic_catalogs")->where(["novel_id" => $id])->count();
     return $num;
 }
 //观看数 变k
-function eyek($num){
-    if ($num >= 1000) { return round($num / 1000, 1); } 
+function eyek($num)
+{
+    if ($num >= 1000) {
+        return round($num / 1000, 1);
+    }
     return (string)$num;
 }
-function eyew($num){
-    if ($num >= 10000) { return round($num / 10000, 1); } 
+function eyew($num)
+{
+    if ($num >= 10000) {
+        return round($num / 10000, 1);
+    }
     return (string)$num;
 }
 //获取吃瓜的分类
-function chiguaCate($id){
-    $cate=Db::name("mall_chigua_cate")->where(["id"=>$id])->find();
+function chiguaCate($id)
+{
+    $cate = Db::name("mall_chigua_cate")->where(["id" => $id])->find();
     return $cate["title"];
 }
 //获取站点名称
-function siteName($id){
-    $site=Db::name("site")->where(["id"=>$id])->find();
+function siteName($id)
+{
+    $site = Db::name("site")->where(["id" => $id])->find();
     return $site["name"];
 }
 //日期转年月日
-function dateToYmd($time){
-    return date("Y 年 m 月 d 日",$time);
+function dateToYmd($time)
+{
+    return date("Y 年 m 月 d 日", $time);
+}
+//获取图片分类前8得内容
+function imageOrder($cate_id)
+{
+    $res = Db::name("mall_img")->where("cate_id", $cate_id)->order("eye desc")->limit(8)->select();
+    $str = "";
+    if ($res) {
+        foreach ($res as $k => $v) {
+            $str .= ' <div class="home_card_list">
+                    <div class="home_card_left">
+                        <div class="home_card_num" style="background: #D13E3E;">' . $k . '</div>
+                        <div class="home_card_name">' . $v["title"] . '</div>
+                    </div>
+                    <div class="home_card_right">
+                        <img src="/static/image/img/huo.png" class="home_card_huo">
+                        <div class="home_card_name">' . $v["eye"] . '</div>
+                    </div>
+                </div>';
+        }
+    }
+    return $str;
+}
+//获取图片第一个图片
+function imagefirst($img)
+{
+    $array = explode(",", $img);
+    return $array[0];
+}
+//获取广告得分类
+function getAdCate($cate_id)
+{
+    $res = Db::name("pcategory")->where(["id" => $cate_id])->find();
+    if ($res["title"]) {
+        $res["title"] = getFirstSixChineseChars($res["title"]);
+    }
+    return $res["title"];
+}
+
+function getFirstSixChineseChars($string)
+{
+    // 判断字符串长度
+    $length = mb_strlen($string, 'UTF-8');
+    if ($length > 6) {
+        // 截取前6个汉字
+        return mb_substr($string, 0, 6, 'UTF-8');
+    }
+    return $string; // 如果字符串长度小于等于6，返回原字符串
+}
+//video去除前面的域名
+function urlparse($url){
+     $parsedUrl = parse_url($url, PHP_URL_PATH); // 输出结果 
+     return  $parsedUrl;
 }

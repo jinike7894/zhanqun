@@ -1,4 +1,4 @@
-<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\novel\index.html";i:1732205212;}*/ ?>
+<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\novel\index.html";i:1732606411;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +15,15 @@
     <link rel="stylesheet" href="/static/novel/css/styles.css">
     <link rel="stylesheet" href="/static/novel/css/swiperGf.css" />
     <link rel="stylesheet" href="/static/css/commons.css" />
+
+
+   <!-- 懒加载 -->
+    <script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
+    <script type="text/javascript" src="/static/js/lozad.min.js"></script>
+     <!-- 懒加载 -->
+
 </head>
 <style>
     /* .swiper-slide  {
@@ -162,9 +171,9 @@
             <!-- 导航栏 -->
             <div class="lableList">
                 <a href="/novel/<?php echo htmlentities($channel); ?>.html?type=renqi"><div class="lable <?php if($types == 1): ?>lable_active<?php endif; ?>">人气榜</div></a>
-                <a href="/comics/<?php echo htmlentities($channel); ?>.html?type=tuijian"><div class="lable <?php if($types == 2): ?>lable_active<?php endif; ?>">推荐榜</div></a>
-                <a href="/comics/<?php echo htmlentities($channel); ?>.html?type=shoucang"><div class="lable <?php if($types == 3): ?>lable_active<?php endif; ?>">收藏榜</div></a>
-                <a href="/comics/<?php echo htmlentities($channel); ?>.html?type=resou"><div class="lable <?php if($types == 4): ?>lable_active<?php endif; ?>">热搜榜</div></a>
+                <a href="/novel/<?php echo htmlentities($channel); ?>.html?type=tuijian"><div class="lable <?php if($types == 2): ?>lable_active<?php endif; ?>">推荐榜</div></a>
+                <a href="/novel/<?php echo htmlentities($channel); ?>.html?type=shoucang"><div class="lable <?php if($types == 3): ?>lable_active<?php endif; ?>">收藏榜</div></a>
+                <a href="/novel/<?php echo htmlentities($channel); ?>.html?type=resou"><div class="lable <?php if($types == 4): ?>lable_active<?php endif; ?>">热搜榜</div></a>
             </div>
 
             <div class="homeBookBox">
@@ -173,7 +182,7 @@
                 <a class="homeBook" href="/novel/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
 
                     <div class="homeBookLeft">
-                        <img class="homeBookLeftCover" src="<?php echo htmlentities($item['pic']); ?>" onerror="this.src='/static/images/loading_img_bg_default.jpg';" />
+                        <img class="homeBookLeftCover lozad" data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>" src="/static/images/loading_img_bg_default.jpg"  />
                         <img class="homeBookLeftWj" src="/static/novel/images/wanjie.png">
                     </div>
                     <div class="homeBookright">
@@ -207,7 +216,7 @@
                 <a href="/novel/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                 <div class="book">
                     <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="<?php echo htmlentities($item['pic']); ?>"  onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                        <img style="width: 100%;height: 100%;" src="/static/images/loading_img_bg_default.jpg" class=" lozad" data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>" />
                         <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/novel/images/wanjie.png" />
@@ -267,7 +276,7 @@
                 <a href="/novel/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                 <div class="book">
                     <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="<?php echo htmlentities($item['pic']); ?>" onerror="this.src='/static/images/loading_img_bg_default.jpg';" />
+                        <img style="width: 100%;height: 100%;"  src="/static/images/loading_img_bg_default.jpg" class=" lozad" data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>"  />
                         <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/novel/images/wanjie.png" />
@@ -347,7 +356,12 @@
 <script src="/static/common/apps.js"></script>
 <script src="/static/novel/js/swiper.js"></script>
 <script>
-
+   $(document).ready(function () {
+    // $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
 var swiper = new Swiper(".mySwiper", {
       cssMode: true,
       navigation: {

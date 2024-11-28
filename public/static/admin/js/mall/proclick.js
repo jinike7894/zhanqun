@@ -3,12 +3,12 @@ define(["jquery", "easy-admin"], function ($, ea) {
     var init = {
         table_elem: '#currentTable',
         table_render_id: 'currentTableRenderId',
-        index_url: 'mall.pro_click/index',
-        add_url: 'mall.pro_click/add',
-        edit_url: 'mall.pro_click/edit',
-        delete_url: 'mall.pro_click/delete',
-        export_url: 'mall.pro_click/export',
-        modify_url: 'mall.pro_click/modify',
+        index_url: 'mall.proclick/index',
+        add_url: 'mall.proclick/add',
+        edit_url: 'mall.proclick/edit',
+        delete_url: 'mall.proclick/delete',
+        export_url: 'mall.proclick/export',
+        modify_url: 'mall.proclick/modify',
     };
 
     var Controller = {
@@ -38,7 +38,7 @@ define(["jquery", "easy-admin"], function ($, ea) {
                         operat: [
                             [{
                                 text: '查看',
-                                url: 'mall.pro_click_show/index',
+                                url: 'mall.proclickshow/index',
                                 field: 'id,date',
                                 method: 'open',
                                 auth: 'show',

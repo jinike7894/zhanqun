@@ -30,13 +30,23 @@ class Image extends BaseController
         //获取logo
         $logo=Db::name("site")->where("id",$this->site)->find();
         View::assign('logo',$logo["icon"]);
-        $novelCate = Db::name("mall_novelcate")->where(["status" => 1])->select();
+        $novelCate = Db::name("mall_img_cate")->where(["status" => 1])->select();
         View::assign('novelCate', $novelCate);
+
+        $cate_id=0;
+        if(isset($_GET["cate_id"])){
+            $cate_id   =$_GET["cate_id"];
+        }
+        View::assign('cate_id', $cate_id);
+
+
         $jscsscdn = sysconfig('site', 'jscss_cdn');
         $onlinekf = sysconfig('site', 'onlinekf');
         $onlineemail = sysconfig('site', 'onlineemail');
         $foreverurl = sysconfig('site', 'foreverurl');
         $bdtongji = sysconfig('site', 'bdtongji');
+        $img_cdn = sysconfig('site', 'img_cdn');
+        View::assign('img_cdn', $img_cdn);
         $tuoyilink = "https://c.tuoya2.cc?c=2039";
         View::assign('jscsscdn', $jscsscdn);
         View::assign('onlinekf', $onlinekf);
@@ -46,7 +56,7 @@ class Image extends BaseController
         View::assign('tuoyilink', $tuoyilink);
         View::assign('action', $action);
         //获取轮播广告
-        $BannerList = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $BannerList = $this->Products
             ->where(array('status' => 1))
             ->where(['pid' => 91])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($BannerList as $key => &$item) {
@@ -59,10 +69,10 @@ class Image extends BaseController
         }
         //减去该站点关闭得广告
         $BannerList = checkDisplayAd($this->site, $BannerList);
-        $BannerList = checkZhanneiAd($this->site, $BannerList);
+        $BannerList = checkZhanneiAd($this->site, $BannerList,$channel);
         View::assign('BannerList', $BannerList);
           //获取缩边轮播图
-          $BannerList2 = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+          $BannerList2 = $this->Products
           ->where(array('status'=>1))
           ->where(['pid' => 94])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
           foreach ($BannerList2 as $key => &$item) {
@@ -75,7 +85,7 @@ class Image extends BaseController
           }
           //减去该站点关闭得广告
           $BannerList2=checkDisplayAd($this->site,$BannerList2);
-          $BannerList2=checkZhanneiAd($this->site,$BannerList2);
+          $BannerList2=checkZhanneiAd($this->site,$BannerList2,$channel);
           View::assign('BannerList2',$BannerList2);
         //获取广告得分类
         $pcategory = $this->Pcategory->field('id,title')
@@ -87,28 +97,28 @@ class Image extends BaseController
         if ($cateid) {
             $pwhere["cid"] = $cateid;
         }
-        $jiugongge_img = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum')
+        $jiugongge_img = $this->Products
             ->where(array('status' => 1))
             ->where($pwhere)->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $jiugongge_img = checkDisplayAd($this->site, $jiugongge_img);
-        $jiugongge_img = checkZhanneiAd($this->site, $jiugongge_img);
+        $jiugongge_img = checkZhanneiAd($this->site, $jiugongge_img,$channel);
         View::assign('jiugongge_img', $jiugongge_img);
         //获取九宫格文字
-        $jiugongge_font = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,content')
+        $jiugongge_font = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 84])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $jiugongge_font = checkDisplayAd($this->site, $jiugongge_font);
-        $jiugongge_font = checkZhanneiAd($this->site, $jiugongge_font);
+        $jiugongge_font = checkZhanneiAd($this->site, $jiugongge_font,$channel);
         View::assign('jiugongge_font', $jiugongge_font);
         //获取顶部图标文字
-        $img_font_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,content')
+        $img_font_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 85])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $img_font_ad = checkDisplayAd($this->site, $img_font_ad);
-        $img_font_ad = checkZhanneiAd($this->site, $img_font_ad);
+        $img_font_ad = checkZhanneiAd($this->site, $img_font_ad,$channel);
         View::assign('img_font_ad', $img_font_ad);
         //获取在线约炮
-        $yuepao_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $yuepao_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 92])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         //截取小图
@@ -125,10 +135,10 @@ class Image extends BaseController
         }
 
         $yuepao_ad = checkDisplayAd($this->site, $yuepao_ad);
-        $yuepao_ad = checkZhanneiAd($this->site, $yuepao_ad);
+        $yuepao_ad = checkZhanneiAd($this->site, $yuepao_ad,$channel);
         View::assign('yuepao_ad', $yuepao_ad);
         //获取直播
-        $live_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $live_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 93])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($live_ad as $kyue => &$vyue) {
@@ -140,10 +150,10 @@ class Image extends BaseController
             }
         }
         $live_ad = checkDisplayAd($this->site, $live_ad);
-        $live_ad = checkZhanneiAd($this->site, $live_ad);
+        $live_ad = checkZhanneiAd($this->site, $live_ad,$channel);
         View::assign('live_ad', $live_ad);
         //获取直播
-        $live_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $live_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 93])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         foreach ($live_ad as $kyue => &$vyue) {
@@ -155,36 +165,36 @@ class Image extends BaseController
             }
         }
         $live_ad = checkDisplayAd($this->site, $live_ad);
-        $live_ad = checkZhanneiAd($this->site, $live_ad);
+        $live_ad = checkZhanneiAd($this->site, $live_ad,$channel);
         View::assign('live_ad', $live_ad);
 
         //中部文字广告
-        $zhong_font_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $zhong_font_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 87])->order('sort asc,id asc')->page(1, 100)->select()->toArray();
         $zhong_font_ad = checkDisplayAd($this->site, $zhong_font_ad);
-        $zhong_font_ad = checkZhanneiAd($this->site, $zhong_font_ad);
+        $zhong_font_ad = checkZhanneiAd($this->site, $zhong_font_ad,$channel);
         View::assign('zhong_font_ad', $zhong_font_ad);
         //中部图片广告
-        $zhong_img_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $zhong_img_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 86])->orderRaw("rand()")->select()->toArray();
         $zhong_img_ad = checkDisplayAd($this->site, $zhong_img_ad);
-        $zhong_img_ad = checkZhanneiAd($this->site, $zhong_img_ad);
+        $zhong_img_ad = checkZhanneiAd($this->site, $zhong_img_ad,$channel);
         View::assign('zhong_img_ad', $zhong_img_ad);
         //底部图片广告
-        $di_img_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $di_img_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 88])->orderRaw("rand()")->select()->toArray();
         $di_img_ad = checkDisplayAd($this->site, $di_img_ad);
-        $di_img_ad = checkZhanneiAd($this->site, $di_img_ad);
+        $di_img_ad = checkZhanneiAd($this->site, $di_img_ad,$channel);
         View::assign('di_img_ad', $di_img_ad);
         //底部图片文字广告
-        $di_img_font_ad = $this->Products->field('id,img,name,androidurl,is_apk,is_browser,iosurl,downnum,pics')
+        $di_img_font_ad = $this->Products
             ->where(array('status' => 1))
             ->where(["pid" => 89])->orderRaw("rand()")->select()->toArray();
         $di_img_font_ad = checkDisplayAd($this->site, $di_img_font_ad);
-        $di_img_font_ad = checkZhanneiAd($this->site, $di_img_font_ad);
+        $di_img_font_ad = checkZhanneiAd($this->site, $di_img_font_ad,$channel);
         View::assign('di_img_font_ad', $di_img_font_ad);
     }
 
@@ -193,59 +203,37 @@ class Image extends BaseController
         if (empty($channel)) {
             return response('403 access forbidden!', 403);
         }
-        // //查询小说分类
-        // $novelCate = Db::name("mall_novelcate")->where(["status" => 1])->select();
-        // View::assign('novelCate', $novelCate);
-        // $novel1 = Db::name("mall_novels");
-        // //查询10个小说 默认eye排序
-        // if (isset($_GET["type"])) {
-        //     switch ($_GET["type"]) {
-        //         case "renqi":
-        //             $novel1->order("renqi desc");
-        //             break;
-        //         case "tuijian":
-        //             $novel1->order("tuijian desc");
-        //             break;
-        //         case "shoucang":
-        //             $novel1->order("shoucang desc");
-        //             break;
-        //         case "resou":
-        //             $novel1->order("resou desc");
-        //             break;
-        //     }
-        // }else{
-        //     $novel1->order("renqi desc");
-        // }
-        // $novel1 = $novel1->where(["status" => 1])->limit(10)->select();
-        // $novel1 = $novel1->toArray();
-        // foreach ($novel1 as $k => $v) {
-        //     $novel1[$k]["times"] = rand(1, 2);
-        // }
-
-        // View::assign('novel1', $novel1);
-        // //获取小说12个
-        // $novelModel=Db::name("mall_novels");
-        // if(isset($_GET["cate_id"])){
-        //     $novelModel->where("cate_id",$_GET["cate_id"]);
-        // }
-        // $novel2 = $novelModel->where("status",1)->paginate([
-        //     'list_rows' => 12,
-        //     'query'     => request()->param(),
-        //  ]);
-        // View::assign('novel2', $novel2);
-        // $novel2=$novel2->toArray()["data"];
-        // $novels1=[];
-        // $novels2=[];
-        // foreach($novel2 as $k=>$v){
-        //     if (in_array($k, [0,1,2,3,4,5])) { 
-        //         $novels1[]=$v;
-        //      }
-        //     if (in_array($k, [6,7,8,9,10,11])) { 
-        //         $novels2[]=$v;
-        //     }
-        // }
-        // View::assign('novels1', $novels1);
-        // View::assign('novels2', $novels2);
+        //获取分类和排名前8得图片
+        $novelCateorder = Db::name("mall_img_cate")->where(["status" => 1])->select()->toArray();
+      
+        foreach($novelCateorder as $k=>$v){
+            $novelCateorder[$k]["order_html"]=imageOrder($v['id']);
+        }
+        $imagemodel = Db::name("mall_img");
+        if(isset($_GET["cate_id"])){
+            $imagemodel= $imagemodel->where('cate_id',$_GET["cate_id"]); 
+        }
+        //获取推荐图片
+        $image = $imagemodel->where(["status" => 1])->orderRaw("rand()")->paginate([
+            'list_rows' => 8,
+            'query'     => request()->param(),
+         ]);
+         View::assign('image', $image);
+         $image1=$image->toArray()["data"];
+         $images1=[];
+         $images2=[];
+         //区分两个部分
+         foreach($image as $k=>$v){
+            if (in_array($k, [0,1,2,3])) { 
+                $images1[]=$v;
+             }
+            if (in_array($k, [4,5,6,7])) { 
+                $images2[]=$v;
+            }
+         }
+        View::assign('images1', $images1);
+        View::assign('images2', $images2);
+        View::assign('novelCateorder', $novelCateorder);
         View::assign('channel', $channel);
         return View::fetch('image/index');
     }
@@ -256,51 +244,51 @@ class Image extends BaseController
         if (empty($channel)) {
             return response('403 access forbidden!', 403);
         }
-        $novelCate = Db::name("mall_novelcate")->where(["status" => 1])->select();
+        $novelCate = Db::name("mall_img_cate")->where(["status" => 1])->select();
         View::assign('novelCate', $novelCate);
         $videoModel = Db::name("mall_novels");
         if (isset($_GET["id"])) {
             $videoModel->where(["id" => $_GET["id"]]);
         }
-        //推荐视频
-        $video = Db::name("mall_novels")->where("status", "1")->orderRaw("rand()")->limit(6)->select();
+        View::assign('id', $_GET["id"]);
+
+        $show_type=1;
+        if (isset($_GET["show_type"])) {
+            $show_type=$_GET["show_type"];
+        }
+        View::assign('show_type', $show_type);
+        //推荐
+        $video = Db::name("mall_img")->where("status", "1")->orderRaw("rand()")->limit(4)->select();
         View::assign('list', $video);
-        //查询章数
-        $novelcount = Db::name("novel_catalogs")->where("novel_id",$_GET["id"])->where("status", "1")->paginate([
-            'list_rows' => 100,
-            'query'     => request()->param(),
-         ]);
-        $novelfirst = Db::name("novel_catalogs")->where("novel_id",$_GET["id"])->where("status", "1")->find();
-        $novelcountid=0;
-        if($novelfirst){
-            $novelcountid=$novelfirst["id"];
+        //查询图片数据
+
+        $info = Db::name("mall_img")->where("id",$_GET["id"])->find();
+        View::assign('info', $info);
+        //随机4个分类
+        $cateRand = Db::name("mall_img_cate")->where(["status" => 1])->orderRaw("rand()")->limit(4)->select();
+        View::assign('cateRand', $cateRand);
+        //列表展示
+        $list_img=[];
+        $banner_img=[];
+        $array = explode(",", $info["pic"]);
+        $page_list=1;
+        if(isset($_GET["page_list"])){
+            $page_list=$_GET["page_list"];
         }
-        $novelcounttotal = Db::name("novel_catalogs")->where("novel_id",$_GET["id"])->where("status", "1")->count();
-        $videoData = $videoModel->where("status", "1")->find();
-        View::assign('novelcounttotal', $novelcounttotal);
-        $novel2 =  Db::name("mall_novels")->where("status",1)->orderRaw("rand()")->paginate([
-            'list_rows' => 12,
-            'query'     => request()->param(),
-         ]);
-        View::assign('novel2', $novel2);
-        $novel2=$novel2->toArray()["data"];
-        $novels1=[];
-        $novels2=[];
-        foreach($novel2 as $k=>$v){
-            if (in_array($k, [0,1,2,3,4,5])) { 
-                $novels1[]=$v;
-             }
-            if (in_array($k, [6,7,8,9,10,11])) { 
-                $novels2[]=$v;
-            }
+        $list_img[]=["list"=>$array[$page_list-1],"count"=>count($array)];
+        View::assign('list_img', $list_img);
+        View::assign('page_list', $page_list);
+        //轮播展示
+        $banner_list=1;
+        if(isset($_GET["banner_list"])){
+            $banner_list=$_GET["banner_list"];
         }
-        View::assign('novels1', $novels1);
-        View::assign('novels2', $novels2);
-        View::assign('novelcount', $novelcount);
-        View::assign('novelcountid', $novelcountid);
-        View::assign('info', $videoData);
+        $datas=array_slice($array, ($banner_list-1)*6,  ($banner_list-1)+6);
+        $banner_img[]=["list"=> $datas,"count"=>ceil(count($array)/6)];
+        View::assign('banner_img', $banner_img);
+        View::assign('banner_list', $banner_list);
         View::assign('channel', $channel);
-        return View::fetch('novel/info');
+        return View::fetch('image/info');
 
         // $vid = input('param.vid/d',0);
         // $category_id = input('param.category_id/d',0);
@@ -396,23 +384,11 @@ class Image extends BaseController
         if (empty($channel)) {
             return response('403 access forbidden!', 403);
         }
-        $videoCateData=Db::name("mall_novelcate")->select();
-        $video1=[];
-        $video2=[];
-        foreach($videoCateData as $k=>$v){
-            if (in_array($k, [0,1,2,3,4,5])) { 
-                $video1[]=$v;
-             }
-            if (in_array($k, [6,7,8,9,10,11])) { 
-                $video2[]=$v;
-            }
-        }
-        View::assign('video2',$video2);
-        View::assign('video1',$video1);
- 
-        View::assign('videoCateData', $videoCateData);
+        $image=Db::name("mall_img")->orderRaw("rand()")->limit(4)->select();
+
+        View::assign('image',$image);
         View::assign('channel', $channel);
-        return View::fetch('novel/search');
+        return View::fetch('image/search');
     }
 
     public function searchres($channel = 0)
@@ -420,33 +396,21 @@ class Image extends BaseController
         if (empty($channel)) {
             return response('403 access forbidden!', 403);
         }
-        $videoCateData = Db::name("mall_novelcate")->select();
-        View::assign('videoCateData', $videoCateData);
+
         View::assign('query', $_GET["query"]);
-        $videoModel = Db::name("mall_novels");
+        $videoModel = Db::name("mall_img");
         if (isset($_GET["cate_id"])) {
             $videoModel->where(["cate_id" => $_GET["cate_id"]]);
         }
         if (isset($_GET["query"]) && $_GET["query"] != "") {
             $videoModel->where('title', 'like', "%{$_GET["query"]}%");
         }
-        $videoData = $videoModel->where("status", "1")->paginate(6);
+        $videoData = $videoModel->where("status", "1")->paginate([
+            'list_rows' => 4,
+            'query'     => request()->param(),
+         ]);
         View::assign('list', $videoData);
-        // $videoCateData=Db::name("mall_cate")->where([["id","<>",1]])->select();
-        // $video1=[];
-        // $video2=[];
-        // foreach($videoCateData as $k=>$v){
-        //     if (in_array($k, [0,1,2,3,4,5])) { 
-        //         $video1[]=$v;
-        //      }
-        //     if (in_array($k, [6,7,8,9,10,11])) { 
-        //         $video2[]=$v;
-        //     }
-        // }
-        // View::assign('video2',$video2);
-        // View::assign('video1',$video1);
-        // View::assign('videoCateData',$videoCateData);
         View::assign('channel', $channel);
-        return View::fetch('novel/searchres');
+        return View::fetch('image/searchres');
     }
 }

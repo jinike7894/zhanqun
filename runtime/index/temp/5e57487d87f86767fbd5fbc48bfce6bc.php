@@ -1,4 +1,4 @@
-<?php /*a:1:{s:51:"C:\wwwroot\zhanqun\view\index\comics\searchres.html";i:1732199008;}*/ ?>
+<?php /*a:1:{s:51:"C:\wwwroot\zhanqun\view\index\comics\searchres.html";i:1732607743;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +14,12 @@
     <link rel="stylesheet" href="/static/comics/css/styles.css">
     <link rel="stylesheet" href="/static/comics/css/swiperGf.css" />
     <link rel="stylesheet" href="/static/css/commons.css" />
+       <!-- 懒加载 -->
+       <script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
+       <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
+       <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
+       <script type="text/javascript" src="/static/js/lozad.min.js"></script>
+        <!-- 懒加载 -->
 </head>
 <style>
     /* .swiper-slide  {
@@ -132,7 +138,7 @@
                     <a href="/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                     <div class="book">
                         <div class="bookImg">
-                            <img style="width: 100%;height: 100%;" src="<?php echo htmlentities($item['pic']); ?>" />
+                            <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>" />
                             <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/comics/images/wanjie.png" />
@@ -221,7 +227,12 @@
 </body>
 <script src="/static/comics/js/swiper.js"></script>
 <script>
-
+     $(document).ready(function () {
+    // $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
     var swiper = new Swiper(".mySwiper", {
         cssMode: true,
         navigation: {

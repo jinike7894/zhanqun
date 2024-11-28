@@ -1,4 +1,4 @@
-<?php /*a:2:{s:58:"C:\wwwroot\zhanqun\view\admin\mall\channel_codes\edit.html";i:1731148817;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1730802670;}*/ ?>
+<?php /*a:2:{s:58:"C:\wwwroot\zhanqun\view\admin\mall\channel_codes\edit.html";i:1732788185;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1732110801;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +31,7 @@
 <link rel="stylesheet" type="text/css" href="/static/plugs/lay-module/xm-select/static/formSeletv4.css"/>
 <div class="layuimini-container">
     <form id="app-form" class="layui-form layuimini-form">
-        <div class="layui-form-item">
+        <!-- <div class="layui-form-item">
             <label class="layui-form-label required">站点</label>
             <div class="layui-input-block">
                 <select name="site_id" lay-verify="required" data-select="<?php echo url('website.site/getcategory'); ?>"
@@ -44,7 +44,7 @@
                 <select name="site_category_id" lay-verifysite_idrequired" data-select="<?php echo url('website.category/getcategory'); ?>"
                 data-fields="id,name"  data-value="<?php echo htmlentities((isset($row['site_category_id']) && ($row['site_category_id'] !== '')?$row['site_category_id']:'')); ?>"></select>
             </div>
-        </div>
+        </div> -->
         <div class="layui-form-item">
             <label class="layui-form-label required">渠道号</label>
             <div class="layui-input-block">

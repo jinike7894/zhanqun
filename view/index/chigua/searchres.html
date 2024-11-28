@@ -1,0 +1,135 @@
+{include file="chigua/header" /}
+
+            <!-- 返回栏 -->
+            <div class="nav" style="padding-left: 0;">
+                <div class="left">
+                    <img class="leftBtn" style="margin-right: 5px;" src="__STATIC__/video/images/rectangle.svg" />
+                    <div class="leftName">搜索结果 - {$query}</div>
+                </div>
+            </div>
+
+          
+            <div class="home_hlList">
+                {volist name='list' id="item"}
+                <a href="/chigua/info/{$channel}.html?id={$item.id}">
+                <div class="home_hl_box">
+                    <img src="{$item.cover}" class="home_hl_img" />
+                    <div class="home_hl_back"></div>
+                    <div class="home_hl_txtBox">
+                        <div class="home_hl_txtTop">
+                            {$item.title}
+                        </div>
+                        <div class="home_hl_txtBottom">
+                            {$site_id|siteName}官方 • {$item.create_time|dateToYmd}
+                        </div>
+                        <div class="home_hl_txtBottom">
+                        {$item.cate_id|chiguaCate}
+                        </div>
+                    </div>
+                    <img src="__STATIC__/chigua/img/searchHot.png" class="home_hl_searchHot">
+                </div>
+                </a>
+                {/volist}
+
+            </div>
+            {volist name='di_img_ad' id="item"}
+            <img class="banner ad " src="{$item.img}"   data-id="{$item.id}" data-channel="{$channel}"
+            data-site="{$site_id}" data-url="{$item.androidurl}"/>
+            {/volist}
+            <!-- 抖音 -->
+            <div class="index_dyList" style="padding: 8px 0;border: 0px;">
+                {volist name='di_img_font_ad' id="item"}
+                    <div class="index_dyListBox ad"  data-id="{$item.id}" data-channel="{$channel}"
+                    data-site="{$site_id}" data-url="{$item.androidurl}">
+                        <div class="flexBox">
+                            <img src="{$item.img}" class="index_dyList_img">
+                            <div class="index_dyList_dyTxt">{$item.name}</div>
+
+                        </div>
+
+                        <img src="__STATIC__/video/img/rightIcon.png" class="index_dyList_rightIcon">
+                    </div>
+                    {/volist}
+               
+
+            </div>
+            <!-- 分页 -->
+            <div class="pageNum" style="margin-top: 10px;">
+                {$list|raw}
+                <!-- <div class="pageNext">
+                    <img src="__STATIC__/video/images/Chevron_Left.svg" />
+                </div>
+                <div class="pageNumBox" style="background: #FFFFFF33;">1</div>
+                <div class="pageNumBox">2</div>
+                <div class="pageNumBox">3</div>
+                <div class="pageNumBox">4</div>
+                <div class="pageNumBox">5</div>
+                <div class="pageNumBox">6</div>
+                <div class="pageMore">...</div>
+                <div class="pageNumBox">142</div>
+                <div class="pageNext"> <img src="__STATIC__/video/images/right.svg" /> </div> -->
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+    </div>
+
+
+</body>
+<script src="__STATIC__/video/js/swiper-bundle.min.js"></script>
+<script>
+
+var swiper = new Swiper(".mySwiper", {
+      cssMode: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+      mousewheel: true,
+      keyboard: true,
+    });
+
+    $(document).ready(function () {
+        //小说分类点击变亮
+        $(".lable").click(function () {
+            $(".lable").removeClass("lable_active");
+            $(this).addClass("lable_active");
+        });
+        //漫画分类点击变亮
+        $(".choosePage").click(function () {
+            $(".choosePage").removeClass("choosePage_active");
+            $(this).addClass("choosePage_active");
+        });
+        //导航栏
+        $(".header_navTxt").click(function () {
+            $(".header_navTxt").removeClass("header_navTxt_active");
+            $(this).addClass("header_navTxt_active");
+        });
+        //点击正倒序
+        $('.mulvTop').click(function () {
+            var currentText = $('#textToChange').text();
+            if (currentText === "正序") {
+                $('#textToChange').text("倒序");
+                $('#imgToChange').attr('src', '__STATIC__/video/images/daoxu.svg');
+
+            } else {
+                $('#textToChange').text("正序");
+                $('#imgToChange').attr('src', '__STATIC__/video/images/zhengxu.svg');
+            }
+        });
+    });
+</script>
+
+</html>

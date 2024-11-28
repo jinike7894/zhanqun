@@ -1,4 +1,4 @@
-<?php /*a:2:{s:60:"C:\wwwroot\zhanqun\view\admin\mall\pro_click_show\index.html";i:1731245467;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1730802670;}*/ ?>
+<?php /*a:2:{s:60:"C:\wwwroot\zhanqun\view\admin\mall\pro_click_show\index.html";i:1732110801;s:49:"C:\wwwroot\zhanqun\view\admin\layout\default.html";i:1732110801;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>

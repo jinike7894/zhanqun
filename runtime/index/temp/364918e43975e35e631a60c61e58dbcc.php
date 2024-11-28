@@ -1,4 +1,4 @@
-<?php /*a:2:{s:47:"C:\wwwroot\zhanqun\view\index\chigua\index.html";i:1732110799;s:48:"C:\wwwroot\zhanqun\view\index\chigua\header.html";i:1732202850;}*/ ?>
+<?php /*a:2:{s:47:"C:\wwwroot\zhanqun\view\index\chigua\index.html";i:1732259772;s:48:"C:\wwwroot\zhanqun\view\index\chigua\header.html";i:1732636986;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="/static/chigua/css/styleOld.css">
     <link rel="stylesheet" href="/static/chigua/css/home.css">
     <script type="text/javascript" src="/static/chigua/js/jquery.js"></script>
-    <script type="text/javascript" src="/static/video/js/app.js"></script>
+    <script type="text/javascript" src="/static/chigua/js/app.js"></script>
     <link rel="stylesheet" href="/static/chigua/css/styles.css">
     <link rel="stylesheet" href="/static/chigua/css/hl_styles.css">
     <link rel="stylesheet" href="/static/chigua/css/swiperGf.css" />
     <link rel="stylesheet" href="/static/css/commons.css" />
+    <link rel="stylesheet" href="/static/chigua/css/search.css">
 </head>
 <style>
     /* .swiper-slide  {
@@ -21,14 +22,14 @@
 } */
 
     .active1 > .header_navTxt{
-        color: #FA2B24 !important;
+        color: #FFB200 !important;
         background: none;
     }
     .active1 > .header_navli{
         width: 22px;
         height: 3px;
         border-radius: 3px;
-        background: #FA2B24;
+        background: #FFB200;
     }
 
     /* a {
@@ -52,7 +53,7 @@
                     <!-- <img src="/static/chigua/img/hlLogotxt.png" class="header_logoTxt"> -->
 
                 </div>
-                <a href="/static/chigua/search.html">
+                <a href="/chigua/search/<?php echo htmlentities($channel); ?>.html">
                     <div class="header_input">
                         <div class="headerInput"> 搜索</div>
                         <img src="/static/chigua/img/search.png" class="header_search">
@@ -87,7 +88,7 @@
             </div>
         </div>
         <!-- 顶部结束 -->
-        <div class="contentBox">
+        <div class="contentBox" style="padding-top:90px">
 
             <!-- Swiper -->
             <div class="swiper mySwiper">
@@ -167,39 +168,6 @@
                 </a>
                 <?php endforeach; endif; else: echo "" ;endif; ?>
 
-
-                <!-- <div class="home_hl_box">
-                    <img src="/static/chigua/img/banner1.png" class="home_hl_img" />
-                    <div class="home_hl_back"></div>
-                    <div class="home_hl_txtBox">
-                        <div class="home_hl_txtTop">
-                            都江堰八一聚源高中老师偷拍女学生事件 六位教师微信群分享女学生私密照 51黑料独家内幕爆料！
-                        </div>
-                        <div class="home_hl_txtBottom">
-                            51黑料官方 • 2024 年 10 月 29 日
-                        </div>
-                        <div class="home_hl_txtBottom">
-                        今日黑料, 点击率榜, 热搜黑料, 学生校园
-                        </div>
-                    </div>
-                    <img src="/static/chigua/img/searchHot.png" class="home_hl_searchHot">
-                </div>
-                <div class="home_hl_box">
-                    <img src="/static/chigua/img/banner1.png" class="home_hl_img" />
-                    <div class="home_hl_back"></div>
-                    <div class="home_hl_txtBox">
-                        <div class="home_hl_txtTop">
-                            都江堰八一聚源高中老师偷拍女学生事件 六位教师微信群分享女学生私密照 51黑料独家内幕爆料！
-                        </div>
-                        <div class="home_hl_txtBottom">
-                            51黑料官方 • 2024 年 10 月 29 日
-                        </div>
-                        <div class="home_hl_txtBottom">
-                        今日黑料, 点击率榜, 热搜黑料, 学生校园
-                        </div>
-                    </div>
-                    <img src="/static/chigua/img/searchHot.png" class="home_hl_searchHot">
-                </div> -->
             </div>
             <!-- 广告 -->
             <?php if(is_array($zhong_img_ad) || $zhong_img_ad instanceof \think\Collection || $zhong_img_ad instanceof \think\Paginator): $i = 0; $__LIST__ = $zhong_img_ad;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$item): $mod = ($i % 2 );++$i;?>

@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="__STATIC__/index/home.css">
     <script src="__STATIC__/index/res.js"></script>
     <link rel="stylesheet" href="__STATIC__/index/swiper.css">
+     <!-- 懒加载 -->
+     <script type="text/javascript" src="__JS__/jquery-2.2.4.min.js"></script>
+     <script type="text/javascript" src="__JS__/bootstrap.bundle.min.js"></script>
+     <script type="text/javascript" src="__JS__/clipboard.min.js"></script>
+     <script type="text/javascript" src="__JS__/lozad.min.js"></script>
+      <!-- 懒加载 -->
 </head>
 <!-- <script type="text/javascript" src="./jquery.js"></script> -->
 <style>
@@ -77,31 +83,14 @@
             <div class="index_jiugonggeTxt_text ad" data-id="{$item.id}" data-channel="{$channel}"
                 data-site="{$site_id}" data-url="{$item.androidurl}">{$item.name}</div>
             {/volist}
-            <!-- <div class="index_jiugonggeTxt_text index_jiugonggeTxt_hotColor">
-                <img src="__STATIC__/index/img/hot.png" class="index_jiugongge_hot">国产精品
-            </div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text index_jiugonggeTxt_hotColor">
-                <img src="__STATIC__/index/img/hot.png" class="index_jiugongge_hot">国产精品
-            </div>
-            <div class="index_jiugonggeTxt_text index_jiugonggeTxt_newColor">
-                <img src="__STATIC__/index/img/new.png" class="index_jiugongge_hot">国产精品
-            </div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div>
-            <div class="index_jiugonggeTxt_text">国产精品</div> -->
-
+     
         </div>
         <!-- 新闻条 -->
         <div class="index_news">
 
             <!-- 视频标签开始 -->
             {volist name="video" id="item"}
-            <a href="/video/info/{$channel}.html?id={$item.id}">
+            <a href="{$shipinsite}/video/info/{$channel}.html?id={$item.id}">
                 <div class="index_news_line">
                     <div class="index_news_line_left">
                         <div class="index_news_line_left_text">
@@ -114,32 +103,19 @@
                         </div>
 
                     </div>
-                    <img src="{$item.pic}" class="index_news_line_right_img"
-                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img  class="index_news_line_right_img lozad" 
+                    data-src="{$videoimg}{$item.enpic|urlparse}"
+                        src="/static/images/loading_img_bg_default.jpg">
 
                 </div>
             </a>
             {/volist}
-            <!-- <div class="index_news_line">
-                <div class="index_news_line_left">
-                    <div class="index_news_line_left_text">
-                        汗流浃背的前杨已婚女人是一个初级工人和一个庸俗的矛喝...
-                    </div>
-                    <div class="index_news_line_left_BottomBox">
-                        <div class="index_news_line_left_BottomBox_videoBtn">视频</div>
-                        <div class="index_news_line_left_BottomBox_text">阅读86W</div>
-                        <div class="index_news_line_left_BottomBox_text">一小时前</div>
-
-                    </div>
-
-                </div>
-                <img src="__STATIC__/index/img/newsCover.png" class="index_news_line_right_img">
-
-            </div> -->
+    
             <!-- 视频标签结束 -->
             <!-- 吃瓜标签开始 -->
             <div class="index_news_chigua">
                 {volist name="img_chigua" id="items"}
+                <a href="{$chiguasite}/chigua/info/{$channel}.html?id={$items.id}">
                 <div class="index_news_chigua_title">
                     {$items.title}
                 </div>
@@ -158,6 +134,7 @@
                     <div class="index_news_line_left_BottomBox_text">一小时前</div>
 
                 </div>
+                </a>
                 {/volist}
             </div>
             <!-- 吃瓜标签结束 -->
@@ -277,7 +254,7 @@
         <!-- 吃瓜阅读 -->
         <div class="index_chiguaRead">
             {volist name="img_chigua1" id="items"}
-            <a href="">
+            <a href="{$chiguasite}/chigua/info/{$channel}.html?id={$items.id}">
                 <div class="index_news_chigua">
                     <div class="index_news_chigua_title">
                         {$items.title}
@@ -289,9 +266,9 @@
 
                         <div class="index_chiguaRead_rightBox">
 
-                            <img src="{$items.cover}" class="index_chiguaRead_rightImg"
-                                onerror="this.src='/static/images/loading_img_bg_default.jpg';">
                             <img src="{$items.cover1}" class="index_chiguaRead_rightImg"
+                                onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                            <img src="{$items.cover2}" class="index_chiguaRead_rightImg"
                                 onerror="this.src='/static/images/loading_img_bg_default.jpg';">
                             <!-- <img src="{$items.cover2}" class="index_chiguaRead_rightImg"
                                 onerror="this.src='/static/images/loading_img_bg_default.jpg';"> -->
@@ -313,7 +290,7 @@
         </div>
         <!-- 小说 -->
         {volist name="novel" id="item"}
-        <a href="/novel/info/{$channel}.html?id={$item.id}">
+        <a href="{$xiaoshuosite}/novel/info/{$channel}.html?id={$item.id}">
             <div class="index_read">
 
                 <div class="index_read_left">
@@ -343,8 +320,8 @@
 
                 </div>
                 <div class="index_read_right">
-                    <img src="{$item.pic}" class="index_read_rightImg"
-                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img  class="index_read_rightImg lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$tmimg}{$item.enpic}"
+                       >
                     <img src="__STATIC__/index/img/lzBtn.png" class="index_read_lzBtn">
                 </div>
 
@@ -375,7 +352,7 @@
         </div>
         <!-- 小说 -->
         {volist name="novel1" id="item"}
-        <a href="/novel/info/{$channel}.html?id={$item.id}">
+        <a href="{$xiaoshuosite}/novel/info/{$channel}.html?id={$item.id}">
             <div class="index_read">
 
                 <div class="index_read_left">
@@ -405,8 +382,7 @@
 
                 </div>
                 <div class="index_read_right">
-                    <img src="{$item.pic}" class="index_read_rightImg"
-                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img class="index_read_rightImg lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$tmimg}{$item.enpic}">
                     <img src="__STATIC__/index/img/lzBtn.png" class="index_read_lzBtn">
                 </div>
 
@@ -421,12 +397,11 @@
     <!-- 漫画 -->
     <div class="index_cartoon">
         {volist name="manhua" id="item"}
-        <a href="/comics/info/{$channel}.html?id={$item.id}" class="index_alive_a">
+        <a href="{$manhuasite}/comics/info/{$channel}.html?id={$item.id}" class="index_alive_a">
             <div class="index_cartoon_box">
                 <!-- 图片盒子 -->
                 <div class="index_cartoon_imgbox">
-                    <img src="{$item.pic}" class="index_cartoon_img"
-                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img class="index_cartoon_img lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="{$tmimg}{$item.enpic}">
                     <!-- top -->
                     <img src="__STATIC__/index/img/top.png" class="index_cartoon_top">
                     <!-- 收藏按钮 -->
@@ -486,7 +461,7 @@
             {/volist}
         </div>
         {volist name='video1' id="item"}
-        <a href="/video/info/{$channel}.html?id={$item.id}">
+        <a href="{$shipinsite}/video/info/{$channel}.html?id={$item.id}">
             <div class="index_news_line">
                 <div class="index_news_line_left">
                     <div class="index_news_line_left_text">
@@ -500,8 +475,9 @@
                     </div>
 
                 </div>
-                <img src="{$item.pic}" class="index_news_line_right_img"
-                    onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                <img  class="index_news_line_right_img lozad" 
+                    data-src="{$videoimg}{$item.enpic|urlparse}"
+                        src="/static/images/loading_img_bg_default.jpg">
 
             </div>
         </a>
@@ -509,16 +485,16 @@
         <!-- 视频标签结束 -->
         <!-- 吃瓜标签开始 -->
         {volist name="img_chigua2" id="items"}
-        <a href="">
+        <a href="{$chiguasite}/chigua/info/{$channel}.html?id={$items.id}">
             <div class="index_news_chigua">
                 <div class="index_news_chigua_title">
                     {$items.title}
                 </div>
                 <div class="index_news_chigua_imgBox">
-                    {volist name="items.pic" id="item"}
-                    <img src="{$item}" class="index_news_chigua_img"
+                    <img src="{$items.cover}" class="index_news_chigua_img"
                         onerror="this.src='/static/images/loading_img_bg_default.jpg';">
-                    {/volist}
+                    <img src="{$items.cover1}" class="index_news_chigua_img"
+                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
                 </div>
                 <div class="index_news_line_left_BottomBox">
                     <div class="index_news_line_left_BottomBox_videoBtn">吃瓜</div>
@@ -535,12 +511,13 @@
     <!-- 漫画 -->
     <div class="index_cartoon">
         {volist name="img1" id="item"}
-        <a href="" class="index_alive_a">
+        <a href="{$imgsite}/image/info/{$channel}.html?id={$item.id}" class="index_alive_a">
             <div class="index_cartoon_box">
                 <!-- 图片盒子 -->
                 <div class="index_cartoon_imgbox">
-                    <img src="{$item.pic[0]}" class="index_cartoon_img"
-                        onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                    <img class="index_cartoon_img imgbase64"
+                    data-src="{$item.pic[0]}"
+                        src="/static/images/loading_img_bg_default.jpg" >
 
                     <div class="index_cartoon_pageBox">
                         <img src="__STATIC__/index/img/tjPage.png" class="index_cartoon_pageImg">
@@ -589,6 +566,32 @@
 
 </body>
 <script>
+    $(document).ready(function () {
+    // $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
+    
+      $(document).ready(function () {
+        // 获取所有 class 为 imgbase64 的 img 标签 
+        $('img.imgbase64').each(function () {
+            var img = $(this);
+            var imgSrc = img.attr('data-src');
+            var url="{$img_cdn}/"+imgSrc
+            var content="";
+            $.ajax({ url:url, 
+             type: 'GET', 
+             success: function(data) { 
+                content='data:image/jpeg;base64,'+data
+                console.log(content)
+                img.attr('src', content);
+            }, 
+                error: function(xhr, status, error) { } 
+            });
+           
+        });
+    });
     var base = '';
     // var _hmt = _hmt || [];
     // (function () {

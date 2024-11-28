@@ -1,0 +1,130 @@
+{include file="image/header2" /}
+        <!-- 图集 -->
+
+        <div class="contentBox">
+            <div class="tj_nav">搜索结果——{$query}</div>
+            <div class="hotList">
+                {volist name="list" id="item"}
+                <a href="/image/info/{$channel}.html?id={$item.id}">
+                <div class="book">
+                    <div class="bookImg">
+                        <img style="width: 100%;height: 100%;" data-src="{$item.pic|imagefirst}"
+                        src="/static/images/loading_img_bg_default.jpg" class="imgbase64" />
+                        <div class="bookBox_numPage">
+                            <img src="__STATIC__/image/img/tuji.png" class="bookBox_img">{$item.pic_num}张
+                        </div>
+                    </div>
+                    <div style="padding: 5px;">
+                        <div class="bookName">{$item.title|fontsize3}</div>
+                        <div class="bookText">{$item.detail|fontsize3}</div>
+                        <div class="bookNav">
+                            <span>#{$item.cate_id|getImageCate}</span>
+                
+                        </div>
+                    </div>
+
+                </div>
+                </a>
+                {/volist}
+            </div>
+            {volist name='di_img_ad' id="item"}
+            <img class="banner ad" src="{$item.img}"  data-id="{$item.id}" data-channel="{$channel}"
+             data-site="{$site_id}" data-url="{$item.androidurl}" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+            {/volist}
+            <div class="index_dyList" style="padding: 8px 0;border: 0px;">
+                {volist name='di_img_font_ad' id="item"}
+                <div class="index_dyListBox ad " data-id="{$item.id}" data-channel="{$channel}"
+                data-site="{$site_id}" data-url="{$item.androidurl}">
+                    <div class="flexBox">
+                        <img src="{$item.img}" class="index_dyList_img" onerror="this.src='/static/images/loading_img_bg_default.jpg';">
+                        <div class="index_dyList_dyTxt">{$item.name}</div>
+
+                    </div>
+
+                    <img src="__STATIC__/video/img/rightIcon.png" class="index_dyList_rightIcon">
+                </div>
+                {/volist}
+
+            </div>
+            <div class="pageNum" style="margin-top: 10px;">
+                {$list|raw}
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    </div>
+
+
+</body>
+<script src="__STATIC__/common/jq.js"></script>
+<script src="__STATIC__/common/swiper.js"></script>
+<script src="__STATIC__/common/apps.js"></script>
+<script src="__STATIC__/image/js/swiper.js"></script>
+<script>
+ $(document).ready(function () {
+        // 获取所有 class 为 imgbase64 的 img 标签 
+        $('img.imgbase64').each(function () {
+            var img = $(this);
+            var imgSrc = img.attr('data-src');
+            var url="{$img_cdn}/"+imgSrc
+            var content="";
+            $.ajax({ url:url, 
+             type: 'GET', 
+             success: function(data) { 
+                content='data:image/jpeg;base64,'+data
+                console.log(content)
+                img.attr('src', content);
+            }, 
+                error: function(xhr, status, error) { } 
+            });
+           
+        });
+    });
+    var swiper = new Swiper(".mySwiper", {
+        cssMode: true,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+        },
+        mousewheel: true,
+        keyboard: true,
+    });
+
+    $(document).ready(function () {
+       
+        //导航栏
+        $(".header_navTxt").click(function () {
+            $(".header_navTxt").removeClass("header_navTxt_active");
+            $(this).addClass("header_navTxt_active");
+        });
+        // //点击正倒序
+        // $('.mulvTop').click(function () {
+        //     var currentText = $('#textToChange').text();
+        //     if (currentText === "正序") {
+        //         $('#textToChange').text("倒序");
+        //         $('#imgToChange').attr('src', './img/daoxu.svg');
+
+        //     } else {
+        //         $('#textToChange').text("正序");
+        //         $('#imgToChange').attr('src', './img/zhengxu.svg');
+        //     }
+        // });
+    });
+    $(document).ready(function() { $('.searchBox_Btn').on('click', function() {
+         var text=$(".searchBox_input").val();
+         var url=$(this).attr("data-url");
+        window.location.href = url+"?query="+text; 
+    }); 
+        });
+</script>
+
+</html>

@@ -1,4 +1,4 @@
-<?php /*a:1:{s:47:"C:\wwwroot\zhanqun\view\index\comics\index.html";i:1732200618;}*/ ?>
+<?php /*a:1:{s:47:"C:\wwwroot\zhanqun\view\index\comics\index.html";i:1732607631;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +15,12 @@
     <link rel="stylesheet" href="/static/comics/css/styles.css">
     <link rel="stylesheet" href="/static/comics/css/swiperGf.css" />
     <link rel="stylesheet" href="/static/css/commons.css" />
+      <!-- 懒加载 -->
+      <script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
+      <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
+      <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
+      <script type="text/javascript" src="/static/js/lozad.min.js"></script>
+       <!-- 懒加载 -->
 </head>
 <style>
     /* .swiper-slide  {
@@ -31,10 +37,6 @@
         border-radius: 3px;
         background: #FA2B24;
     }
-
-    /* a {
-        color: #ffff;
-    } */
 
 </style>
 <body>
@@ -186,7 +188,7 @@
                 <a class="homeBook" href="/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
 
                     <div class="homeBookLeft">
-                        <img class="homeBookLeftCover" src="<?php echo htmlentities($item['pic']); ?>" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                        <img class="homeBookLeftCover lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>"/>
                         <img class="homeBookLeftWj" src="/static/comics/images/wanjie.png">
                     </div>
                     <div class="homeBookright">
@@ -220,7 +222,7 @@
                 <a href="/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                 <div class="book">
                     <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="<?php echo htmlentities($item['pic']); ?>" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                        <img style="width: 100%;height: 100%;"  class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>"/>
                         <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/comics/images/wanjie.png" />
@@ -280,7 +282,7 @@
                 <a href="/comics/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                 <div class="book">
                     <div class="bookImg">
-                        <img style="width: 100%;height: 100%;" src="<?php echo htmlentities($item['pic']); ?>" onerror="this.src='/static/images/loading_img_bg_default.jpg';"/>
+                        <img style="width: 100%;height: 100%;" class="lozad" src="/static/images/loading_img_bg_default.jpg"  data-src="<?php echo htmlentities($tmimg); ?><?php echo htmlentities($item['enpic']); ?>"/>
                         <img style="position: absolute;
                         top: 0;
                         left: 0;width: 26px;height: 16px;" src="/static/comics/images/wanjie.png" />
@@ -360,7 +362,12 @@
 <script src="/static/common/swiper.js"></script>
 <script src="/static/common/apps.js"></script>
 <script>
-
+  $(document).ready(function () {
+    // $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
 var swiper = new Swiper(".mySwiper", {
       cssMode: true,
       navigation: {

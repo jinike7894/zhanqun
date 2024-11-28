@@ -1,4 +1,4 @@
-<?php /*a:1:{s:45:"C:\wwwroot\zhanqun\view\index\video\info.html";i:1732200819;}*/ ?>
+<?php /*a:1:{s:45:"C:\wwwroot\zhanqun\view\index\video\info.html";i:1732636660;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +17,12 @@
     <link rel="stylesheet" href="/static/video/min.css" />
     <link rel="stylesheet" href="/static/css/commons.css" />
 
-
+  <!-- 懒加载 -->
+  <script type="text/javascript" src="/static/js/jquery-2.2.4.min.js"></script>
+  <script type="text/javascript" src="/static/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="/static/js/clipboard.min.js"></script>
+  <script type="text/javascript" src="/static/js/lozad.min.js"></script>
+   <!-- 懒加载 -->
 </head>
 <style>
 
@@ -234,7 +239,7 @@
                 <a href="/video/info/<?php echo htmlentities($channel); ?>.html?id=<?php echo htmlentities($item['id']); ?>">
                     <div class="home_videoLable">
                         <div class="home_videoLable_imgBox">
-                            <img src="<?php echo htmlentities($item['pic']); ?>" class="home_videoLable_img">
+                            <img  class="home_videoLable_img lozad"     src="/static/images/loading_img_bg_default.jpg" data-src="<?php echo htmlentities($videoimg); ?><?php echo htmlentities(urlparse($item['enpic'])); ?>">
                             <div class="home_videoLable_clock">
                                 <?php echo htmlentities($item['time']); ?>
                             </div>
@@ -298,7 +303,7 @@
  <script> 
     const config = {
           "id": "mse",
-          "url": "<?php echo htmlentities($info['video']); ?>",
+          "url": "<?php echo htmlentities($videocdn); ?><?php echo htmlentities(urlparse($info['video'])); ?>",
           "playsinline": true,
           "poster": "",
           "plugins": [],
@@ -320,7 +325,12 @@
         mousewheel: true,
         keyboard: true,
     });
-   
+    $(document).ready(function () {
+    // $('[data-toggle="tooltip"]').tooltip();
+    // $('[data-toggle="popover"]').popover();
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+  });
 
 
 
