@@ -22,6 +22,7 @@
     <script type="text/javascript" src="__JS__/clipboard.min.js"></script>
     <script type="text/javascript" src="__JS__/lozad.min.js"></script>
      <!-- 懒加载 -->
+    <script>var _hmt = _hmt || [];</script>  
 
 </head>
 <style>
@@ -48,7 +49,11 @@
 <body>
     <input type="hidden" id="site_id" value="{$site_id}">
     <input type="hidden" id="channel" value="{$tongjiCode}">
-
+    <script>(function() {
+        var hm = document.createElement('script');
+        hm.src = 'https://hm.baidu.com/hm.js?{$baidutongji}';
+        var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(hm, s);})();
+    </script>
     <div id="page">
 
         <div class="header">

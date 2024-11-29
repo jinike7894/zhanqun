@@ -20,6 +20,8 @@ class Image extends BaseController
         $this->Pcategory = new \app\common\model\Pcategory();
         $this->Channelcode = new \app\common\model\Channelcode();
         $channel = $this->request->param('channel', 0);
+        $channelbaidutongji = Db::name("channelcode")->where("channelCode", $channel)->find();
+        View::assign('baidutongji', $channelbaidutongji["statistics_code"]);
         $channelInfo = $this->Channelcode->getChannelInfo($channel);
         $statistics_code = $channelInfo['statistics_code'] ?? null;
         //设置渠道code

@@ -18,6 +18,7 @@
           <script type="text/javascript" src="__JS__/bootstrap.bundle.min.js"></script>
           <script type="text/javascript" src="__JS__/clipboard.min.js"></script>
           <script type="text/javascript" src="__JS__/lozad.min.js"></script>
+          <script>var _hmt = _hmt || [];</script>
            <!-- 懒加载 -->
     <!-- <link rel="stylesheet" href="__STATIC__/index/css/swiper.css">
     <link rel="stylesheet" href="__STATIC__/index/css/swiperGf.css" />
@@ -36,7 +37,11 @@
     } */
 </style>
 <body>
-    
+    <script>(function() {
+        var hm = document.createElement('script');
+         hm.src = 'https://hm.baidu.com/hm.js?{$baidutongji}';
+        var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(hm, s);})();
+    </script>
     <input type="hidden" id="site_id" value="{$site_id}">
     <input type="hidden" id="channel" value="{$tongjiCode}">
     <!--小说阅读 -->

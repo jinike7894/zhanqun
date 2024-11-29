@@ -1,4 +1,4 @@
-<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\image\index.html";i:1732705477;}*/ ?>
+<?php /*a:1:{s:46:"C:\wwwroot\zhanqun\view\index\image\index.html";i:1732872840;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,9 +13,16 @@
     <link rel="stylesheet" href="/static/image/css/styles.css">
     <link rel="stylesheet" href="/static/image/css/swiperGf.css" />
     <link rel="stylesheet" href="/static/css/commons.css" />
+    <script>var _hmt = _hmt || [];</script>
+
 </head>
 
 <body>
+    <script>(function() {
+        var hm = document.createElement('script');
+         hm.src = 'https://hm.baidu.com/hm.js?<?php echo htmlentities($baidutongji); ?>';
+        var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(hm, s);})();
+    </script>
     <input type="hidden" id="site_id" value="<?php echo htmlentities($site_id); ?>">
     <input type="hidden" id="channel" value="<?php echo htmlentities($tongjiCode); ?>">
     <!-- 人气榜 -->

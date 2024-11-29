@@ -1,4 +1,4 @@
 <?php
 //000000003600
  exit();?>
-N;
+s:27:"https://csn5w8az3.bmogt.com";
