@@ -32,6 +32,7 @@ class Index extends AdminController
      */
     public function welcome()
     {
+
         $quicks = SystemQuick::field('id,title,icon,href')
             ->where(['status' => 1])
             ->order('sort', 'desc')
